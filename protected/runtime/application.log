@@ -1,0 +1,707 @@
+2012/03/03 15:45:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "simple".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('simple')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('simple')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('site/simple')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=site/simple
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=site/page&view=about
+---
+2012/03/03 15:45:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "simple".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('simple')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('simple')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('site/simple')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=site/simple
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=site/page&view=about
+---
+2012/03/03 15:45:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "simple".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('simple')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('simple')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('site/simple')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=site/simple
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=site/login
+---
+2012/03/03 15:45:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "simple".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('simple')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('simple')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('site/simple')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=site/simple
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=site/page&view=about
+---
+2012/03/03 16:28:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "gii".' in /Users/mac/Sites/yii/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('gii')
+#1 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=gii
+---
+2012/03/03 16:31:09 [error] [php] PDO::__construct(): [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Users/mac/Sites/yii/framework/db/CDbConnection.php:422)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /Users/mac/Sites/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive()
+#2 /Users/mac/Sites/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /Users/mac/Sites/yii/framework/base/CModule.php(104): CWebApplication->getComponent()
+#4 /Users/mac/Sites/yii/framework/gii/generators/model/ModelCode.php(54): CWebApplication->__get()
+#5 /Users/mac/Sites/yii/framework/web/CFormModel.php(40): ModelCode->init()
+#6 /Users/mac/Sites/yii/framework/gii/CCodeGenerator.php(152): ModelCode->__construct()
+#7 /Users/mac/Sites/yii/framework/gii/CCodeGenerator.php(64): ModelGenerator->prepare()
+#8 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): ModelGenerator->actionIndex()
+#9 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#10 /Users/mac/Sites/yii/framework/web/CController.php(287): ModelGenerator->runAction()
+#11 /Users/mac/Sites/yii/framework/web/CController.php(266): ModelGenerator->runActionWithFilters()
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): ModelGenerator->run()
+#13 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#14 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=gii/model
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 16:31:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in /Users/mac/Sites/yii/framework/db/CDbConnection.php:382
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /Users/mac/Sites/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive(true)
+#2 /Users/mac/Sites/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /Users/mac/Sites/yii/framework/base/CModule.php(104): CModule->getComponent('db')
+#4 /Users/mac/Sites/yii/framework/gii/generators/model/ModelCode.php(54): CModule->__get('db')
+#5 /Users/mac/Sites/yii/framework/web/CFormModel.php(40): ModelCode->init()
+#6 /Users/mac/Sites/yii/framework/gii/CCodeGenerator.php(152): CFormModel->__construct()
+#7 /Users/mac/Sites/yii/framework/gii/CCodeGenerator.php(64): CCodeGenerator->prepare()
+#8 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): CCodeGenerator->actionIndex()
+#9 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /Users/mac/Sites/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#11 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('')
+#13 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('gii/model')
+#14 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=gii/model
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=gii/form
+---
+2012/03/03 16:31:56 [error] [php] PDO::__construct(): [2002] No such file or directory (trying to connect via unix:///var/mysql/mysql.sock) (/Users/mac/Sites/yii/framework/db/CDbConnection.php:422)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/db/CDbConnection.php(331): CDbConnection->open()
+#1 /Users/mac/Sites/yii/framework/db/CDbConnection.php(309): CDbConnection->setActive()
+#2 /Users/mac/Sites/yii/framework/base/CModule.php(388): CDbConnection->init()
+#3 /Users/mac/Sites/yii/framework/base/CModule.php(104): CWebApplication->getComponent()
+#4 /Users/mac/Sites/yii/framework/gii/generators/model/ModelCode.php(54): CWebApplication->__get()
+#5 /Users/mac/Sites/yii/framework/web/CFormModel.php(40): ModelCode->init()
+#6 /Users/mac/Sites/yii/framework/gii/CCodeGenerator.php(152): ModelCode->__construct()
+#7 /Users/mac/Sites/yii/framework/gii/CCodeGenerator.php(64): ModelGenerator->prepare()
+#8 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): ModelGenerator->actionIndex()
+#9 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#10 /Users/mac/Sites/yii/framework/web/CController.php(287): ModelGenerator->runAction()
+#11 /Users/mac/Sites/yii/framework/web/CController.php(266): ModelGenerator->runActionWithFilters()
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): ModelGenerator->run()
+#13 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#14 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=gii/model
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 17:06:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loading".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('loading')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 17:09:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 17:10:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 17:15:25 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 17:18:27 [error] [exception.CException] exception 'CException' with message 'CActiveForm and its behaviors do not have a method or closure named "radioField".' in /Users/mac/Sites/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/views/user/loading.php(15): CComponent->__call('radioField', Array)
+#1 /Users/mac/Sites/ciscoplusplan/protected/views/user/loading.php(15): CActiveForm->radioField(Object(User), 'has_code')
+#2 /Users/mac/Sites/yii/framework/web/CBaseController.php(127): require('/Users/mac/Site...')
+#3 /Users/mac/Sites/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/mac/Site...', Array, true)
+#4 /Users/mac/Sites/yii/framework/web/CController.php(870): CBaseController->renderFile('/Users/mac/Site...', Array, true)
+#5 /Users/mac/Sites/yii/framework/web/CController.php(783): CController->renderPartial('loading', Array, true)
+#6 /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php(197): CController->render('loading', Array)
+#7 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): UserController->actionLoading()
+#8 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#9 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#11 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#15 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#17 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#18 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#19 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 17:27:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "loading".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('loading')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 17:53:53 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 18:05:58 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 18:06:08 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php:157
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/auth/CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 18:10:59 [error] [exception.CException] exception 'CException' with message 'CActiveForm and its behaviors do not have a method or closure named "radiolist".' in /Users/mac/Sites/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/views/user/loading.php(14): CComponent->__call('radiolist', Array)
+#1 /Users/mac/Sites/ciscoplusplan/protected/views/user/loading.php(14): CActiveForm->radiolist(Object(User), 'has_code', Array)
+#2 /Users/mac/Sites/yii/framework/web/CBaseController.php(127): require('/Users/mac/Site...')
+#3 /Users/mac/Sites/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/mac/Site...', Array, true)
+#4 /Users/mac/Sites/yii/framework/web/CController.php(870): CBaseController->renderFile('/Users/mac/Site...', Array, true)
+#5 /Users/mac/Sites/yii/framework/web/CController.php(783): CController->renderPartial('loading', Array, true)
+#6 /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php(198): CController->render('loading', Array)
+#7 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): UserController->actionLoading()
+#8 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#9 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#11 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#15 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#17 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#18 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#19 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 18:13:08 [error] [exception.CException] exception 'CException' with message 'CActiveForm and its behaviors do not have a method or closure named "radioList".' in /Users/mac/Sites/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/views/user/loading.php(14): CComponent->__call('radioList', Array)
+#1 /Users/mac/Sites/ciscoplusplan/protected/views/user/loading.php(14): CActiveForm->radioList(Object(User), 'has_code', Array)
+#2 /Users/mac/Sites/yii/framework/web/CBaseController.php(127): require('/Users/mac/Site...')
+#3 /Users/mac/Sites/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/mac/Site...', Array, true)
+#4 /Users/mac/Sites/yii/framework/web/CController.php(870): CBaseController->renderFile('/Users/mac/Site...', Array, true)
+#5 /Users/mac/Sites/yii/framework/web/CController.php(783): CController->renderPartial('loading', Array, true)
+#6 /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php(198): CController->render('loading', Array)
+#7 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): UserController->actionLoading()
+#8 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#9 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#11 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#15 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('loading')
+#17 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/loading')
+#18 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#19 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 19:41:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php:160
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php(88): UserController->loadModel('')
+#1 [internal function]: UserController->actionUpdate('')
+#2 /Users/mac/Sites/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#3 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#4 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('update')
+#13 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/update')
+#14 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/update&id=
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 19:54:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "simple".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('simple')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('simple')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('site/simple')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=site/simple
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=user/view&id=1
+---
+2012/03/03 19:54:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php:160
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php(88): UserController->loadModel('')
+#1 [internal function]: UserController->actionUpdate('')
+#2 /Users/mac/Sites/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#3 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#4 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('update')
+#13 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/update')
+#14 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/update&id=
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 19:54:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php:160
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php(88): UserController->loadModel('')
+#1 [internal function]: UserController->actionUpdate('')
+#2 /Users/mac/Sites/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#3 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#4 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#5 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('update')
+#13 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/update')
+#14 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/update&id=
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=user/loading
+---
+2012/03/03 20:06:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "survey".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('survey')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('survey')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('site/survey')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=site/survey
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=user/update&id=1
+---
+2012/03/03 20:19:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "survey".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('survey')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('survey')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('site/survey')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=site/survey
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=user/update&id=1
+---
+2012/03/03 20:32:25 [error] [exception.CException] exception 'CException' with message 'Property "SurveyController.User" is not defined.' in /Users/mac/Sites/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php(67): CComponent->__get('User')
+#1 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): SurveyController->actionCreate()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#3 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#9 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('create')
+#11 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('survey/create')
+#12 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#13 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=survey/create
+---
+2012/03/03 20:33:01 [error] [php] Undefined variable: id (/Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php:67)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): SurveyController->runAction()
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): SurveyController->filterAccessControl()
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): SurveyController->runActionWithFilters()
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): SurveyController->run()
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+in /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php (67)
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 20:33:02 [error] [php] Undefined variable: id (/Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php:67)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): SurveyController->runAction()
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): SurveyController->filterAccessControl()
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): SurveyController->runActionWithFilters()
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): SurveyController->run()
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+in /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php (67)
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 20:33:05 [error] [php] Undefined variable: id (/Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php:67)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): SurveyController->runAction()
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): SurveyController->filterAccessControl()
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): SurveyController->runActionWithFilters()
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): SurveyController->run()
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+in /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php (67)
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 20:33:12 [error] [php] Undefined variable: mode (/Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php:67)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): SurveyController->runAction()
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): SurveyController->filterAccessControl()
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): SurveyController->runActionWithFilters()
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): SurveyController->run()
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+in /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php (67)
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 20:33:16 [error] [php] Undefined variable: mode (/Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php:67)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): SurveyController->runAction()
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): SurveyController->filterAccessControl()
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): SurveyController->runActionWithFilters()
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): SurveyController->run()
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+in /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php (67)
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 20:34:04 [error] [php] Undefined variable: mode (/Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php:67)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): SurveyController->runAction()
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): SurveyController->filterAccessControl()
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): SurveyController->runActionWithFilters()
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): SurveyController->run()
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+in /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php (67)
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 20:36:34 [error] [exception.CException] exception 'CException' with message 'Property "SurveyController._user" is not defined.' in /Users/mac/Sites/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php(180): CComponent->__get('_user')
+#1 /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php(68): SurveyController->loadUser(1)
+#2 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): SurveyController->actionCreate()
+#3 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('create')
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('survey/create')
+#13 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+---
+2012/03/03 20:36:54 [error] [exception.CException] exception 'CException' with message 'Property "SurveyController._user" is not defined.' in /Users/mac/Sites/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php(180): CComponent->__get('_user')
+#1 /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php(68): SurveyController->loadUser(1)
+#2 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): SurveyController->actionCreate()
+#3 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('create')
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('survey/create')
+#13 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+---
+2012/03/03 20:36:56 [error] [exception.CException] exception 'CException' with message 'Property "SurveyController._user" is not defined.' in /Users/mac/Sites/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php(180): CComponent->__get('_user')
+#1 /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php(68): SurveyController->loadUser(1)
+#2 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): SurveyController->actionCreate()
+#3 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('create')
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('survey/create')
+#13 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+---
+2012/03/03 20:37:06 [error] [php] Undefined variable: mode (/Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php:68)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): SurveyController->runAction()
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): SurveyController->filterAccessControl()
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): SurveyController->runActionWithFilters()
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): SurveyController->run()
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+in /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php (68)
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 20:37:25 [error] [php] Object of class Survey could not be converted to string (/Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php:68)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): SurveyController->runAction()
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): SurveyController->filterAccessControl()
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): SurveyController->runActionWithFilters()
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): SurveyController->run()
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+in /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php (68)
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 20:37:38 [error] [php] Object of class Survey could not be converted to string (/Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php:68)
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): SurveyController->runAction()
+#1 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#2 /Users/mac/Sites/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#3 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): SurveyController->filterAccessControl()
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#5 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(266): SurveyController->runActionWithFilters()
+#7 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): SurveyController->run()
+#8 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#9 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#10 /Users/mac/Sites/ciscoplusplan/index.php(13): CWebApplication->run()
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+in /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php (68)
+in /Users/mac/Sites/ciscoplusplan/index.php (13)
+2012/03/03 20:38:47 [error] [exception.CException] exception 'CException' with message 'Property "Survey.user" is not defined.' in /Users/mac/Sites/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('user')
+#1 /Users/mac/Sites/ciscoplusplan/protected/controllers/SurveyController.php(67): CActiveRecord->__get('user')
+#2 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): SurveyController->actionCreate()
+#3 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('create')
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('survey/create')
+#13 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=survey/create
+---
+2012/03/03 20:59:39 [error] [exception.CException] exception 'CException' with message 'User and its behaviors do not have a method or closure named "getOptions".' in /Users/mac/Sites/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/db/ar/CActiveRecord.php(226): CComponent->__call('getOptions', Array)
+#1 /Users/mac/Sites/ciscoplusplan/protected/views/user/attending.php(12): CActiveRecord->__call('getOptions', Array)
+#2 /Users/mac/Sites/ciscoplusplan/protected/views/user/attending.php(12): User->getOptions()
+#3 /Users/mac/Sites/yii/framework/web/CBaseController.php(127): require('/Users/mac/Site...')
+#4 /Users/mac/Sites/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/Users/mac/Site...', Array, true)
+#5 /Users/mac/Sites/yii/framework/web/CController.php(870): CBaseController->renderFile('/Users/mac/Site...', Array, true)
+#6 /Users/mac/Sites/yii/framework/web/CController.php(783): CController->renderPartial('attending', Array, true)
+#7 /Users/mac/Sites/ciscoplusplan/protected/controllers/UserController.php(212): CController->render('attending', Array)
+#8 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): UserController->actionAttending()
+#9 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('attending')
+#18 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('user/attending')
+#19 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=user/attending
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=survey/create
+---
+2012/03/03 21:07:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "payment".' in /Users/mac/Sites/yii/framework/web/CController.php:484
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(271): CController->missingAction('payment')
+#1 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('payment')
+#2 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('reginfo/payment')
+#3 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=reginfo/payment
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=reginfo/attending
+---
+2012/03/03 21:08:36 [error] [exception.CException] exception 'CException' with message 'ReginfoController cannot find the requested view "payment".' in /Users/mac/Sites/yii/framework/web/CController.php:879
+Stack trace:
+#0 /Users/mac/Sites/yii/framework/web/CController.php(783): CController->renderPartial('payment', Array, true)
+#1 /Users/mac/Sites/ciscoplusplan/protected/controllers/ReginfoController.php(217): CController->render('payment', Array)
+#2 /Users/mac/Sites/yii/framework/web/actions/CInlineAction.php(50): ReginfoController->actionPayment()
+#3 /Users/mac/Sites/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#4 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 /Users/mac/Sites/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#6 /Users/mac/Sites/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 /Users/mac/Sites/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 /Users/mac/Sites/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 /Users/mac/Sites/yii/framework/web/CController.php(292): CFilterChain->run()
+#10 /Users/mac/Sites/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /Users/mac/Sites/yii/framework/web/CWebApplication.php(276): CController->run('payment')
+#12 /Users/mac/Sites/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('reginfo/payment')
+#13 /Users/mac/Sites/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#14 /Users/mac/Sites/ciscoplusplan/index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/~mac/ciscoplusplan/index.php?r=reginfo/payment
+HTTP_REFERER=http://localhost/~mac/ciscoplusplan/index.php?r=reginfo/attending
+---
