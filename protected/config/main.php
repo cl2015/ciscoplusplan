@@ -55,8 +55,8 @@ return array(
 		'db'=>array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=cisco',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => 'dev',
+			'username' => 'brightac',
+			'password' => 'brightacdev',
 			'charset' => 'utf8',
 		),
 		
