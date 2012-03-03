@@ -32,7 +32,7 @@ class Survey extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'Surveys';
+		return 'surveys';
 	}
 
 	/**
