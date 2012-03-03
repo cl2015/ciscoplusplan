@@ -129,5 +129,11 @@ class Reginfo extends CActiveRecord
 			1 => 'onsite',
 		);
 	}
-
+	public function getPaymentOptions()
+	{
+		return array(
+			0 => 'online',
+			1 => 'onsite',
+		);
+	}
 }
