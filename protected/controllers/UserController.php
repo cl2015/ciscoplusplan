@@ -27,7 +27,7 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-			'actions'=>array('index','loading','view','attending'),
+			'actions'=>array('index','loading','view','attending','emailreg'),
 			'users'=>array('*'),
 		),
 		array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -92,12 +92,11 @@ array('deny',  // deny all users
 
 		if(isset($_POST['User']))
 		{
-			/*
+			
 			$model->attributes=$_POST['User'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-			 */
-			$this->redirect(array('survey/create'));
+				//$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('survey/create'));
 		}
 
 		$this->render('update',array(
@@ -212,4 +211,21 @@ array('deny',  // deny all users
 		$this->render('attending',array('model'=>$model));
 	}
 
+	public function actionEmailreg($email)
+	{
+		$model = new User();
+		$emailRecord = User::model()->findByAttributes(array('email'=>$email));
+		
+		if (!$emailRecord) {
+			$model->addError('email', 'email不存在');
+		}else if ( !$emailRecord->password == '' ){
+			$model->addError('email','email已注册');
+		}else{
+
+		//	$this->redirect(array('update',array('id'=>1));
+		}
+		//$this->render('emailreg',$model);
+		$this->redirect(array('update','id'=>1));
+		
+	}
 }

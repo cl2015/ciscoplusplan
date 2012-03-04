@@ -114,6 +114,19 @@ class Survey extends CActiveRecord
 		return array(
 			0 => 'LAN',
 			1 => 'WAN',
+			2 => 'Man',
+			3 => 'Wireless solution',
+			4 => 'Optical fiber communications',
+			5 => 'Unified communications',
+			6 => 'IP langage',
+			7 => 'Cisco Web',
+			8 => 'DSL access solutions',
+			9 => 'Wired access plan',
+			10 => 'Data center',
+			11 => 'Memory networks',
+			12 => 'Virtual private network and security solutions',
+			13 => 'unsure',
+			14 => 'other',
 		);
 	}	
 	
@@ -122,6 +135,10 @@ class Survey extends CActiveRecord
 		return array(
 			0 => 'Less 3 months',
 			1 => '4 to 6 months',
+			2 => '7 to 12 months',
+			3 => 'more than 12 months',
+			4 => 'no plans',
+			5 => 'unsure',
 		);
 	}
 	public function getQ3Options()
@@ -129,6 +146,17 @@ class Survey extends CActiveRecord
 		return array(
 			0 => '0-10 thousands',
 			1 => '10-50 thousands',
+			2 => '50 thousands',
+			3 => '0.15-0.25 million',
+			4 => '0.25-0.5 million',
+			5 => '0.5-1 million',
+			6 => '1-2 million',
+			7 => '2-5 million',
+			8 => '5-10 million',
+			9 => 'more than 10 million',
+			10 => 'unsure the budget',
+			11 => 'none',
+			12 => 'Don\'t know/not responsible',
 		);
 	}
 	public function getQ4Options()
@@ -136,6 +164,16 @@ class Survey extends CActiveRecord
 		return array(
 			0 => '1-4',
 			1 => '5-19',
+			2 => '20-49',
+			3 => '50-99',
+			4 => '100-249',
+			5 => '250-499',
+			6 => '500-999',
+			7 => '1000-1999',
+			8 => '2000-4999',
+			9 => '5000-9999',
+			10 => 'more than 10000',
+			11 => 'none',
 		);
 	}
 }

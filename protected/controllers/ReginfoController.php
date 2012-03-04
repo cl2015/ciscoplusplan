@@ -232,7 +232,7 @@ array('deny',  // deny all users
 	}
 	public function actionConfirmation()
 	{
-		$model=new Reginfo('confirmation');
+		$model=$this->loadModel(1);
 		$model->user_id = 1;
 		// uncomment the following code to enable ajax-based validation
 	/*

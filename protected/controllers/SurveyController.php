@@ -71,9 +71,9 @@ class SurveyController extends Controller
 		if(isset($_POST['Survey']))
 		{
 			$model->attributes=$_POST['Survey'];
-			//if($model->save())
+			if($model->save())
 			//	$this->redirect(array('view','id'=>$model->id));
-			$this->redirect(array('reginfo/attending'));
+				$this->redirect(array('reginfo/confirmation'));
 		}
 
 		$this->render('create',array(
