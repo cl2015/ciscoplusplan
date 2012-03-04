@@ -13,7 +13,7 @@
  * @property string $relation_with_cisco
  * @property string $full_name
  * @property string $job_title
- * @property string $departiment
+ * @property string $department
  * @property string $working_phone_dis
  * @property string $working_phone
  * @property string $mobile
@@ -55,14 +55,14 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, departiment, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'required'),
+			array('has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'required'),
 			array('has_code, created_by, updated_by', 'numerical', 'integerOnly'=>true),
 			array('code', 'length', 'max'=>128),
-			array('email, password, organisation, relation_with_cisco, full_name, job_title, departiment, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max'=>256),
+			array('email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max'=>256),
 			array('created_at, updated_at', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, departiment, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile, created_at, created_by, updated_at, updated_by', 'safe', 'on'=>'search'),
+			array('id, has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile, created_at, created_by, updated_at, updated_by', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -92,7 +92,7 @@ class User extends CActiveRecord
 			'relation_with_cisco' => 'Relation With Cisco',
 			'full_name' => 'Full Name',
 			'job_title' => 'Job Title',
-			'departiment' => 'Departiment',
+			'department' => 'Departiment',
 			'working_phone_dis' => 'Working Phone Dis',
 			'working_phone' => 'Working Phone',
 			'mobile' => 'Mobile',
@@ -128,7 +128,7 @@ class User extends CActiveRecord
 		$criteria->compare('relation_with_cisco',$this->relation_with_cisco,true);
 		$criteria->compare('full_name',$this->full_name,true);
 		$criteria->compare('job_title',$this->job_title,true);
-		$criteria->compare('departiment',$this->departiment,true);
+		$criteria->compare('department',$this->department,true);
 		$criteria->compare('working_phone_dis',$this->working_phone_dis,true);
 		$criteria->compare('working_phone',$this->working_phone,true);
 		$criteria->compare('mobile',$this->mobile,true);

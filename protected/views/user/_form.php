@@ -9,6 +9,7 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
+<!--
 	<div class="row">
 		<?php echo $form->labelEx($model,'code'); ?>
 		<?php echo $form->textField($model,'code',array('size'=>60,'maxlength'=>128)); ?>
@@ -20,7 +21,7 @@
 		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>256)); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
-
+-->
 	<div class="row">
 		<?php echo $form->labelEx($model,'password'); ?>
 		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>256)); ?>
