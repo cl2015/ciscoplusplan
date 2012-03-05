@@ -5,4 +5,3 @@ this is confirmation page.
 </br>
 <?php echo CHtml::link(CHtml::encode("click here view profile"), array('user/view', 'id'=>1 )); ?>
 </br>
-<?php echo CHtml::Button('back',array("onclick"=>"history.go(-1);")); ?>
