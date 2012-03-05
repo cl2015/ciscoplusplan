@@ -40,6 +40,7 @@
 		<?php echo $form->error($model,'q4'); ?>
 	</div>
 	<div class="row buttons">
+		<?php echo CHtml::Button('back',array("onclick"=>"javascript:history.go(-1)")); ?>
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
