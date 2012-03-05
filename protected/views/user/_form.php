@@ -1,5 +1,4 @@
 <div class="form">
-
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'user-form',
 	'enableAjaxValidation'=>false,
@@ -36,7 +35,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'relation_with_cisco'); ?>
-		<?php echo $form->textField($model,'relation_with_cisco',array('size'=>60,'maxlength'=>256)); ?>
+		<?php echo $form->dropDownList($model,'relation_with_cisco',$model->getRelationOptions()); ?>
 		<?php echo $form->error($model,'relation_with_cisco'); ?>
 	</div>
 
@@ -48,13 +47,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'job_title'); ?>
-		<?php echo $form->textField($model,'job_title',array('size'=>60,'maxlength'=>256)); ?>
+		<?php echo $form->dropDownList($model,'job_title',$model->getJobTitleOptions()); ?>
 		<?php echo $form->error($model,'job_title'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'department'); ?>
-		<?php echo $form->textField($model,'department',array('size'=>60,'maxlength'=>256)); ?>
+		<?php echo $form->dropDownList($model,'department',$model->getDepartmentOptions()); ?>
 		<?php echo $form->error($model,'department'); ?>
 	</div>
 
@@ -107,6 +106,7 @@
 	</div>
 
 	<div class="row buttons">
+		<?php echo CHtml::Button('back',array("onclick"=>"javascript:history.go(-1)")); ?>
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
