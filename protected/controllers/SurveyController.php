@@ -11,8 +11,7 @@ class SurveyController extends Controller
 
 	/**
 	 * @return array action filters
-	 */
-	public function filters()
+	 * public function filters()
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
@@ -191,4 +190,28 @@ class SurveyController extends Controller
 			$this->redirect(array('payment/create'));
 		}
 	}	
+		public function actionOrdinaryCreate()
+	{
+		$model=new Survey;
+		//for the show 
+		$model->user_id = 1;//= $this->loadUser(1);
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+		
+
+		//todo 提交前要对用户是否已有记录做check，如果已有记录。则更新
+		if(isset($_POST['Survey']))
+		{
+			$model->attributes=$_POST['Survey'];
+			// delete or get old_id
+			if($model->save())
+			//	$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('reginfo/attending'));
+		}
+
+		$this->render('ordinaryCreate',array(
+			'model'=>$model,
+		));
+	}
+
 }

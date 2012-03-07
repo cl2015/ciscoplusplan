@@ -31,7 +31,7 @@ class ReginfoController extends Controller
 			'users'=>array('*'),
 		),
 		array('allow', // allow authenticated user to perform 'create' and 'update' actions
-		'actions'=>array('create','update','attending','payment','pay','confirmation'),
+		'actions'=>array('create','update','attending','payment','pay','confirmation','ordinaryConfirmation'),
 		'users'=>array('*'),
 	),
 	array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -224,7 +224,7 @@ array('deny',  // deny all users
 			{
 				$this->redirect(array('reginfo/pay'));
 			}else{
-				$this->redirect(array('reginfo/confirmation'));
+				$this->redirect(array('reginfo/ordinaryConfirmation'));
 			}
 		}
 
@@ -264,10 +264,25 @@ array('deny',  // deny all users
 			if($model->validate())
 			{
 				// form inputs are valid, do something here
-				$this->redirect(array('confirmation'));
+				$this->redirect(array('ordinaryConfirmation'));
 				return;
 			}
 		}
 		$this->render('pay',array('model'=>$model));
+	}
+	public function actionOrdinaryConfirmation()
+	{
+		$model=$this->loadModel(1);
+		$model->user_id = 1;
+		// uncomment the following code to enable ajax-based validation
+	/*
+	if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
+	{
+		echo CActiveForm::validate($model);
+		Yii::app()->end();
+	}
+	 */
+
+		$this->render('ordinaryConfirmation',array('model'=>$model));
 	}
 }
