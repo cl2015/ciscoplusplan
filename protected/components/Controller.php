@@ -37,7 +37,7 @@ class Controller extends CController
 		$mailer->FromName = 'admin';
 		$mailer->Username = 'admin@brightac.com.cn';    //这里输入发件地址的用户名
 		$mailer->Password = 'admin1';    //这里输入发件地址的密码
-		$mailer->SMTPDebug = true;   //设置SMTPDebug为true，就可以打开Debug功能，根据提示去修改配置
+		$mailer->SMTPDebug = false;   //设置SMTPDebug为true，就可以打开Debug功能，根据提示去修改配置
 		$mailer->CharSet = 'UTF-8';
 		$mailer->Subject = Yii::t('demo', 'Yii rulez!');
 		$mailer->IsHTML(true);

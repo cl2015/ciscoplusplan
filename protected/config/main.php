@@ -54,7 +54,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=cisco',
+			'connectionString' => 'mysql:host=localhost;dbname=cisco',
 			'emulatePrepare' => true,
 			'username' => 'brightac',
 			'password' => 'brightacdev',
