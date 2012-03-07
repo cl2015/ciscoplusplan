@@ -15,7 +15,7 @@
 	</div>
 
 	<div class="row" id="code" style="display:none">
-		<h2>请输入您的邀请码:</h2>
+		<h2>请输入您的邀请码(格式XXX-XXX-XXX):</h2>
 		<?php echo $form->textField($model,'code'); ?>
 		<?php echo $form->error($model,'code'); ?>
 	</div>
