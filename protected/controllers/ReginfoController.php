@@ -242,6 +242,7 @@ array('deny',  // deny all users
 		Yii::app()->end();
 	}
 	 */
+		$this->sendMail('li.he@brightac.com.cn','cranelee@gmail.com','<a href="#" >test</a>hello');
 
 		$this->render('confirmation',array('model'=>$model));
 	}
