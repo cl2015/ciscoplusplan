@@ -39,7 +39,7 @@ class Controller extends CController
 		$mailer->Password = 'admin1';    //这里输入发件地址的密码
 		$mailer->SMTPDebug = false;   //设置SMTPDebug为true，就可以打开Debug功能，根据提示去修改配置
 		$mailer->CharSet = 'UTF-8';
-		$mailer->Subject = Yii::t('demo', 'Yii rulez!');
+		$mailer->Subject = Yii::t('demo', 'confirmation');
 		$mailer->IsHTML(true);
 		$mailer->getView('email');
 		$mailer->Send();
