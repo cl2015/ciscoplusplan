@@ -54,14 +54,19 @@ class User extends CActiveRecord {
 	public function rules() {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
+		
 		return array(
 				array('password', 'compare', 'compareAttribute' => 'password2','on'=>'surveyUpdate'),
 				array('password','required', 'on'=>'surveyUpdate'),
+				array('city','match','pattern'=>"/^[\x7f-\xff]+$/",'message'=>'请输入中文'),
 				array('email','email','on'=>'loading'),
 				array('email','required','on'=>'loading'),
+				array('mobile','length','max'=>11),
+				array('mobile','length','min'=>11),
 				array('has_code, code, email,organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'required','on' =>'update'),
-				array('has_code, created_by, updated_by', 'numerical', 'integerOnly' => true),
+				array('has_code, created_by, mobile,updated_by,working_phone_dis', 'numerical', 'integerOnly' => true),
 				array('code', 'length', 'max' => 128),
+				array('password','length','min' =>6),
 				array('email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max' => 256),
 				array('created_at, updated_at', 'safe'),
 				// The following rule is used by search().
@@ -85,7 +90,6 @@ class User extends CActiveRecord {
 	 */
 	public function attributeLabels() {
 		return array(
-				
 				'id' => Yii::t('default', 'ID'),
 				'has_code' => Yii::t('default', 'Has Code'),
 				'code' => Yii::t('default', 'Code'),

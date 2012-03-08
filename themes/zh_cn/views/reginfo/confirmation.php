@@ -1,11 +1,11 @@
 <h1>Confirmation</h1>
 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/step3.png" /></br>
 <p>
-尊敬的先生/女士:<br/> 
+尊敬的Raincy女士:<br/> 
 感谢您注册北京 Cisco Plus 2012 <br/> 
 </p>
 <p>
-您的注册ID号是：xxx-xxx-001 ，请保存好这个信息，以便日后使用。<br/> 
+您的注册ID号是：100101 ，请保存好这个信息，以便日后使用。<br/> 
 </p>
 
 <p>
@@ -14,8 +14,8 @@
 </p>
 <p>
 
-会议日期：2013 年 5 月 22-23 日<br/> 
-会议地点： <br/> 
+会议日期：2012 年 5 月 22-23 日<br/> 
+会议地点：北京国际饭店国际会议中心 <br/> 
 </p>
 <p>
 
@@ -25,12 +25,12 @@
 <p>
 <b>Cisco Plus 2012注册团队</b>
 </p>
-<p>
+<!-- p>
 <a href="###" >酒店预定</a><br/>
-<a href="###" >酒发送电子邮件至客户服务部</a><br/>
-<a href="###" >酒我的注册信息</a><br/>
-<a href="###" >酒返回Cisco Plus 主页</a><br/>
-<a href="###" >酒Cisco Plus 的注册与活动条款 </a><br/>
-</p>
-<?php echo CHtml::link(CHtml::encode("click here view profile"), array('user/view', 'id'=>1 )); ?>
+<a href="###" >发送电子邮件至客户服务部</a><br/>
+<a href="###" >我的注册信息</a><br/>
+<a href="###" >返回Cisco Plus 主页</a><br/>
+<a href="###" >Cisco Plus 的注册与活动条款 </a><br/>
+</p> -->
+<?php echo CHtml::link(CHtml::encode("返回首页"), array('site/index', 'id'=>1 )); ?>
 </br>
