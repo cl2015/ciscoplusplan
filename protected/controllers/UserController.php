@@ -189,123 +189,101 @@ class UserController extends Controller
 		}
 		if(isset($_POST['User']))
 		{
-		//$model = $this->loadModel(1);
+			//$model = $this->loadModel(1);
 			unset($_POST['User']['code']);
 			$model->attributes=$_POST['User'];
-			if(isset($_POST['yt0']))
-			{
-				if($model->email!="li.he@brightac.com.cn")
+			if($model->validate()){
+				$testUser = $this->loadModel(1);
+				if($model->email!=$testUser->email)
 				{
-					$message['email'] = '邮箱验证错误，您没有注册';
-				}else{
-					$message['email'] = "验证通过。";
-				}
-			}else
-			{
-				if($model->email=="" )
+					$this->redirect(array('site/index'));
+				}else
 				{
-					$message['email'] = '邮箱格式错误。';
-				}else{
-				if($model->has_code=="")
-				{
-					$message['has_code'] = '请填写。';
+					$this->redirect(array('survey/update','id'=>1));
 				}
-				if($model->has_code==0)
-				{
-					if($model->code==""){
-						$message["code"] = "请输入邀请码。";
-					}else{
-						$this->redirect(array('update','id'=>1));
-					}
-				}else {
-					if($model->save())
-						$this->redirect(array('update','id'=>1));
-				}
-				}
-				
 			}
 		}
 		$this->render('loading',array('model'=>$model,'message'=>$message));
 	}
-			public function actionAttending(){
-				$model = $this->loadModel(1);
-				if(isset($_POST['User']))
-				{
-					$this->redirect(array('payment/create'));
-				}
-				$this->render('attending',array('model'=>$model));
-			}
-
-			public function actionEmailreg($email)
-			{
-				$model = new User();
-				$emailRecord = User::model()->findByAttributes(array('email'=>$email));
-
-				if (!$emailRecord) {
-					$model->addError('email', 'email不存在');
-				}else if ( !$emailRecord->password == '' ){
-					$model->addError('email','email已注册');
-				}else{
-
-					//	$this->redirect(array('update',array('id'=>1));
-				}
-				//$this->render('emailreg',$model);
-				$this->redirect(array('update','id'=>1));
-
-			}
-
-			/*
-			 *ordinary udpate profile
-			*/
-
-			public function actionOrdinaryUpdate($id){
-				{
-					$model=$this->loadModel($id);
-
-					// Uncomment the following line if AJAX validation is needed
-					// $this->performAjaxValidation($model);
-
-					if(isset($_POST['User']))
-					{
-						$model->attributes=$_POST['User'];
-						if($model->save())
-							//$this->redirect(array('view','id'=>$model->id));
-							$this->redirect(array('survey/ordinaryCreate'));
-					}
-
-					$this->render('ordinaryUpdate',array(
-							'model'=>$model,
-					));
-				}
-
-			}
-			public function actionOrdinaryLoading()
-			{
-				$model=new User('ordinaryLoading');
-
-				// uncomment the following code to enable ajax-based validation
-				/*
-				if(isset($_POST['ajax']) && $_POST['ajax']==='user-loading-form')
-				{
-				echo CActiveForm::validate($model);
-				Yii::app()->end();
-				}
-				*/
-
-				if(isset($_POST['User']))
-				{
-					$model->attributes=$_POST['User'];
-					/*
-					 if($model->validate())
-					 {
-					// form inputs are valid, do something here
-					return;
-					}
-					*/
-					$this->redirect(array('ordinaryUpdate','id'=>1));
-				}
-				$this->render('ordinaryLoading',array('model'=>$model));
-			}
-
+	public function actionAttending(){
+		$model = $this->loadModel(1);
+		if(isset($_POST['User']))
+		{
+			$this->redirect(array('payment/create'));
 		}
+		$this->render('attending',array('model'=>$model));
+	}
+
+	public function actionEmailreg($email)
+	{
+		$model = new User();
+		$emailRecord = User::model()->findByAttributes(array('email'=>$email));
+
+		if (!$emailRecord) {
+			$model->addError('email', 'email不存在');
+		}else if ( !$emailRecord->password == '' ){
+			$model->addError('email','email已注册');
+		}else{
+
+			//	$this->redirect(array('update',array('id'=>1));
+		}
+		//$this->render('emailreg',$model);
+		$this->redirect(array('update','id'=>1));
+
+	}
+
+	/*
+	 *ordinary udpate profile
+	*/
+
+	public function actionOrdinaryUpdate($id){
+		{
+			$model=$this->loadModel($id);
+
+			// Uncomment the following line if AJAX validation is needed
+			// $this->performAjaxValidation($model);
+
+			if(isset($_POST['User']))
+			{
+				$model->attributes=$_POST['User'];
+				if($model->save())
+					//$this->redirect(array('view','id'=>$model->id));
+					$this->redirect(array('survey/ordinaryCreate'));
+			}
+
+			$this->render('ordinaryUpdate',array(
+					'model'=>$model,
+			));
+		}
+
+	}
+	public function actionOrdinaryLoading()
+	{
+		$model=new User('ordinaryLoading');
+
+		// uncomment the following code to enable ajax-based validation
+		/*
+		if(isset($_POST['ajax']) && $_POST['ajax']==='user-loading-form')
+		{
+		echo CActiveForm::validate($model);
+		Yii::app()->end();
+		}
+		*/
+
+		if(isset($_POST['User']))
+		{
+			$model->attributes=$_POST['User'];
+			/*
+			 if($model->validate())
+			 {
+			// form inputs are valid, do something here
+			return;
+			}
+			*/
+			$this->redirect(array('ordinaryUpdate','id'=>1));
+		}
+		$this->render('ordinaryLoading',array('model'=>$model));
+	}
+
+}
 

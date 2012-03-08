@@ -18,7 +18,7 @@
 		<?php echo $form->error($model,'has_code'); ?>
 	</div>
 
-	<div class="row" id="code" style="display:none">
+	<div class="row" id="code" style="">
 		<h2>2. Please enter your registration code:</h2>
 		<?php echo $form->labelEx($model,'code'); ?>
 		<?php echo $form->textField($model,'code'); ?>

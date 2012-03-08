@@ -58,6 +58,7 @@ class User extends CActiveRecord {
 				array('password', 'compare', 'compareAttribute' => 'password2','on'=>'surveyUpdate'),
 				array('password','required', 'on'=>'surveyUpdate'),
 				array('email','email','on'=>'loading'),
+				array('email','required','on'=>'loading'),
 				array('has_code, code, email,organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'required','on' =>'update'),
 				array('has_code, created_by, updated_by', 'numerical', 'integerOnly' => true),
 				array('code', 'length', 'max' => 128),
