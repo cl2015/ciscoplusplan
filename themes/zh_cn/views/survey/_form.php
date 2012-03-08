@@ -17,7 +17,7 @@
             <tr>
                 <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
                 <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>贵单位的网络建设的投资方向是?</FONT>
+                    <FONT CLASS = 'QuestionNormal'>1.贵单位的网络建设的投资方向是?</FONT>
                 </td>
                 <td >
                     <?php echo $form->dropDownList($model, 'q1', $model->getQ11Options()); ?>
@@ -32,7 +32,7 @@
             <tr>
                 <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
                 <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>贵单位在什么时间范围内将有网络扩张、升级或安全等方面的网络项目？</FONT>
+                    <FONT CLASS = 'QuestionNormal'>2.贵单位在什么时间范围内将有网络扩张、升级或安全等方面的网络项目？</FONT>
                     <font color='red'>*</font>
                     <input type='hidden' name='control_identifier' value='贵单位在什么时间范围内将有网络扩张、升级或安全等方面的网络项目？'><input type='hidden' name='control_identifier' value='a138169'>
                 </td>
@@ -49,7 +49,7 @@
             <tr>
                 <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
                 <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：</FONT>
+                    <FONT CLASS = 'QuestionNormal'>3.贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：</FONT>
                     <font color='red'>*</font>
                     <input type='hidden' name='control_identifier' value='贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：'>
                     <input type='hidden' name='control_identifier' value='a138170'>
@@ -67,7 +67,7 @@
             <tr>
                 <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
                 <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>贵公司的PC数量是</FONT></td>
+                    <FONT CLASS = 'QuestionNormal'>4.贵公司的PC数量是</FONT></td>
                 <td >
                     <?php echo $form->dropDownList($model, 'q4', $model->getQ44Options()); ?>
                     <?php echo $form->error($model, 'q4'); ?>
@@ -80,7 +80,7 @@
             <tr>
                 <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
                 <td vAlign='top' class='QuestionNormal' colspan='2' >
-                    <FONT CLASS = 'QuestionNormal'>您在信息化管理和网络建设中技术职责是什么</FONT>
+                    <FONT CLASS = 'QuestionNormal'>5.您在信息化管理和网络建设中技术职责是什么</FONT>
                 </td>
             </tr>
             <tr>

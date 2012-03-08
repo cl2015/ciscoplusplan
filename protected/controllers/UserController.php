@@ -14,7 +14,7 @@ class UserController extends Controller
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
+				'accessControl', // perform access control for CRUD operations
 		);
 	}
 
@@ -26,21 +26,21 @@ class UserController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-			'actions'=>array('index','loading','view','attending','emailreg','ordinaryUpdate'),
-			'users'=>array('*'),
-		),
-		array('allow', // allow authenticated user to perform 'create' and 'update' actions
-		'actions'=>array('create','update'),
-		'users'=>array('*'),
-	),
-	array('allow', // allow admin user to perform 'admin' and 'delete' actions
-	'actions'=>array('admin','delete'),
-	'users'=>array('admin'),
-),
-array('deny',  // deny all users
-'users'=>array('*'),
-			),
+				array('allow',  // allow all users to perform 'index' and 'view' actions
+						'actions'=>array('index','loading','view','attending','emailreg','ordinaryUpdate'),
+						'users'=>array('*'),
+				),
+				array('allow', // allow authenticated user to perform 'create' and 'update' actions
+						'actions'=>array('create','update'),
+						'users'=>array('*'),
+				),
+				array('allow', // allow admin user to perform 'admin' and 'delete' actions
+						'actions'=>array('admin','delete'),
+						'users'=>array('admin'),
+				),
+				array('deny',  // deny all users
+						'users'=>array('*'),
+				),
 		);
 	}
 
@@ -51,7 +51,7 @@ array('deny',  // deny all users
 	public function actionView($id)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+				'model'=>$this->loadModel($id),
 		));
 	}
 
@@ -74,7 +74,7 @@ array('deny',  // deny all users
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
+				'model'=>$model,
 		));
 	}
 
@@ -92,7 +92,7 @@ array('deny',  // deny all users
 
 		if(isset($_POST['User']))
 		{
-			
+
 			$model->attributes=$_POST['User'];
 			if($model->save())
 				//$this->redirect(array('view','id'=>$model->id));
@@ -100,7 +100,7 @@ array('deny',  // deny all users
 		}
 
 		$this->render('update',array(
-			'model'=>$model,
+				'model'=>$model,
 		));
 	}
 
@@ -131,7 +131,7 @@ array('deny',  // deny all users
 	{
 		$dataProvider=new CActiveDataProvider('User');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+				'dataProvider'=>$dataProvider,
 		));
 	}
 
@@ -146,7 +146,7 @@ array('deny',  // deny all users
 			$model->attributes=$_GET['User'];
 
 		$this->render('admin',array(
-			'model'=>$model,
+				'model'=>$model,
 		));
 	}
 
@@ -179,109 +179,130 @@ array('deny',  // deny all users
 	{
 		$model=new User('loading');
 		$model->email = $email;
-
+		$message = array("email"=>"","code"=>'',"has_code"=>"");
 		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='user-loading-form')
-	{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-	}
-	 */
 
+		if(isset($_POST['ajax']) && $_POST['ajax']==='user-loading-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
-			/*
-			if($model->validate())
+			if(isset($_POST['yt0']))
 			{
-				// form inputs are valid, do something here
-				return;
-			}
-			 */
-			$this->redirect(array('update','id'=>1));
-		}
-		$this->render('loading',array('model'=>$model));
-	}
-	public function actionAttending(){
-		$model = $this->loadModel(1);
-		if(isset($_POST['User']))
-		{
-			$this->redirect(array('payment/create'));
-		}
-		$this->render('attending',array('model'=>$model));
-	}
-
-	public function actionEmailreg($email)
-	{
-		$model = new User();
-		$emailRecord = User::model()->findByAttributes(array('email'=>$email));
-		
-		if (!$emailRecord) {
-			$model->addError('email', 'email不存在');
-		}else if ( !$emailRecord->password == '' ){
-			$model->addError('email','email已注册');
-		}else{
-
-		//	$this->redirect(array('update',array('id'=>1));
-		}
-		//$this->render('emailreg',$model);
-		$this->redirect(array('update','id'=>1));
-		
-	}
-
-	/*
-	 *ordinary udpate profile
-	 */
-		
-	public function actionOrdinaryUpdate($id){
-	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['User']))
-		{
-			$model->attributes=$_POST['User'];
-			if($model->save())
-				//$this->redirect(array('view','id'=>$model->id));
-				$this->redirect(array('survey/ordinaryCreate'));
-		}
-
-		$this->render('ordinaryUpdate',array(
-			'model'=>$model,
-		));
-	}
-
-	}
-	public function actionOrdinaryLoading()
-	{
-		$model=new User('ordinaryLoading');
-
-		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='user-loading-form')
-	{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-	}
-	 */
-
-		if(isset($_POST['User']))
-		{
-			$model->attributes=$_POST['User'];
-			/*
-			if($model->validate())
+				if($model->email!="li.he@brightac.com.cn")
+				{
+					$message['email'] = '邮箱验证错误，您没有注册';
+				}else{
+					$message['email'] = "验证通过。";
+				}
+			}else
 			{
-				// form inputs are valid, do something here
-				return;
+				if($model->email=="")
+				{
+					$message['email'] = '请填写邮箱。';
+				}else{
+				if($model->has_code=="")
+				{
+					$message['has_code'] = '请填写。';
+				}
+				if($model->has_code==0)
+				{
+					if($model->code==""){
+						$message["code"] = "请输入邀请码。";
+					}else{
+						$this->redirect(array('update','id'=>1));
+					}
+				}else {
+					$this->redirect(array('update','id'=>1));
+				}
+				}
+				
 			}
-			 */
-			$this->redirect(array('ordinaryUpdate','id'=>1));
 		}
-		$this->render('ordinaryLoading',array('model'=>$model));
+		$this->render('loading',array('model'=>$model,'message'=>$message));
 	}
+			public function actionAttending(){
+				$model = $this->loadModel(1);
+				if(isset($_POST['User']))
+				{
+					$this->redirect(array('payment/create'));
+				}
+				$this->render('attending',array('model'=>$model));
+			}
 
-}
+			public function actionEmailreg($email)
+			{
+				$model = new User();
+				$emailRecord = User::model()->findByAttributes(array('email'=>$email));
+
+				if (!$emailRecord) {
+					$model->addError('email', 'email不存在');
+				}else if ( !$emailRecord->password == '' ){
+					$model->addError('email','email已注册');
+				}else{
+
+					//	$this->redirect(array('update',array('id'=>1));
+				}
+				//$this->render('emailreg',$model);
+				$this->redirect(array('update','id'=>1));
+
+			}
+
+			/*
+			 *ordinary udpate profile
+			*/
+
+			public function actionOrdinaryUpdate($id){
+				{
+					$model=$this->loadModel($id);
+
+					// Uncomment the following line if AJAX validation is needed
+					// $this->performAjaxValidation($model);
+
+					if(isset($_POST['User']))
+					{
+						$model->attributes=$_POST['User'];
+						if($model->save())
+							//$this->redirect(array('view','id'=>$model->id));
+							$this->redirect(array('survey/ordinaryCreate'));
+					}
+
+					$this->render('ordinaryUpdate',array(
+							'model'=>$model,
+					));
+				}
+
+			}
+			public function actionOrdinaryLoading()
+			{
+				$model=new User('ordinaryLoading');
+
+				// uncomment the following code to enable ajax-based validation
+				/*
+				if(isset($_POST['ajax']) && $_POST['ajax']==='user-loading-form')
+				{
+				echo CActiveForm::validate($model);
+				Yii::app()->end();
+				}
+				*/
+
+				if(isset($_POST['User']))
+				{
+					$model->attributes=$_POST['User'];
+					/*
+					 if($model->validate())
+					 {
+					// form inputs are valid, do something here
+					return;
+					}
+					*/
+					$this->redirect(array('ordinaryUpdate','id'=>1));
+				}
+				$this->render('ordinaryLoading',array('model'=>$model));
+			}
+
+		}
 
