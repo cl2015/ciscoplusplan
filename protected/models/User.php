@@ -66,7 +66,7 @@ class User extends CActiveRecord {
 				array('has_code, code, email,organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'required','on' =>'update'),
 				array('has_code, created_by, mobile,updated_by,working_phone_dis', 'numerical', 'integerOnly' => true),
 				array('code', 'length', 'max' => 128),
-				array('password','length','min' =>6),
+				array('password','length','min' =>6,'on'=>'surevyUpdate'),
 				array('email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max' => 256),
 				array('created_at, updated_at', 'safe'),
 				// The following rule is used by search().
