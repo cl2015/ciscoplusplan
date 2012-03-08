@@ -8,6 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Cisco Plus Plan',
+	'theme' => 'zh_cn',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -53,7 +54,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=127.0.0.1;dbname=cisco',
+			'connectionString' => 'mysql:host=localhost;dbname=cisco',
 			'emulatePrepare' => true,
 			'username' => 'brightac',
 			'password' => 'brightacdev',
@@ -79,6 +80,12 @@ return array(
 				*/
 			),
 		),
+			'mailer' => array(
+			'class' => 'application.extensions.mailer.EMailer',
+		    'pathViews' => 'application.views.email',
+			'pathLayouts' => 'application.views.email.layouts'
+		),
+
 	),
 
 	// application-level parameters that can be accessed

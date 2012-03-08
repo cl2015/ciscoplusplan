@@ -27,7 +27,7 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-			'actions'=>array('index','loading','view','attending','emailreg'),
+			'actions'=>array('index','loading','view','attending','emailreg','ordinaryUpdate'),
 			'users'=>array('*'),
 		),
 		array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -175,9 +175,10 @@ array('deny',  // deny all users
 			Yii::app()->end();
 		}
 	}
-	public function actionLoading()
+	public function actionLoading($email='')
 	{
 		$model=new User('loading');
+		$model->email = $email;
 
 		// uncomment the following code to enable ajax-based validation
 	/*
@@ -228,4 +229,59 @@ array('deny',  // deny all users
 		$this->redirect(array('update','id'=>1));
 		
 	}
+
+	/*
+	 *ordinary udpate profile
+	 */
+		
+	public function actionOrdinaryUpdate($id){
+	{
+		$model=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['User']))
+		{
+			$model->attributes=$_POST['User'];
+			if($model->save())
+				//$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('survey/ordinaryCreate'));
+		}
+
+		$this->render('ordinaryUpdate',array(
+			'model'=>$model,
+		));
+	}
+
+	}
+	public function actionOrdinaryLoading()
+	{
+		$model=new User('ordinaryLoading');
+
+		// uncomment the following code to enable ajax-based validation
+	/*
+	if(isset($_POST['ajax']) && $_POST['ajax']==='user-loading-form')
+	{
+		echo CActiveForm::validate($model);
+		Yii::app()->end();
+	}
+	 */
+
+		if(isset($_POST['User']))
+		{
+			$model->attributes=$_POST['User'];
+			/*
+			if($model->validate())
+			{
+				// form inputs are valid, do something here
+				return;
+			}
+			 */
+			$this->redirect(array('ordinaryUpdate','id'=>1));
+		}
+		$this->render('ordinaryLoading',array('model'=>$model));
+	}
+
 }
+
