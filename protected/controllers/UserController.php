@@ -199,7 +199,7 @@ class UserController extends Controller
 					$this->redirect(array('site/index'));
 				}else
 				{
-					$this->redirect(array('survey/update','id'=>1));
+					$this->redirect(array('user/update','id'=>1));
 				}
 			}
 		}

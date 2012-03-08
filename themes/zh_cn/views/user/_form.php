@@ -14,7 +14,7 @@
 		<th></th>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'姓名'); ?>
+			<td><?php echo $form->labelEx($model,Yii::t('full_name','full_name')); ?>
 			</td>
 			<td><?php echo $form->textField($model,'full_name',array('size'=>60,'maxlength'=>256)); ?>
 			</td>
@@ -23,7 +23,7 @@
 		</tr>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'公司名称'); ?>
+			<td><?php echo $form->labelEx($model,'organisation'); ?>
 			</td>
 			<td><?php echo $form->textField($model,'organisation',array('size'=>60,'maxlength'=>256)); ?>
 			</td>
@@ -33,7 +33,7 @@
 
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'所在的省份');?>
+			<td><?php echo $form->labelEx($model,'province');?>
 			</td>
 			<td><?php echo $form->dropDownList($model,'province',$model->getProvinces()); ?>
 			</td>
@@ -42,7 +42,7 @@
 		</tr>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'所在的城市'); ?>
+			<td><?php echo $form->labelEx($model,'city'); ?>
 			</td>
 			<td><?php echo $form->textField($model,'city',array('size'=>60,'maxlength'=>256)); ?>
 			</td>
@@ -51,7 +51,7 @@
 		</tr>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'您的职务级别'); ?>
+			<td><?php echo $form->labelEx($model,'job_title'); ?>
 			</td>
 			<td><?php echo $form->dropDownList($model,'job_title',$model->getJobTitleOptions()); ?>
 			</td>
@@ -60,7 +60,7 @@
 		</tr>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'您的部门'); ?>
+			<td><?php echo $form->labelEx($model,'department'); ?>
 			
 			<td><?php echo $form->dropDownList($model,'department',$model->getDepartmentOptions()); ?>
 			</td>
@@ -69,7 +69,7 @@
 		</tr>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'区号'); ?>
+			<td><?php echo $form->labelEx($model,'working_phone_dis'); ?>
 			</td>
 			<td><?php echo $form->textField($model,'working_phone_dis',array('size'=>60,'maxlength'=>256)); ?>
 			</td>
@@ -78,7 +78,7 @@
 		</tr>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'电话'); ?>
+			<td><?php echo $form->labelEx($model,'working_phone'); ?>
 			</td>
 			<td><?php echo $form->textField($model,'working_phone',array('size'=>60,'maxlength'=>256)); ?>
 			</td>
@@ -87,7 +87,7 @@
 		</tr>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'手机号码'); ?>
+			<td><?php echo $form->labelEx($model,'mobile'); ?>
 			</td>
 			<td><?php echo $form->textField($model,'mobile',array('size'=>60,'maxlength'=>256)); ?>
 			</td>
@@ -96,7 +96,7 @@
 		</tr>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,'贵单位与思科公司的关系：'); ?>
+			<td><?php echo $form->labelEx($model,'relation_with_cisco'); ?>
 			</td>
 			<td><?php echo $form->dropDownList($model,'relation_with_cisco',$model->getRelationOptions()); ?>
 			</td>

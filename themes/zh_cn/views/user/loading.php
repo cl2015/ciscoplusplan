@@ -10,9 +10,10 @@
 	<?php echo $form->errorSummary($model); ?>
 	<div class="row" id="email" style="display: block">
 		<h2>请输入您的邮箱地址：</h2>
-		<?php echo $form->textField($model,'email'); ?>
-		<?php echo $form->error($model,'email'); ?>
+		<li class="input"><?php echo $form->textField($model,'email'); ?></li>
+		<li class="error"><?php echo $form->error($model,'email'); ?></li>
 	</div>
+	<div style="clear:both"></div>
 	<div class="row" id="code" style="display: block">
 		<h2>请输入您的邀请码(格式XXX-XXX-XXX):</h2>
 		<?php echo $form->textField($model,'code'); ?>
