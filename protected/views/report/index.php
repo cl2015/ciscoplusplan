@@ -12,7 +12,7 @@ color: #c75f3e;
 } 
 
 #mytable { 
-width: 700px; 
+width: 100%; 
 padding: 0; 
 margin: 0; 
 } 
@@ -98,33 +98,41 @@ font-size: 12px;
 <th>城市</th>
 <th>AM姓名</th>
 <th>AM ID</th>
+<th>AM部门</th>
 <th>AM手机</th>
 <th>RM姓名</th>
 <th>RM ID</th>
 <th>OD姓名</th>
 <th>OD ID</th>
 </tr>
+<?php $relation  = User::model()->getRelationOptions();
+$job_title = User::model()->getJobTitleOptions();
+$province = User::model()->getProvinces();
+$department = User::model()->getDepartmentOptions();
+	//var_dump($relation[1]);
+;?>
 <?php foreach ($rows as $row) {?>
 <tr>
 <td>已注册</td>
 <td><?php echo $row['organisation'];?></td>
-<td><?php echo $row['relation_with_cisco'];?></td>
+<td><?php echo $relation[$row['relation_with_cisco']];?></td>
 <td><?php echo $row['full_name'];?></td>
-<td><?php echo $row['job_title'];?></td>
-<td><?php echo $row['department'];?></td>
+<td><?php echo $job_title[$row['job_title']];?></td>
+<td><?php echo $department[$row['department']];?></td>
 <td><?php echo $row['working_phone_dis'];?></td>
 <td><?php echo $row['working_phone'];?></td>
 <td><?php echo $row['mobile'];?></td>
 <td><?php echo $row['email'];?></td>
-<td><?php echo $row['province'];?></td>
+<td><?php echo $province[$row['province']];?></td>
 <td><?php echo $row['city'];?></td>
-<td>AM姓名</td>
-<td>AM ID</td>
-<td>AM手机</td>
-<td>RM姓名</td>
-<td>RM ID</td>
-<td>OD姓名</td>
-<td>OD ID</td>
+<td>Kevin Xu</td>
+<td>kevxu</td>
+<td>13930192102</td>
+<td>PL-North</td>
+<td>Frank Zhu</td>
+<td>fzhu</td>
+<td>Jerry Zhang</td>
+<td>jerzhang</td>
 </tr>
 <?php }?>
 </table>

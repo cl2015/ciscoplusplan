@@ -11,6 +11,7 @@
 		<h2>请输入您的邮箱地址：</h2>
 		<?php echo $form->textField($model,'email'); ?>
 		<?php echo CHtml::submitButton('Verify'); ?>
+		<?php echo $form->error($model,'email'); ?>
 		<?php echo $message['email']; ?>
 	</div>
 	<div class="row">

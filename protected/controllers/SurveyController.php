@@ -59,18 +59,27 @@ class SurveyController extends Controller {
      */
     public function actionCreate() {
         $model = new Survey;
-        //$user = $this->loadUser(1);
-        $user = new User;
+        $user = $this->loadUser(1);
+        $user->setScenario('surveyUpdate');
+        $model->setScenario('surveyUpdate');
+        //$user = new User;
         //for the show
         $model->user_id = 1; //= $this->loadUser(1);
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
-        if (isset($_POST['Survey'])) {
+         if (isset($_POST['Survey']) && isset($_POST['User'])) {
+         	$user->password2 = "";
             $model->attributes = $_POST['Survey'];
+            $user->attributes = $_POST['User'];
+            $user->password2=$_POST['User']['password2'];
+            //var_dump($_POST['User']['password2']);
+            $user->validate();
             $model->q5=implode(",",array_filter($_POST['Survey']['q5']));
-            if ($model->save())
+            if ($model->save()&& $user->save())
             //	$this->redirect(array('view','id'=>$model->id));
                 $this->redirect(array('reginfo/confirmation'));
+        }else{
+        	$user->password= '';
         }
 
         $this->render('create', array(
@@ -85,19 +94,24 @@ class SurveyController extends Controller {
      * @param integer $id the ID of the model to be updated
      */
     public function actionUpdate($id) {
+    	
         $model = $this->loadModel($id);
-
+        $user = $this->loadUser(1);
+        $user->setScenario('surveyUpdate');
+        $model->setScenario('surveyUpdate');
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
 
-        if (isset($_POST['Survey'])) {
+        if (isset($_POST['Survey']) && isset($_POST['User'])) {
             $model->attributes = $_POST['Survey'];
-            if ($model->save())
+            $user->attributes = $_POST['User'];
+            $user->validate();
+            if ($user->save())
                 $this->redirect(array('view', 'id' => $model->id));
         }
 
         $this->render('update', array(
-            'model' => $model,
+            'model' => $model,'user' => $user,
         ));
     }
 
@@ -203,3 +217,4 @@ class SurveyController extends Controller {
     }
 
 }
+

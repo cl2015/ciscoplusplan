@@ -25,7 +25,7 @@ class Survey extends CActiveRecord {
     public static function model($className=__CLASS__) {
         return parent::model($className);
     }
-
+public $password2;
     /**
      * @return string the associated database table name
      */
@@ -40,14 +40,14 @@ class Survey extends CActiveRecord {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('user_id', 'required'),
-            array('q1, q2, q3, q4, created_by, updated_by', 'numerical', 'integerOnly' => true),
+            array('user_id,q2,q3,q6', 'required'),
+            array('q1, q2, q3, q4,q6 created_by, updated_by', 'numerical', 'integerOnly' => true),
             array('user_id', 'length', 'max' => 10),
             array('q5', 'length', 'max' => 100),
             array('created_at, updated_at', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, user_id, q1, q2, q3, q4,q5, created_at, created_by, updated_at, updated_by', 'safe', 'on' => 'search'),
+            array('id, user_id, q1, q2, q3, q4,q5,q6, created_at, created_by, updated_at, updated_by', 'safe', 'on' => 'search'),
         );
     }
 
@@ -73,6 +73,7 @@ class Survey extends CActiveRecord {
             'q3' => 'Q3',
             'q4' => 'Q4',
             'q5' => 'Q5',
+            'q6' => 'Q6',
             'created_at' => 'Created At',
             'created_by' => 'Created By',
             'updated_at' => 'Updated At',
@@ -97,6 +98,7 @@ class Survey extends CActiveRecord {
         $criteria->compare('q3', $this->q3);
         $criteria->compare('q4', $this->q4);
         $criteria->compare('q5', $this->q5);
+        $criteria->compare('q6', $this->q6);
         $criteria->compare('created_at', $this->created_at, true);
         $criteria->compare('created_by', $this->created_by);
         $criteria->compare('updated_at', $this->updated_at, true);
@@ -128,6 +130,7 @@ class Survey extends CActiveRecord {
     }
     public function getQ11Options() {
         return array(
+            ''=>"请选择一个",
             0 => '局域网(LAN)',
             1 => '广域网(WAN)',
             2 => '城域网(MAN)',
@@ -158,6 +161,7 @@ class Survey extends CActiveRecord {
     }
 public function getQ22Options() {
         return array(
+            ''=>"请选择一个",
             0 => '三个月内',
             1 => '四至六个月',
             2 => '七至十二个月',
@@ -185,6 +189,7 @@ public function getQ22Options() {
     }
 public function getQ33Options() {
         return array(
+            ''=>"请选择一个",
             0 => '0-1万',
             1 => '1-5万',
             2 => '5-15万',
@@ -202,6 +207,7 @@ public function getQ33Options() {
     }
     public function getQ4Options() {
         return array(
+            ''=>"请选择一个",
             0 => '1-4',
             1 => '5-19',
             2 => '20-49',
@@ -218,6 +224,7 @@ public function getQ33Options() {
     }
 public function getQ44Options() {
         return array(
+            ''=>"请选择一个",
             0 => '1-4台',
             1 => '5-19台',
             2 => '20-49台',
@@ -253,4 +260,36 @@ public function getQ44Options() {
             17 =>'语音 - 呼叫中心',
         );
     }
+    public function getQ66Options() {
+        return array(
+            ''=>"请选择一个",
+            1 => '航天航空/国防',
+            2 => '汽车',
+            3 => '银行',
+            4 => '石油化工',
+            5 => '电脑软/硬件供应商',
+            6 => '消费品',
+            7 => '教育',
+            8 => '电子',
+            9 => '金融服务',
+            10 =>'食品，饮料，烟草',
+            11 =>'政府机关',
+            12 =>'医疗',
+            13 =>'酒店及娱乐服务',
+            14 =>'保险',
+            15 =>'公检法',
+            16 =>'制造业',
+            17 =>'媒体-印刷/广播',
+            18 =>'生物和制药',
+            19 =>'律师，财务，咨询类等专业服务',
+            20 =>'零售业',
+            21 =>'房地产',
+            22 =>'电信运营商，ISP，JCP，ASP，有限电视',
+            23 =>'交通运输',
+            24 =>'能源',
+            25 =>'批发/分销',
+        );
+    }
+
 }
+

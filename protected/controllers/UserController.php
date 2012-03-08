@@ -189,6 +189,8 @@ class UserController extends Controller
 		}
 		if(isset($_POST['User']))
 		{
+		//$model = $this->loadModel(1);
+			unset($_POST['User']['code']);
 			$model->attributes=$_POST['User'];
 			if(isset($_POST['yt0']))
 			{
@@ -200,9 +202,9 @@ class UserController extends Controller
 				}
 			}else
 			{
-				if($model->email=="")
+				if($model->email=="" )
 				{
-					$message['email'] = '请填写邮箱。';
+					$message['email'] = '邮箱格式错误。';
 				}else{
 				if($model->has_code=="")
 				{
@@ -216,7 +218,8 @@ class UserController extends Controller
 						$this->redirect(array('update','id'=>1));
 					}
 				}else {
-					$this->redirect(array('update','id'=>1));
+					if($model->save())
+						$this->redirect(array('update','id'=>1));
 				}
 				}
 				

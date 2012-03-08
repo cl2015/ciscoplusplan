@@ -1,7 +1,7 @@
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'user-form',
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -91,18 +91,6 @@
 		<td><?php echo $form->error($model,'ec_mobile'); ?></td>
 	</tr>
 -->
-<!--<tr><td colspan=3>请设立用于登录大会活动网站www.ciscopluschina.com的登录密码。注册完成后，即可在大会网站上使用注册邮箱和此密码登录，专享白皮书下载，视频观看等互动活动。</td></tr>
-<tr>
-	<td><?php echo $form->labelEx($model,'密码'); ?></td>
-	<td><?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>256)); ?></td>
-	<td><?php echo $form->error($model,'password'); ?></td>
-</tr>
-<tr>
-	<td><?php echo $form->labelEx($model,'确认密码'); ?></td>
-	<td><?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>256)); ?></td>
-	<td><?php echo $form->error($model,'password'); ?></td>
-</tr>-->
-<?php echo $form->hiddenField($model,'password',array('size'=>60,'maxlength'=>256)); ?>
 </table>
 	<div class="row buttons">
 		<?php echo CHtml::Button('back',array("onclick"=>"javascript:history.go(-1)")); ?>
@@ -112,3 +100,4 @@
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+

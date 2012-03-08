@@ -2,7 +2,7 @@
     <?php
     $form = $this->beginWidget('CActiveForm', array(
                 'id' => 'survey-form',
-                'enableAjaxValidation' => false,
+                'enableAjaxValidation' => true,
             ));
     ?>
     <p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -15,9 +15,10 @@
 
         <table width='100%' border='0' cellspacing='0' cellpadding='0'>
             <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
+                <td vAlign='top' width='1%' >&nbsp;&nbsp;一、</td>
                 <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>1.贵单位的网络建设的投资方向是?</FONT>
+                    <FONT CLASS = 'QuestionNormal'>贵单位的网络建设的投资方向是?</FONT>
+<!--                    <font color='red'>*</font>-->
                 </td>
                 <td >
                     <?php echo $form->dropDownList($model, 'q1', $model->getQ11Options()); ?>
@@ -30,9 +31,9 @@
     <div class="row">
         <table width='100%' border='0' cellspacing='0' cellpadding='0'>
             <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
+                <td vAlign='top' width='1%' >&nbsp;&nbsp;二、</td>
                 <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>2.贵单位在什么时间范围内将有网络扩张、升级或安全等方面的网络项目？</FONT>
+                    <FONT CLASS = 'QuestionNormal'>贵单位在什么时间范围内将有网络扩张、升级或安全等方面的网络项目？</FONT>
                     <font color='red'>*</font>
                     <input type='hidden' name='control_identifier' value='贵单位在什么时间范围内将有网络扩张、升级或安全等方面的网络项目？'><input type='hidden' name='control_identifier' value='a138169'>
                 </td>
@@ -47,9 +48,9 @@
     <div class="row">
         <table width='100%' border='0' cellspacing='0' cellpadding='0'>
             <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
+                <td vAlign='top' width='1%' >&nbsp;&nbsp;三、</td>
                 <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>3.贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：</FONT>
+                    <FONT CLASS = 'QuestionNormal'>贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：</FONT>
                     <font color='red'>*</font>
                     <input type='hidden' name='control_identifier' value='贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：'>
                     <input type='hidden' name='control_identifier' value='a138170'>
@@ -65,9 +66,11 @@
     <div class="row">
         <table width='100%' border='0' cellspacing='0' cellpadding='0'>
             <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
+                <td vAlign='top' width='1%' >&nbsp;&nbsp;四、</td>
                 <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>4.贵公司的PC数量是</FONT></td>
+                    <FONT CLASS = 'QuestionNormal'>贵公司的PC数量是</FONT>
+              
+                </td>
                 <td >
                     <?php echo $form->dropDownList($model, 'q4', $model->getQ44Options()); ?>
                     <?php echo $form->error($model, 'q4'); ?>
@@ -78,9 +81,25 @@
     <div class="row">
         <table width='100%' border='0' cellspacing='0' cellpadding='0'>
             <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
+                <td vAlign='top' width='1%' >&nbsp;&nbsp;五、</td>
+                <td vAlign='top' class='QuestionNormal' width='50%' >
+                    <FONT CLASS = 'QuestionNormal'>贵公司所属行业</FONT>
+                    <font color='red'>*</font>
+                </td>
+                <td >
+                    <?php echo $form->dropDownList($model, 'q6', $model->getQ66Options()); ?>
+                    <?php echo $form->error($model, 'q6'); ?>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="row">
+        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
+            <tr>
+                <td vAlign='top' width='1%' >&nbsp;&nbsp;六、</td>
                 <td vAlign='top' class='QuestionNormal' colspan='2' >
-                    <FONT CLASS = 'QuestionNormal'>5.您在信息化管理和网络建设中技术职责是什么</FONT>
+                    <FONT CLASS = 'QuestionNormal'>您在信息化管理和网络建设中技术职责是什么</FONT>
+                 
                 </td>
             </tr>
             <tr>
@@ -101,20 +120,21 @@
                 <td width=1%></td>
                 <td width="75px;" ><?php echo $form->labelEx($user, '密码：',array('style'=>'width: 70px;')); ?>
                 </td>
-                <td><?php echo $form->passwordField($user, 'password', array('size' => 20, 'maxlength' => 256)); ?><?php echo $form->error($user, 'password'); ?></td>
+                <td><?php echo $form->textField($user, 'password', array('size' => 20, 'maxlength' => 256)); ?><?php echo $form->error($user, 'password'); ?></td>
             </tr>
             <tr>
                 <td width=1%></td>
                 <td><?php echo $form->labelEx($user, '确认密码：',array('style'=>'width: 70px;')); ?></td>
-                <td><?php echo $form->passwordField($user, 'password', array('size' => 20, 'maxlength' => 256)); ?><?php echo $form->error($user, 'password'); ?></td>
+                <td><?php echo $form->textField($user, 'password2', array('size' => 20, 'maxlength' => 256)); ?><?php echo $form->error($user, 'password'); ?></td>
             </tr>
         </table>
     </div>
     <div class="row buttons">
         <?php echo CHtml::Button('back', array("onclick" => "javascript:history.go(-1)")); ?>
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+        <?php echo CHtml::submitButton($model->isNewRecord ? 'Submit' : 'Submit'); ?>
                     </div>
 
     <?php $this->endWidget(); ?>
 
 </div><!-- form -->
+
