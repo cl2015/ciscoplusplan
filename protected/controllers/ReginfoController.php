@@ -14,7 +14,7 @@ class ReginfoController extends Controller
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
+				'accessControl', // perform access control for CRUD operations
 		);
 	}
 
@@ -26,21 +26,21 @@ class ReginfoController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-			'actions'=>array('index','view'),
-			'users'=>array('*'),
-		),
-		array('allow', // allow authenticated user to perform 'create' and 'update' actions
-		'actions'=>array('create','update','attending','payment','pay','confirmation','ordinaryConfirmation'),
-		'users'=>array('*'),
-	),
-	array('allow', // allow admin user to perform 'admin' and 'delete' actions
-	'actions'=>array('admin','delete'),
-	'users'=>array('admin'),
-),
-array('deny',  // deny all users
-'users'=>array('*'),
-			),
+				array('allow',  // allow all users to perform 'index' and 'view' actions
+						'actions'=>array('index','view'),
+						'users'=>array('*'),
+				),
+				array('allow', // allow authenticated user to perform 'create' and 'update' actions
+						'actions'=>array('create','update','attending','payment','pay','confirmation','ordinaryConfirmation'),
+						'users'=>array('*'),
+				),
+				array('allow', // allow admin user to perform 'admin' and 'delete' actions
+						'actions'=>array('admin','delete'),
+						'users'=>array('admin'),
+				),
+				array('deny',  // deny all users
+						'users'=>array('*'),
+				),
 		);
 	}
 
@@ -51,7 +51,7 @@ array('deny',  // deny all users
 	public function actionView($id)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+				'model'=>$this->loadModel($id),
 		));
 	}
 
@@ -74,7 +74,7 @@ array('deny',  // deny all users
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
+				'model'=>$model,
 		));
 	}
 
@@ -98,7 +98,7 @@ array('deny',  // deny all users
 		}
 
 		$this->render('update',array(
-			'model'=>$model,
+				'model'=>$model,
 		));
 	}
 
@@ -129,7 +129,7 @@ array('deny',  // deny all users
 	{
 		$dataProvider=new CActiveDataProvider('Reginfo');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+				'dataProvider'=>$dataProvider,
 		));
 	}
 
@@ -144,7 +144,7 @@ array('deny',  // deny all users
 			$model->attributes=$_GET['Reginfo'];
 
 		$this->render('admin',array(
-			'model'=>$model,
+				'model'=>$model,
 		));
 	}
 
@@ -179,7 +179,7 @@ array('deny',  // deny all users
 		if(isset($_POST['Reginfo']))
 		{
 			$model->attributes=$_POST['Reginfo'];
-			if ($model->is_online == 0) 
+			if ($model->is_online == 0)
 			{
 				$this->redirect(array('confirmation'));
 			}else{
@@ -203,12 +203,12 @@ array('deny',  // deny all users
 		$model=new Reginfo('payment');
 		$model->user_id = 1;//need get from session
 		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-payment-form')
-	{
+		/*
+		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-payment-form')
+		{
 		echo CActiveForm::validate($model);
 		Yii::app()->end();
-	}
+		}
 	 */
 
 		if(isset($_POST['Reginfo']))
@@ -235,12 +235,12 @@ array('deny',  // deny all users
 		$model=$this->loadModel(1);
 		$model->user_id = 1;
 		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
-	{
+		/*
+		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
+		{
 		echo CActiveForm::validate($model);
 		Yii::app()->end();
-	}
+		}
 	 */
 		//$this->sendMail('Ted.Xin@gpj.com','xrong@gpj.com','<a href="#" >test</a>hello');
 		$this->sendMail('li.he@brightac.com.cn','cranelee@gmail.com','');
@@ -251,12 +251,12 @@ array('deny',  // deny all users
 		$model=new Reginfo('pay');
 		$model->user_id = 1;
 		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-pay-form')
-	{
+		/*
+		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-pay-form')
+		{
 		echo CActiveForm::validate($model);
 		Yii::app()->end();
-	}
+		}
 	 */
 
 		if(isset($_POST['Reginfo']))
@@ -276,12 +276,12 @@ array('deny',  // deny all users
 		$model=$this->loadModel(1);
 		$model->user_id = 1;
 		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
-	{
+		/*
+		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
+		{
 		echo CActiveForm::validate($model);
 		Yii::app()->end();
-	}
+		}
 	 */
 
 		$this->render('ordinaryConfirmation',array('model'=>$model));
