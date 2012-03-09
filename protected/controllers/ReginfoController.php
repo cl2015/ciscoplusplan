@@ -243,7 +243,8 @@ class ReginfoController extends Controller
 		}
 	 */
 		//$this->sendMail('Ted.Xin@gpj.com','xrong@gpj.com','<a href="#" >test</a>hello');
-		$this->sendMail('li.he@brightac.com.cn','cranelee@gmail.com','');
+		//$this->sendMail('li.he@brightac.com.cn','cranelee@gmail.com','');
+		$this->sendMail('razhou@cisco.com', 'kevxu@cisco.com','');
 		$this->render('confirmation',array('model'=>$model));
 	}
 	public function actionPay()
