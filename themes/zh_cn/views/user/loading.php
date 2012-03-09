@@ -15,7 +15,7 @@
 	</div>
 	<div style="clear:both"></div>
 	<div class="row" id="code" style="display: block">
-		<h2>如果您之前收到了邀请码，请在下面输入，如果没有，直接点击继续，进入下一页面。(格式XXX-XXX-XXX):</h2>
+		<h2>如果您之前收到了邀请码，请在下面输入，如果没有，直接点击继续，进入下一页面。</h2>
 		<?php echo $form->textField($model,'code'); ?>
 		<?php echo $form->error($model,'code'); ?>
 	</div>
