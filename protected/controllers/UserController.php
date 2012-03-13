@@ -27,7 +27,7 @@ class UserController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('index','loading','view','attending','emailreg','ordinaryUpdate'),
+						'actions'=>array('index','loading','view','attending','emailreg','ordinaryUpdate','check'),
 						'users'=>array('*'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -283,6 +283,26 @@ class UserController extends Controller
 			$this->redirect(array('ordinaryUpdate','id'=>1));
 		}
 		$this->render('ordinaryLoading',array('model'=>$model));
+	}
+
+	public function actionCheck($email,$password){
+		$user = User::model()->findByAttributes(array('email' => $email));
+		$retArr = array();
+		if($user === null){
+			$retArr['status'] = false;
+			$retArr['user'] = array();
+			$retArr['url'] = 'http://www.ciscopluschina.com';
+		}elseif($user->password!=$user->encrypt($password)){
+			$retArr['status'] = false;
+			$retArr['user'] = array();
+			$retArr['url'] = 'http://www.ciscopluschina.com';
+		}else{
+			$retArr['status'] = true;
+			$retArr['user'] = array('id'=>$user->id,'email'=>$user->email);
+			$retArr['url'] = '';
+		}
+		echo CJavaScript::jsonEncode($retArr);
+		Yii::app()->end();
 	}
 
 }

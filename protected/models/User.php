@@ -68,7 +68,7 @@ class User extends CActiveRecord {
 				array('code', 'length', 'max' => 128),
 				array('password','length','min' =>6,'on'=>'surveyUpdate'),
 				array('email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max' => 256),
-				array('created_at, updated_at', 'safe'),
+				array('password2, password', 'safe'),
 				// The following rule is used by search().
 				// Please remove those attributes that should not be searched.
 				array('id, has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile, created_at, created_by, updated_at, updated_by', 'safe', 'on' => 'search'),
@@ -216,6 +216,10 @@ class User extends CActiveRecord {
 		return array(
 				"北京" => "北京", "上海" => "上海", "天津" => "天津", "重庆" => "重庆", "甘肃" => "甘肃", "广东" => "广东", "广西" => "广西", "贵州" => "贵州", "海南" => "海南", "河北" => "河北", "黑龙江" => "黑龙江", "河南" => "河南", "浙江" => "浙江", "湖北" => "湖北", "湖南" => "湖南", "内蒙古" => "内蒙古", "江西" => "江西", "江苏" => "江苏", "吉林" => "吉林", "辽宁" => "辽宁", "宁夏" => "宁夏", "青海" => "青海", "陕西" => "陕西", "山西" => "山西", "山东" => "山东", "安徽" => "安徽", "四川" => "四川", "福建" => "福建", "西藏" => "西藏", "新疆" => "新疆", "云南" => "云南", "香港" => "香港", "澳门" => "澳门", "台湾" => "台湾",
 		);
+	}
+	
+	public function encrypt($value) {
+		return md5($value);
 	}
 
 }

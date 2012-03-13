@@ -66,7 +66,7 @@ class SurveyController extends Controller {
 		if (isset($_POST['Survey']) && isset($_POST['User'])) {
 			$model->attributes = $_POST['Survey'];
 			$user->attributes = $_POST['User'];
-			$user->password2 = $_POST['User']["password2"];
+			//$user->password2 = $_POST['User']["password2"];
 			//$model->validate();
 			//$model->save();
 			
