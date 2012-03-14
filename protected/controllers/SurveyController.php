@@ -30,8 +30,8 @@ class SurveyController extends Controller {
 						'users' => array('*'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
-						'actions' => array('create', 'update'),
-						'users' => array('*'),
+						'actions' => array('nominationCreate', 'update'),
+						'users' => array('@'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
 						'actions' => array('admin', 'delete'),
@@ -194,21 +194,48 @@ class SurveyController extends Controller {
 
 	public function actionOrdinaryCreate() {
 		$model = new Survey;
-		//for the show
+		$user = $this->loadUser(Yii::app()->user->id);
+		$user->setScenario('surveyUpdate');
+		$model->setScenario('surveyUpdate');
 		$model->user_id = 1; //= $this->loadUser(1);
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-		//todo 提交前要对用户是否已有记录做check，如果已有记录。则更新
-		if (isset($_POST['Survey'])) {
+		if (isset($_POST['Survey']) && isset($_POST['User'])) {
 			$model->attributes = $_POST['Survey'];
-			// delete or get old_id
-			if ($model->save())
-				//	$this->redirect(array('view','id'=>$model->id));
-				$this->redirect(array('reginfo/attending'));
+			$user->attributes = $_POST['User'];
+			if($model->validate() && $user->validate()){
+				$user->has_reged = 1;
+				if ($model->save()&& $user->save()){
+					$this->redirect(array('reginfo/ordinaryConfirmation'));
+				}
+			}
+		}else{
+			$user->password= '';
 		}
-
 		$this->render('ordinaryCreate', array(
 				'model' => $model,
+				'user' => $user,
+		));
+	}
+	public function actionNominationCreate() {
+		$model = new Survey;
+		$user = $this->loadUser(Yii::app()->user->id);
+		$user->setScenario('surveyUpdate');
+		$model->setScenario('surveyUpdate');
+		$model->user_id = 1; //= $this->loadUser(1);
+		if (isset($_POST['Survey']) && isset($_POST['User'])) {
+			$model->attributes = $_POST['Survey'];
+			$user->attributes = $_POST['User'];
+			if($model->validate() && $user->validate()){
+				$user->has_reged = 1;
+				if ($model->save()&& $user->save()){
+					$this->redirect(array('reginfo/nominationConfirmation'));
+				}
+			}
+		}else{
+			$user->password= '';
+		}
+		$this->render('nominationCreate', array(
+				'model' => $model,
+				'user' => $user,
 		));
 	}
 

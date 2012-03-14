@@ -27,15 +27,15 @@ class UserController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('index','loading','view','attending','emailreg','ordinaryUpdate','check'),
+						'actions'=>array('index','loading','check','reg'),
 						'users'=>array('*'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
-						'actions'=>array('create','update'),
-						'users'=>array('*'),
+						'actions'=>array('nominationUpdate','employeeUpdate','ordinaryUpdate','attendeeUpdate'),
+						'users'=>array('@'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
-						'actions'=>array('admin','delete'),
+						'actions'=>array('create','update','admin','delete','view','attending','emailreg','ordinaryUpdate'),
 						'users'=>array('admin'),
 				),
 				array('deny',  // deny all users
@@ -83,9 +83,9 @@ class UserController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionUpdate($id)
+	public function actionUpdate()
 	{
-		$model=$this->loadModel($id);
+		$model=$this->loadModel(Yii::app()->user->id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -189,21 +189,55 @@ class UserController extends Controller
 		}
 		if(isset($_POST['User']))
 		{
-			//$model = $this->loadModel(1);
-			unset($_POST['User']['code']);
+			/**
+			 * 1.有email不需要code		nomination
+			 * 2.有email不需要code		employee
+			 * 3.有email需要code			ordinary
+			 * 4.无email无code		attendee,web
+			 */
 			$model->attributes=$_POST['User'];
 			if($model->validate()){
-				$testUser = $this->loadModel(1);
-				if($model->email!=$testUser->email)
-				{
-					$this->redirect(array('site/index'));
-				}else
-				{
-					$this->redirect(array('user/update','id'=>1));
+				$user = User::model()->findByAttributes(array('email'=>$model->email));
+				if($user===null){//attendee,web
+					$model->type_id = 4;
+					$model->has_reged = 1;
+					if($model->save()){
+						if($model->login()){
+							$this->redirect(array('attendeeUpdate'));
+						}
+					}
+					$message['email']=Yii::t('default','reg error.');
+				}elseif($user->has_reged == '1') {//已注册
+					$message['email']=Yii::t('default', 'This email has been reged.');
+				}elseif($user->type_id=='3'){
+					if($model->code == null || $model->code == ""){
+						$message["code"] = Yii::t("default","please input your code");
+					}elseif($model->code!=$user->code){
+						$message["code"] = Yii::t("default","error code");
+					}else{
+						if($user->login()){
+							$this->redirect(array('ordinaryUpdate'));
+						}else{
+							$message['email']="error";
+						}
+					}
+				}elseif($user->type_id == '2'){
+					if($user->login()){
+						$this->redirect(array('employeeUpdate'));
+					}
+				}elseif($user->type_id == '1' ){
+					if($user->login()){
+						$this->redirect(array('nominationUpdate'));
+					}
+				}else{
+					$messge['email']="error";
 				}
 			}
 		}
 		$this->render('loading',array('model'=>$model,'message'=>$message));
+	}
+	public function actionReg(){
+		$this->redirect(array('user/loading'));
 	}
 	public function actionAttending(){
 		$model = $this->loadModel(1);
@@ -229,32 +263,6 @@ class UserController extends Controller
 		}
 		//$this->render('emailreg',$model);
 		$this->redirect(array('update','id'=>1));
-
-	}
-
-	/*
-	 *ordinary udpate profile
-	*/
-
-	public function actionOrdinaryUpdate($id){
-		{
-			$model=$this->loadModel($id);
-
-			// Uncomment the following line if AJAX validation is needed
-			// $this->performAjaxValidation($model);
-
-			if(isset($_POST['User']))
-			{
-				$model->attributes=$_POST['User'];
-				if($model->save())
-					//$this->redirect(array('view','id'=>$model->id));
-					$this->redirect(array('survey/ordinaryCreate'));
-			}
-
-			$this->render('ordinaryUpdate',array(
-					'model'=>$model,
-			));
-		}
 
 	}
 	public function actionOrdinaryLoading()
@@ -285,7 +293,7 @@ class UserController extends Controller
 		$this->render('ordinaryLoading',array('model'=>$model));
 	}
 
-	public function actionCheck($email,$password){
+	public function actionCheck($email,$password,$callback){
 		$user = User::model()->findByAttributes(array('email' => $email));
 		$retArr = array();
 		if($user === null){
@@ -293,7 +301,7 @@ class UserController extends Controller
 			$retArr['user'] = array();
 			$retArr['url'] = 'http://www.ciscopluschina.com';
 		}elseif($user->password!=$user->encrypt($password)){
-			$retArr['status'] = false;
+			$retArr['status'] = 'false';
 			$retArr['user'] = array();
 			$retArr['url'] = 'http://www.ciscopluschina.com';
 		}else{
@@ -301,9 +309,89 @@ class UserController extends Controller
 			$retArr['user'] = array('id'=>$user->id,'email'=>$user->email);
 			$retArr['url'] = '';
 		}
-		echo CJavaScript::jsonEncode(array($retArr));
+		//echo $CJavaScript::jsonEncode(array($retArr));
+		echo $callback.'(\''.CJavaScript::jsonEncode(array($retArr)).'\')';
 		Yii::app()->end();
 	}
+	/*
+	 *ordinary udpate profile
+	*/
+
+	public function actionNominationUpdate(){
+		{
+			$model=$this->loadModel(Yii::app()->user->id);
+			if($model->type_id != "1"){
+				$this->redirect(array("user/loading"));
+			}else{
+				if(isset($_POST['User']))
+				{
+					$model->attributes=$_POST['User'];
+					if($model->save())
+						$this->redirect(array('survey/nominationCreate'));
+				}
+				$this->render('nominationUpdate',array(
+						'model'=>$model,
+				));
+			}
+		}
+	}
+	public function actionEmployeeUpdate(){
+		{
+			$model=$this->loadModel(Yii::app()->user->id);
+			$model->setScenario('employeeUpdate');
+			if($model->type_id != "2"){
+				$this->redirect(array("user/loading"));
+			}else{
+				if(isset($_POST['User']))
+				{
+					$model->attributes=$_POST['User'];
+					$model->has_reged = 1;
+					if($model->save())
+						$this->redirect(array('reginfo/employeeConfirmation'));
+				}
+				$this->render('employee',array(
+						'model'=>$model,
+				));
+			}
+		}
+	}public function actionOrdinaryUpdate(){
+		{
+			$model=$this->loadModel(Yii::app()->user->id);
+			if($model->type_id != "3"){
+				$this->redirect(array("user/loading"));
+			}else{
+				if(isset($_POST['User']))
+				{
+					$model->attributes=$_POST['User'];
+					if($model->save())
+						$this->redirect(array('survey/ordinaryCreate'));
+				}
+				$this->render('ordinaryUpdate',array(
+						'model'=>$model,
+				));
+			}
+		}
+	}
+	public function actionAttendeeUpdate(){
+		{
+			$model=$this->loadModel(Yii::app()->user->id);
+			if($model->type_id != "4"){
+				$this->redirect(array("user/loading"));
+			}else{
+				if(isset($_POST['User']))
+				{
+					$model->attributes=$_POST['User'];
+					if($model->save())
+						$this->redirect(array('survey/attendeeCreate'));
+				}
+				$this->render('attendeeUpdate',array(
+						'model'=>$model,
+				));
+			}
+		}
+	}
+	
+
 
 }
 

@@ -11,13 +11,14 @@
 	<div class="row" id="email" style="display: block">
 		<h2>请输入您的邮箱地址：</h2>
 		<li class="input"><?php echo $form->textField($model,'email'); ?></li>
-		<li class="error"><?php echo $form->error($model,'email'); ?></li>
+		<li class="error"><?php echo $form->error($model,'email'); ?><?php echo $message['email'];?></li>
 	</div>
 	<div style="clear:both"></div>
 	<div class="row" id="code" style="display: block">
 		<h2>如果您之前收到了邀请码，请在下面输入，如果没有，直接点击继续，进入下一页面。</h2>
 		<?php echo $form->textField($model,'code'); ?>
 		<?php echo $form->error($model,'code'); ?>
+		<?php echo $message["code"];?>
 	</div>
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('继续'); ?>

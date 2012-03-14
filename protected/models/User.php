@@ -26,8 +26,11 @@
  * @property integer $created_by
  * @property string $updated_at
  * @property integer $updated_by
+ * @property integer $type_id
+ * @property integer $has_reged
+ * @property string $cc
  */
-class User extends CActiveRecord {
+class User extends TrackStarActiveRecord {
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -47,6 +50,7 @@ class User extends CActiveRecord {
 
 	public $password;
 	public $password2;
+	private $_identity;
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -63,7 +67,7 @@ class User extends CActiveRecord {
 				array('email','required','on'=>'loading'),
 				array('mobile','length','max'=>11),
 				array('mobile','length','min'=>11),
-				array('has_code, code, email,organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'required','on' =>'update'),
+				array('has_code, email,organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city', 'required','on' =>'update'),
 				array('has_code, created_by, mobile,updated_by,working_phone_dis', 'numerical', 'integerOnly' => true),
 				array('code', 'length', 'max' => 128),
 				array('password','length','min' =>6,'on'=>'surveyUpdate'),
@@ -113,6 +117,9 @@ class User extends CActiveRecord {
 				'created_by' => Yii::t('default', 'Created By'),
 				'updated_at' => Yii::t('default', 'Updated At'),
 				'updated_by' => Yii::t('default', 'Updated By'),
+				'type_id' => Yii::t('default', 'Type Id'),
+				'has_reged' => Yii::t('default', 'Has Reged'),
+				'cc' => Yii::t('default', 'cc'),
 		);
 	}
 
@@ -220,6 +227,18 @@ class User extends CActiveRecord {
 	
 	public function encrypt($value) {
 		return md5($value);
+	}
+	public function login() {
+		if ($this->_identity === null) {
+			$this->_identity = new UserIdentity($this->email, $this->password);
+			$this->_identity->authenticate();
+		}
+		if ($this->_identity->errorCode === UserIdentity::ERROR_NONE) {
+			Yii::app()->user->login($this->_identity);
+			return true;
+		}
+		else
+			return false;
 	}
 
 }

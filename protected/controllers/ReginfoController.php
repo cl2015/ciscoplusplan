@@ -27,8 +27,8 @@ class ReginfoController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('index','view'),
-						'users'=>array('*'),
+						'actions'=>array('nominationConfirmation','employeeConfirmation','ordinaryConfirmation','attendeeConfirmation'),
+						'users'=>array('@'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
 						'actions'=>array('create','update','attending','payment','pay','confirmation','ordinaryConfirmation'),
@@ -231,8 +231,8 @@ class ReginfoController extends Controller
 	}
 	public function actionConfirmation()
 	{
-		$model=$this->loadModel(1);
-		$model->user_id = 1;
+		$user=$this->loadUser(Yii::app()->user->id);
+		//$this->sendMail($user->email,,$user);
 		// uncomment the following code to enable ajax-based validation
 		/*
 		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
@@ -242,9 +242,9 @@ class ReginfoController extends Controller
 		}
 	 */
 		//$this->sendMail('Ted.Xin@gpj.com','xrong@gpj.com','<a href="#" >test</a>hello');
-		//$this->sendMail('li.he@brightac.com.cn','cranelee@gmail.com','');
+		$this->sendMail('li.he@brightac.com.cn','cranelee@gmail.com',$user);
 		//$this->sendMail('razhou@cisco.com', 'kevxu@cisco.com','');
-		$this->render('confirmation',array('model'=>$model));
+		$this->render('confirmation',array('user'=>$user));
 	}
 	public function actionPay()
 	{
@@ -271,19 +271,28 @@ class ReginfoController extends Controller
 		}
 		$this->render('pay',array('model'=>$model));
 	}
+	public function actionNominationConfirmation()
+	{
+		$user=$this->loadUser(Yii::app()->user->id);
+		$this->sendMail($user->email,$user->cc,$user);
+		$this->render('nominationConfirmation',array('model'=>$user));
+	}
+	public function actionEmployeeConfirmation()
+	{
+		$user=$this->loadUser(Yii::app()->user->id);
+		//$this->sendMail($user->email,$user->cc,$user);
+		$this->render('employeeConfirmation',array('model'=>$user));
+	}
 	public function actionOrdinaryConfirmation()
 	{
-		$model=$this->loadModel(1);
-		$model->user_id = 1;
-		// uncomment the following code to enable ajax-based validation
-		/*
-		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
-		{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-		}
-	 */
-
-		$this->render('ordinaryConfirmation',array('model'=>$model));
+		$user=$this->loadUser(Yii::app()->user->id);
+		$this->sendMail($user->email,$user->cc,$user);
+		$this->render('ordinaryConfirmation',array('model'=>$user));
+	}
+	public function actionAttendeeConfirmation()
+	{
+		$user=$this->loadUser(Yii::app()->user->id);
+		$this->sendMail($user->email,$user->cc,$user);
+		$this->render('attendeeConfirmation',array('model'=>$user));
 	}
 }

@@ -22,5 +22,9 @@ return array(
 		"Q5"=>"5.贵公司所属行业",
 		"Q6"=>"6.您在信息化管理和网络建设中技术职责是什么",
 		"required" =>"必填",
+		"This email has been reged." =>"此邮件已经被注册。",
+		"reg error" => "注册失败",
+		"please input your code" =>"请输入邀请码",
+		"error code" => '错误的邀请码',
 		
 		);

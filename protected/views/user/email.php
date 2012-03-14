@@ -1,8 +1,8 @@
 <p>
-	尊敬的Raincy女士:<br /> 感谢您注册北京 Cisco Plus 2012 <br />
+	尊敬的<?php echo $user->full_name?>:<br /> 感谢您注册北京 Cisco Plus 2012 <br />
 </p>
 <p>
-	您的注册ID号是：100101 ，请保存好这个信息，以便日后使用。<br />
+	您的注册ID号是：<?php echo $user->id?> ，请保存好这个信息，以便日后使用。<br />
 </p>
 
 <p>

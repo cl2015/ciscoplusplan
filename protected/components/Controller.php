@@ -20,17 +20,19 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
-		/**
+	/**
 	 * sendmail
 	 */
-	public function sendMail($to,$cc="cranelee@gmail.com",$content) {
+	public function sendMail($to,$cc="cranelee@gmail.com",$user) {
 		//$message = $content;
 		$mailer = Yii::app()->mailer;
 		$mailer->Host = 'smtp.exmail.qq.com';
 		$mailer->setPathViews('application.views.user');
 		$mailer->IsSMTP();
 		$mailer->SMTPAuth = true;
-		$mailer->AddCC($cc);
+		if($cc!="" && $cc!=null){
+			$mailer->AddCC($cc);
+		}
 		$mailer->From = 'admin@brightac.com.cn';
 		$mailer->AddReplyTo('admin@brightac.com.cn');
 		$mailer->AddAddress($to);
@@ -39,9 +41,9 @@ class Controller extends CController
 		$mailer->Password = 'admin1';    //这里输入发件地址的密码
 		$mailer->SMTPDebug = false;   //设置SMTPDebug为true，就可以打开Debug功能，根据提示去修改配置
 		$mailer->CharSet = 'UTF-8';
-		$mailer->Subject = Yii::t('demo', 'confirmation');
+		$mailer->Subject = Yii::t('default', 'confirmation');
 		$mailer->IsHTML(true);
-		$mailer->getView('email');
+		$mailer->getView('email',array('user'=>$user));
 		$mailer->Send();
 	}
 

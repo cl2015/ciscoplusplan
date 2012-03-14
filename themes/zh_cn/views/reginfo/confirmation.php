@@ -3,10 +3,10 @@
 	src="<?php echo Yii::app()->request->baseUrl; ?>/images/step3.png" />
 </br>
 <p>
-	尊敬的Raincy女士:<br /> 感谢您注册北京 Cisco Plus 2012 <br />
+	尊敬的<?php echo $user->full_name;?>先生/女士:<br /> 感谢您注册北京 Cisco Plus 2012 <br />
 </p>
 <p>
-	您的注册ID号是：100101 ，请保存好这个信息，以便日后使用。<br />
+	您的注册ID号是：<?php echo $user->id;?> ，请保存好这个信息，以便日后使用。<br />
 </p>
 
 <p>
@@ -31,5 +31,5 @@
 <a href="###" >返回Cisco Plus 主页</a><br/>
 <a href="###" >Cisco Plus 的注册与活动条款 </a><br/>
 </p> -->
-<?php echo CHtml::link(CHtml::encode("返回首页"), array('site/index', 'id'=>1 )); ?>
+<?php echo CHtml::link(CHtml::encode("返回首页"), 'http://www.ciscopluschina.com/index.html',array('target'=>'_blank')); ?>
 </br>
