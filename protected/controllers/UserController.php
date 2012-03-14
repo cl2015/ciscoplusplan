@@ -289,7 +289,7 @@ class UserController extends Controller
 		$user = User::model()->findByAttributes(array('email' => $email));
 		$retArr = array();
 		if($user === null){
-			$retArr['status'] = false;
+			$retArr['status'] = 'false';
 			$retArr['user'] = array();
 			$retArr['url'] = 'http://www.ciscopluschina.com';
 		}elseif($user->password!=$user->encrypt($password)){
@@ -297,11 +297,11 @@ class UserController extends Controller
 			$retArr['user'] = array();
 			$retArr['url'] = 'http://www.ciscopluschina.com';
 		}else{
-			$retArr['status'] = true;
+			$retArr['status'] = 'true';
 			$retArr['user'] = array('id'=>$user->id,'email'=>$user->email);
 			$retArr['url'] = '';
 		}
-		echo CJavaScript::jsonEncode($retArr);
+		echo CJavaScript::jsonEncode(array($retArr));
 		Yii::app()->end();
 	}
 
