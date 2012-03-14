@@ -6,7 +6,7 @@ class SurveyController extends Controller {
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout = '//layouts/column2';
+	public $layout='//layouts/front';
 	private $_user = null;
 
 	/**
@@ -69,13 +69,13 @@ class SurveyController extends Controller {
 			//$user->password2 = $_POST['User']["password2"];
 			//$model->validate();
 			//$model->save();
-			
+				
 			if($model->validate() && $user->validate()){
 				if ($model->save()&& $user->save()){
 					$this->redirect(array('reginfo/confirmation'));
 				}
 			}
-				
+
 		}else{
 			$user->password= '';
 		}
@@ -193,11 +193,14 @@ class SurveyController extends Controller {
 	}
 
 	public function actionOrdinaryCreate() {
-		$model = new Survey;
-		$user = $this->loadUser(Yii::app()->user->id);
+	$user = $this->loadUser(Yii::app()->user->id);
+		$model = Survey::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($model === null){
+			$model = new Survey;
+		}
 		$user->setScenario('surveyUpdate');
 		$model->setScenario('surveyUpdate');
-		$model->user_id = 1; //= $this->loadUser(1);
+		$model->user_id = $user->id;
 		if (isset($_POST['Survey']) && isset($_POST['User'])) {
 			$model->attributes = $_POST['Survey'];
 			$user->attributes = $_POST['User'];
@@ -216,11 +219,15 @@ class SurveyController extends Controller {
 		));
 	}
 	public function actionNominationCreate() {
-		$model = new Survey;
-		$user = $this->loadUser(Yii::app()->user->id);
+
+	$user = $this->loadUser(Yii::app()->user->id);
+		$model = Survey::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($model === null){
+			$model = new Survey;
+		}
 		$user->setScenario('surveyUpdate');
 		$model->setScenario('surveyUpdate');
-		$model->user_id = 1; //= $this->loadUser(1);
+		$model->user_id = $user->id;
 		if (isset($_POST['Survey']) && isset($_POST['User'])) {
 			$model->attributes = $_POST['Survey'];
 			$user->attributes = $_POST['User'];
@@ -234,6 +241,32 @@ class SurveyController extends Controller {
 			$user->password= '';
 		}
 		$this->render('nominationCreate', array(
+				'model' => $model,
+				'user' => $user,
+		));
+	}
+	public function actionAttendeeCreate() {
+		$user = $this->loadUser(Yii::app()->user->id);
+		$model = Survey::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($model === null){
+			$model = new Survey;
+		}
+		$user->setScenario('surveyUpdate');
+		$model->setScenario('surveyUpdate');
+		$model->user_id = $user->id;
+		if (isset($_POST['Survey']) && isset($_POST['User'])) {
+			$model->attributes = $_POST['Survey'];
+			$user->attributes = $_POST['User'];
+			if($model->validate() && $user->validate()){
+				$user->has_reged = 1;
+				if ($model->save()&& $user->save()){
+					$this->redirect(array('reginfo/Attending'));
+				}
+			}
+		}else{
+			$user->password= '';
+		}
+		$this->render('attendeeCreate', array(
 				'model' => $model,
 				'user' => $user,
 		));

@@ -6,7 +6,7 @@ class ReginfoController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/front';
 	public $_user = null;
 	/**
 	 * @return array action filters
@@ -180,7 +180,7 @@ class ReginfoController extends Controller
 			$model->attributes=$_POST['Reginfo'];
 			if ($model->is_online == 0)
 			{
-				$this->redirect(array('confirmation'));
+				$this->redirect(array('attendeeConfirmation'));
 			}else{
 				$this->redirect(array('payment'));
 			}

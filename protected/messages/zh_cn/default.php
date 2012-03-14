@@ -26,5 +26,8 @@ return array(
 		"reg error" => "注册失败",
 		"please input your code" =>"请输入邀请码",
 		"error code" => '错误的邀请码',
+		"Is Online" =>'是否在线参加',
+		'online' => '在线',
+		'onsite' => '现场',
 		
 		);

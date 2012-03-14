@@ -127,7 +127,7 @@
 	</table>
 	<div class="row buttons">
 		<?php //echo CHtml::Button('back',array("onclick"=>"javascript:history.go(-1)")); ?>
-		<?php echo CHtml::submitButton('继续'); ?>
+		<?php echo CHtml::submitButton('继续',array('class'=>'submitBg')); ?>
 	</div>
 
 	<?php $this->endWidget(); ?>

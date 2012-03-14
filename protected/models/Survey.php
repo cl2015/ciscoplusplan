@@ -15,7 +15,7 @@
  * @property string $updated_at
  * @property integer $updated_by
  */
-class Survey extends CActiveRecord {
+class Survey extends TrackStarActiveRecord {
 
 	/**
 	 * Returns the static model of the specified AR class.

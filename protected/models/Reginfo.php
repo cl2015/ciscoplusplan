@@ -84,7 +84,7 @@ class Reginfo extends CActiveRecord
 			'reg_address' => 'Reg Address',
 			'payment_type' => 'Payment Type',
 			'paid_amount' => 'Paid Amount',
-			'is_online' => 'Is Online',
+			'is_online' => Yii::t('default','Is Online'),
 			'created_at' => 'Created At',
 			'created_by' => 'Created By',
 			'updated_at' => 'Updated At',
@@ -125,15 +125,15 @@ class Reginfo extends CActiveRecord
 	public function getOnlineOptions()
 	{
 		return array(
-			0 => 'online',
-			1 => 'onsite',
+			0 => Yii::t('default','online'),
+			//1 => Yii::t('default','onsite'),
 		);
 	}
 	public function getPaymentOptions()
 	{
 		return array(
-			0 => 'online',
-			1 => 'onsite',
+			0 => Yii::t('default','online'),
+			1 => Yii::t('default','onsite'),
 		);
 	}
 }

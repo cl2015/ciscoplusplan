@@ -10,7 +10,7 @@
 	<?php echo $form->errorSummary($model); ?>
 	
 	<div class="row">
-<h2>Please choose  attending form:</h2>
+	<h2>Please choose  attending form:</h2>
 		<?php echo $form->labelEx($model,'is_online'); ?>
 		<?php echo $form->radioButtonList($model,'is_online',$model->getOnlineOptions()); ?>
 		<?php echo $form->error($model,'is_online'); ?>
