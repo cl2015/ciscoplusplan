@@ -61,7 +61,7 @@ class User extends TrackStarActiveRecord {
 
 		$rules = array(
 				array('password', 'compare', 'compareAttribute' => 'password2','on'=>'surveyUpdate'),
-				array('password','required', 'on'=>'surveyUpdate'),
+				array('password,password2','required', 'on'=>'surveyUpdate'),
 				array('email','email','on'=>'loading'),
 				array('email','required','on'=>'loading'),
 				array('mobile','length','max'=>11),

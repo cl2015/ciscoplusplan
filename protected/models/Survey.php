@@ -212,7 +212,7 @@ class Survey extends TrackStarActiveRecord {
 	}
 	public function getQ4Options() {
 		return array(
-				''=>"请选择一个",
+				''=>"Select One",
 				0 => '1-4',
 				1 => '5-19',
 				2 => '20-49',

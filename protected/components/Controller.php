@@ -57,7 +57,7 @@ class Controller extends CController
 		$mailer->CharSet = 'UTF-8';
 		$mailer->Subject = Yii::t('default', 'confirmation');
 		$mailer->IsHTML(true);
-		$mailer->getView('email',array('user'=>$user));
+		$mailer->getView('email',array('model'=>$user));
 		$mailer->Send();
 	}
 
