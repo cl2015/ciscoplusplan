@@ -264,9 +264,7 @@ class User extends TrackStarActiveRecord {
 	}
 	public function beforeSave(){
 		if(parent::beforeSave()){
-			
 			if($this->password!=''&&$this->password != null){
-				echo 'beforeSave';
 				$this->password = $this->encrypt($this->password);
 			}
 		}
