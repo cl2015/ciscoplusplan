@@ -1,4 +1,3 @@
-<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/o_step3.jpg" />
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -16,7 +15,8 @@
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::Button('back',array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
+		<?php echo CHtml::submitButton('continue',array("class"=>"submitBg")); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

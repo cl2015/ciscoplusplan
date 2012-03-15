@@ -80,13 +80,14 @@
 		</tr>
 
 
-
+		</table>
+		<table>
 		<tr>
 			<td colspan=3><?php echo Yii::t('default','请设置用于登录大会活动网站<a href="http://www.ciscopluschina.com">www.ciscopluschina.com</a>的登录密码。注册完成后，即可在大会网站上使用注册邮箱和此密码登录，专享白皮书下载，视频观看等互动活动。')?>
 			</td>
 		</tr>
 		<tr>
-			<td><?php echo $form->labelEx($user, 'password'); ?></td>
+			<td style="width: 120px;"><?php echo $form->labelEx($user, 'password'); ?></td>
 			<td><?php echo $form->passwordField($user, 'password'); ?></td>
 			<td><?php echo $form->error($user, 'password'); ?>
 			</td>
@@ -98,11 +99,9 @@
 			</td>
 		</tr>
 		<tr>
-			<td><?php echo CHtml::Button('back',array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
+			<td colspan=3><?php echo CHtml::Button('back',array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
 				<?php echo CHtml::submitButton('continue',array("class"=>"submitBg")); ?>
 			</td>
-			<td></td>
-			<td></td>
 		</tr>
 		<tr>
 			<td></td>

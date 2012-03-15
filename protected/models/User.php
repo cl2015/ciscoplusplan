@@ -262,6 +262,16 @@ class User extends TrackStarActiveRecord {
 	public function encrypt($value) {
 		return md5($value);
 	}
+	public function beforeSave(){
+		if(parent::beforeSave()){
+			
+			if($this->password!=''&&$this->password != null){
+				echo 'beforeSave';
+				$this->password = $this->encrypt($this->password);
+			}
+		}
+		return true;
+	}
 	public function login() {
 		if ($this->_identity === null) {
 			$this->_identity = new UserIdentity($this->email, $this->password);

@@ -1,5 +1,3 @@
-
-<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/o_step3.jpg" />
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(

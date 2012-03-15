@@ -3,7 +3,7 @@
 	src="<?php echo Yii::app()->request->baseUrl; ?>/images/4.png" />
 <?php }else{?>
 <img
-	src="<?php echo Yii::app()->request->baseUrl; ?>/images/4_en.png" />
+	src="<?php echo Yii::app()->request->baseUrl; ?>/images/4_en.jpg" />
 <?php }?>
 <div class="form">
 	<?php $form=$this->beginWidget('CActiveForm', array(

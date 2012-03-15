@@ -10,7 +10,6 @@
 	<!--[if lt IE 8]>
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
-
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
@@ -20,10 +19,10 @@
   <div class="header">
     <ul>
       <li style=" margin-right:25px;"><?php echo CHtml::link('中文',array('user/language','language'=>'zh_cn'));?> | <?php echo CHtml::link('En',array('user/language','language'=>'en'));?></li>
-      <li><a href="#">登录</a>　|</li>
-      <li><a href="#">注册</a>　|</li>
-      <li><a href="#">思科中国</a>　|</li>
-      <li style="padding-top:0px;*padding-top:2px;"><a href="#">联系我们</a></li>
+ 	  <li><a href="#" onClick="javascript:window.open('http://www.ciscopluschina.com/pop.html','','width=268,height=190,toolbar=no, status=no, menubar=no, resizable=no, scrollbars=no');return false;">登录</a>　|</li>
+      <li><?php echo CHtml::link('注册',array('user/loading'));?>|</li>
+      <li><a href="http://www.ciscopluschina.com/contact.html">联系我们</a>　|</li>
+      <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscopluschina.com/index.html">返回主页</a></li>
     </ul>
   </div>
   <div class="mainBg"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/mainBg.jpg" /></div>
