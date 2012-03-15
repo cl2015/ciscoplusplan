@@ -20,6 +20,20 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+	
+	public function init(){
+		//Yii::app()->language = 'zh_CN';
+		$session=new CHttpSession;
+		$session->open();
+		$language = $session['language'];
+		if($language == null){
+			$language = Yii::app()->language;
+			$session['language'] = $language;
+		}else{
+			Yii::app()->language = $language;
+		}
+		//echo Yii::app()->language;
+	}
 	/**
 	 * sendmail
 	 */

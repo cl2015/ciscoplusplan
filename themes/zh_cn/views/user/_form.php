@@ -5,7 +5,7 @@
 	)); ?>
 
 	<p class="note">
-		标记<span class="required">*</span>的为必填项
+		<?php echo Yii::t('default','label_required')?>
 	</p>
 	<?php echo $form->errorSummary($model); ?>
 	<table>
@@ -127,7 +127,7 @@
 	</table>
 	<div class="row buttons">
 		<?php //echo CHtml::Button('back',array("onclick"=>"javascript:history.go(-1)")); ?>
-		<?php echo CHtml::submitButton('继续',array('class'=>'submitBg')); ?>
+		<?php echo CHtml::submitButton('coutinue',array('class'=>'submitBg')); ?>
 	</div>
 
 	<?php $this->endWidget(); ?>

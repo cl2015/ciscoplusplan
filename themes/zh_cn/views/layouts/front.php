@@ -19,7 +19,7 @@
 <div id="box">
   <div class="header">
     <ul>
-      <li style=" margin-right:25px;">中文 | <a href="#">En</a></li>
+      <li style=" margin-right:25px;"><?php echo CHtml::link('中文',array('user/language','language'=>'zh_cn'));?> | <?php echo CHtml::link('En',array('user/language','language'=>'en'));?></li>
       <li><a href="#">登录</a>　|</li>
       <li><a href="#">注册</a>　|</li>
       <li><a href="#">思科中国</a>　|</li>

@@ -1,4 +1,3 @@
-<h1>Create Survey</h1>
 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/o_step3.jpg" />
 <div class="form">
 

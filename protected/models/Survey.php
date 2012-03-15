@@ -113,6 +113,7 @@ class Survey extends TrackStarActiveRecord {
 
 	public function getQ1Options() {
 		return array(
+				''=> 'Select One',
 				0 => 'LAN',
 				1 => 'WAN',
 				2 => 'Man',
@@ -153,6 +154,7 @@ class Survey extends TrackStarActiveRecord {
 
 	public function getQ2Options() {
 		return array(
+				''=> 'Select One',
 				0 => 'Less 3 months',
 				1 => '4 to 6 months',
 				2 => '7 to 12 months',
@@ -174,6 +176,7 @@ class Survey extends TrackStarActiveRecord {
 	}
 	public function getQ3Options() {
 		return array(
+				''=> 'Select One',
 				0 => '0-10 thousands',
 				1 => '10-50 thousands',
 				2 => '50 thousands',
@@ -241,66 +244,57 @@ class Survey extends TrackStarActiveRecord {
 				11 => '无',
 		);
 	}
-	public function getQ66Options() {
+	public function getQ6Options() {
 		return array(
-				1 => 'IP通讯',
-				2 => 'IT应用',
-				3 => '光纤网络',
-				4 => '安全 - 应用安全',
-				5 => '安全 - 政策安全等级',
-				6 => '安全 - 网络安全',
-				7 => '数据中心 - 基础架构',
-				8 => '数据中心 - 存储',
-				9 => '数据中心 - 服务器',
-				10 =>'数据中心 - 应用网络',
-				11 =>'无线',
-				12 =>'系统维护',
-				13 =>'网络维护',
-				14 =>'网络运营',
-				15 =>'视频系统',
-				16 =>'语音系统',
-				17 =>'语音 - 呼叫中心',
+				1 => Yii::t('default','Data Center - Application Networking'),
+				2 => Yii::t('default','Data Center - Infrastructure'),
+				3 => Yii::t('default','Data Center - Servers'),
+				4 => Yii::t('default','Data Center - Storage'),
+				5 => Yii::t('default','Data Center Management'),
+				6 => Yii::t('default','IPC'),
+				7 => Yii::t('default','IT Applications'),
+				8 => Yii::t('default','Network'),
+				9 => Yii::t('default','Network Operation'),
+				10 => Yii::t('default','Network Planning'),
+				11 => Yii::t('default','Optical'),
+				12 => Yii::t('default','Security'),
+				13 => Yii::t('default','Security - Application Security'),
+				14 => Yii::t('default','Security - Network Security'),
+				15 => Yii::t('default','Security - Policy Security Level'),
+				16 => Yii::t('default','Storage'),
+				17 => Yii::t('default','System'),
+				18 => Yii::t('default','Video Systems'),
+				19 => Yii::t('default','Voice - Cisco Unified Contact Center'),
+				20 => Yii::t('default','Voice Systems'),
+				21 => Yii::t('default','Wireless'),
+				22 => Yii::t('default','Others'),
 		);
 	}
-	public function getQ55Options() {
+	public function getQ5Options(){
 		return array(
-				''=>"请选择一个",
-				1 => '航天航空/国防',
-				2 => '汽车',
-				3 => '银行',
-				4 => '石油化工',
-				5 => '电脑软/硬件供应商',
-				6 => '消费品',
-				7 => '教育',
-				8 => '电子',
-				9 => '金融服务',
-				10 =>'食品，饮料，烟草',
-				11 =>'政府机关',
-				12 =>'医疗',
-				13 =>'酒店及娱乐服务',
-				14 =>'保险',
-				15 =>'公检法',
-				16 =>'制造业',
-				17 =>'媒体-印刷/广播',
-				18 =>'生物和制药',
-				19 =>'律师，财务，咨询类等专业服务',
-				20 =>'零售业',
-				21 =>'房地产',
-				22 =>'电信运营商，ISP，ICP，ASP，有限电视',
-				23 =>'交通运输',
-				24 =>'能源',
-				25 =>'批发/分销',
+				'' => Yii::t('default','Select one'),
+				1 => Yii::t('default','Business Development'),
+				2 => Yii::t('default','Consultant/Contractor'),
+				3 => Yii::t('default','Customer Service'),
+				4 => Yii::t('default','E-Commerce'),
+				5 => Yii::t('default','Engineering'),
+				6 => Yii::t('default','Executive Management'),
+				7 => Yii::t('default','Finance/Accounting/Legal'),
+				8 => Yii::t('default','HR/Recruitment'),
+				9 => Yii::t('default','Logistics'),
+				10 => Yii::t('default','MIS/IT'),
+				11 => Yii::t('default','Manufacturing'),
+				12 => Yii::t('default','Marketing/PR/Advertising'),
+				13 => Yii::t('default','Network Management'),
+				14 => Yii::t('default','Operations/Administration'),
+				15 => Yii::t('default','Other'),
+				16 => Yii::t('default','Purchasing/Procurement'),
+				17 => Yii::t('default','Research/Development'),
+				18 => Yii::t('default','Sales'),
+				19 => Yii::t('default','Technical Support'),
+				20 => Yii::t('default','Training/Education'),
 		);
 	}
-	// 	protected function beforeValidate(){
-	// 		//parent::beforeValidate();
-	// 		if(is_array($this->q6)){
-	// 			//$this->q6 = implode(',',$this->q6);
-	// 		}
-	// 		echo ('beforeValidate');
-	// 		var_dump($this->q6);
-
-	// 	}
 	protected function beforeSave(){
 		if(parent::beforeSave()){
 			if(is_array($this->q6)){

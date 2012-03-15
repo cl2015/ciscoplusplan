@@ -1,3 +1,10 @@
+<?php if(Yii::app()->language=='zh_cn'){?>
+<img
+	src="<?php echo Yii::app()->request->baseUrl; ?>/images/4.png" />
+<?php }else{?>
+<img
+	src="<?php echo Yii::app()->request->baseUrl; ?>/images/4_en.png" />
+<?php }?>
 <div class="form">
 	<?php $form=$this->beginWidget('CActiveForm', array(
 			'id'=>'user-form',
@@ -5,7 +12,7 @@
 	)); ?>
 
 	<p class="note">
-		标记<span class="required">*</span>的为必填项
+		<?php echo Yii::t('default','label_required');?>
 	</p>
 	<?php echo $form->errorSummary($model); ?>
 	<table>
@@ -51,7 +58,7 @@
 	</table>
 	<div class="row buttons">
 		<?php //echo CHtml::Button('back',array("onclick"=>"javascript:history.go(-1)")); ?>
-		<?php echo CHtml::submitButton('继续'); ?>
+		<?php echo CHtml::submitButton('coutinue',array('class'=>'submitBg')); ?>
 	</div>
 
 	<?php $this->endWidget(); ?>

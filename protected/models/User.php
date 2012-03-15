@@ -58,11 +58,10 @@ class User extends TrackStarActiveRecord {
 	public function rules() {
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
-		
-		return array(
+
+		$rules = array(
 				array('password', 'compare', 'compareAttribute' => 'password2','on'=>'surveyUpdate'),
 				array('password','required', 'on'=>'surveyUpdate'),
-				array('city','match','pattern'=>"/^[\x7f-\xff]+$/",'message'=>'请输入中文'),
 				array('email','email','on'=>'loading'),
 				array('email','required','on'=>'loading'),
 				array('mobile','length','max'=>11),
@@ -77,6 +76,9 @@ class User extends TrackStarActiveRecord {
 				// Please remove those attributes that should not be searched.
 				array('id, has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile, created_at, created_by, updated_at, updated_by', 'safe', 'on' => 'search'),
 		);
+		if(Yii::app()->language=='zh_cn')
+			$rules[]=array('city','match','pattern'=>"/^[\x7f-\xff]+$/",'message'=>'请输入中文');
+		return $rules;
 	}
 
 	/**
@@ -170,61 +172,93 @@ class User extends TrackStarActiveRecord {
 
 	public function getJobTitleOptions() {
 		return array(
-				1 => '总裁/总经理',
-				2 => 'CXO',
-				3 => '首席信息官/IT总监',
-				4 => '总监/资深经理',
-				5 => '经理（有下属员工）',
-				6 => '经理（无下属员工）',
-				7 => '员工',
-				8 => '办公室行政',
-				9 => '其它',
+				1 => Yii::t('default','CEO/Managing Director'),
+				2 => Yii::t('default','CXO/Executive'),
+				3 => Yii::t('default','CIO/IT Director'),
+				4 => Yii::t('default','Director/Senior Manager'),
+				5 => Yii::t('default','Management with Staff'),
+				6 => Yii::t('default','Management without Staff'),
+				7 => Yii::t('default','Employee'),
+				8 => Yii::t('default','Office administration'),
+				9 => Yii::t('default','Other'),
 		);
 	}
 
 	public function getDepartmentOptions() {
 		return array(
-				1 => '商业/市场开发',
-				2 => '顾问咨询',
-				3 => '客户服务',
-				4 => '电子商务',
-				5 => '工程设计',
-				6 => '办公室管理',
-				7 => '财务，会计',
-				8 => '人力资源',
-				9 => '物流',
-				0 => '信息化管理',
-				11 => '生产管理',
-				12 => '市场营销/公共关系/广告',
-				13 => '网络管理',
-				14 => '决策管理',
-				15 => '采购',
-				16 => '研究/开发',
-				17 => '销售',
-				18 => '技术支持',
-				19 => '培训/教育',
-				20 => '业务部门',
-				21 => 'IT部门',
-				22 => '其它',
+				1 => Yii::t('default','Business Development'),
+				2 => Yii::t('default','Consultant/Contractor'),
+				3 => Yii::t('default','Customer Service'),
+				4 => Yii::t('default','E-Commerce'),
+				5 => Yii::t('default','Engineering'),
+				6 => Yii::t('default','Executive Management'),
+				7 => Yii::t('default','Finance/Accounting/Legal'),
+				8 => Yii::t('default','HR/Recruitment'),
+				9 => Yii::t('default','Logistics'),
+				10 => Yii::t('default','MIS/IT'),
+				11 => Yii::t('default','Manufacturing'),
+				12 => Yii::t('default','Marketing/PR/Advertising'),
+				13 => Yii::t('default','Network Management'),
+				14 => Yii::t('default','Operations/Administration'),
+				15 => Yii::t('default','Purchasing/Procurement'),
+				16 => Yii::t('default','Research/Development'),
+				17 => Yii::t('default','Sales'),
+				18 => Yii::t('default','Technical Support'),
+				19 => Yii::t('default','Training/Education'),
+				20 => Yii::t('default','Other'),
+
 		);
 	}
 
 	public function getRelationOptions() {
 		return array(
-				1 => '客户',
-				2 => '合作伙伴',
-				3 => '媒体记者',
-				4 => '会议赞助商',
-				5 => '其它',
+				1 => Yii::t('default','Customer'),
+				2 => Yii::t('default','Partner'),
+				3 => Yii::t('default','Media Reporter'),
+				4 => Yii::t('default','Conference Sponsors'),
+				5 => Yii::t('default','Other'),
+
+		);
+	}
+	public function getProvinces() {
+		return array(
+				"北京" => Yii::t('default',"北京"),
+				"上海" => Yii::t('default',"上海"),
+				"天津" => Yii::t('default',"天津"),
+				"重庆" => Yii::t('default',"重庆"),
+				"甘肃" => Yii::t('default',"甘肃"),
+				"广东" => Yii::t('default',"广东"),
+				"广西" => Yii::t('default',"广西"),
+				"贵州" => Yii::t('default',"贵州"),
+				"海南" => Yii::t('default',"海南"),
+				"河北" => Yii::t('default',"河北"),
+				"黑龙江" => Yii::t('default',"黑龙江"),
+				"河南" => Yii::t('default',"河南"),
+				"浙江" => Yii::t('default',"浙江"),
+				"湖北" => Yii::t('default',"湖北"),
+				"湖南" => Yii::t('default',"湖南"),
+				"内蒙古" => Yii::t('default',"内蒙古"),
+				"江西" => Yii::t('default',"江西"),
+				"江苏" => Yii::t('default',"江苏"),
+				"吉林" => Yii::t('default',"吉林"),
+				"辽宁" => Yii::t('default',"辽宁"),
+				"宁夏" => Yii::t('default',"宁夏"),
+				"青海" => Yii::t('default',"青海"),
+				"陕西" => Yii::t('default',"陕西"),
+				"山西" => Yii::t('default',"山西"),
+				"山东" => Yii::t('default',"山东"),
+				"安徽" => Yii::t('default',"安徽"),
+				"四川" => Yii::t('default',"四川"),
+				"福建" => Yii::t('default',"福建"),
+				"西藏" => Yii::t('default',"西藏"),
+				"新疆" => Yii::t('default',"新疆"),
+				"云南" => Yii::t('default',"云南"),
+				"香港" => Yii::t('default',"香港"),
+				"澳门" => Yii::t('default',"澳门"),
+				"台湾" => Yii::t('default',"台湾"),
 		);
 	}
 
-	public function getProvinces() {
-		return array(
-				"北京" => "北京", "上海" => "上海", "天津" => "天津", "重庆" => "重庆", "甘肃" => "甘肃", "广东" => "广东", "广西" => "广西", "贵州" => "贵州", "海南" => "海南", "河北" => "河北", "黑龙江" => "黑龙江", "河南" => "河南", "浙江" => "浙江", "湖北" => "湖北", "湖南" => "湖南", "内蒙古" => "内蒙古", "江西" => "江西", "江苏" => "江苏", "吉林" => "吉林", "辽宁" => "辽宁", "宁夏" => "宁夏", "青海" => "青海", "陕西" => "陕西", "山西" => "山西", "山东" => "山东", "安徽" => "安徽", "四川" => "四川", "福建" => "福建", "西藏" => "西藏", "新疆" => "新疆", "云南" => "云南", "香港" => "香港", "澳门" => "澳门", "台湾" => "台湾",
-		);
-	}
-	
 	public function encrypt($value) {
 		return md5($value);
 	}

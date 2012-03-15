@@ -1,6 +1,7 @@
-<h1>Confirmation</h1>
-<img
-	src="<?php echo Yii::app()->request->baseUrl; ?>/images/step3.png" />
-</br>
+<?php if(Yii::app()->language=='zh_cn'){?>
+<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/5.png"/>
+<?php }else{?>
+<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/5_en.png"/>
+<?php }?>
 <?php echo $this->renderPartial('_confirmation', array('model'=>$model)); ?>
 

@@ -27,7 +27,7 @@ class UserController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('index','loading','check','reg'),
+						'actions'=>array('index','loading','check','reg','language'),
 						'users'=>array('*'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -204,6 +204,8 @@ class UserController extends Controller
 					if($model->save()){
 						if($model->login()){
 							$this->redirect(array('attendeeUpdate'));
+						}else{
+							$message['email'] = 'error';
 						}
 					}
 					$message['email']=Yii::t('default','reg error.');
@@ -229,8 +231,12 @@ class UserController extends Controller
 					if($user->login()){
 						$this->redirect(array('nominationUpdate'));
 					}
+				}elseif($user->type_id == '4'){
+					if($user->login()){
+						$this->redirect(array('attendeeUpdate'));
+					}
 				}else{
-					$messge['email']="error";
+					$messge['email']=Yii::t('default',"error");
 				}
 			}
 		}
@@ -390,7 +396,21 @@ class UserController extends Controller
 			}
 		}
 	}
-	
+
+	public function actionLanguage($language){
+		if(in_array($language,array('zh_cn','en_us','en'))){
+			$session=new CHttpSession;
+			$session->open();
+			$session['language'] = $language;
+		}
+		if(CHttpRequest::getUrlReferrer() == null){
+			$this->redirect(array('user/loading'));
+		}else{
+			$this->redirect(CHttpRequest::getUrlReferrer());
+		}
+
+	}
+
 
 
 }
