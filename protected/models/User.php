@@ -51,6 +51,8 @@ class User extends TrackStarActiveRecord {
 	public $password;
 	public $password2;
 	private $_identity;
+	public $first_name;
+	public $last_name;
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -66,18 +68,23 @@ class User extends TrackStarActiveRecord {
 				array('email','required','on'=>'loading'),
 				array('mobile','length','max'=>11),
 				array('mobile','length','min'=>11),
-				array('has_code, email,organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city', 'required','on' =>'update'),
+				array('has_code, email,organisation, relation_with_cisco, job_title, department, working_phone_dis, working_phone, mobile, province, city', 'required','on' =>'update'),
 				array('has_code, created_by, mobile,updated_by,working_phone_dis', 'numerical', 'integerOnly' => true),
 				array('code', 'length', 'max' => 128),
 				array('password','length','min' =>6,'on'=>'surveyUpdate'),
+				array('password','length','max' =>6,'on'=>'surveyUpdate'),
 				array('email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max' => 256),
 				array('password2, password', 'safe'),
 				// The following rule is used by search().
 				// Please remove those attributes that should not be searched.
 				array('id, has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile, created_at, created_by, updated_at, updated_by', 'safe', 'on' => 'search'),
 		);
-		if(Yii::app()->language=='zh_cn')
-			$rules[]=array('city','match','pattern'=>"/^[\x7f-\xff]+$/",'message'=>'请输入中文');
+		if(Yii::app()->language=='zh_cn'){
+			$rules[]=array('full_name', 'required','on' =>'update');
+			$rules[]=array('city','match','pattern'=>"/^[a-zA-Z ]*[\x7f-\xff]+[a-zA-Z ]*$/",'message'=>'必须包含中文');
+		}else{
+			$rules[]=array('first_name, last_name', 'required','on' =>'update');
+		}
 		return $rules;
 	}
 
@@ -266,6 +273,9 @@ class User extends TrackStarActiveRecord {
 		if(parent::beforeSave()){
 			if($this->password!=''&&$this->password != null){
 				$this->password = $this->encrypt($this->password);
+			}
+			if($this->first_name!=""&&$this->first_name!=null&&$this->last_name!=""&&$this->last_name!=null){
+				$this->full_name=$this->first_name . ' ' . $this->last_name;
 			}
 		}
 		return true;

@@ -8,9 +8,9 @@ return array(
 		"Q3"=>"3.What is your budget?(RMB) ",
 		"Q4"=>"4.How many PC's are there at your location",
 		"Q5"=>"5.In which main industry does your company operate?",
-		"Q6"=>"6.For your current role, what are your areas of technology responsibility?",
-		'请设置用于登录大会活动网站<a href="http://www.ciscopluschina.com">www.ciscopluschina.com</a>的登录密码。注册完成后，即可在大会网站上使用注册邮箱和此密码登录，专享白皮书下载，视频观看等互动活动。'
-		=>'Please set up the login password used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com"> www.ciscopluschina.com </a> . After registration is complete, you can use on the website of the General Assembly registered email and this password to login, exclusive white papers, video viewing and other interactive activities.',
+		"Q6"=>"6.For your current role, what are your areas of technology responsibility?(Multiple choice)",
+		'password info'
+		=>'Please set up the login password used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com"> www.ciscopluschina.com </a> . After registration is complete, you can use on the website of the General Assembly registered email and this password to login, exclusive white papers, video viewing and other interactive activities.(6-digit password)',
 		'label_require' =>'<em>Marked with <span class="required">*</span> are required</em>',
 		'label_required' =>'<em>Marked with <span class="required">*</span> are required</em>',
 		

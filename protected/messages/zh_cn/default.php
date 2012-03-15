@@ -20,7 +20,7 @@ return array(
 		"Q3"=>"3.贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：",
 		"Q4"=>"4.贵公司的PC数量是",
 		"Q5"=>"5.贵公司所属行业",
-		"Q6"=>"6.您在信息化管理和网络建设中技术职责是什么",
+		"Q6"=>"6.您在信息化管理和网络建设中技术职责是什么?(多选)",
 		"required" =>"必填",
 		"This email has been reged." =>"此邮件已经被注册。",
 		"reg error" => "注册失败",
@@ -109,5 +109,8 @@ return array(
 		'Others'=>'其他',
 		'label_require' =>'<em>标记<span class="required">*</span>的为必填项</em>',
 		'label_required' =>'<em>标记<span class="required">*</span>的为必填项</em>',
-		
+		'back' => '返回上页',
+		'finish' =>'完成',
+		'password info'=>'请设置用于登录大会活动网站<a href="http://www.ciscopluschina.com">www.ciscopluschina.com</a>的登录密码。注册完成后，即可在大会网站上使用注册邮箱和此密码登录，专享白皮书下载，视频观看等互动活动。(6位数字密码)',
+		'Select one'=>'请选择一个',
 		);
