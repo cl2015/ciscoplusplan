@@ -175,8 +175,9 @@ class UserController extends Controller
 			Yii::app()->end();
 		}
 	}
-	public function actionLoading($email='')
+	public function actionLoading($email='',$language="")
 	{
+		$this->setLanguage($language);
 		$model=new User('loading');
 		$model->email = $email;
 		$message = array("email"=>"","code"=>'',"has_code"=>"");
@@ -398,17 +399,23 @@ class UserController extends Controller
 	}
 
 	public function actionLanguage($language){
-		if(in_array($language,array('zh_cn','en_us','en'))){
-			$session=new CHttpSession;
-			$session->open();
-			$session['language'] = $language;
-		}
+		$this->setLanguage($language);
 		if(CHttpRequest::getUrlReferrer() == null){
 			$this->redirect(array('user/loading'));
 		}else{
 			$this->redirect(CHttpRequest::getUrlReferrer());
 		}
 
+	}
+	
+	public function setLanguage($language){
+		if(in_array($language,array('zh_cn','en_us','en'))){
+			$session=new CHttpSession;
+			$session->open();
+			$session['language'] = $language;
+			Yii::app()->language = $language;
+		}
+		return true;
 	}
 
 

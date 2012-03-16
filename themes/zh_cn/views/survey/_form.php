@@ -1,3 +1,15 @@
+<style>
+div.form label {
+	text-align: left;
+	width: 400px;
+}
+
+li.q6 label {
+	text-align: left;
+	width: 200px;
+	
+}
+</style>
 <div class="form">
 	<?php
 	$form = $this->beginWidget('CActiveForm', array(
@@ -7,10 +19,10 @@
 	?>
 	<?php echo $form->errorSummary($model); ?>
 	<?php echo $form->hiddenField($model, 'user_id', array('size' => 10, 'maxlength' => 10)); ?>
-	<table width='628' border='0' cellspacing='0' cellpadding='0'>
-		<th width="300"><?php echo Yii::t('default','label_require')?></th>
-		<th width="300"></th>
-		<th width="30"></th>
+	<table width="908px" border='0' cellspacing='0' cellpadding='0'>
+		<th width="430px"><?php echo Yii::t('default','label_require')?></th>
+		<th width=""></th>
+		<th width=""></th>
 		<tr>
 			<td><?php echo $form->labelEx($model,'q1'); ?></td>
 			<td><?php if(Yii::app()->language=='zh_cn') {
@@ -67,27 +79,26 @@
 
 		<tr>
 			<td><?php echo $form->labelEx($model,'q6'); ?></td>
+			<?php echo $form->error($model, 'q6'); ?>
+			<td></td>
+			<td></td>
 		</tr>
 		<tr>
-			<td colspan=2>
-				<ul>
-					<?php 	echo $form->checkBoxList($model, 'q6', $model->getQ6Options(), array('separator' => '', 'template' => '<li style="list-style: none outside none;float:left; width:240px;line-height:30px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));
-					?>
-
-				</ul>
+			<td colspan=3><?php 	echo $form->checkBoxList($model, 'q6', $model->getQ6Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;line-height:30px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));
+			?>
 			</td>
-			<td><?php echo $form->error($model, 'q6'); ?></td>
 		</tr>
 
 
-		</table>
-		<table>
+	</table>
+	<table>
 		<tr>
 			<td colspan=3><?php echo Yii::t('default','password info')?>
 			</td>
 		</tr>
 		<tr>
-			<td style="width: 120px;"><?php echo $form->labelEx($user, 'password'); ?></td>
+			<td style="width: 120px;"><?php echo $form->labelEx($user, 'password'); ?>
+			</td>
 			<td><?php echo $form->passwordField($user, 'password'); ?></td>
 			<td><?php echo $form->error($user, 'password'); ?>
 			</td>
