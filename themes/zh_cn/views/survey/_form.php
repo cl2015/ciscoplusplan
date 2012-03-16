@@ -90,8 +90,8 @@ div.form .password label {
 			<td></td>
 		</tr>
 		<tr>
-			<td colspan=3><?php if(Yii::app()->language=='zh_cn') { ?> <?php 	echo $form->checkBoxList($model, 'q6', $model->getQ66Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;line-height:30px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));?>
-				<?php }else{?> <?php 	echo $form->checkBoxList($model, 'q6', $model->getQ6Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;line-height:30px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));
+			<td colspan=3><?php if(Yii::app()->language=='zh_cn') { ?> <?php 	echo $form->checkBoxList($model, 'q6', $model->getQ66Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));?>
+				<?php }else{?> <?php 	echo $form->checkBoxList($model, 'q6', $model->getQ6Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));
 				?> <?php }?>
 			</td>
 		</tr>
