@@ -75,13 +75,16 @@ class User extends TrackStarActiveRecord {
 				array('password','length','max' =>6,'on'=>'surveyUpdate'),
 				array('email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max' => 256),
 				array('password2, password', 'safe'),
+				
+				array('full_name,department','required', 'on'=>'employeeUpdate'),
+				
 				// The following rule is used by search().
 				// Please remove those attributes that should not be searched.
 				array('id, has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile, created_at, created_by, updated_at, updated_by', 'safe', 'on' => 'search'),
 		);
 		if(Yii::app()->language=='zh_cn'){
 			$rules[]=array('full_name', 'required','on' =>'update');
-			$rules[]=array('full_name,organisation,city,department','match','pattern'=>"/^[a-zA-Z ]*[\x7f-\xff]+[a-zA-Z ]*$/",'message'=>'必须包含中文');
+			$rules[]=array('full_name,organisation,city,department','match','pattern'=>"/^[a-zA-Z0-9 ]*[\x7f-\xff]+[a-zA-Z0-9 ]*$/",'message'=>'必须包含中文');
 		}else{
 			$rules[]=array('first_name, last_name', 'required','on' =>'update');
 		}
@@ -119,7 +122,7 @@ class User extends TrackStarActiveRecord {
 				'mobile' => Yii::t('default', 'Mobile'),
 				'province' => Yii::t('default', 'Province'),
 				'city' => Yii::t('default', 'City'),
-				'ec_name' => Yii::t('default', 'Ec Name'),
+				'ec_name' => Yii::t('default', 'CEC ID'),
 				'ec_relationship' => Yii::t('default', 'Ec Relationship'),
 				'ec_mobile' => Yii::t('default', 'Ec Mobile'),
 				'created_at' => Yii::t('default', 'Created At'),

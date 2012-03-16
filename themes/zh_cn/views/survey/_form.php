@@ -119,7 +119,8 @@ div.form .password label {
 			</td>
 		</tr>
 		<tr>
-			<td colspan=3><?php echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
+			<td colspan=3>
+				<?php echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
 				<?php echo CHtml::submitButton(Yii::t('default','finish'),array("class"=>"submitBg")); ?>
 			</td>
 		</tr>

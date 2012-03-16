@@ -28,13 +28,13 @@
 			<td><?php echo $form->error($model,'full_name'); ?>
 			</td>
 		</tr>
-
+		
 		<tr>
-			<td><?php echo $form->labelEx($model,'job_title'); ?>
+			<td><?php echo $form->labelEx($model,'ec_name'); ?>
 			</td>
-			<td><?php echo $form->dropDownList($model,'job_title',$model->getJobTitleOptions()); ?>
+			<td><?php echo $form->textField($model,'ec_name',array('size'=>60,'maxlength'=>256)); ?>
 			</td>
-			<td><?php echo $form->error($model,'job_title'); ?>
+			<td><?php echo $form->error($model,'$ec_name'); ?>
 			</td>
 		</tr>
 
@@ -57,8 +57,8 @@
 		</tr>
 	</table>
 	<div class="row buttons">
-		<?php //echo CHtml::Button('back',array("onclick"=>"javascript:history.go(-1)")); ?>
-		<?php echo CHtml::submitButton('coutinue',array('class'=>'submitBg')); ?>
+		<?php echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
+				<?php echo CHtml::submitButton(Yii::t('default','finish'),array("class"=>"submitBg")); ?>
 	</div>
 
 	<?php $this->endWidget(); ?>
