@@ -29,6 +29,8 @@ return array(
 		"Is Online" =>'是否在线参加',
 		'online' => '在线',
 		'onsite' => '现场',
+		'Payment Type'=>'支付方式',
+		
 		'continue' =>'继续',
 		'CEO/Managing Director' => '总裁/总经理',
 		'CXO/Executive'=> 'CXO',

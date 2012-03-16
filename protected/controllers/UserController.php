@@ -199,7 +199,7 @@ class UserController extends Controller
 			 */
 			$model->attributes=$_POST['User'];
 			if($model->validate()){
-				if(isset($model->code)){
+				if(isset($model->code) && $model->code!=null&& $model->code!=''){
 					$user = User::model()->findByAttributes(array('email'=>$model->email,'code'=>$model->code));
 					if($user===null){
 						$message['email'] = 'error';
@@ -254,6 +254,8 @@ class UserController extends Controller
 				}elseif($user->type_id == '4'){
 					if($user->login()){
 						$this->redirect(array('attendeeUpdate'));
+					}else{
+						$message['email'] = 'error';
 					}
 				}else{
 					$messge['email']=Yii::t('default',"error");

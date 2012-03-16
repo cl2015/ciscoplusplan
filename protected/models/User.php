@@ -81,7 +81,7 @@ class User extends TrackStarActiveRecord {
 		);
 		if(Yii::app()->language=='zh_cn'){
 			$rules[]=array('full_name', 'required','on' =>'update');
-			$rules[]=array('city','match','pattern'=>"/^[a-zA-Z ]*[\x7f-\xff]+[a-zA-Z ]*$/",'message'=>'必须包含中文');
+			$rules[]=array('full_name,organisation,city,department','match','pattern'=>"/^[a-zA-Z ]*[\x7f-\xff]+[a-zA-Z ]*$/",'message'=>'必须包含中文');
 		}else{
 			$rules[]=array('first_name, last_name', 'required','on' =>'update');
 		}

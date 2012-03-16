@@ -1,7 +1,7 @@
 <br />
 <?php if(Yii::app()->language == 'zh_cn'){?>
 <p>
-	尊敬的<?php echo $model->full_name;?>先生/女士:<br /> 
+	尊敬的<?php echo $model->full_name;?><br /> 
 	感谢您注册北京 Cisco Plus 2012 <br />
 </p>
 <p>
@@ -25,7 +25,7 @@
 
 <?php echo CHtml::link(CHtml::encode("返回首页"), 'http://www.ciscopluschina.com/index.html',array('target'=>'_blank')); ?>
 <?php }else{?>
-Dear <?php echo $model->full_name;?> Ladies / gentleman,
+Dear <?php echo $model->full_name;?> ,
 <p>
 Thank you for registering for Cisco Plus 2012 Beijing.<br />
 Your registration confirmation ID is <?php echo $model->id;?>.<br />

@@ -213,17 +213,14 @@ class ReginfoController extends Controller
 		if(isset($_POST['Reginfo']))
 		{
 			$model->attributes=$_POST['Reginfo'];
-			if($model->validate())
+			if($model->save())
 			{
-				// form inputs are valid, do something here
-				//return;
-			}
-			var_dump($model->payment_type);
-			if ($model->payment_type == 0)
-			{
-				$this->redirect(array('reginfo/pay'));
-			}else{
-				$this->redirect(array('reginfo/ordinaryConfirmation'));
+				if ($model->payment_type == 0)
+				{
+					$this->redirect(array('reginfo/pay'));
+				}else{
+					$this->redirect(array('reginfo/ordinaryConfirmation'));
+				}
 			}
 		}
 

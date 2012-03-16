@@ -48,6 +48,7 @@ class Reginfo extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id', 'required'),
+				array('payment_type','required','on'=>'payment'),
 			array('payment_type, is_online, created_by, updated_by', 'numerical', 'integerOnly'=>true),
 			array('user_id', 'length', 'max'=>10),
 			array('reg_id, reg_type, reg_name, reg_address, paid_amount', 'length', 'max'=>256),
@@ -82,7 +83,7 @@ class Reginfo extends CActiveRecord
 			'reg_type' => 'Reg Type',
 			'reg_name' => 'Reg Name',
 			'reg_address' => 'Reg Address',
-			'payment_type' => 'Payment Type',
+			'payment_type' => Yii::t('default','Payment Type'),
 			'paid_amount' => 'Paid Amount',
 			'is_online' => Yii::t('default','Is Online'),
 			'created_at' => 'Created At',
@@ -126,13 +127,13 @@ class Reginfo extends CActiveRecord
 	{
 		return array(
 			0 => Yii::t('default','online'),
-			//1 => Yii::t('default','onsite'),
+			1 => Yii::t('default','onsite'),
 		);
 	}
 	public function getPaymentOptions()
 	{
 		return array(
-			0 => Yii::t('default','online'),
+			//0 => Yii::t('default','online'),
 			1 => Yii::t('default','onsite'),
 		);
 	}
