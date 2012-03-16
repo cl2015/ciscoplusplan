@@ -195,9 +195,28 @@ class UserController extends Controller
 			 * 2.有email不需要code		employee
 			 * 3.有email需要code			ordinary
 			 * 4.无email无code		attendee,web
+			 * 5.有email有多个code
 			 */
 			$model->attributes=$_POST['User'];
 			if($model->validate()){
+				if(isset($model->code)){
+					$user = User::model()->findByAttributes(array('email'=>$model->email,'code'=>$model->code));
+					if($user===null){
+						$message['email'] = 'error';
+					}elseif($user->has_reged){
+						$message['email']=Yii::t('default', 'This email has been reged.');
+					}else{
+						if($user->login()){
+							if($user->type_id=='1'){
+								$this->redirect(array('nominationUpdate'));
+							}else{
+								$this->redirect(array('ordinaryUpdate'));
+							}
+						}else{
+							$message['email']="error";
+						}
+					}
+				}
 				$user = User::model()->findByAttributes(array('email'=>$model->email));
 				if($user===null){//attendee,web
 					$model->type_id = 4;
@@ -407,7 +426,7 @@ class UserController extends Controller
 		}
 
 	}
-	
+
 	public function setLanguage($language){
 		if(in_array($language,array('zh_cn','en_us','en'))){
 			$session=new CHttpSession;
