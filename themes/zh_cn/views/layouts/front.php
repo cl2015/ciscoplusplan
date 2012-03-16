@@ -16,7 +16,7 @@
 
 </head>
 <body>
-<?php if(Yii::app()->language=='ch_zn') {?>
+<?php if(Yii::app()->language=='zh_cn') {?>
 
 <div id="box">
   <div class="header">
