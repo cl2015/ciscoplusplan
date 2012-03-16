@@ -9,6 +9,8 @@ li.q6 label {
 	width: 200px;
 	
 }
+div.form .password label{
+	width: 200px;
 </style>
 <div class="form">
 	<?php
@@ -91,20 +93,20 @@ li.q6 label {
 
 
 	</table>
-	<table>
+	<table width="100%">
 		<tr>
 			<td colspan=3><?php echo Yii::t('default','password info')?>
 			</td>
 		</tr>
 		<tr>
-			<td style="width: 120px;"><?php echo $form->labelEx($user, 'password'); ?>
+			<td  class="password" width="200px"><?php echo $form->labelEx($user, 'password'); ?>
 			</td>
-			<td><?php echo $form->passwordField($user, 'password'); ?></td>
-			<td><?php echo $form->error($user, 'password'); ?>
+			<td width='200px'><?php echo $form->passwordField($user, 'password'); ?></td>
+			<td width='508px'><?php echo $form->error($user, 'password'); ?>
 			</td>
 		</tr>
 		<tr>
-			<td><?php echo $form->labelEx($user, 'password2'); ?></td>
+			<td class="password"><?php echo $form->labelEx($user, 'password2'); ?></td>
 			<td><?php echo $form->passwordField($user, 'password2'); ?></td>
 			<td><?php echo $form->error($user, 'password'); ?>
 			</td>
