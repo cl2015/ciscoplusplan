@@ -7,10 +7,11 @@ div.form label {
 li.q6 label {
 	text-align: left;
 	width: 200px;
-	
 }
-div.form .password label{
+
+div.form .password label {
 	width: 200px;
+}
 </style>
 <div class="form">
 	<?php
@@ -72,8 +73,11 @@ div.form .password label{
 			<td><?php echo $form->error($model, 'q4'); ?></td>
 		</tr>
 		<td><?php echo $form->labelEx($model,'q5'); ?></td>
-		<td><?php 
-		echo $form->dropDownList($model, 'q5', $model->getQ5Options());
+		<td><?php if(Yii::app()->language=='zh_cn') {
+			echo $form->dropDownList($model, 'q5', $model->getQ55Options());
+		}else{
+			echo $form->dropDownList($model, 'q5', $model->getQ5Options());
+		}
 		?>
 		</td>
 		<td><?php echo $form->error($model, 'q5'); ?></td>
@@ -86,8 +90,9 @@ div.form .password label{
 			<td></td>
 		</tr>
 		<tr>
-			<td colspan=3><?php 	echo $form->checkBoxList($model, 'q6', $model->getQ6Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;line-height:30px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));
-			?>
+			<td colspan=3><?php if(Yii::app()->language=='zh_cn') { ?> <?php 	echo $form->checkBoxList($model, 'q6', $model->getQ66Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;line-height:30px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));?>
+				<?php }else{?> <?php 	echo $form->checkBoxList($model, 'q6', $model->getQ6Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;line-height:30px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));
+				?> <?php }?>
 			</td>
 		</tr>
 
@@ -99,14 +104,16 @@ div.form .password label{
 			</td>
 		</tr>
 		<tr>
-			<td  class="password" width="200px"><?php echo $form->labelEx($user, 'password'); ?>
+			<td class="password" width="200px"><?php echo $form->labelEx($user, 'password'); ?>
 			</td>
-			<td width='200px'><?php echo $form->passwordField($user, 'password'); ?></td>
+			<td width='200px'><?php echo $form->passwordField($user, 'password'); ?>
+			</td>
 			<td width='508px'><?php echo $form->error($user, 'password'); ?>
 			</td>
 		</tr>
 		<tr>
-			<td class="password"><?php echo $form->labelEx($user, 'password2'); ?></td>
+			<td class="password"><?php echo $form->labelEx($user, 'password2'); ?>
+			</td>
 			<td><?php echo $form->passwordField($user, 'password2'); ?></td>
 			<td><?php echo $form->error($user, 'password'); ?>
 			</td>

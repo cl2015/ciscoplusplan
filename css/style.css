@@ -8,7 +8,7 @@ body{ font-size:12px; font-family:arial,宋体; background:url(../images/header.
 #box .header ul li a{ text-decoration:none; color:#fff;}
 #box .header ul li a:hover{ text-decoration:underline;}
 #box .mainBg{ width:988px; margin:8px auto 0px auto;}
-#box .mainContent{ padding: 40px; width: 908px;background:#fff; margin:7px auto 8px auto;}
+#box .mainContent{ padding: 40px; width: 908px;background:#fff; margin:7px auto 8px auto;text-align: left;}
 #box .mainContent p{color:#555;}
 #box .mainContent .formContent{ color:#555;width:906px; border-left:solid 1px #d4d4d4; border-right:solid 1px #d4d4d4;padding: 40px;}
 #box .mainContent .formContent img{ margin:25px 0 28px 45px;}
