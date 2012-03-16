@@ -41,7 +41,7 @@
 		<tr>
 			<td><?php echo $form->labelEx($model,'department'); ?>
 			
-			<td><?php echo $form->dropDownList($model,'department',$model->getDepartmentOptions()); ?>
+			<td><?php echo $form->textField($model,'department',array('size'=>60,'maxlength'=>256)); ?>
 			</td>
 			<td><?php echo $form->error($model,'department'); ?>
 			</td>
