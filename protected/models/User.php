@@ -164,6 +164,7 @@ class User extends TrackStarActiveRecord {
 		$criteria->compare('mobile', $this->mobile, true);
 		$criteria->compare('province', $this->province, true);
 		$criteria->compare('city', $this->city, true);
+		$criteria->compare('has_reged', $this->has_reged, true);
 		$criteria->compare('ec_name', $this->ec_name, true);
 		$criteria->compare('ec_relationship', $this->ec_relationship, true);
 		$criteria->compare('ec_mobile', $this->ec_mobile, true);
@@ -190,10 +191,10 @@ class User extends TrackStarActiveRecord {
 				2 => Yii::t('default','CXO/Executive'),
 				3 => Yii::t('default','CIO/IT Director'),
 				4 => Yii::t('default','Director/Senior Manager'),
-				5 => Yii::t('default','Management with Staff'),
-				6 => Yii::t('default','Management without Staff'),
+				5 => Yii::t('default','Management With Staff'),
+				6 => Yii::t('default','Management Without Staff'),
 				7 => Yii::t('default','Employee'),
-				8 => Yii::t('default','Office administration'),
+				8 => Yii::t('default','Office Administration'),
 				9 => Yii::t('default','Other'),
 		);
 	}

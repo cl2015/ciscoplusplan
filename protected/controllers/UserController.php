@@ -27,7 +27,7 @@ class UserController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('index','loading','check','reg','language'),
+						'actions'=>array('loading','check','reg','language'),
 						'users'=>array('*'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -35,7 +35,7 @@ class UserController extends Controller
 						'users'=>array('@'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
-						'actions'=>array('create','update','admin','delete','view','attending','emailreg','ordinaryUpdate'),
+						'actions'=>array('create','update','admin','delete','view','attending','emailreg','ordinaryUpdate','index'),
 						'users'=>array('admin'),
 				),
 				array('deny',  // deny all users

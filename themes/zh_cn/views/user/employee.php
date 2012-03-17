@@ -65,8 +65,8 @@
 		</tr>
 	</table>
 	<div class="row buttons">
-		<?php echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
-				<?php echo CHtml::submitButton(Yii::t('default','finish'),array("class"=>"submitBg")); ?>
+		<?php //echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
+		<?php echo CHtml::submitButton(Yii::t('default','finish'),array("class"=>"submitBg")); ?>
 	</div>
 
 	<?php $this->endWidget(); ?>

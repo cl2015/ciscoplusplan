@@ -118,19 +118,19 @@ class Survey extends TrackStarActiveRecord {
 				''=> 'Select One',
 				0 => 'LAN',
 				1 => 'WAN',
-				2 => 'Man',
-				3 => 'Wireless solution',
-				4 => 'Optical fiber communications',
-				5 => 'Unified communications',
-				6 => 'IP langage',
-				7 => 'Video solutions',
-				8 => 'DSL access solutions',
-				9 => 'Wired access plan',
-				10 => 'Data center',
-				11 => 'Memory networks',
-				12 => 'Virtual private network and security solutions',
-				13 => 'unsure',
-				14 => 'other',
+				2 => 'MAN',
+				3 => 'Wireless Solution',
+				4 => 'Optical Fiber Communications',
+				5 => 'Unified Communications',
+				6 => 'IP Langage',
+				7 => 'Video Solutions',
+				8 => 'DSL Access Solutions',
+				9 => 'Wired Access Plan',
+				10 => 'Data Center',
+				11 => 'Memory Networks',
+				12 => 'Virtual Private Network And Security Solutions',
+				13 => 'Unsure',
+				14 => 'Other',
 		);
 	}
 	public function getQ11Options() {
@@ -157,12 +157,12 @@ class Survey extends TrackStarActiveRecord {
 	public function getQ2Options() {
 		return array(
 				''=> 'Select One',
-				0 => 'Less 3 months',
-				1 => '4 to 6 months',
-				2 => '7 to 12 months',
-				3 => 'more than 12 months',
-				4 => 'no plans',
-				5 => 'unsure',
+				0 => 'Less 3 Months',
+				1 => '4 To 6 Months',
+				2 => '7 To 12 Months',
+				3 => 'More Than 12 Months',
+				4 => 'No Plans',
+				5 => 'Unsure',
 		);
 	}
 	public function getQ22Options() {
@@ -179,19 +179,19 @@ class Survey extends TrackStarActiveRecord {
 	public function getQ3Options() {
 		return array(
 				''=> 'Select One',
-				0 => '0-10 thousands',
-				1 => '10-50 thousands',
-				2 => '50 thousands',
-				3 => '0.15-0.25 million',
-				4 => '0.25-0.5 million',
-				5 => '0.5-1 million',
-				6 => '1-2 million',
-				7 => '2-5 million',
-				8 => '5-10 million',
-				9 => 'more than 10 million',
-				10 => 'unsure the budget',
-				11 => 'none',
-				12 => 'Don\'t know/not responsible',
+				0 => '0-10K',
+				1 => '10K-50K',
+				2 => '50K',
+				3 => '150K-250K',
+				4 => '250K-500K',
+				5 => '500K-1M',
+				6 => '1M-2M',
+				7 => '2M-5M',
+				8 => '5M-10M',
+				9 => 'Above 10M',
+				10 => 'Budget Amount Not Fixed',
+				11 => 'No Budget Available',
+				12 => 'Don\'t Know/Not Responsible',
 		);
 	}
 	public function getQ33Options() {
@@ -225,8 +225,8 @@ class Survey extends TrackStarActiveRecord {
 				7 => '1000-1999',
 				8 => '2000-4999',
 				9 => '5000-9999',
-				10 => 'more than 10000',
-				11 => 'none',
+				10 => '10000+',
+				11 => 'None',
 		);
 	}
 	public function getQ44Options() {
