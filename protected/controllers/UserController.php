@@ -348,6 +348,7 @@ class UserController extends Controller
 	public function actionNominationUpdate(){
 		{
 			$model=$this->loadModel(Yii::app()->user->id);
+			$model->setScenario('update');
 			if($model->type_id != "1"){
 				$this->redirect(array("user/loading"));
 			}else{
@@ -374,6 +375,9 @@ class UserController extends Controller
 				{
 					$model->attributes=$_POST['User'];
 					$model->has_reged = 1;
+					
+					if($model->department == '20'&&$model->others!='')
+						$model->department = $model->others;
 					if($model->save())
 						$this->redirect(array('reginfo/employeeConfirmation'));
 				}
@@ -385,6 +389,7 @@ class UserController extends Controller
 	}public function actionOrdinaryUpdate(){
 		{
 			$model=$this->loadModel(Yii::app()->user->id);
+			$model->setScenario('update');
 			if($model->type_id != "3"){
 				$this->redirect(array("user/loading"));
 			}else{
@@ -403,6 +408,7 @@ class UserController extends Controller
 	public function actionAttendeeUpdate(){
 		{
 			$model=$this->loadModel(Yii::app()->user->id);
+			$model->setScenario('update');
 			if($model->type_id != "4"){
 				$this->redirect(array("user/loading"));
 			}else{

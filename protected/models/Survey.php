@@ -41,12 +41,12 @@ class Survey extends TrackStarActiveRecord {
 		// will receive user inputs.
 		return array(
 				array('user_id,q1,q2,q3,q4,q5,q6', 'required','message'=>Yii::t('default', "required")),
-				array('q1, q2, q3,q4,q5,created_by, updated_by', 'numerical', 'integerOnly' => true),
+				array('q1, q2, q3,q4,q5,q7,q8,created_by, updated_by', 'numerical', 'integerOnly' => true),
 				//array('q6')
 
 				array('user_id', 'length', 'max' => 10),
 				array('q5', 'length', 'max' => 100),
-				array('created_at, updated_at', 'safe'),
+				array('q7,q8,created_at, updated_at', 'safe'),
 				// The following rule is used by search().
 				// Please remove those attributes that should not be searched.
 				array('id, user_id, q1, q2, q3, q4,q5,q6, created_at, created_by, updated_at, updated_by', 'safe', 'on' => 'search'),
@@ -76,6 +76,8 @@ class Survey extends TrackStarActiveRecord {
 				'q4' => Yii::t('default', 'Q4'),
 				'q5' => Yii::t('default', 'Q5'),
 				'q6' => Yii::t('default', 'Q6'),
+				'q7' => Yii::t('default', 'Q7'),
+				'q8' => Yii::t('default', 'Q8'),
 				'created_at' => 'Created At',
 				'created_by' => 'Created By',
 				'updated_at' => 'Updated At',
@@ -315,7 +317,7 @@ class Survey extends TrackStarActiveRecord {
 				19 =>'律师，财务，咨询类等专业服务',
 				20 =>'零售业',
 				21 =>'房地产',
-				22 =>'电信运营商，ISP，ICP，ASP，有限电视',
+				22 =>'电信运营商，ISP，ICP，ASP，有线电视',
 				23 =>'交通运输',
 				24 =>'能源',
 				25 =>'批发/分销',

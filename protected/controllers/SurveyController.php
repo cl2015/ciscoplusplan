@@ -59,17 +59,17 @@ class SurveyController extends Controller {
 	 */
 	public function actionCreate() {
 		$model = new Survey;
-		$user = $this->loadUser(1);
+		$user = $this->loadUser(Yii::app()->user->id);
 		$user->setScenario('surveyUpdate');
 		$model->setScenario('surveyUpdate');
-		$model->user_id = 1; //= $this->loadUser(1);
+		$model->user_id = $user->id; 
 		if (isset($_POST['Survey']) && isset($_POST['User'])) {
 			$model->attributes = $_POST['Survey'];
 			$user->attributes = $_POST['User'];
 			//$user->password2 = $_POST['User']["password2"];
 			//$model->validate();
 			//$model->save();
-				
+
 			if($model->validate() && $user->validate()){
 				if ($model->save()&& $user->save()){
 					$this->redirect(array('reginfo/confirmation'));
@@ -94,7 +94,7 @@ class SurveyController extends Controller {
 	public function actionUpdate($id) {
 			
 		$model = $this->loadModel($id);
-		$user = $this->loadUser(1);
+		$user = $this->loadUser(Yii::app()->user->id);
 		$user->setScenario('surveyUpdate');
 		$model->setScenario('surveyUpdate');
 		// Uncomment the following line if AJAX validation is needed
@@ -193,7 +193,7 @@ class SurveyController extends Controller {
 	}
 
 	public function actionOrdinaryCreate() {
-	$user = $this->loadUser(Yii::app()->user->id);
+		$user = $this->loadUser(Yii::app()->user->id);
 		$model = Survey::model()->findbyAttributes(array('user_id'=>$user->id));
 		if($model === null){
 			$model = new Survey;
@@ -220,7 +220,7 @@ class SurveyController extends Controller {
 	}
 	public function actionNominationCreate() {
 
-	$user = $this->loadUser(Yii::app()->user->id);
+		$user = $this->loadUser(Yii::app()->user->id);
 		$model = Survey::model()->findbyAttributes(array('user_id'=>$user->id));
 		if($model === null){
 			$model = new Survey;
@@ -260,7 +260,7 @@ class SurveyController extends Controller {
 			if($model->validate() && $user->validate()){
 				$user->has_reged = 1;
 				if ($model->save()&& $user->save()){
-					$this->redirect(array('reginfo/Attending'));
+					$this->redirect(array('reginfo/payment'));
 				}
 			}
 		}else{

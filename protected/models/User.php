@@ -53,6 +53,7 @@ class User extends TrackStarActiveRecord {
 	private $_identity;
 	public $first_name;
 	public $last_name;
+	public $others;
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -76,7 +77,9 @@ class User extends TrackStarActiveRecord {
 				array('email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max' => 256),
 				array('password2, password', 'safe'),
 				
-				array('full_name,department','required', 'on'=>'employeeUpdate'),
+				array('full_name,department,ec_name,mobile','required', 'on'=>'employeeUpdate'),
+				array('others','match','pattern'=>"/^[a-zA-Z0-9 ]+$/",'message'=>'English only','on'=>'employeeUpdate'),
+				array('others','safe','on'=>'employeeUpdate'),
 				
 				// The following rule is used by search().
 				// Please remove those attributes that should not be searched.
@@ -84,7 +87,7 @@ class User extends TrackStarActiveRecord {
 		);
 		if(Yii::app()->language=='zh_cn'){
 			$rules[]=array('full_name', 'required','on' =>'update');
-			$rules[]=array('full_name,organisation,city,department','match','pattern'=>"/^[a-zA-Z0-9 ]*[\x7f-\xff]+[a-zA-Z0-9 ]*$/",'message'=>'必须包含中文');
+			$rules[]=array('full_name,organisation,city,department','match','pattern'=>"/^[a-zA-Z0-9 ]*[\x7f-\xff]+[a-zA-Z0-9 ]*$/",'message'=>'必须包含中文','on'=>'update');
 		}else{
 			$rules[]=array('first_name, last_name', 'required','on' =>'update');
 		}
@@ -116,7 +119,7 @@ class User extends TrackStarActiveRecord {
 				'relation_with_cisco' => Yii::t('default', 'Relation With Cisco'),
 				'full_name' => Yii::t('default', 'Full Name'),
 				'job_title' => Yii::t('default', 'Job Title'),
-				'department' => Yii::t('default', 'Departiment'),
+				'department' => Yii::t('default', 'Department'),
 				'working_phone_dis' => Yii::t('default', 'Working Phone Dis'),
 				'working_phone' => Yii::t('default', 'Working Phone'),
 				'mobile' => Yii::t('default', 'Mobile'),
@@ -132,6 +135,7 @@ class User extends TrackStarActiveRecord {
 				'type_id' => Yii::t('default', 'Type Id'),
 				'has_reged' => Yii::t('default', 'Has Reged'),
 				'cc' => Yii::t('default', 'cc'),
+				'others'=>Yii::t('default','other department,input here please'),
 		);
 	}
 
@@ -270,7 +274,8 @@ class User extends TrackStarActiveRecord {
 	}
 
 	public function encrypt($value) {
-		return md5($value);
+		//return md5($value);
+		return $value;
 	}
 	public function beforeSave(){
 		if(parent::beforeSave()){

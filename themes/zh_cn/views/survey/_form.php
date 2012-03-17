@@ -10,7 +10,7 @@ li.q6 label {
 }
 
 div.form .password label {
-	width: 200px;
+	width: 180px;
 }
 </style>
 <div class="form">
@@ -95,6 +95,20 @@ div.form .password label {
 				?> <?php }?>
 			</td>
 		</tr>
+		<tr>
+			<td><?php echo $form->labelEx($model,'q7'); ?></td>
+			<td><?php echo $form->checkbox($model, 'q7',array('checked'=>true));			?>
+			</td>
+			<td><?php echo $form->error($model, 'q7'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td><?php echo $form->labelEx($model,'q8'); ?></td>
+			<td><?php echo $form->checkbox($model, 'q8',array('checked'=>true));			?>
+			</td>
+			<td><?php echo $form->error($model, 'q8'); ?>
+			</td>
+		</tr>
 
 
 	</table>
@@ -104,11 +118,11 @@ div.form .password label {
 			</td>
 		</tr>
 		<tr>
-			<td class="password" width="200px"><?php echo $form->labelEx($user, 'password'); ?>
+			<td class="password" width="180px"><?php echo $form->labelEx($user, 'password'); ?>
 			</td>
 			<td width='200px'><?php echo $form->passwordField($user, 'password'); ?>
 			</td>
-			<td width='508px'><?php echo $form->error($user, 'password'); ?>
+			<td width='528px'><?php echo $form->error($user, 'password'); ?>
 			</td>
 		</tr>
 		<tr>
@@ -119,8 +133,7 @@ div.form .password label {
 			</td>
 		</tr>
 		<tr>
-			<td colspan=3>
-				<?php echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
+			<td colspan=3><?php echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
 				<?php echo CHtml::submitButton(Yii::t('default','finish'),array("class"=>"submitBg")); ?>
 			</td>
 		</tr>

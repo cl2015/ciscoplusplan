@@ -32,7 +32,7 @@ class ReginfoController extends Controller
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
 						'actions'=>array('create','update','attending','payment','pay','confirmation','ordinaryConfirmation'),
-						'users'=>array('*'),
+						'users'=>array('admin'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
 						'actions'=>array('admin','delete'),
@@ -174,7 +174,7 @@ class ReginfoController extends Controller
 	}
 	public function actionAttending(){
 		$model=new Reginfo('attending');
-		$model->user_id = 1;
+		$user = $this->loadUser(Yii::app()->user->id);
 		if(isset($_POST['Reginfo']))
 		{
 			$model->attributes=$_POST['Reginfo'];
@@ -200,7 +200,7 @@ class ReginfoController extends Controller
 	public function actionPayment()
 	{
 		$model=new Reginfo('payment');
-		$model->user_id = 1;//need get from session
+		$user = $this->loadUser(Yii::app()->user->id);
 		// uncomment the following code to enable ajax-based validation
 		/*
 		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-payment-form')
@@ -246,7 +246,8 @@ class ReginfoController extends Controller
 	public function actionPay()
 	{
 		$model=new Reginfo('pay');
-		$model->user_id = 1;
+		$user = $this->loadUser(Yii::app()->user->id);
+		$model->user_id = $user_id;
 		// uncomment the following code to enable ajax-based validation
 		/*
 		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-pay-form')

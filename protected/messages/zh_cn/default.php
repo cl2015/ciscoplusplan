@@ -4,12 +4,12 @@ return array(
 		"Has Code"=>"是否有邀请码",
 		"Code"=>"如果您之前收到了邀请码，请在下面输入，如果没有，直接点击继续，进入下一页面。",
 		"Email"=>"邮箱",
-		"Password"=>"密码",
+		"Password"=>"密码(6位数字密码)",
 		"Password2"=>"重复密码",
 		"Organisation"=>"公司名称",
 		"Relation With Cisco"=>"贵单位与思科的关系",
 		"Job Title"=>"您的职务级别",
-		"Departiment"=>"您的部门",
+		"Department"=>"您的部门",
 		"Working Phone Dis"=>"区号",
 		"Working Phone"=>"电话",
 		"Mobile"=>"手机号码",
@@ -21,6 +21,10 @@ return array(
 		"Q4"=>"4.贵公司的PC数量是",
 		"Q5"=>"5.贵公司所属行业",
 		"Q6"=>"6.您在信息化管理和网络建设中技术职责是什么?(多选)",
+		'Q7'=>'7.我愿意思科公司代表与我联系. ',
+		'Q8'=>'8.我愿意通过电子邮件，接收来自思科的产品和资讯信息.  ',
+		
+		
 		"required" =>"必填",
 		"This email has been reged." =>"此邮件已经被注册。",
 		"reg error" => "注册失败",
@@ -113,7 +117,7 @@ return array(
 		'label_required' =>'<em>标记<span class="required">*</span>的为必填项</em>',
 		'back' => '返回上页',
 		'finish' =>'完成',
-		'password info'=>'请设置用于登录大会活动网站<a href="http://www.ciscopluschina.com">www.ciscopluschina.com</a>的登录密码。注册完成后，即可在大会网站上使用注册邮箱和此密码登录，专享白皮书下载，视频观看等互动活动。(6位数字密码)',
+		'password info'=>'请设置用于登录大会活动网站<a href="http://www.ciscopluschina.com">www.ciscopluschina.com</a>的登录密码。注册完成后，即可在大会网站上使用注册邮箱和此密码登录，专享白皮书下载，视频观看等互动活动。',
 		'Select one'=>'请选择一个',
 		
 		
@@ -147,4 +151,5 @@ return array(
 		'Service Provider/Telecommunications'=>'服务供应商/电讯',
 		'Transportation'=>'运输',
 		'Utilities & Energy'=>'公用事业及能源',
+		'other department,input here please'=>'如果是其他部门请在此输入：'
 		);

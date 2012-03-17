@@ -41,9 +41,17 @@
 		<tr>
 			<td><?php echo $form->labelEx($model,'department'); ?>
 			
-			<td><?php echo $form->textField($model,'department',array('size'=>60,'maxlength'=>256)); ?>
+			<td><?php echo $form->dropDownList($model, 'department', $model->getDepartmentOptions());?>
 			</td>
 			<td><?php echo $form->error($model,'department'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+			<td><?php echo $form->labelEx($model,'others'); ?><?php echo $form->textField($model,'others',array('size'=>40,'maxlength'=>256)); ?>
+			</td>
+			<td><?php echo $form->error($model,'others'); ?>
 			</td>
 		</tr>
 
