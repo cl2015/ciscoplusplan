@@ -198,6 +198,27 @@ class User extends TrackStarActiveRecord {
 		);
 	}
 
+	public function getEmployeeDepartmentOptions(){
+		return array (
+				'CA' => 'CA',
+				'Capital' => 'Capital',
+				'Channel' => 'Channel',
+				'Sales-PL' => 'Sales-PL',
+				'Sales-CL' => 'Sales-CL',
+				'SE-PL' => 'SE-PL',
+				'SE-CL' => 'SE-CL',
+				'SP-Sales' => 'SP-Sales',
+				'SP-SE' => 'SP-SE',
+				'CME-Sales' => 'CME-Sales',
+				'CME-SE' => 'CME-SE',
+				'PS-HQ' => 'PS-HQ',
+				'Data Center' => 'Data Center',
+				'Collaboration' => 'Collaboration',
+				'Borderless Networks' => 'Borderless Networks',
+				'Marketing' => 'Marketing',
+		);
+	}
+
 	public function getDepartmentOptions() {
 		return array(
 				1 => Yii::t('default','Business Development'),

@@ -41,7 +41,7 @@
 		<tr>
 			<td><?php echo $form->labelEx($model,'department'); ?>
 			
-			<td><?php echo $form->dropDownList($model, 'department', $model->getDepartmentOptions());?>
+			<td><?php echo $form->dropDownList($model, 'department', $model->getEmployeeDepartmentOptions());?>
 			</td>
 			<td><?php echo $form->error($model,'department'); ?>
 			</td>
