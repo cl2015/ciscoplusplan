@@ -27,7 +27,7 @@ class ReginfoController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('nominationConfirmation','employeeConfirmation','ordinaryConfirmation','attendeeConfirmation'),
+						'actions'=>array('payment','nominationConfirmation','employeeConfirmation','ordinaryConfirmation','attendeeConfirmation'),
 						'users'=>array('@'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -201,6 +201,7 @@ class ReginfoController extends Controller
 	{
 		$model=new Reginfo('payment');
 		$user = $this->loadUser(Yii::app()->user->id);
+		$model->user_id = $user->id;
 		// uncomment the following code to enable ajax-based validation
 		/*
 		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-payment-form')
