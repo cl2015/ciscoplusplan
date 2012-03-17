@@ -4,6 +4,9 @@ return array(
 		"Code"=>"If you have previously received an invitation code, please enter it below, if not, just click continue to enter the next page.",
 		"Password"=>"Password (6-digit password)",
 		"Password2"=>"Repeat Passwrod",
+		'Organisation'=>'Company',
+		
+		
 		"Q1"=>"1.Whick is the direction of investment in network construction?",
 		"Q2"=>"2.When is your next project planned?",
 		"Q3"=>"3.What is your budget?(RMB) ",

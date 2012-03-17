@@ -151,5 +151,7 @@ return array(
 		'Service Provider/Telecommunications'=>'服务供应商/电讯',
 		'Transportation'=>'运输',
 		'Utilities & Energy'=>'公用事业及能源',
-		'other department,input here please'=>'如果是其他部门请在此输入：'
+		'other department,input here please'=>'如果是其他部门请在此输入：',
+		
+		'confirmation'=>'感谢您成功注册Cisco Plus大中华区北京站活动',
 		);

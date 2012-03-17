@@ -76,11 +76,11 @@ class User extends TrackStarActiveRecord {
 				array('password','length','max' =>6,'on'=>'surveyUpdate'),
 				array('email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max' => 256),
 				array('password2, password', 'safe'),
-				
+
 				array('full_name,department,ec_name,mobile','required', 'on'=>'employeeUpdate'),
 				array('others','match','pattern'=>"/^[a-zA-Z0-9 ]+$/",'message'=>'English only','on'=>'employeeUpdate'),
 				array('others','safe','on'=>'employeeUpdate'),
-				
+
 				// The following rule is used by search().
 				// Please remove those attributes that should not be searched.
 				array('id, has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile, created_at, created_by, updated_at, updated_by', 'safe', 'on' => 'search'),
@@ -270,6 +270,48 @@ class User extends TrackStarActiveRecord {
 				"香港" => Yii::t('default',"香港"),
 				"澳门" => Yii::t('default',"澳门"),
 				"台湾" => Yii::t('default',"台湾"),
+		);
+	}
+
+	public function getEnProvinces(){
+		return array(
+				1 => 'Beijing',
+				2 => 'Tianjin',
+				3 => 'Hebei',
+				4 => 'Shanxi',
+				5 => 'Inner Mongolia',
+				6 => 'Liaoning',
+				7 => 'Jilin',
+				8 => 'Heilongjiang',
+				9 => 'Shanghai',
+				10 =>	'Jiangsu',
+				11 =>	'Zhejiang',
+				12 =>	'Anhui',
+				13 =>	'Fujian',
+				14 =>	'Jiangxi',
+				15 =>	'Shandong',
+				16 =>	'Henan',
+				17 =>	'Hubei',
+				18 =>	'Hunan',
+				19 =>	'Guangdong',
+				20 =>	'Guangxi',
+				21 =>	'Hainan',
+				22 =>	'Chongqing',
+				23 =>	'Sichuan',
+				24 =>	'Guizhou',
+				25 =>	'Yunnan',
+				26 =>	'Tibet',
+				27 =>	'Xizang',
+				28 =>	'Shaanxi',
+				29 =>	'Gansu',
+				30 =>	'Qinghai',
+				31 =>	'Ningxia',
+				32 =>	'Xinjiang',
+				33 =>	'Hong Kong',
+				34 =>	'Xianggang',
+				35 =>	'Macau',
+				36 =>	'Aomen',
+				37 =>	'Taiwan',
 		);
 	}
 
