@@ -1,5 +1,6 @@
 <br />
 <?php if(Yii::app()->language == 'zh_cn'){?>
+<img src="http://223.4.134.123/images/mainBg.jpg" />
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> 
 	感谢您注册北京Cisco Plus大中华区北京站活动<br />
@@ -27,6 +28,8 @@
 </p>
 
 <?php }else{?>
+<img src="http://223.4.134.123/images/mainBg_en.jpg" />
+<br/>
 Dear <?php echo $model->full_name;?> ,
 <p>
 Thank you for registering for Cisco Plus 2012 Beijing.<br />
