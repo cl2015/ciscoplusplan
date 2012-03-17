@@ -23,7 +23,7 @@
     <ul>
       <li style=" margin-right:25px;"><?php echo CHtml::link('中文',array('user/language','language'=>'zh_cn'));?> | <?php echo CHtml::link('En',array('user/language','language'=>'en'));?></li>
  	  <li><a href="#" onClick="javascript:window.open('http://www.ciscopluschina.com/pop.html','','width=268,height=190,toolbar=no, status=no, menubar=no, resizable=no, scrollbars=no');return false;">登录</a>　|</li>
-      <li><?php echo CHtml::link('注册',array('user/loading'));?>|</li>
+      <li><?php echo CHtml::link('注册',array('user/loading'));?>　|</li>
       <li><a href="http://www.ciscopluschina.com/contact.html">联系我们</a>　|</li>
       <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscopluschina.com/index.html">返回主页</a></li>
     </ul>
@@ -40,7 +40,7 @@
     <ul>
       <li style=" margin-right:25px;"><?php echo CHtml::link('中文',array('user/language','language'=>'zh_cn'));?> | <?php echo CHtml::link('En',array('user/language','language'=>'en'));?></li>
  	  <li><a href="#" onClick="javascript:window.open('http://www.ciscopluschina.com/pop.html','','width=268,height=190,toolbar=no, status=no, menubar=no, resizable=no, scrollbars=no');return false;">Login</a>　|</li>
-      <li><?php echo CHtml::link('Register',array('user/loading'));?>|</li>
+      <li><?php echo CHtml::link('Register',array('user/loading'));?>　|</li>
       <li><a href="http://www.ciscopluschina.com/contact.html">Contact Us</a>　|</li>
       <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscopluschina.com/index.html">Homepage</a></li>
     </ul>
