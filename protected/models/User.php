@@ -135,7 +135,7 @@ class User extends TrackStarActiveRecord {
 				'type_id' => Yii::t('default', 'Type Id'),
 				'has_reged' => Yii::t('default', 'Has Reged'),
 				'cc' => Yii::t('default', 'cc'),
-				'others'=>Yii::t('default','other department,input here please'),
+				'others'=>Yii::t('default','other'),
 		);
 	}
 

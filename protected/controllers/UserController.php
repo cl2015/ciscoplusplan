@@ -375,8 +375,7 @@ class UserController extends Controller
 				{
 					$model->attributes=$_POST['User'];
 					$model->has_reged = 1;
-					
-					if($model->department == '20'&&$model->others!='')
+					if($model->others!='')
 						$model->department = $model->others;
 					if($model->save())
 						$this->redirect(array('reginfo/employeeConfirmation'));

@@ -5,9 +5,11 @@
 	感谢您注册北京Cisco Plus大中华区北京站活动<br />
 </p>
 <p>
-	您的注册ID号是：<?php echo $model->id;?> ，密码：<?php echo $model->password;?>请保存好此信息，作为大会参会凭证。<br />
+	您的注册ID号是：<?php echo $model->id;?> 
+	<?php if($user->type_id!=2){?>，密码：<?php echo $model->password;?>请保存好此信息，作为大会参会凭证。<br />
 	密码说明：凭此密码可登录大会活动网站 <a href="www.ciscopluschina.com">www.ciscopluschina.com</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
-</p>
+	<?php }?>
+	</p>
 <p>
 	会议日期：2012 年 5 月 22-23 日 <br />
 	签到时间：早八点开始<br />
@@ -30,9 +32,11 @@ Dear <?php echo $model->full_name;?> ,
 <p>
 Thank you for registering for Cisco Plus 2012 Beijing.<br />
 Your registration confirmation ID is <?php echo $model->id;?>.<br />
+<?php if($user->type_id!=2){?>
 Your password is <?php echo $model->password;?>.<br />
 The  password is used to login the active site of the General Assembly www.ciscopluschina.com 。Exclusive white papers, video viewing and other interactive activities.<br/>
 Please save this information for the conference attending.<br />
+<?php }?>
 </p>
 <p>
 Event Date:           Mar 22-23, 2012<br />
