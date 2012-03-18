@@ -96,17 +96,20 @@ div.form .password label {
 			</td>
 		</tr>
 		<tr>
-			<td><?php echo $form->labelEx($model,'q7'); ?><?php echo $form->checkbox($model, 'q7',array('checked'=>true));?></td>
+			<td><?php echo $form->labelEx($model,'q7'); ?></td>
 			<td>
 			</td>
-			<td><?php echo $form->error($model, 'q7'); ?>
+			<td>
+			<?php echo $form->checkbox($model, 'q7',array('checked'=>true));?>
+			<?php echo $form->error($model, 'q7'); ?>
 			</td>
 		</tr>
 		<tr>
-			<td><?php echo $form->labelEx($model,'q8'); ?><?php echo $form->checkbox($model, 'q8',array('checked'=>true));?></td>
+			<td><?php echo $form->labelEx($model,'q8'); ?></td>
 			<td>
 			</td>
 			<td><?php echo $form->error($model, 'q8'); ?>
+			<?php echo $form->checkbox($model, 'q8',array('checked'=>true));?>
 			</td>
 		</tr>
 
