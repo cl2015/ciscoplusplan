@@ -44,7 +44,7 @@ Thank you for registering for Cisco Plus 2012 Beijing.<br />
 <?php if($model->type_id!=2){?>
 Your registration confirmation email is <?php echo $model->email;?>;
 Your password is <?php echo $model->password;?>.<br />
-This email address and password were used to login the active site of the General Assembly.<a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
+This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
 </p>
