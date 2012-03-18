@@ -238,7 +238,6 @@ class UserController extends Controller
 					$user = User::model()->findByAttributes(array('email'=>$model->email));
 					if($user===null){//attendee,web
 						$model->type_id = 4;
-						$model->has_reged = 1;
 						if($model->save()){
 							if($model->login()){
 								$this->redirect(array('attendeeUpdate'));

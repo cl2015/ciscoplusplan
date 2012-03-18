@@ -33,7 +33,7 @@ class Controller extends CController
 			Yii::app()->language = $language;
 		}
 	}
-	
+
 	/**
 	 * sendmail
 	 */
@@ -61,8 +61,8 @@ class Controller extends CController
 		$mailer->getView('email',array('model'=>$user,'reginfo'=>$reginfo));
 		$mailer->Send();
 	}
-	
-	public function sendSms($user){
+
+	public function sendSms($user,$reginfo){
 		if($user->has_sended == 1){
 			return true;
 		}
@@ -78,7 +78,7 @@ class Controller extends CController
 		 * 序列号,请通过亿美销售人员获取
 		 */
 		$serialNumber = '0SDK-EMY-0130-LBXNR';
-	
+
 		/**
 		 * 密码,请通过亿美销售人员获取
 		 */
@@ -91,7 +91,7 @@ class Controller extends CController
 		 * 连接超时时间，单位为秒
 		 */
 		$connectTimeOut = 10;
-	
+
 		/**
 		 * 远程信息读取超时时间，单位为秒
 		 */
@@ -104,12 +104,21 @@ class Controller extends CController
 		//var_dump($client);
 		$client->setOutgoingEncoding("UTF-8");
 		$statusCode = $client->login();
-		
+
 		$message = '';
 		if(Yii::app()->language=='en'){
-			$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Beijing. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Plus 2012 Event Committee Team] ';
+			if(!($user->type_id== 4 && $reginfo->is_online==0)){
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Beijing. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Plus 2012 Event Committee Team] ';
+			}else{
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Beijing. Please remember your email address ' .$user->email. ' and your password '. $user->password .' Log in www.ciscopluschina.com [Cisco Plus 2012 Event Committee Team]';
+
+			}
 		}else{
-			$message = '尊敬的' .$user->full_name . ', 感谢注册Cisco Plus大中华区北京站活动。请携带参会ID ' .$user->id . '，准时参会。【Cisco Plus大中华区活动会务组】 ';
+			if(!($user->type_id== 4 && $reginfo->is_online==0)){
+				$message = '尊敬的' .$user->full_name . ', 感谢注册Cisco Plus大中华区北京站活动。请携带参会ID ' .$user->id . '，准时参会。【Cisco Plus大中华区活动会务组】 ';
+			}else{
+				$message = '尊敬的' .$user->full_name . ', 感谢注册Cisco Plus大中华区北京站活动。请牢记您的注册邮箱 ' .$user->email . '和注册密码' . $user->password . ' ，登录www.ciscopluschina.com[Cisco Plus大中华区活动会务组] ';
+			}
 		}
 		$statusCode = $client->sendSMS(array($user->mobile),$message);
 		if($statusCode == '0'){

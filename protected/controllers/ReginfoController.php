@@ -260,7 +260,7 @@ class ReginfoController extends Controller
 		$user=$this->loadUser(Yii::app()->user->id);
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
 		$this->sendMail($user->email,$user->cc,$user,$reginfo);
-		$this->sendSms($user);
+		$this->sendSms($user,$reginfo);
 		$this->render('nominationConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
 	public function actionEmployeeConfirmation()
@@ -268,7 +268,7 @@ class ReginfoController extends Controller
 		$user=$this->loadUser(Yii::app()->user->id);
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
 		$this->sendMail($user->email,$user->cc,$user,$reginfo);
-		$this->sendSms($user);
+		$this->sendSms($user,$reginfo);
 		$this->render('employeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
 	public function actionOrdinaryConfirmation()
@@ -276,7 +276,7 @@ class ReginfoController extends Controller
 		$user=$this->loadUser(Yii::app()->user->id);
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
 		$this->sendMail($user->email,$user->cc,$user,$reginfo);
-		$this->sendSms($user);
+		$this->sendSms($user,$reginfo);
 		$this->render('ordinaryConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
 	public function actionAttendeeConfirmation()
@@ -284,7 +284,7 @@ class ReginfoController extends Controller
 		$user=$this->loadUser(Yii::app()->user->id);
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
 		$this->sendMail($user->email,$user->cc,$user,$reginfo);
-		$this->sendSms($user);
+		$this->sendSms($user,$reginfo);
 		$this->render('attendeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
 
