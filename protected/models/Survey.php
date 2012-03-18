@@ -275,7 +275,7 @@ class Survey extends TrackStarActiveRecord {
 				803 => Yii::t('default','Data Center - Servers'),
 				804 => Yii::t('default','Data Center - Storage'),
 				807 => Yii::t('default','IT Applications'),
-				808 => Yii::t('default','Network'),
+				808 => Yii::t('default','Network Operation'),
 				813 => Yii::t('default','Security - Application Security'),
 				814 => Yii::t('default','Security - Network Security'),
 				815 => Yii::t('default','Security - Policy Security Level'),
