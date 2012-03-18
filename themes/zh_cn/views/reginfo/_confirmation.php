@@ -5,7 +5,9 @@
 	感谢您注册Cisco Plus大中华区北京站活动！<br />
 </p>
 <p>
+<?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 	您的注册ID号是：<?php echo $model->id;?> 请保存好此信息，作为大会参会凭证。<br />
+	<?php }?>
 	<?php if($model->type_id!=2){?>
 	您的注册邮箱是：<?php echo $model->email;?>；
 	注册密码是：<?php echo $model->password;?>。
@@ -37,7 +39,9 @@ Dear <?php echo $model->full_name;?> ,<br /> <br />
 Thank you for registering for Cisco Plus 2012 Beijing.<br />
 </p>
 <p>
+<?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 <b>Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.</b><br />
+<?php }?>
 <?php if($model->type_id!=2){?>
 Your registration confirmation email is <?php echo $model->email;?>;
 Your password is <?php echo $model->password;?>.<br />
