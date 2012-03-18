@@ -1,4 +1,4 @@
-@<br /><br/><br/>
+<br /><br/><br/>
 <?php if(Yii::app()->language == 'zh_cn'){?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> <br /> 
