@@ -6,7 +6,7 @@
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
-	您的注册ID号是：<?php echo $model->id;?> 请保存好此信息，作为大会参会凭证。<br />
+	您的注册ID号是：<?php echo $model->id;?> 。请保存好此信息，作为大会参会凭证。<br />
 	<?php }?>
 	<?php if($model->type_id!=2){?>
 	您的注册邮箱是：<?php echo $model->email;?>；
