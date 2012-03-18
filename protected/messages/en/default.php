@@ -5,6 +5,7 @@ return array(
 		"Password"=>"Password (6-digit password)",
 		"Password2"=>"Repeat Passwrod",
 		'Organisation'=>'Company',
+		'other'=>'Others',
 		
 		'Onsite Event' => 'Onsite Event (need payment)',
 		
