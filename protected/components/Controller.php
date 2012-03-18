@@ -21,7 +21,6 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
-	
 	public function init(){
 		//Yii::app()->language = 'zh_CN';
 		$session=new CHttpSession;
@@ -33,8 +32,8 @@ class Controller extends CController
 		}else{
 			Yii::app()->language = $language;
 		}
-		//echo Yii::app()->language;
 	}
+	
 	/**
 	 * sendmail
 	 */
@@ -63,8 +62,54 @@ class Controller extends CController
 		$mailer->Send();
 	}
 	
-	public function sendSms($to){
+	public function sendSms($user){
+		set_time_limit(0);
+		header("Content-Type: text/html; charset=UTF-8");
+		define('SCRIPT_ROOT',  dirname(__FILE__).'/../extensions/sms/');
+		require_once SCRIPT_ROOT.'Client.php';
+		/**
+		 * 网关地址
+		 */
+		$gwUrl = 'http://sdkhttp.eucp.b2m.cn/sdk/SDKService';
+		/**
+		 * 序列号,请通过亿美销售人员获取
+		 */
+		$serialNumber = '0SDK-EMY-0130-LBXNR';
+	
+		/**
+		 * 密码,请通过亿美销售人员获取
+		 */
+		$password = '941018';
+		/**
+		 * 登录后所持有的SESSION KEY，即可通过login方法时创建
+		 */
+		$sessionKey = '160928';
+		/**
+		 * 连接超时时间，单位为秒
+		 */
+		$connectTimeOut = 10;
+	
+		/**
+		 * 远程信息读取超时时间，单位为秒
+		 */
+		$readTimeOut = 10;
+		$proxyhost = false;
+		$proxyport = false;
+		$proxyusername = false;
+		$proxypassword = false;
+		$client = new Client($gwUrl,$serialNumber,$password,$sessionKey,$proxyhost,$proxyport,$proxyusername,$proxypassword,$connectTimeOut,$readTimeOut);
+		//var_dump($client);
+		$client->setOutgoingEncoding("UTF-8");
+		$statusCode = $client->login();
 		
+		$message = '';
+		if(Yii::app()->language=='en'){
+			$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Beijing. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Plus 2012 Event Committee Team] ';
+		}else{
+			$message = '尊敬的' .$user->full_name . ', 感谢注册Cisco Plus大中华区北京站活动。请携带参会ID ' .$user->id . '，准时参会。【Cisco Plus大中华区活动会务组】 ';
+		}
+		$statusCode = $client->sendSMS(array($user->mobile),$message);
+		//echo "处理状态码:".$statusCode;
 	}
 
 }
