@@ -48,6 +48,8 @@ return array(
 		'Employee' => '员工',
 		'Office Administration' => '办公室行政',
 		'Other' => '其它',
+		'other' => '其它',
+
 		'Business Development'=>  '商业/市场开发',
 		'Consultant/Contractor'=>   '顾问咨询',
 		'Customer Service'=> '客户服务',
