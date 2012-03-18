@@ -269,7 +269,6 @@ class Survey extends TrackStarActiveRecord {
 	}
 	public function getQ6Options() {
 		return array(
-				'' => Yii::t('default','Select one'),
 				801 => Yii::t('default','Data Center - Application Networking'),
 				802 => Yii::t('default','Data Center - Infrastructure'),
 				803 => Yii::t('default','Data Center - Servers'),
