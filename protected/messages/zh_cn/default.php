@@ -1,5 +1,6 @@
 <?php
 return array(
+		'You enter the code has exceeded the upper limit.'=>'您输入的code已经超过使用上限。',
 		"Full Name"=>"姓名",
 		"Has Code"=>"是否有邀请码",
 		"Code"=>"如果您之前收到了邀请码，请在下面输入，如果没有，直接点击继续，进入下一页面。",
