@@ -104,8 +104,6 @@ div.form .password label {
 		</tr>
 		<tr>
 			<td><?php echo $form->labelEx($model,'q8'); ?></td>
-			<td>
-			</td>
 			<td><?php echo $form->error($model, 'q8'); ?>
 			<?php echo $form->checkbox($model, 'q8',array('checked'=>true));?>
 			</td>
