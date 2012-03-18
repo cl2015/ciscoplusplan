@@ -351,7 +351,6 @@ class User extends TrackStarActiveRecord {
 				$this->full_name=$this->first_name . ' ' . $this->last_name;
 			}
 		}
-		echo 123;
 		return true;
 	}
 	public function login() {
