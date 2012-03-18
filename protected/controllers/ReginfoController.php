@@ -279,7 +279,7 @@ class ReginfoController extends Controller
 	public function actionEmployeeConfirmation()
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
-		//$this->sendMail($user->email,$user->cc,$user);
+		$this->sendMail($user->email,$user->cc,$user);
 		$this->render('employeeConfirmation',array('model'=>$user));
 	}
 	public function actionOrdinaryConfirmation()
