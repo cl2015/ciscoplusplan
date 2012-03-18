@@ -58,7 +58,7 @@ We look forward to seeing you!
 </p>
 <?php }?>
 <p> 
-If you have any questions concerning your registration, please mail to: gc_cisco_plus@external.cisco.com, or call: 400-156-3788<br />
+If you have any questions concerning your registration, please mail to: <a href="gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com, or call: 400-156-3788<br />
 </p> 
 <p>  
 Cisco Plus 2012 Greater China Event Committee Team
