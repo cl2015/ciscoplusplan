@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link rel="shortcut icon" href="http://www.cisco.com/favicon.ico">
 <?php if(Yii::app()->language=='zh_cn') {?>
 <title>Cisco Plus大中华区活动2012</title>
 <?php }else{?>
