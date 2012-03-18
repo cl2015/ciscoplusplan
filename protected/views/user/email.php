@@ -12,7 +12,7 @@
 	<?php if($model->type_id!=2){?>
 	您的注册邮箱是：<?php echo $model->email;?>；
 	注册密码是：<?php echo $model->password;?>。
-	请您凭此邮箱和密码登录大会活动网站<a href="www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
+	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 	<p>
@@ -58,7 +58,7 @@ We look forward to seeing you!
 </p>
 <?php }?>
 <p> 
-If you have any questions concerning your registration, please mail to: <a href="gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com, or call: 400-156-3788<br />
+If you have any questions concerning your registration, please mail to: gc_cisco_plus@external.cisco.com<br/>or call: 400-156-3788<br />
 </p> 
 <p>  
 Cisco Plus 2012 Greater China Event Committee Team
