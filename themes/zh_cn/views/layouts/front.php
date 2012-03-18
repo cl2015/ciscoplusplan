@@ -3,7 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
-<title>Cisco Plus</title>
+<?php if(Yii::app()->language=='zh_cn') {?>
+<title>Cisco Plus大中华区活动2012</title>
+<?php }else{?>
+<title>Cisco Plus Greater China 2012</title>
+<?php }?>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
 <!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
