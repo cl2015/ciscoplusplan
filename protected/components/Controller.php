@@ -62,5 +62,9 @@ class Controller extends CController
 		$mailer->getView('email',array('model'=>$user));
 		$mailer->Send();
 	}
+	
+	public function sendSms($to){
+		
+	}
 
 }
