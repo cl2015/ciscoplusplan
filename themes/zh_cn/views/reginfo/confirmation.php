@@ -18,7 +18,7 @@
 </p>
 <p>
 
-	仍存在疑问？请发送电子邮件至:gc_cisco_plus@external.cisco.com<br /> 或致电Cisco Plus:
+	仍存在疑问？请发送电子邮件至:<a href="gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com<br /> 或致电Cisco Plus:
 	4001563788<br />
 <p>
 <p>
