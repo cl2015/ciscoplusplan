@@ -11,7 +11,7 @@
 	<?php if($model->type_id!=2){?>
 	您的注册邮箱是：<?php echo $model->email;?>；
 	注册密码是：<?php echo $model->password;?>。
-	请您凭此邮箱和密码登录大会活动网站<a href="www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
+	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 </p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
@@ -19,7 +19,7 @@
 	会议日期：2012 年 5 月 22-23 日 <br />
 	签到时间：早八点开始<br />
 	会议地点：国家会议中心<br />
-	如欲了解更多会议详情，请访问<a href="www.ciscopluschina.com">Cisco Plus 主页</a><br/>
+	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
 </p>
 <?php }?>
 <p>
