@@ -1,7 +1,7 @@
 <br /><br/><br/>
 <?php if(Yii::app()->language == 'zh_cn'){?>
 <p>
-	尊敬的<?php echo $model->full_name;?><br /> 
+	尊敬的<?php echo $model->full_name;?><br /> <br /> 
 	感谢您注册Cisco Plus大中华区北京站活动！<br />
 </p>
 <p>
@@ -30,7 +30,7 @@
 <?php echo CHtml::link(CHtml::encode("返回首页"), 'http://www.ciscopluschina.com/index.html',array('target'=>'_blank')); ?>
 <?php }else{?>
 <p>
-Dear <?php echo $model->full_name;?> ,
+Dear <?php echo $model->full_name;?> ,<br /> <br /> 
 </p>
 <p>
 Thank you for registering for Cisco Plus 2012 Beijing.<br />

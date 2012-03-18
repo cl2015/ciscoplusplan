@@ -3,5 +3,6 @@
 <?php }else{?>
 <img src="<?php echo Yii::app()->request->baseUrl; ?>/images/5_en.jpg"/>
 <?php }?>
-<?php echo $this->renderPartial('_confirmation', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_confirmation', array('model'=>$model,'reginfo'=>$reginfo)); ?>
+
 
