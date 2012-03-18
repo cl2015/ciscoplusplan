@@ -3,13 +3,13 @@
 <img src="http://223.4.134.123/images/mainBg.jpg" />
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> 
-	感谢您注册北京Cisco Plus大中华区北京站活动<br />
+	感谢您注册Cisco Plus大中华区北京站活动！<br />
 </p>
 <p>
 	您的注册ID号是：<?php echo $model->id;?> 请保存好此信息，作为大会参会凭证。<br />
-	您的邮箱是：<?php echo $model->email;?><br/>
-	<?php if($model->type_id!=2){?>你的密码是：<?php echo $model->password;?>
-	密码说明：凭此密码可登录大会活动网站 <a href="www.ciscopluschina.com">www.ciscopluschina.com</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
+	您的注册邮箱是：<?php echo $model->email;?>；
+	<?php if($model->type_id!=2){?>注册密码是：<?php echo $model->password;?>。
+	请您凭此邮箱和密码登录大会活动网站<a href="www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 <p>
 	会议日期：2012 年 5 月 22-23 日 <br />
@@ -33,25 +33,25 @@
 Dear <?php echo $model->full_name;?> ,
 <p>
 Thank you for registering for Cisco Plus 2012 Beijing.<br />
-Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.<br />
-Your registration confirmation email is <?php echo $model->email;?>
+<b>Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.</b><br />
+Your registration confirmation email is <?php echo $model->email;?>;
 <?php if($model->type_id!=2){?>
-Your password is <?php echo $model->password;?>.<br />
-The  password is used to login the active site of the General Assembly www.ciscopluschina.com 。Exclusive white papers, video viewing and other interactive activities.<br/>
+Your password is <?php echo $model->password;?>.<br />.
+This email address and password were used to login the active site of the General Assembly.<a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
 </p>
 <p>
 Event Date:           Mar 22-23, 2012<br />
 Sign in time:         Start from 8:00 AM<br />
-Venue:                   BIH, Beijing, PRC<br />
-For more conference details, please visit the Cisco Plus 2012 home page.<br />
+Venue:                China National Convention Center,Beijing, PRC<br />
+For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Return to Cisco Plus Home Page</a>.<br />
 We look forward to seeing you!
 </p>
 <p> 
 If you have any questions concerning your registration, please mail to: gc_cisco_plus@external.cisco.com, or call: 400-156-3788<br />
 </p> 
 <p>  
-Cisco Plus 2012 conference Team
+Cisco Plus 2012 Greater China Event Committee Team
 </p>
 <?php }?>
