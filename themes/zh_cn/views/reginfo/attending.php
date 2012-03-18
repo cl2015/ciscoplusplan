@@ -103,7 +103,7 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'is_online'); ?>
-		<?php echo $form->radioButtonList($model,'is_online',$model->getOnlineOptions(),array('separator'=>'', 'template' =>'<li class="q6" style="list-style: none outside none;display:block;float:left; width:140px;">{input} {label}</li>', 'labelOptions' => array('style' => 'display:inline;'))); ?>
+		<?php echo $form->radioButtonList($model,'is_online',$model->getOnlineOptions(),array('separator'=>'', 'template' =>'<li class="q6" style="list-style: none outside none;display:block;float:left; width:200px;">{input} {label}</li>', 'labelOptions' => array('style' => 'display:inline;'))); ?>
 		<?php echo $form->error($model,'is_online'); ?>
 	</div>
 	<div style="clear:both;"></div>
