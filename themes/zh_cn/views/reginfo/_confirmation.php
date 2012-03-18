@@ -24,7 +24,7 @@
 <?php }?>
 <p>
 	我们期待着您的参与！ <br/>
-	问题或建议,请发送电子邮件至:<a href="gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com<br/>
+	问题或建议,请发送电子邮件至:<a href="gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com</a><br/>
 	或致电: 400-156-3788
 <p>
 <p>
@@ -43,7 +43,8 @@ Thank you for registering for Cisco Plus 2012 Beijing.<br />
 <b>Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.</b><br />
 <?php }?>
 <?php if($model->type_id!=2){?>
-Your registration confirmation email is <?php echo $model->email;?>;
+<br />
+Your registration confirmation email is <?php echo $model->email;?>;<br />
 Your password is <?php echo $model->password;?>.<br />
 This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
@@ -59,7 +60,7 @@ We look forward to seeing you!
 </p>
 <?php }?>
 <p> 
-If you have any questions concerning your registration, please mail to: <a href="gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com, or call: 400-156-3788<br />
+If you have any questions concerning your registration, please mail to: <a href="gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com</a> , or call: 400-156-3788<br />
 </p> 
 <p>  
 Cisco Plus 2012 Greater China Event Committee Team
