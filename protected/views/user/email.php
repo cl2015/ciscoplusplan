@@ -17,7 +17,6 @@
 	签到时间：早八点开始<br />
 	会议地点：国家会议中心<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
-	
 </p>
 <?php }?>
 <p>
@@ -32,13 +31,14 @@
 <?php }else{?>
 <img src="http://223.4.134.123/images/mainBg_en.jpg" />
 <br/>
+
 Dear <?php echo $model->full_name;?> ,
 <p>
 Thank you for registering for Cisco Plus 2012 Beijing.<br />
 <b>Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.</b><br />
 Your registration confirmation email is <?php echo $model->email;?>;
 <?php if($model->type_id!=2){?>
-Your password is <?php echo $model->password;?>.<br />.
+Your password is <?php echo $model->password;?>.<br />
 This email address and password were used to login the active site of the General Assembly.<a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
@@ -48,7 +48,7 @@ This email address and password were used to login the active site of the Genera
 Event Date:           Mar 22-23, 2012<br />
 Sign in time:         Start from 8:00 AM<br />
 Venue:                China National Convention Center,Beijing, PRC<br />
-For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Return to Cisco Plus Home Page</a>.<br />
+For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Cisco Plus Home Page</a>.<br />
 We look forward to seeing you!
 </p>
 <?php }?>

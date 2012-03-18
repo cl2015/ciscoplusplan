@@ -1,4 +1,4 @@
-<br />
+<br /><br/><br/>
 <?php if(Yii::app()->language == 'zh_cn'){?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> 
@@ -29,13 +29,17 @@
 </p>
 <?php echo CHtml::link(CHtml::encode("返回首页"), 'http://www.ciscopluschina.com/index.html',array('target'=>'_blank')); ?>
 <?php }else{?>
+<p>
 Dear <?php echo $model->full_name;?> ,
+</p>
 <p>
 Thank you for registering for Cisco Plus 2012 Beijing.<br />
+</p>
+<p>
 <b>Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.</b><br />
 Your registration confirmation email is <?php echo $model->email;?>;
 <?php if($model->type_id!=2){?>
-Your password is <?php echo $model->password;?>.<br />.
+Your password is <?php echo $model->password;?>.<br />
 This email address and password were used to login the active site of the General Assembly.<a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
@@ -45,7 +49,7 @@ This email address and password were used to login the active site of the Genera
 Event Date:           Mar 22-23, 2012<br />
 Sign in time:         Start from 8:00 AM<br />
 Venue:                China National Convention Center,Beijing, PRC<br />
-For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Return to Cisco Plus Home Page</a>.<br />
+For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Cisco Plus Home Page</a>.<br />
 We look forward to seeing you!
 </p>
 <?php }?>

@@ -256,7 +256,7 @@ class ReginfoController extends Controller
 		$user=$this->loadUser(Yii::app()->user->id);
 		$reginfo = $this->loadModel(Yii::app()->user->id);
 		$this->sendMail($user->email,$user->cc,$user);
-		$this->render('employeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
+		$this->render('nominationConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
 	public function actionEmployeeConfirmation()
 	{
@@ -270,13 +270,13 @@ class ReginfoController extends Controller
 		$user=$this->loadUser(Yii::app()->user->id);
 		$reginfo = $this->loadModel(Yii::app()->user->id);
 		$this->sendMail($user->email,$user->cc,$user);
-		$this->render('employeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
+		$this->render('ordinaryConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
 	public function actionAttendeeConfirmation()
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
 		$reginfo = $this->loadModel(Yii::app()->user->id);
 		$this->sendMail($user->email,$user->cc,$user);
-		$this->render('employeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
+		$this->render('attendeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
 }
