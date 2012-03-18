@@ -260,7 +260,7 @@ class SurveyController extends Controller {
 			if($model->validate() && $user->validate()){
 				$user->has_reged = 1;
 				if ($model->save()&& $user->save()){
-					$this->redirect(array('reginfo/payment'));
+					$this->redirect(array('reginfo/attending'));
 				}
 			}
 		}else{

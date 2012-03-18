@@ -27,7 +27,7 @@ class ReginfoController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('payment','nominationConfirmation','employeeConfirmation','ordinaryConfirmation','attendeeConfirmation'),
+						'actions'=>array('attending','payment','nominationConfirmation','employeeConfirmation','ordinaryConfirmation','attendeeConfirmation'),
 						'users'=>array('@'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -173,16 +173,23 @@ class ReginfoController extends Controller
 		}
 	}
 	public function actionAttending(){
-		$model=new Reginfo('attending');
 		$user = $this->loadUser(Yii::app()->user->id);
+		$model = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($model === null){
+			$model = new Reginfo;
+			$model->user_id = $user->id;
+		}
+		$model->setScenario('attending');
 		if(isset($_POST['Reginfo']))
 		{
 			$model->attributes=$_POST['Reginfo'];
+			if($model->save()){
 			if ($model->is_online == 0)
 			{
 				$this->redirect(array('attendeeConfirmation'));
 			}else{
 				$this->redirect(array('payment'));
+			}
 			}
 		}
 		$this->render('attending',array('model'=>$model));
@@ -199,18 +206,13 @@ class ReginfoController extends Controller
 	}
 	public function actionPayment()
 	{
-		$model=new Reginfo('payment');
 		$user = $this->loadUser(Yii::app()->user->id);
-		$model->user_id = $user->id;
-		// uncomment the following code to enable ajax-based validation
-		/*
-		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-payment-form')
-		{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
+		$model = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($model === null){
+			$model = new Reginfo;
+			$model->user_id = $user->id;
 		}
-	 */
-
+		$model->setScenario('payment');
 		if(isset($_POST['Reginfo']))
 		{
 			$model->attributes=$_POST['Reginfo'];
@@ -230,18 +232,7 @@ class ReginfoController extends Controller
 	public function actionConfirmation()
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
-		//$this->sendMail($user->email,,$user);
-		// uncomment the following code to enable ajax-based validation
-		/*
-		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
-		{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-		}
-	 */
-		//$this->sendMail('Ted.Xin@gpj.com','xrong@gpj.com','<a href="#" >test</a>hello');
 		$this->sendMail('li.he@brightac.com.cn','cranelee@gmail.com',$user);
-		//$this->sendMail('razhou@cisco.com', 'kevxu@cisco.com','');
 		$this->render('confirmation',array('user'=>$user));
 	}
 	public function actionPay()
@@ -249,21 +240,11 @@ class ReginfoController extends Controller
 		$model=new Reginfo('pay');
 		$user = $this->loadUser(Yii::app()->user->id);
 		$model->user_id = $user_id;
-		// uncomment the following code to enable ajax-based validation
-		/*
-		if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-pay-form')
-		{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-		}
-	 */
-
 		if(isset($_POST['Reginfo']))
 		{
 			$model->attributes=$_POST['Reginfo'];
 			if($model->validate())
 			{
-				// form inputs are valid, do something here
 				$this->redirect(array('ordinaryConfirmation'));
 				return;
 			}

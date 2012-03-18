@@ -30,9 +30,12 @@ return array(
 		"reg error" => "注册失败",
 		"please input your code" =>"请输入邀请码",
 		"error code" => '错误的邀请码',
-		"Is Online" =>'是否在线参加',
-		'online' => '在线',
-		'onsite' => '现场',
+		"Is Online" =>'参会方式',
+		'Online Event' => '在线活动',
+		'Onsite Event' => '参加现场会议（付费）',
+		'onsite payment'=>'现场付费',
+		'online payment'=>'在线付费',
+		
 		'Payment Type'=>'支付方式',
 		
 		'continue' =>'继续',

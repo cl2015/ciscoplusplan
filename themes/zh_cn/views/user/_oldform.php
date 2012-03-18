@@ -88,9 +88,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'ec_name'); ?>
-		<?php echo $form->textField($model,'ec_name',array('size'=>60,'maxlength'=>256)); ?>
-		<?php echo $form->error($model,'ec_name'); ?>
+		<?php echo $form->labelEx($model,'type_id'); ?>
+		<?php echo $form->textField($model,'type_id',array('size'=>60,'maxlength'=>256)); ?>
+		<?php echo $form->error($model,'type_id'); ?>
 	</div>
 
 	<div class="row">

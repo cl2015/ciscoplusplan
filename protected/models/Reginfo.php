@@ -19,7 +19,7 @@
  * @property string $updated_at
  * @property integer $updated_by
  */
-class Reginfo extends CActiveRecord
+class Reginfo extends TrackStarActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -48,7 +48,8 @@ class Reginfo extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id', 'required'),
-				array('payment_type','required','on'=>'payment'),
+			array('payment_type','required','on'=>'payment'),
+			array('is_online','required','on'=>'attending'),
 			array('payment_type, is_online, created_by, updated_by', 'numerical', 'integerOnly'=>true),
 			array('user_id', 'length', 'max'=>10),
 			array('reg_id, reg_type, reg_name, reg_address, paid_amount', 'length', 'max'=>256),
@@ -126,15 +127,15 @@ class Reginfo extends CActiveRecord
 	public function getOnlineOptions()
 	{
 		return array(
-			0 => Yii::t('default','online'),
-			1 => Yii::t('default','onsite'),
+			0 => Yii::t('default','Online Event'),
+			1 => Yii::t('default','Onsite Event'),
 		);
 	}
 	public function getPaymentOptions()
 	{
 		return array(
-			//0 => Yii::t('default','online'),
-			1 => Yii::t('default','onsite'),
+			//0 => Yii::t('default','online payment'),
+			1 => Yii::t('default','onsite payment'),
 		);
 	}
 }
