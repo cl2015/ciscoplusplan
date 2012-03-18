@@ -66,6 +66,7 @@ class User extends TrackStarActiveRecord {
 				array('password', 'compare', 'compareAttribute' => 'password2','on'=>'surveyUpdate'),
 				array('password,password2','required', 'on'=>'surveyUpdate'),
 				array('email','email','on'=>'loading'),
+				array('email','safe','on'=>'loading'),
 				array('email','required','on'=>'loading'),
 				array('mobile','length','max'=>11),
 				array('mobile','length','min'=>11),
@@ -350,6 +351,7 @@ class User extends TrackStarActiveRecord {
 				$this->full_name=$this->first_name . ' ' . $this->last_name;
 			}
 		}
+		echo 123;
 		return true;
 	}
 	public function login() {

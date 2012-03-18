@@ -196,13 +196,31 @@ class UserController extends Controller
 			 * 3.有email需要code			ordinary
 			 * 4.无email无code		attendee,web
 			 * 5.有email有多个code
+			 * 6.无email有code,		Sponsor
 			 */
 			$model->attributes=$_POST['User'];
 			if($model->validate()){
 				if(isset($model->code) && $model->code!=null&& $model->code!=''){
+					//type 5
 					$user = User::model()->findByAttributes(array('email'=>$model->email,'code'=>$model->code));
 					if($user===null){
-						$message['email'] = 'error';
+						//type6
+						$user = User::model()->findByAttributes(array('code'=>$model->code,'has_reged'=>0,'type_id'=>6,'email'=>''));
+						if($user===null){
+							$message['email'] = 'error';
+							$message['code'] = 'error';
+						}else{
+							$user->attributes = $_POST['User'];
+							$user->setScenario('loading');
+							$model=$user;
+							if($user->save()){
+								if($user->login()){
+									$this->redirect(array('nominationUpdate'));
+								}
+							}else{
+								$message['email']="error";
+							}
+						}
 					}elseif($user->has_reged){
 						$message['email']=Yii::t('default', 'This email has been reged.');
 					}else{
@@ -216,49 +234,50 @@ class UserController extends Controller
 							$message['email']="error";
 						}
 					}
-				}
-				$user = User::model()->findByAttributes(array('email'=>$model->email));
-				if($user===null){//attendee,web
-					$model->type_id = 4;
-					$model->has_reged = 1;
-					if($model->save()){
-						if($model->login()){
+				}else{
+					$user = User::model()->findByAttributes(array('email'=>$model->email));
+					if($user===null){//attendee,web
+						$model->type_id = 4;
+						$model->has_reged = 1;
+						if($model->save()){
+							if($model->login()){
+								$this->redirect(array('attendeeUpdate'));
+							}else{
+								$message['email'] = 'error';
+							}
+						}
+						$message['email']=Yii::t('default','reg error.');
+					}elseif($user->has_reged == '1') {//已注册
+						$message['email']=Yii::t('default', 'This email has been reged.');
+					}elseif($user->type_id=='3'){
+						if($model->code == null || $model->code == ""){
+							$message["code"] = Yii::t("default","please input your code");
+						}elseif($model->code!=$user->code){
+							$message["code"] = Yii::t("default","error code");
+						}else{
+							if($user->login()){
+								$this->redirect(array('ordinaryUpdate'));
+							}else{
+								$message['email']="error";
+							}
+						}
+					}elseif($user->type_id == '2'){
+						if($user->login()){
+							$this->redirect(array('employeeUpdate'));
+						}
+					}elseif($user->type_id == '1' ){
+						if($user->login()){
+							$this->redirect(array('nominationUpdate'));
+						}
+					}elseif($user->type_id == '4'){
+						if($user->login()){
 							$this->redirect(array('attendeeUpdate'));
 						}else{
 							$message['email'] = 'error';
 						}
-					}
-					$message['email']=Yii::t('default','reg error.');
-				}elseif($user->has_reged == '1') {//已注册
-					$message['email']=Yii::t('default', 'This email has been reged.');
-				}elseif($user->type_id=='3'){
-					if($model->code == null || $model->code == ""){
-						$message["code"] = Yii::t("default","please input your code");
-					}elseif($model->code!=$user->code){
-						$message["code"] = Yii::t("default","error code");
 					}else{
-						if($user->login()){
-							$this->redirect(array('ordinaryUpdate'));
-						}else{
-							$message['email']="error";
-						}
+						$messge['email']=Yii::t('default',"error");
 					}
-				}elseif($user->type_id == '2'){
-					if($user->login()){
-						$this->redirect(array('employeeUpdate'));
-					}
-				}elseif($user->type_id == '1' ){
-					if($user->login()){
-						$this->redirect(array('nominationUpdate'));
-					}
-				}elseif($user->type_id == '4'){
-					if($user->login()){
-						$this->redirect(array('attendeeUpdate'));
-					}else{
-						$message['email'] = 'error';
-					}
-				}else{
-					$messge['email']=Yii::t('default',"error");
 				}
 			}
 		}
@@ -349,7 +368,7 @@ class UserController extends Controller
 		{
 			$model=$this->loadModel(Yii::app()->user->id);
 			$model->setScenario('update');
-			if($model->type_id != "1"){
+			if($model->type_id != "1"&&$model->type_id !='6'){
 				$this->redirect(array("user/loading"));
 			}else{
 				if(isset($_POST['User']))

@@ -63,6 +63,9 @@ class Controller extends CController
 	}
 	
 	public function sendSms($user){
+		if($user->has_sended == 1){
+			return true;
+		}
 		set_time_limit(0);
 		header("Content-Type: text/html; charset=UTF-8");
 		define('SCRIPT_ROOT',  dirname(__FILE__).'/../extensions/sms/');
@@ -109,6 +112,10 @@ class Controller extends CController
 			$message = '尊敬的' .$user->full_name . ', 感谢注册Cisco Plus大中华区北京站活动。请携带参会ID ' .$user->id . '，准时参会。【Cisco Plus大中华区活动会务组】 ';
 		}
 		$statusCode = $client->sendSMS(array($user->mobile),$message);
+		if($statusCode == '0'){
+			$user->has_sended = 1;
+			$user->save();
+		}
 		//echo "处理状态码:".$statusCode;
 	}
 

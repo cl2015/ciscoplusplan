@@ -18,7 +18,7 @@ class UserIdentity extends CUserIdentity
 		if ($user === null) {
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
 		} else {
-			if ($user->type_id<5) {
+			if ($user->type_id<7) {
 				$this->_id = $user->id;
 				$this->errorCode = self::ERROR_NONE;
 			}elseif ($user->password !== $user->encrypt($this->password)) {
