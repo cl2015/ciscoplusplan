@@ -6,6 +6,8 @@ return array(
 		"Password2"=>"Repeat Passwrod",
 		'Organisation'=>'Company',
 		
+		'Onsite Event' => 'Onsite Event (need payment)',
+		
 		'Is Online'=> 'Please select your attending model',
 		
 		"Q1"=>"1.Whick is the direction of investment in network construction?",
