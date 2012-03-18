@@ -19,7 +19,7 @@
 	会议日期：2012 年 5 月 22-23 日 <br />
 	签到时间：早八点开始<br />
 	会议地点：国家会议中心<br />
-	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
+	如欲了解更多会议详情，请访问<a href="www.ciscopluschina.com">Cisco Plus 主页</a><br/>
 </p>
 <?php }?>
 <p>
