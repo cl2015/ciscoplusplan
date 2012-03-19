@@ -77,12 +77,14 @@ class Controller extends CController
 		/**
 		 * 序列号,请通过亿美销售人员获取
 		 */
-		$serialNumber = '0SDK-EMY-0130-LBXNR';
+		//$serialNumber = '0SDK-EMY-0130-LBXNR';
+		$serialNumber = '3SDK-EMY-0130-MKRUT';
 
 		/**
 		 * 密码,请通过亿美销售人员获取
 		 */
-		$password = '941018';
+		//$password = '941018';
+		$password = '991211';//特服号：037825
 		/**
 		 * 登录后所持有的SESSION KEY，即可通过login方法时创建
 		 */
