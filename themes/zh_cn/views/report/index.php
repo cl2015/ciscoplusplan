@@ -124,7 +124,7 @@ $department = User::model()->getDepartmentOptions();
 <td><?php if(isset($relation[$row['relation_with_cisco']])){echo $relation[$row['relation_with_cisco']];}?></td>
 <td><?php echo $row['full_name'];?></td>
 <td><?php if(isset($job_title[$row['job_title']])){echo $job_title[$row['job_title']];}?></td>
-<td><?php if(isset($department[$row['department']])){echo $department[$row['department']];}?></td>
+<td><?php if(isset($department[$row['department']])){echo $department[$row['department']];}else{echo $row['department']?></td>
 <td><?php echo $row['working_phone_dis'];?></td>
 <td><?php echo $row['working_phone'];?></td>
 <td><?php echo $row['mobile'];?></td>
