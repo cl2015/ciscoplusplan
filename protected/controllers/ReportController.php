@@ -12,6 +12,10 @@ class ReportController extends Controller
 						'actions' => array('index'),
 						'users' => array('@'),
 				),
+				array('allow',
+						'actions'=>array('allUsers'),
+						'users'=>array('admin'),
+					),
 				array('deny', // deny all users
 						'users' => array('*'),
 				),
@@ -24,7 +28,11 @@ class ReportController extends Controller
 		$this->_users=$user->getReport();
 		$this->render('index',array('model'=>$this->_users,'user'=>$user));
 	}
-	
+	public function actionAllUsers(){
+		$user = $this->loadUser(Yii::app()->user->id);
+		$this->_users=$user->getAdminReport();
+		$this->render('index',array('model'=>$this->_users,'user'=>$user));
+	}
 	protected function loadUser($user_id) {
 		if ($this->_user === null) {
 			$this->_user = User::model()->findbyPk($user_id);

@@ -389,9 +389,22 @@ class User extends TrackStarActiveRecord {
 		return self::model()->findAll(
 				array(
 						'condition'=>$condition . "' and type_id<10 ",
-						'order'=>'t.created_by DESC',
+						'order'=>'t.created_at DESC',
 						//'limit'=>$limit,
 				));
+	}
+	
+	public function getAdminReport(){
+		if(!$this->email=='admin'){
+			return array();
+		}else{
+			return self::model()->findAll(
+					array(
+							'condition'=>'type_id<10',
+							'order'=>'t.created_at desc'
+							)
+					);
+		}
 	}
 
 }
