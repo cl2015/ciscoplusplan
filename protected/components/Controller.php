@@ -117,9 +117,9 @@ class Controller extends CController
 			}
 		}else{
 			if(!($user->type_id== 4 && $reginfo->is_online==0)){
-				$message = '尊敬的' .$user->full_name . ', 感谢注册Cisco Plus大中华区北京站活动。请携带参会ID ' .$user->id . '，准时参会。【Cisco Plus大中华区活动会务组】 ';
+				$message = '尊敬的' .$user->full_name . '， 感谢注册Cisco Plus大中华区北京站活动。请携带参会ID ' .$user->id . '，准时参会。【Cisco Plus大中华区活动会务组】 ';
 			}else{
-				$message = '尊敬的' .$user->full_name . ', 感谢注册Cisco Plus大中华区北京站活动。请牢记您的注册邮箱 ' .$user->email . '和注册密码' . $user->password . ' ，登录www.ciscopluschina.com[Cisco Plus大中华区活动会务组] ';
+				$message = '尊敬的' .$user->full_name . '， 感谢注册Cisco Plus大中华区北京站活动。请牢记您的注册邮箱 ' .$user->email . '和注册密码' . $user->password . ' ，登录www.ciscopluschina.com[Cisco Plus大中华区活动会务组] ';
 			}
 		}
 		$statusCode = $client->sendSMS(array($user->mobile),$message);

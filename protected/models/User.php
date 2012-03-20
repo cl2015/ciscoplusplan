@@ -30,6 +30,9 @@
  * @property integer $has_reged
  * @property string $cc
  */
+define('AM_ID',10);
+define('RM_ID',11);
+define('OD_ID',12);
 class User extends TrackStarActiveRecord {
 
 	/**
@@ -47,6 +50,9 @@ class User extends TrackStarActiveRecord {
 	public function tableName() {
 		return 'users';
 	}
+	
+	
+	
 
 	public $password;
 	public $password2;
@@ -54,7 +60,8 @@ class User extends TrackStarActiveRecord {
 	public $first_name;
 	public $last_name;
 	public $others;
-
+	
+	
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -364,6 +371,27 @@ class User extends TrackStarActiveRecord {
 		}
 		else
 			return false;
+	}
+	
+	public function getReport(){
+		$condition = '';
+		if($this->type_id == AM_ID){
+			$condition = "am_id='".$this->email;
+		}elseif($this->type_id == RM_ID){
+			$condition = "rm_id='".$this->email;
+			
+		}elseif($this->type_id == OD_ID){
+			$condition = "od_id='".$this->email;
+		}else{
+			return array();
+		}
+		
+		return self::model()->findAll(
+				array(
+						'condition'=>$condition . "' and type_id<10 ",
+						'order'=>'t.created_by DESC',
+						//'limit'=>$limit,
+				));
 	}
 
 }

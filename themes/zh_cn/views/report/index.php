@@ -81,7 +81,7 @@ font-size: 12px;
 } 
 </style> 
 
-<h1>Report</h1>
+<h1>Report Detail</h1>
 <table class="mytable" style="border=1">
 <tr>
 <th>状态</th>
@@ -96,43 +96,55 @@ font-size: 12px;
 <th>email</th>
 <th>省份</th>
 <th>城市</th>
+<?php if($user->type_id>10){?>
 <th>AM姓名</th>
 <th>AM ID</th>
 <th>AM部门</th>
 <th>AM手机</th>
+<?php }?>
+<?php if($user->type_id>11){?>
 <th>RM姓名</th>
 <th>RM ID</th>
+<?php }?>
+<?php if($user->type_id>12){?>
 <th>OD姓名</th>
 <th>OD ID</th>
+<?php }?>
 </tr>
 <?php $relation  = User::model()->getRelationOptions();
 $job_title = User::model()->getJobTitleOptions();
-$province = User::model()->getProvinces();
+$province = User::model()->getProvinces()+User::model()->getEnProvinces();
 $department = User::model()->getDepartmentOptions();
 	//var_dump($relation[1]);
 ;?>
-<?php foreach ($rows as $row) {?>
+<?php foreach ($model as $row) {?>
 <tr>
-<td>已注册</td>
+<td><?php echo $row['has_reged']=="1"?'已注册':'未注册'?></td>
 <td><?php echo $row['organisation'];?></td>
-<td><?php echo in_array($row['relation_with_cisco'],$relation)?$relation[$row['relation_with_cisco']]:$row['relation_with_cisco'];?></td>
+<td><?php if(isset($relation[$row['relation_with_cisco']])){echo $relation[$row['relation_with_cisco']];}?></td>
 <td><?php echo $row['full_name'];?></td>
-<td><?php echo $job_title[$row['job_title']];?></td>
-<td><?php echo $department[$row['department']];?></td>
+<td><?php if(isset($job_title[$row['job_title']])){echo $job_title[$row['job_title']];}?></td>
+<td><?php if(isset($department[$row['department']])){echo $department[$row['department']];}?></td>
 <td><?php echo $row['working_phone_dis'];?></td>
 <td><?php echo $row['working_phone'];?></td>
 <td><?php echo $row['mobile'];?></td>
 <td><?php echo $row['email'];?></td>
-<td><?php echo $province[$row['province']];?></td>
+<td><?php if(isset($province[$row['province']])){echo $province[$row['province']];}?></td>
 <td><?php echo $row['city'];?></td>
-<td>Kevin Xu</td>
-<td>kevxu</td>
-<td>13930192102</td>
-<td>PL-North</td>
-<td>Frank Zhu</td>
-<td>fzhu</td>
-<td>Jerry Zhang</td>
-<td>jerzhang</td>
+<?php if($user->type_id>10){?>
+<td><?php echo $row['am_name']?></td>
+<td><?php echo $row['am_id']?></td>
+<td><?php echo $row['am_department']?></td>
+<td><?php echo $row['am_mobile']?></td>
+<?php }?>
+<?php if($user->type_id>11){?>
+<td><?php echo $row['rm_name']?></td>
+<td><?php echo $row['rm_id']?></td>
+<?php }?>
+<?php if($user->type_id>12){?>
+<td><?php echo $row['od_name']?></td>
+<td><?php echo $row['od_id']?></td>
+<?php }?>
 </tr>
 <?php }?>
 </table>
