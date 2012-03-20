@@ -27,7 +27,7 @@ class UserController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('loading','check','reg','language'),
+						'actions'=>array('loading','check','reg','language','forgetPassword'),
 						'users'=>array('*'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -460,6 +460,31 @@ class UserController extends Controller
 			Yii::app()->language = $language;
 		}
 		return true;
+	}
+	
+	/**
+	 * find password
+	 */
+	public function actionForgetPassword(){
+		$model=new User('forgetPassword');
+		$message = '';
+		
+		if(isset($_POST['User']))
+		{
+			$model->attributes=$_POST['User'];
+			if($model->validate()){
+				$user = User::model()->findByAttributes(array('email'=>$model->email));
+				if($user===null){
+					$message='You have not registered.';
+				}else{
+					$reginfo = Reginfo::model()->findByAttributes(array('user_id'=>$user->id));
+					$this->sendPassword($user,$reginfo);
+					$message = 'Password has been sent to your mailbox.';
+				}
+				
+			}
+		}
+		$this->render('forgetPassword',array('model'=>$model,'message'=>$message));
 	}
 
 

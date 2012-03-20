@@ -25,6 +25,10 @@ return array(
 		'Q7'=>'7.我愿意思科公司代表与我联系. ',
 		'Q8'=>'8.我愿意通过电子邮件，接收来自思科的产品和资讯信息.  ',
 		
+		//forget password
+		'You have not registered.'=>'您还没有注册。',
+		'Password has been sent to your mailbox.'=>'密码已发送到您的邮箱。',
+		
 		
 		"required" =>"必填",
 		"This email has been reged." =>"此邮件已经被注册。",

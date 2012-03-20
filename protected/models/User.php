@@ -88,6 +88,8 @@ class User extends TrackStarActiveRecord {
 				array('full_name,department,ec_name,mobile','required', 'on'=>'employeeUpdate'),
 				array('others','match','pattern'=>"/^[a-zA-Z0-9 ]+$/",'message'=>'English only','on'=>'employeeUpdate'),
 				array('others','safe','on'=>'employeeUpdate'),
+				
+				array('email','required','on'=>'forgetPassword'),
 
 				// The following rule is used by search().
 				// Please remove those attributes that should not be searched.
