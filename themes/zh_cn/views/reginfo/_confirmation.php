@@ -7,11 +7,18 @@
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 	您的注册ID号是：<?php echo $model->id;?> 。请保存好此信息，作为大会参会凭证。<br />
-	<?php }?>
+	
 	<?php if($model->type_id!=2){?>
-	您的注册邮箱是：<?php echo $model->email;?>；
-	注册密码是：<?php echo $model->password;?>。
-	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
+		您的注册邮箱是：<?php echo $model->email;?>；
+		注册密码是：123456。
+		请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
+	<?php }?>
+
+<?php }?>
+	<?php if($model->type_id!=2){?>
+		您的注册邮箱是：<?php echo $model->email;?>；
+		注册密码是：<?php echo $model->password;?>。
+		请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 </p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
