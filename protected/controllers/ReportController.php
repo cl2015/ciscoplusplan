@@ -48,8 +48,8 @@ class ReportController extends Controller
 
 	public function actionAllUsers(){
 		$user = $this->loadUser(Yii::app()->user->id);
-		$this->_usersgetSummaryReport->getAdminReport();
-		$this->render('detail',array('model'=>$this->_users,'user'=>$user));
+		$this->_users=User::model()->getAdminReport();
+		$this->render('detail',array('model'=>$this->_users,'user'=>$user,'type'=>'OD','am'=>''));
 	}
 	protected function loadUser($user_id) {
 		if ($this->_user === null) {
