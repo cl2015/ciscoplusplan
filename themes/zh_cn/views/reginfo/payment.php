@@ -7,6 +7,8 @@
 -->
 </style>
 <?php if(Yii::app()->language=='en'){?>
+
+echo "<img src=http://www.ciscopluschina.com/EN/images/agenda.gif align=center>";
 <table width="713" height="211" border="1px;" align="center"
 	cellpadding="0" cellspacing="0" bordercolor="E5E0EC">
 	<tr class="ziti">
@@ -53,6 +55,7 @@
 	</tr>
 </table>
 <?php }else{?>
+<img src=http://www.ciscopluschina.com/images/agenda.gif align=center>";
 <table width="731" height="192" border="1px;" align="center"
 	cellpadding="0" cellspacing="0" bordercolor="E5E0EC">
 	<tr class="ziti">
