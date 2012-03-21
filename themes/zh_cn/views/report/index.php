@@ -110,7 +110,7 @@ font-size: 12px;
 <td><?php echo $row['ec_mobile']>0?$row['nomination']/$row['ec_mobile']*100:'nil'?>%</td>
 <td><?php echo $row['registeration']?></td>
 <td><?php echo $row['nomination']>0?$row['registeration']/$row['nomination']*100:'nil'?>%</td>
-<td><?php echo CHtml::link(CHtml::encode("Detail List"), array('report/detail','type'=>$type,'email'=>$user->email),array('target'=>'_blank')); ?></td>
+<td><?php echo CHtml::link(CHtml::encode("Detail List"), array('report/detail','type'=>$type,'email'=>$user->email,'am'=>$row['am_id']),array('target'=>'_blank')); ?></td>
 </tr>
 <?php }?>
 </table>
