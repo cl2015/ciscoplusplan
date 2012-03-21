@@ -7,6 +7,10 @@ return array(
 		'Organisation'=>'Company',
 		'other'=>'Others',
 		
+		'Online Event' => 'Online event (Free)</br>Watch the hot tech video, download whitepaper for free and know more about Cisco Plus.',
+		'Onsite Event' => 'Onsite event (Buy ticket online or contact your Cisco Sales Account Manager)</br>Attend onsite event and get access for online event.',
+		
+		
 		'Onsite Event' => 'Onsite Event (need payment)',
 		
 		'Is Online'=> 'Please select your attending model',

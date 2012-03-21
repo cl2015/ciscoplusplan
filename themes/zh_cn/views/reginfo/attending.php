@@ -17,7 +17,7 @@
 	
 	<div class="row">
 		<?php echo $form->labelEx($model,'is_online'); ?>
-		<?php echo $form->radioButtonList($model,'is_online',$model->getOnlineOptions(),array('separator'=>'', 'template' =>'<li class="q6" style="list-style: none outside none;display:block; width:400px;float:none;">{input} {label}</li>', 'labelOptions' => array('style' => 'display:inline;'))); ?>
+		<?php echo $form->radioButtonList($model,'is_online',$model->getOnlineOptions(),array('separator'=>'', 'template' =>'<li class="q6" style="list-style: none outside none;display:block; width:600px;float:none;">{input} {label}</li>', 'labelOptions' => array('style' => 'display:inline;'))); ?>
 		<?php echo $form->error($model,'is_online'); ?>
 	</div>
 	<div style="clear:both;"></div>
