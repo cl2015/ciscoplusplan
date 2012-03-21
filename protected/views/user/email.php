@@ -3,13 +3,13 @@
 <img src="http://223.4.134.123/images/mainBg.jpg" />
 	<?php 
 		if($reginfo->created_at<'2012-04-24 00:00:00'){
-			$price = '$948.00';
+			$price = '948.00';
 		}elseif($reginfo->created_at<'2012-05-08 00:00:00'){
-			$price = '$948.00';
+			$price = '948.00';
 		}elseif($reginfo->created_at<'2012-05-21 00:00:00'){
-			$price = '$1,264.00';
+			$price = '1,264.00';
 		}else{
-			$price = '$1,580.00';
+			$price = '1,580.00';
 		}
 	?>
 <p>
@@ -23,13 +23,13 @@
 	
 	<?php if($model->type_id==2){?>
 	您的注册邮箱是：<?php echo $model->email;?>；
-	注册密码是：123456。
+	网站注册密码是：123456。
 	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 
 	<?php if($model->type_id!=2){?>
 	您的注册邮箱是：<?php echo $model->email;?>；
-	注册密码是：<?php echo $model->password;?>。
+	网站注册密码是：<?php echo $model->password;?>。
 	<?php if($model->type_id==4 && $reginfo->is_online==1){?>
 	您的报名时间为：<?php echo $reginfo->created_at?>, 票价为<?php echo $price?>
 	<?php }?>
@@ -66,7 +66,7 @@ Thank you for registering for Cisco Plus 2012 Beijing.<br />
 
 <?php if($model->type_id==2){?>
 Your registration confirmation email is <?php echo $model->email;?>;
-Your password is 123456.<br />
+Your website login password is 123456.<br />
 <?php if($model->type_id==4 && $reginfo->is_online==1){?>
 Your registration time: <?php echo $reginfo->created_at?>, Ticket price is : <?php echo $price?>
 <?php }?>
@@ -76,7 +76,7 @@ This email address and password were used to login the active site of the Genera
 
 <?php if($model->type_id!=2){?>
 Your registration confirmation email is <?php echo $model->email;?>;
-Your password is <?php echo $model->password;?>.<br />
+Your website login password is <?php echo $model->password;?>.<br />
 This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
