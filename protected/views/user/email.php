@@ -31,7 +31,7 @@
 	您的注册邮箱是：<?php echo $model->email;?>；
 	网站注册密码是：<?php echo $model->password;?>。
 	<?php if($model->type_id==4 && $reginfo->is_online==1){?>
-	您的报名时间为：<?php echo $reginfo->created_at?>, 票价为<?php echo $price?>
+	您的报名时间为：<?php echo $reginfo->created_at?>, 票价为<?php echo $price?>元。
 	<?php }?>
 	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
@@ -68,7 +68,7 @@ Thank you for registering for Cisco Plus 2012 Beijing.<br />
 Your registration confirmation email is <?php echo $model->email;?>;
 Your website login password is 123456.<br />
 <?php if($model->type_id==4 && $reginfo->is_online==1){?>
-Your registration time: <?php echo $reginfo->created_at?>, Ticket price is : <?php echo $price?>
+Your registration time: <?php echo $reginfo->created_at?>, Ticket price is : RMB <?php echo $price?>
 <?php }?>
 This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
