@@ -100,6 +100,8 @@ font-size: 12px;
 <th>email</th>
 <th>省份</th>
 <th>城市</th>
+<th>参会凭证注册ID号</th>
+<th>网站注册密码</th>
 <?php if($type=='OD'||$type=='RM'){?>
 <th>AM姓名</th>
 <th>AM ID</th>
@@ -135,6 +137,8 @@ $department = User::model()->getDepartmentOptions();
 <td><?php echo $row['email'];?></td>
 <td><?php if(isset($province[$row['province']])){echo $province[$row['province']];}?></td>
 <td><?php echo $row['city'];?></td>
+<td><?php echo $row['id'];?></td>
+<td><?php echo $row['password'];?></td>
 <?php if($type=='OD'||$type=='RM'){?>
 <td><?php echo $row['am_name']?></td>
 <td><?php echo $row['am_id']?></td>
