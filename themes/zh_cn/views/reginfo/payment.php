@@ -22,12 +22,13 @@
 	<!--<?php echo $model->created_at ?> -->
 
 
-	The Current Price is RMB <?php echo $price;?>	
+	The Current Price is RMB <?php echo $price;?> </br>	
 <img src=http://www.ciscopluschina.com/EN/images/agenda.gif align=center>
 
 <?php }else{?>
 
-	当前价格为<?php echo $price;?>元
+
+	当前价格为<?php echo $price;?>元 </br>
 <img src=http://www.ciscopluschina.com/images/agenda.gif align=center>
 
 <?php }?>
