@@ -10,22 +10,24 @@
 
 	<?php 
 		if($model->created_at<'2012-04-24 00:00:00'){
-			$price = '$948.00';
+			$price = '948.00';
 		}elseif($model->created_at<'2012-05-08 00:00:00'){
-			$price = '$948.00';
+			$price = '948.00';
 		}elseif($model->created_at<'2012-05-21 00:00:00'){
-			$price = '$1,264.00';
+			$price = '1,264.00';
 		}else{
-			$price = '$1,580.00';
+			$price = '1,580.00';
 		}
 	?>
-	<?php echo $model->created_at ?>
-	当前价格为<?php echo $price;?>元
-	
+	<!--<?php echo $model->created_at ?> -->
+
+
+	The Current Price is RMB <?php echo $price;?>	
 <img src=http://www.ciscopluschina.com/EN/images/agenda.gif align=center>
 
 <?php }else{?>
-	Current Price is RMB <?php echo $price;?>
+
+	当前价格为<?php echo $price;?>元
 <img src=http://www.ciscopluschina.com/images/agenda.gif align=center>
 
 <?php }?>
