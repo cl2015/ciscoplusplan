@@ -21,9 +21,9 @@
 		<th></th>
 
 		<tr>
-			<td><?php echo $form->labelEx($model,Yii::t('full_name','full_name')); ?>
+			<td width="100px"><?php echo $form->labelEx($model,Yii::t('full_name','full_name')); ?>
 			</td>
-			<td><?php echo $form->textField($model,'full_name',array('size'=>60,'maxlength'=>256)); ?>
+			<td><?php echo $form->textField($model,'full_name',array('size'=>24,'maxlength'=>256)); ?>
 			</td>
 			<td><?php echo $form->error($model,'full_name'); ?>
 			</td>
@@ -32,7 +32,7 @@
 		<tr>
 			<td><?php echo $form->labelEx($model,'ec_name'); ?>
 			</td>
-			<td><?php echo $form->textField($model,'ec_name',array('size'=>60,'maxlength'=>256)); ?>
+			<td><?php echo $form->textField($model,'ec_name',array('size'=>24,'maxlength'=>256)); ?>
 			</td>
 			<td><?php echo $form->error($model,'$ec_name'); ?>
 			</td>
@@ -49,7 +49,7 @@
 		<tr>
 			<td>
 			</td>
-			<td><?php echo $form->labelEx($model,'others'); ?><?php echo $form->textField($model,'others',array('size'=>40,'maxlength'=>256)); ?>
+			<td><?php echo $form->labelEx($model,'others'); ?><?php echo $form->textField($model,'others',array('size'=>24,'maxlength'=>256)); ?>
 			</td>
 			<td><?php echo $form->error($model,'others'); ?>
 			</td>
@@ -58,7 +58,7 @@
 		<tr>
 			<td><?php echo $form->labelEx($model,'mobile'); ?>
 			</td>
-			<td><?php echo $form->textField($model,'mobile',array('size'=>60,'maxlength'=>256)); ?>
+			<td><?php echo $form->textField($model,'mobile',array('size'=>24,'maxlength'=>256)); ?>
 			</td>
 			<td><?php echo $form->error($model,'mobile'); ?>
 			</td>
