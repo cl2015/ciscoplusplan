@@ -22,16 +22,6 @@ class ReportController extends Controller
 		);
 	}
 
-	public function actionDetail($email,$type='AM',$am)
-	{
-		$user = User::model()->findByAttributes(array('email'=>$email));
-		if($user===null || $user->type_id<10){
-			throw new CHttpException(404,'The requested page does not exist.');
-		}else{
-			$this->_users=User::model()->getReport($am);
-			$this->render('detail',array('model'=>$this->_users,'user'=>$user,'type'=>$type,'am'=>$am));
-		}
-	}
 	/**
 	 * summary report
 	 * @param String $type
@@ -43,6 +33,17 @@ class ReportController extends Controller
 		}else{
 			$data=User::model()->getSummaryReport();
 			$this->render('index',array('data'=>$data,'user'=>$user,'type'=>$type));
+		}
+	}
+	
+	public function actionDetail($email,$type='AM',$am)
+	{
+		$user = User::model()->findByAttributes(array('email'=>$email));
+		if($user===null || $user->type_id<10){
+			throw new CHttpException(404,'The requested page does not exist.');
+		}else{
+			$this->_users=User::model()->getReport($am);
+			$this->render('detail',array('model'=>$this->_users,'user'=>$user,'type'=>$type,'am'=>$am));
 		}
 	}
 
