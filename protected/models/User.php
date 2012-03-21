@@ -213,7 +213,7 @@ class User extends TrackStarActiveRecord {
 		return array (
 				'CA' => 'CA',
 				'Capital' => 'Capital',
-				'Channel' => 'Channel',
+				'Channel' => 'PBG',
 				'Sales-PL' => 'Sales-PL',
 				'Sales-CL' => 'Sales-CL',
 				'SE-PL' => 'SE-PL',
