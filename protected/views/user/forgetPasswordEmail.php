@@ -12,13 +12,13 @@
 	
 	<?php if($model->type_id==2){?>
 	您的注册邮箱是：<?php echo $model->email;?>；
-	注册密码是：123456。
+	网站注册密码是：123456。
 	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 
 	<?php if($model->type_id!=2){?>
 	您的注册邮箱是：<?php echo $model->email;?>；
-	注册密码是：<?php echo $model->password;?>。
+	网站注册密码是：<?php echo $model->password;?>。
 	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 	
@@ -52,14 +52,14 @@ Thank you for registering for Cisco Plus 2012 Beijing.<br />
 
 <?php if($model->type_id==2){?>
 Your registration confirmation email is <?php echo $model->email;?>;
-Your password is 123456.<br />
+Your website login password is 123456.<br />
 This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
 
 <?php if($model->type_id!=2){?>
 Your registration confirmation email is <?php echo $model->email;?>;
-Your password is <?php echo $model->password;?>.<br />
+Your website login password is <?php echo $model->password;?>.<br />
 This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
