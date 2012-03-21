@@ -50,9 +50,9 @@ class User extends TrackStarActiveRecord {
 	public function tableName() {
 		return 'users';
 	}
-	
-	
-	
+
+
+
 
 	public $password;
 	public $password2;
@@ -60,8 +60,8 @@ class User extends TrackStarActiveRecord {
 	public $first_name;
 	public $last_name;
 	public $others;
-	
-	
+
+
 	/**
 	 * @return array validation rules for model attributes.
 	 */
@@ -88,7 +88,7 @@ class User extends TrackStarActiveRecord {
 				array('full_name,department,ec_name,mobile','required', 'on'=>'employeeUpdate'),
 				array('others','match','pattern'=>"/^[a-zA-Z0-9 ]+$/",'message'=>'English only','on'=>'employeeUpdate'),
 				array('others','safe','on'=>'employeeUpdate'),
-				
+
 				array('email','required','on'=>'forgetPassword'),
 
 				// The following rule is used by search().
@@ -374,28 +374,27 @@ class User extends TrackStarActiveRecord {
 		else
 			return false;
 	}
-	
-	public function getReport(){
-		$condition = '';
-		if($this->type_id == AM_ID){
-			$condition = "am_id='".$this->email;
-		}elseif($this->type_id == RM_ID){
-			$condition = "rm_id='".$this->email;
-			
-		}elseif($this->type_id == OD_ID){
-			$condition = "od_id='".$this->email;
-		}else{
-			return array();
-		}
-		
-		return self::model()->findAll(
-				array(
-						'condition'=>$condition . "' and type_id<10 ",
-						'order'=>'t.created_at DESC',
-						//'limit'=>$limit,
-				));
+
+	public function getReport($am){
+		$condition = 'am_id=:am and type_id<10';
+		$params = array(':am'=>$am);
+		return self::model()->findAll($condition,$params);
 	}
-	
+
+	public function getSummaryReport(){
+		$dbCommand = Yii::app()->db->createCommand("
+				select a.id,a.email,a.ec_mobile,b.nomination,b.registeration,b.rm_id,b.am_id,b.od_id from users a left join
+				(
+				SELECT COUNT( * )  nomination, COUNT( has_reged ) registeration, rm_id, am_id, od_id
+				FROM users
+				GROUP BY rm_id) b 
+				on a.email = b.am_id where  a.type_id = 10 
+				");
+
+		$data = $dbCommand->queryAll();
+		return $data;
+	}
+
 	public function getAdminReport(){
 		if(!$this->email=='admin'){
 			return array();
@@ -404,8 +403,8 @@ class User extends TrackStarActiveRecord {
 					array(
 							'condition'=>'type_id<10',
 							'order'=>'t.created_at desc'
-							)
-					);
+					)
+			);
 		}
 	}
 
