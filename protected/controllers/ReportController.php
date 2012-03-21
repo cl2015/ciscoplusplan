@@ -49,7 +49,7 @@ class ReportController extends Controller
 
 	public function actionAllUsers(){
 		$user = $this->loadUser(Yii::app()->user->id);
-		$this->_users=User::model()->getAdminReport();
+		$this->_users=$user->getAdminReport();
 		$this->render('detail',array('model'=>$this->_users,'user'=>$user,'type'=>'OD','am'=>''));
 	}
 	protected function loadUser($user_id) {
