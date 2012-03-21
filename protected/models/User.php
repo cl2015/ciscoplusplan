@@ -227,6 +227,7 @@ class User extends TrackStarActiveRecord {
 				'Collaboration' => 'Collaboration',
 				'Borderless Networks' => 'Borderless Networks',
 				'Marketing' => 'Marketing',
+				'Others' => 'Others',
 		);
 	}
 
