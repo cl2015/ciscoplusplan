@@ -28,7 +28,7 @@
 			<td><?php echo $form->error($model,'full_name'); ?>
 			</td>
 		</tr>
-		
+
 		<tr>
 			<td><?php echo $form->labelEx($model,'ec_name'); ?>
 			</td>
@@ -47,9 +47,8 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
-			</td>
-			<td><?php echo $form->labelEx($model,'others'); ?><?php echo $form->textField($model,'others',array('size'=>24,'maxlength'=>256)); ?>
+			<td></td>
+			<td><?php echo $form->labelEx($model,'others'); ?> <?php echo $form->textField($model,'others',array('size'=>24,'maxlength'=>256)); ?>
 			</td>
 			<td><?php echo $form->error($model,'others'); ?>
 			</td>

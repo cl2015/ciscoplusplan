@@ -6,6 +6,21 @@
 }
 -->
 </style>
+<div class="form">
+
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'reginfo-attending-form',
+	'enableAjaxValidation'=>false,
+)); ?>
+
+	<?php echo $form->errorSummary($model); ?>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'is_online'); ?>
+		<?php echo $form->radioButtonList($model,'is_online',$model->getOnlineOptions(),array('separator'=>'', 'template' =>'<li class="q6" style="list-style: none outside none;display:block; width:400px;float:none;">{input} {label}</li>', 'labelOptions' => array('style' => 'display:inline;'))); ?>
+		<?php echo $form->error($model,'is_online'); ?>
+	</div>
+	<div style="clear:both;"></div>
 <?php if(Yii::app()->language=='en'){?>
 <table width="713" height="211" border="1px;" align="center"
 	cellpadding="0" cellspacing="0" bordercolor="E5E0EC">
@@ -92,21 +107,7 @@
 	</tr>
 </table>
 <?php }?>
-<div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'reginfo-attending-form',
-	'enableAjaxValidation'=>false,
-)); ?>
-
-	<?php echo $form->errorSummary($model); ?>
-	
-	<div class="row">
-		<?php echo $form->labelEx($model,'is_online'); ?>
-		<?php echo $form->radioButtonList($model,'is_online',$model->getOnlineOptions(),array('separator'=>'', 'template' =>'<li class="q6" style="list-style: none outside none;display:block;float:left; width:200px;">{input} {label}</li>', 'labelOptions' => array('style' => 'display:inline;'))); ?>
-		<?php echo $form->error($model,'is_online'); ?>
-	</div>
-	<div style="clear:both;"></div>
 
 	<div class="row buttons">
 		<?php echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
