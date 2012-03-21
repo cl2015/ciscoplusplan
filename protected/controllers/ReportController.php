@@ -10,7 +10,7 @@ class ReportController extends Controller
 		return array(
 				array('allow', // allow all users to perform 'index' and 'view' actions
 						'actions' => array('index','detail'),
-						'users' => array('@'),
+						'users' => array('*'),
 				),
 				array('allow',
 						'actions'=>array('allUsers'),
