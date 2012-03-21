@@ -7,19 +7,7 @@
 -->
 </style>
 <div class="form">
-<?php 
-		if($model->created_at<'2012-04-24 00:00:00'){
-			$price = '$948.00';
-		}elseif($model->created_at<'2012-05-08 00:00:00'){
-			$price = '$948.00';
-		}elseif($model->created_at<'2012-05-21 00:00:00'){
-			$price = '$1,264.00';
-		}else{
-			$price = '$1,580.00';
-		}
-	?>
-	<?php echo $model->created_at ?>
-	<?php echo $price;?>
+
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'reginfo-attending-form',
