@@ -284,6 +284,7 @@ class ReginfoController extends Controller
 		$this->sendSms($user,$reginfo);
 		$this->render('employeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
+	
 	public function actionOrdinaryConfirmation()
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
@@ -297,6 +298,7 @@ class ReginfoController extends Controller
 		$this->sendSms($user,$reginfo);
 		$this->render('ordinaryConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
+	
 	public function actionAttendeeConfirmation()
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
