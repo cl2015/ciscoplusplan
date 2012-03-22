@@ -1,50 +1,33 @@
-<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/step0.png" /></br>
-
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'user-loading-form',
-	'enableAjaxValidation'=>false,
-)); ?>
+	<?php $form=$this->beginWidget('CActiveForm', array(
+			'id'=>'user-loading-form',
+			'enableAjaxValidation'=>false,
+	)); ?>
 
 	<?php echo $form->errorSummary($model); ?>
-	<div class="row">
-		<?php echo $form->labelEx($model,'是否已有邀请码？'); ?>
-		<?php echo $form->radioButtonList($model,'has_code',$model->getHasCodeOptions(),array('onclick'=>'showCode();','separator'=>'')); ?>
-		<?php echo $form->error($model,'has_code'); ?>
-	</div>
+	<table width="628" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+			<th width="266" height="45" valign="top" scope="col"><?php echo Yii::t('default','label_required')?>
+			</th>
+			<th width="362" scope="col">&nbsp;</th>
+			<th width="" scope="col">&nbsp;</th>
+		</tr>
+		<tr>
+		<td><?php echo $form->labelEx($model,'email'); ?></td>
+		<td><?php echo $form->textField($model,'email'); ?></td>
+		<td><?php echo $form->error($model,'email'); ?><?php echo $message["email"];?></td>
+		</tr>
+		<td><?php echo $form->labelEx($model,'code'); ?></td>
+		<td><?php echo $form->textField($model,'code'); ?></td>
+		<td><?php echo $form->error($model,'code'); ?><?php echo $message["code"];?></td>
+		</tr>
 
-	<div class="row" id="code" style="display:none">
-		<h2>请输入您的邀请码(格式XXX-XXX-XXX):</h2>
-		<?php echo $form->textField($model,'code'); ?>
-		<?php echo $form->error($model,'code'); ?>
-	</div>
-
-	<div class="row" id="email" style="display:none">
-		<h2>请输入您的邮箱地址：</h2>
-		<?php echo $form->textField($model,'email'); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
-
+	</table>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Submit'); ?>
+		<?php echo CHtml::submitButton(Yii::t('default','continue'),array("class"=>"submitBg")); ?>
 	</div>
-
-<?php $this->endWidget(); ?>
-<?php CHtml::ajaxLink('下一个', array('getQuote'),
-	array('update' => '#quote-of-the-day'))?>
-	<script type="text/javascript">
-
-	function showCode(){
-		if ( $("input[name=User[has_code]][value=0]").attr("checked")=="checked" )  {
-			$("#email").hide();
-			$("#code").show();
-		}else{
-			$("#code").hide();
-			$("#email").show();
-		}
-
-	}
-</script>
-</div><!-- form -->
+	<?php $this->endWidget(); ?>
+</div>
+<!-- form -->
 

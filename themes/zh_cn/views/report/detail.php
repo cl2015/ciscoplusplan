@@ -12,7 +12,7 @@ color: #c75f3e;
 } 
 
 #mytable { 
-width: 700px; 
+width: 100%; 
 padding: 0; 
 margin: 0; 
 } 
@@ -81,7 +81,11 @@ font-size: 12px;
 } 
 </style> 
 
-<h1>Report</h1>
+<h1>Report Detail</h1>
+<h2><?php echo CHtml::link(CHtml::encode("OD Detail List"), array('report/detail','type'=>'OD','email'=>$user->email,'am'=>$am)); ?></h2>
+<h2><?php echo CHtml::link(CHtml::encode("RM Detail List"), array('report/detail','type'=>'RM','email'=>$user->email,'am'=>$am)); ?></h2>
+<h2><?php echo CHtml::link(CHtml::encode("AM Detail List"), array('report/detail','type'=>'AM','email'=>$user->email,'am'=>$am)); ?></h2>
+
 <table class="mytable" style="border=1">
 <tr>
 <th>状态</th>
@@ -96,35 +100,59 @@ font-size: 12px;
 <th>email</th>
 <th>省份</th>
 <th>城市</th>
+<th>参会凭证注册ID号</th>
+<th>网站注册密码</th>
+<?php if($type=='OD'||$type=='RM'){?>
 <th>AM姓名</th>
 <th>AM ID</th>
+<th>AM部门</th>
 <th>AM手机</th>
+<?php }?>
+<?php if($type=='OD'){?>
 <th>RM姓名</th>
 <th>RM ID</th>
+<?php }?>
+<?php if($user->type_id>12){?>
 <th>OD姓名</th>
 <th>OD ID</th>
+<?php }?>
 </tr>
-<?php foreach ($rows as $row) {?>
+<?php $relation  = User::model()->getRelationOptions();
+$job_title = User::model()->getJobTitleOptions();
+$province = User::model()->getProvinces()+User::model()->getEnProvinces();
+$department = User::model()->getDepartmentOptions();
+	//var_dump($relation[1]);
+;?>
+<?php foreach ($model as $row) {?>
 <tr>
-<td>已注册</td>
+<td><?php echo $row['has_reged']=="1"?'已注册':'未注册'?></td>
 <td><?php echo $row['organisation'];?></td>
-<td><?php echo $row['relation_with_cisco'];?></td>
+<td><?php if(isset($relation[$row['relation_with_cisco']])){echo $relation[$row['relation_with_cisco']];}?></td>
 <td><?php echo $row['full_name'];?></td>
-<td><?php echo $row['job_title'];?></td>
-<td><?php echo $row['department'];?></td>
+<td><?php if(isset($job_title[$row['job_title']])){echo $job_title[$row['job_title']];}?></td>
+<td><?php if(isset($department[$row['department']])){echo $department[$row['department']];}else{echo $row['department'];}?></td>
 <td><?php echo $row['working_phone_dis'];?></td>
 <td><?php echo $row['working_phone'];?></td>
 <td><?php echo $row['mobile'];?></td>
 <td><?php echo $row['email'];?></td>
-<td><?php echo $row['province'];?></td>
+<td><?php if(isset($province[$row['province']])){echo $province[$row['province']];}?></td>
 <td><?php echo $row['city'];?></td>
-<td>AM姓名</td>
-<td>AM ID</td>
-<td>AM手机</td>
-<td>RM姓名</td>
-<td>RM ID</td>
-<td>OD姓名</td>
-<td>OD ID</td>
+<td><?php echo $row['id'];?></td>
+<td><?php echo $row['password'];?></td>
+<?php if($type=='OD'||$type=='RM'){?>
+<td><?php echo $row['am_name']?></td>
+<td><?php echo $row['am_id']?></td>
+<td><?php echo $row['am_department']?></td>
+<td><?php echo $row['am_mobile']?></td>
+<?php }?>
+<?php if($type=='OD'){?>
+<td><?php echo $row['rm_name']?></td>
+<td><?php echo $row['rm_id']?></td>
+<?php }?>
+<?php if($user->type_id>12){?>
+<td><?php echo $row['od_name']?></td>
+<td><?php echo $row['od_id']?></td>
+<?php }?>
 </tr>
 <?php }?>
 </table>

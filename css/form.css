@@ -64,6 +64,9 @@ div.form .row
 {
 	margin: 5px 0;
 }
+div .form .row li {
+	list-style: none outside none;float:left;width:200px;
+}
 
 div.form .hint
 {

@@ -1,120 +1,149 @@
+<style>
+div.form label {
+	text-align: left;
+	width: 400px;
+}
+
+li.q6 label {
+	text-align: left;
+	width: 200px;
+}
+
+div.form .password label {
+	width: 180px;
+}
+</style>
 <div class="form">
-    <?php
-    $form = $this->beginWidget('CActiveForm', array(
-                'id' => 'survey-form',
-                'enableAjaxValidation' => false,
-            ));
-    ?>
-    <p class="note">Fields with <span class="required">*</span> are required.</p>
+	<?php
+	$form = $this->beginWidget('CActiveForm', array(
+			'id' => 'survey-form',
+			'enableAjaxValidation' => true,
+	));
+	?>
+	<?php echo $form->errorSummary($model); ?>
+	<?php echo $form->hiddenField($model, 'user_id', array('size' => 10, 'maxlength' => 10)); ?>
+	<table width="908px" border='0' cellspacing='0' cellpadding='0'>
+		<th width="430px"><?php echo Yii::t('default','label_require')?></th>
+		<th width=""></th>
+		<th width=""></th>
+		<tr>
+			<td><?php echo $form->labelEx($model,'q1'); ?></td>
+			<td><?php if(Yii::app()->language=='zh_cn') {
+				echo $form->dropDownList($model, 'q1', $model->getQ11Options());
+			}else{
+				echo $form->dropDownList($model, 'q1', $model->getQ1Options());
+			}
+			?>
+			</td>
+			<td><?php echo $form->error($model, 'q1'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td><?php echo $form->labelEx($model,'q2'); ?></td>
+			<td><?php if(Yii::app()->language=='zh_cn') {
+				echo $form->dropDownList($model, 'q2', $model->getQ22Options());
+			}else{
+				echo $form->dropDownList($model, 'q2', $model->getQ2Options());
+			}
+			?>
+			</td>
+			<td><?php echo $form->error($model, 'q2'); ?></td>
+		</tr>
+		<tr>
+			<td><?php echo $form->labelEx($model,'q3'); ?></td>
+			<td><?php if(Yii::app()->language=='zh_cn') {
+				echo $form->dropDownList($model, 'q3', $model->getQ33Options());
+			}else{
+				echo $form->dropDownList($model, 'q3', $model->getQ3Options());
+			}
+			?>
+			</td>
+			<td><?php echo $form->error($model, 'q3'); ?></td>
+		</tr>
 
-    <?php echo $form->errorSummary($model); ?>
+		<tr>
+			<td><?php echo $form->labelEx($model,'q4'); ?></td>
+			<td><?php if(Yii::app()->language=='zh_cn') {
+				echo $form->dropDownList($model, 'q4', $model->getQ44Options());
+			}else{
+				echo $form->dropDownList($model, 'q4', $model->getQ4Options());
+			}
+			?>
+			</td>
+			<td><?php echo $form->error($model, 'q4'); ?></td>
+		</tr>
+		<td><?php echo $form->labelEx($model,'q5'); ?></td>
+		<td><?php if(Yii::app()->language=='zh_cn') {
+			echo $form->dropDownList($model, 'q5', $model->getQ55Options());
+		}else{
+			echo $form->dropDownList($model, 'q5', $model->getQ5Options());
+		}
+		?>
+		</td>
+		<td><?php echo $form->error($model, 'q5'); ?></td>
+		</tr>
 
-    <?php echo $form->hiddenField($model, 'user_id', array('size' => 10, 'maxlength' => 10)); ?>
+		<tr>
+			<td><?php echo $form->labelEx($model,'q6'); ?></td>
+			<?php echo $form->error($model, 'q6'); ?>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan=3><?php if(Yii::app()->language=='zh_cn') { ?> <?php 	echo $form->checkBoxList($model, 'q6', $model->getQ66Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));?>
+				<?php }else{?> <?php 	echo $form->checkBoxList($model, 'q6', $model->getQ6Options(), array('separator' => '', 'template' => '<li class="q6" style="list-style: none outside none;display:block;float:left; width:240px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal'));
+				?> <?php }?>
+			</td>
+		</tr>
+		<tr>
+			<td><?php echo $form->labelEx($model,'q7'); ?></td>
+			<td>
+			<?php echo $form->checkbox($model, 'q7',array('checked'=>true));?>
+			<?php echo $form->error($model, 'q7'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td><?php echo $form->labelEx($model,'q8'); ?></td>
+			<td><?php echo $form->error($model, 'q8'); ?>
+			<?php echo $form->checkbox($model, 'q8',array('checked'=>true));?>
+			</td>
+		</tr>
 
-    <div class="row">
 
-        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-            <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
-                <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>贵单位的网络建设的投资方向是?</FONT>
-                </td>
-                <td >
-                    <?php echo $form->dropDownList($model, 'q1', $model->getQ11Options()); ?>
-                    <?php echo $form->error($model, 'q1'); ?>
-                </td>
-            </tr>
-        </table>
-    </div>
+	</table>
+	<table width="100%">
+		<tr>
+			<td colspan=3><?php echo Yii::t('default','password info')?>
+			</td>
+		</tr>
+		<tr>
+			<td class="password" width="180px"><?php echo $form->labelEx($user, 'password'); ?>
+			</td>
+			<td width='200px'><?php echo $form->passwordField($user, 'password'); ?>
+			</td>
+			<td width='528px'><?php echo $form->error($user, 'password'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td class="password"><?php echo $form->labelEx($user, 'password2'); ?>
+			</td>
+			<td><?php echo $form->passwordField($user, 'password2'); ?></td>
+			<td><?php echo $form->error($user, 'password'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=3><?php echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
+				<?php echo CHtml::submitButton(Yii::t('default','finish'),array("class"=>"submitBg")); ?>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<?php $this->endWidget(); ?>
 
-    <div class="row">
-        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-            <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
-                <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>贵单位在什么时间范围内将有网络扩张、升级或安全等方面的网络项目？</FONT>
-                    <font color='red'>*</font>
-                    <input type='hidden' name='control_identifier' value='贵单位在什么时间范围内将有网络扩张、升级或安全等方面的网络项目？'><input type='hidden' name='control_identifier' value='a138169'>
-                </td>
-                <td >
-                    <?php echo $form->dropDownList($model, 'q2', $model->getQ22Options()); ?>
-                    <?php echo $form->error($model, 'q2'); ?>
-                </td>
-            </tr>
-        </table>
-    </div>
+</div>
+<!-- form -->
 
-    <div class="row">
-        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-            <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
-                <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：</FONT>
-                    <font color='red'>*</font>
-                    <input type='hidden' name='control_identifier' value='贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：'>
-                    <input type='hidden' name='control_identifier' value='a138170'>
-                </td>
-                <td >
-                    <?php echo $form->dropDownList($model, 'q3', $model->getQ33Options()); ?>
-                    <?php echo $form->error($model, 'q3'); ?>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <div class="row">
-        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-            <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
-                <td vAlign='top' class='QuestionNormal' width='50%' >
-                    <FONT CLASS = 'QuestionNormal'>贵公司的PC数量是</FONT></td>
-                <td >
-                    <?php echo $form->dropDownList($model, 'q4', $model->getQ44Options()); ?>
-                    <?php echo $form->error($model, 'q4'); ?>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="row">
-        <table width='100%' border='0' cellspacing='0' cellpadding='0'>
-            <tr>
-                <td vAlign='top' width='1%' >&nbsp;&nbsp;</td>
-                <td vAlign='top' class='QuestionNormal' colspan='2' >
-                    <FONT CLASS = 'QuestionNormal'>您在信息化管理和网络建设中技术职责是什么</FONT>
-                </td>
-            </tr>
-            <tr>
-                <td width=1%></td>
-                <td colspan=2 >
-                    <ul style="width:600px;">
-                        <?php echo $form->checkBoxList($model, 'q5[]', $model->getQ55Options(), array('separator' => '', 'template' => '<li style="list-style: none outside none;float:left; width:140px;line-height:30px;">{input} {label}</li>&nbsp;&nbsp;', 'labelOptions' => array('style' => 'display:inline;'), 'class' => 'AnswerNormal')); ?>
-                        <?php echo $form->error($model, 'q5'); ?>
-                    </ul>
-                </td>
-            </tr>
-            <tr><td colspan=3>请设立用于登录大会活动网站www.ciscopluschina.com的登录密码。注册完成后，即可在大会网站上使用注册邮箱和此密码登录，专享白皮书下载，视频观看等互动活动。</td></tr>
-            
-        </table>
-        <table>
-            <tr>
-
-                <td width=1%></td>
-                <td width="75px;" ><?php echo $form->labelEx($user, '密码：',array('style'=>'width: 70px;')); ?>
-                </td>
-                <td><?php echo $form->passwordField($user, 'password', array('size' => 20, 'maxlength' => 256)); ?><?php echo $form->error($user, 'password'); ?></td>
-            </tr>
-            <tr>
-                <td width=1%></td>
-                <td><?php echo $form->labelEx($user, '确认密码：',array('style'=>'width: 70px;')); ?></td>
-                <td><?php echo $form->passwordField($user, 'password', array('size' => 20, 'maxlength' => 256)); ?><?php echo $form->error($user, 'password'); ?></td>
-            </tr>
-        </table>
-    </div>
-    <div class="row buttons">
-        <?php echo CHtml::Button('back', array("onclick" => "javascript:history.go(-1)")); ?>
-        <?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-                    </div>
-
-    <?php $this->endWidget(); ?>
-
-</div><!-- form -->

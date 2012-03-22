@@ -6,7 +6,7 @@ class ReginfoController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/front';
 	public $_user = null;
 	/**
 	 * @return array action filters
@@ -14,7 +14,7 @@ class ReginfoController extends Controller
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
+				'accessControl', // perform access control for CRUD operations
 		);
 	}
 
@@ -26,21 +26,25 @@ class ReginfoController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-			'actions'=>array('index','view'),
-			'users'=>array('*'),
-		),
-		array('allow', // allow authenticated user to perform 'create' and 'update' actions
-		'actions'=>array('create','update','attending','payment','pay','confirmation','ordinaryConfirmation'),
-		'users'=>array('*'),
-	),
-	array('allow', // allow admin user to perform 'admin' and 'delete' actions
-	'actions'=>array('admin','delete'),
-	'users'=>array('admin'),
-),
-array('deny',  // deny all users
-'users'=>array('*'),
-			),
+				array('allow',
+						'actions'=>array('test'),
+						'users'=>array('*'),
+				),
+				array('allow',  // allow all users to perform 'index' and 'view' actions
+						'actions'=>array('attending','payment','nominationConfirmation','employeeConfirmation','ordinaryConfirmation','attendeeConfirmation'),
+						'users'=>array('@'),
+				),
+				array('allow', // allow authenticated user to perform 'create' and 'update' actions
+						'actions'=>array('create','update','attending','payment','pay','confirmation','ordinaryConfirmation'),
+						'users'=>array('admin'),
+				),
+				array('allow', // allow admin user to perform 'admin' and 'delete' actions
+						'actions'=>array('admin','delete'),
+						'users'=>array('admin'),
+				),
+				array('deny',  // deny all users
+						'users'=>array('*'),
+				),
 		);
 	}
 
@@ -51,7 +55,7 @@ array('deny',  // deny all users
 	public function actionView($id)
 	{
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+				'model'=>$this->loadModel($id),
 		));
 	}
 
@@ -62,7 +66,6 @@ array('deny',  // deny all users
 	public function actionCreate()
 	{
 		$model=new Reginfo;
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -74,7 +77,7 @@ array('deny',  // deny all users
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
+				'model'=>$model,
 		));
 	}
 
@@ -98,7 +101,7 @@ array('deny',  // deny all users
 		}
 
 		$this->render('update',array(
-			'model'=>$model,
+				'model'=>$model,
 		));
 	}
 
@@ -129,7 +132,7 @@ array('deny',  // deny all users
 	{
 		$dataProvider=new CActiveDataProvider('Reginfo');
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+				'dataProvider'=>$dataProvider,
 		));
 	}
 
@@ -144,7 +147,7 @@ array('deny',  // deny all users
 			$model->attributes=$_GET['Reginfo'];
 
 		$this->render('admin',array(
-			'model'=>$model,
+				'model'=>$model,
 		));
 	}
 
@@ -174,16 +177,23 @@ array('deny',  // deny all users
 		}
 	}
 	public function actionAttending(){
-		$model=new Reginfo('attending');
-		$model->user_id = 1;
+		$user = $this->loadUser(Yii::app()->user->id);
+		$model = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($model === null){
+			$model = new Reginfo;
+			$model->user_id = $user->id;
+		}
+		$model->setScenario('attending');
 		if(isset($_POST['Reginfo']))
 		{
 			$model->attributes=$_POST['Reginfo'];
-			if ($model->is_online == 0) 
+			if($model->save()){
+			if ($model->is_online == 0)
 			{
-				$this->redirect(array('confirmation'));
+				$this->redirect(array('attendeeConfirmation'));
 			}else{
 				$this->redirect(array('payment'));
+			}
 			}
 		}
 		$this->render('attending',array('model'=>$model));
@@ -200,31 +210,24 @@ array('deny',  // deny all users
 	}
 	public function actionPayment()
 	{
-		$model=new Reginfo('payment');
-		$model->user_id = 1;//need get from session
-		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-payment-form')
-	{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-	}
-	 */
-
+		$user = $this->loadUser(Yii::app()->user->id);
+		$model = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($model === null){
+			$model = new Reginfo;
+			$model->user_id = $user->id;
+		}
+		$model->setScenario('payment');
 		if(isset($_POST['Reginfo']))
 		{
 			$model->attributes=$_POST['Reginfo'];
-			if($model->validate())
+			if($model->save())
 			{
-				// form inputs are valid, do something here
-				//return;
-			}
-			var_dump($model->payment_type);
-			if ($model->payment_type == 0)
-			{
-				$this->redirect(array('reginfo/pay'));
-			}else{
-				$this->redirect(array('reginfo/ordinaryConfirmation'));
+				if ($model->payment_type == 0)
+				{
+					$this->redirect(array('reginfo/pay'));
+				}else{
+					$this->redirect(array('reginfo/ordinaryConfirmation'));
+				}
 			}
 		}
 
@@ -232,58 +235,81 @@ array('deny',  // deny all users
 	}
 	public function actionConfirmation()
 	{
-		$model=$this->loadModel(1);
-		$model->user_id = 1;
-		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
-	{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-	}
-	 */
-		$this->sendMail('Ted.Xin@gpj.com','xrong@gpj.com','<a href="#" >test</a>hello');
-
-		$this->render('confirmation',array('model'=>$model));
+		$user=$this->loadUser(Yii::app()->user->id);
+		$this->sendMail('li.he@brightac.com.cn','cranelee@gmail.com',$user);
+		$this->render('confirmation',array('user'=>$user));
 	}
 	public function actionPay()
 	{
 		$model=new Reginfo('pay');
-		$model->user_id = 1;
-		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-pay-form')
-	{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
-	}
-	 */
-
+		$user = $this->loadUser(Yii::app()->user->id);
+		$model->user_id = $user_id;
 		if(isset($_POST['Reginfo']))
 		{
 			$model->attributes=$_POST['Reginfo'];
 			if($model->validate())
 			{
-				// form inputs are valid, do something here
 				$this->redirect(array('ordinaryConfirmation'));
 				return;
 			}
 		}
 		$this->render('pay',array('model'=>$model));
 	}
+	public function actionNominationConfirmation()
+	{
+		
+		$user=$this->loadUser(Yii::app()->user->id);
+		
+		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($reginfo === null){
+			$reginfo = new Reginfo();
+			$reginfo->user_id = $user->id;
+			$reginfo->save();
+		}
+		$this->sendMail($user->email,$user->cc,$user,$reginfo);
+		$this->sendSms($user,$reginfo);
+		$this->render('nominationConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
+	}
+	public function actionEmployeeConfirmation()
+	{
+		$user=$this->loadUser(Yii::app()->user->id);
+		
+		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($reginfo === null){
+			$reginfo = new Reginfo();
+			$reginfo->user_id = $user->id;
+			$reginfo->save();
+		}
+		$this->sendMail($user->email,$user->cc,$user,$reginfo);
+		$this->sendSms($user,$reginfo);
+		$this->render('employeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
+	}
 	public function actionOrdinaryConfirmation()
 	{
-		$model=$this->loadModel(1);
-		$model->user_id = 1;
-		// uncomment the following code to enable ajax-based validation
-	/*
-	if(isset($_POST['ajax']) && $_POST['ajax']==='reginfo-confirmation-form')
+		$user=$this->loadUser(Yii::app()->user->id);
+		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($reginfo === null){
+			$reginfo = new Reginfo();
+			$reginfo->user_id = $user->id;
+			$reginfo->save();
+		}
+		$this->sendMail($user->email,$user->cc,$user,$reginfo);
+		$this->sendSms($user,$reginfo);
+		$this->render('ordinaryConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
+	}
+	public function actionAttendeeConfirmation()
 	{
-		echo CActiveForm::validate($model);
-		Yii::app()->end();
+		$user=$this->loadUser(Yii::app()->user->id);
+		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($reginfo === null){
+			$reginfo = new Reginfo();
+			$reginfo->user_id = $user->id;
+			$reginfo->save();
+		}
+		$this->sendMail($user->email,$user->cc,$user,$reginfo);
+		$this->sendSms($user,$reginfo);
+		$this->render('attendeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
-	 */
 
-		$this->render('ordinaryConfirmation',array('model'=>$model));
-	}
+	
 }

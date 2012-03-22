@@ -43,11 +43,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'has_code',
-		'code',
+		//'has_code',
+		'mobile',
 		'email',
-		'password',
-		'organisation',
+		//'password',
+		'has_reged',
+		'updated_at',
 		/*
 		'relation_with_cisco',
 		'full_name',
@@ -63,7 +64,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'ec_mobile',
 		'created_at',
 		'created_by',
-		'updated_at',
+		
 		'updated_by',
 		*/
 		array(
