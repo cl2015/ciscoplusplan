@@ -188,12 +188,12 @@ class ReginfoController extends Controller
 		{
 			$model->attributes=$_POST['Reginfo'];
 			if($model->save()){
-			if ($model->is_online == 0)
-			{
-				$this->redirect(array('attendeeConfirmation'));
-			}else{
-				$this->redirect(array('payment'));
-			}
+				if ($model->is_online == 0)
+				{
+					$this->redirect(array('attendeeConfirmation'));
+				}else{
+					$this->redirect(array('payment'));
+				}
 			}
 		}
 		$this->render('attending',array('model'=>$model));
@@ -257,9 +257,9 @@ class ReginfoController extends Controller
 	}
 	public function actionNominationConfirmation()
 	{
-		
+
 		$user=$this->loadUser(Yii::app()->user->id);
-		
+
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
 		if($reginfo === null){
 			$reginfo = new Reginfo();
@@ -273,7 +273,7 @@ class ReginfoController extends Controller
 	public function actionEmployeeConfirmation()
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
-		
+
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
 		if($reginfo === null){
 			$reginfo = new Reginfo();
@@ -311,5 +311,5 @@ class ReginfoController extends Controller
 		$this->render('attendeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
 
-	
+
 }
