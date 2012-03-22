@@ -8,7 +8,6 @@ class ReginfoController extends Controller
 	 */
 	public $layout='//layouts/front';
 	public $_user = null;
-	
 	/**
 	 * @return array action filters
 	 */
