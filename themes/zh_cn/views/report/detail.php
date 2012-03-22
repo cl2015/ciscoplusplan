@@ -127,7 +127,7 @@ $department = User::model()->getDepartmentOptions();
 <?php foreach ($model as $row) {?>
 <tr>
 <td><?php echo $row['has_reged']=="1"?'已注册':'未注册'?></td>
-<td><?php if($row['type_id']=="1"){echo "提名";}else if($row['type_id']=="2"){echo "内部员工"；}else if($row['type_id']=="4"){echo "付费用户";}else{echo "code";}?></td>
+<td><?php if($row['type_id']=="1"){echo "提名";}else if($row['type_id']=="2"){echo "内部员工";}else if($row['type_id']=="4"){echo "付费用户";}else{echo "code";}?></td>
 <td><?php echo $row['organisation'];?></td>
 <td><?php if(isset($relation[$row['relation_with_cisco']])){echo $relation[$row['relation_with_cisco']];}?></td>
 <td><?php echo $row['full_name'];?></td>
