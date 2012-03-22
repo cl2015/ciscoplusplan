@@ -105,8 +105,8 @@ font-size: 12px;
 <?php if($type=='OD'||$type=='RM'){?>
 <th>AM姓名</th>
 <th>AM ID</th>
-<th>AM部门</th>
 <th>AM手机</th>
+<th>AM部门</th>
 <?php }?>
 <?php if($type=='OD'){?>
 <th>RM姓名</th>
@@ -142,8 +142,8 @@ $department = User::model()->getDepartmentOptions();
 <?php if($type=='OD'||$type=='RM'){?>
 <td><?php echo $row['am_name']?></td>
 <td><?php echo $row['am_id']?></td>
-<td><?php echo $row['am_department']?></td>
 <td><?php echo $row['am_mobile']?></td>
+<td><?php echo $row['am_department']?></td>
 <?php }?>
 <?php if($type=='OD'){?>
 <td><?php echo $row['rm_name']?></td>
