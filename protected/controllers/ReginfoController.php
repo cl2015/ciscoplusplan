@@ -257,8 +257,15 @@ class ReginfoController extends Controller
 	}
 	public function actionNominationConfirmation()
 	{
+		
 		$user=$this->loadUser(Yii::app()->user->id);
+		
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($reginfo === null){
+			$reginfo = new Reginfo();
+			$reginfo->user_id = $user->id;
+			$reginfo->save();
+		}
 		$this->sendMail($user->email,$user->cc,$user,$reginfo);
 		$this->sendSms($user,$reginfo);
 		$this->render('nominationConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
@@ -266,7 +273,13 @@ class ReginfoController extends Controller
 	public function actionEmployeeConfirmation()
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
+		
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($reginfo === null){
+			$reginfo = new Reginfo();
+			$reginfo->user_id = $user->id;
+			$reginfo->save();
+		}
 		$this->sendMail($user->email,$user->cc,$user,$reginfo);
 		$this->sendSms($user,$reginfo);
 		$this->render('employeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
@@ -275,6 +288,11 @@ class ReginfoController extends Controller
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($reginfo === null){
+			$reginfo = new Reginfo();
+			$reginfo->user_id = $user->id;
+			$reginfo->save();
+		}
 		$this->sendMail($user->email,$user->cc,$user,$reginfo);
 		$this->sendSms($user,$reginfo);
 		$this->render('ordinaryConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
@@ -283,6 +301,11 @@ class ReginfoController extends Controller
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($reginfo === null){
+			$reginfo = new Reginfo();
+			$reginfo->user_id = $user->id;
+			$reginfo->save();
+		}
 		$this->sendMail($user->email,$user->cc,$user,$reginfo);
 		$this->sendSms($user,$reginfo);
 		$this->render('attendeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
