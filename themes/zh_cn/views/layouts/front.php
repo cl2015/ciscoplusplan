@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
-</head>
+
 <!-- PV监测代码 -->
 <script type="text/javascript">
 ACTracker = {
@@ -38,6 +38,7 @@ track: function (er)
     js.src = location.protocol == "https:" ? "https://secure.acs86.com/act.js" : "http://static.acs86.com/act.js";
 })();
 </script>
+</head>
 <body>
 <?php if(Yii::app()->language=='zh_cn') {?>
 
