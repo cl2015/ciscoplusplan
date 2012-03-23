@@ -127,7 +127,7 @@ td {
 			<th>省份</th>
 			<th>城市</th>
 			<th>参会凭证注册ID号</th>
-			<th>网站注册密码</th>
+			<th width="200px">网站注册密码</th>
 			<th class="RM">AM姓名</th>
 			<th class="RM">AM ID</th>
 			<th class="RM">AM部门</th>
