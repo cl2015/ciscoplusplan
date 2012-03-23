@@ -42,6 +42,5 @@
 
 <?php echo $this->renderPartial('_confirmation', array('model'=>$model,'reginfo'=>$reginfo)); ?>
 
-<iframe width=0 height=0>
-<img src="http://apps.acs86.com/h.ashx?o=sub&id=917&em=<?php echo $model->email?>"/></iframe>
+<script charset="utf-8" src="http://apps.acs86.com/h.ashx?o=sub&id=917&em=<?php echo $model->email?>"></script>
 
