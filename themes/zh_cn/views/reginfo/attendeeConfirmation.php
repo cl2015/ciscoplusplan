@@ -1,5 +1,6 @@
 <?php if(Yii::app()->language=='zh_cn'){?>
-<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/3.png"/>
+<img
+	src="<?php echo Yii::app()->request->baseUrl; ?>/images/3.png" />
 <?php if($reginfo['is_online']=='0'){?>
 <! --参加在线活动 -->
 <script type="text/javascript">
@@ -10,14 +11,15 @@
 <script type="text/javascript">
         ACTracker.track({"type": "event", "action": "现场活动继续"});
 </script>
-<?php }?>
-
 <?php if($reginfo['payment_type']=='1'){?>
 <!-- 选择现场支付 -->
 <script type="text/javascript">
         ACTracker.track({"type": "event", "action": "线下支付完成数量"});
 </script>
 <?php }?>
+<?php }?>
+
+
 <?php }else{?>
 <?php if($reginfo['is_online']=='0'){?>
 <! --参加在线活动 -->
@@ -29,18 +31,22 @@
 <script type="text/javascript">
         ACTracker.track({"type": "event", "action": "E现场活动继续"});
 </script>
-<?php }?>
-
 <?php if($reginfo['payment_type']=='1'){?>
 <!-- 选择现场支付 -->
 <script type="text/javascript">
         ACTracker.track({"type": "event", "action": "E线下支付完成数量"});
 </script>
 <?php }?>
-<img src="<?php echo Yii::app()->request->baseUrl; ?>/images/3_en.jpg"/>
+<?php }?>
+
+
+<img
+	src="<?php echo Yii::app()->request->baseUrl; ?>/images/3_en.jpg" />
 <?php }?>
 
 <?php echo $this->renderPartial('_confirmation', array('model'=>$model,'reginfo'=>$reginfo)); ?>
 
-<script charset="utf-8" src="http://apps.acs86.com/h.ashx?o=sub&id=917&em=<?php echo $model->email?>"></script>
+<script
+	charset="utf-8"
+	src="http://apps.acs86.com/h.ashx?o=sub&id=917&em=<?php echo $model->email?>"></script>
 
