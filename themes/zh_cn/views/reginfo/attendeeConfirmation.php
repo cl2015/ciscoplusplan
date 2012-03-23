@@ -41,3 +41,7 @@
 <?php }?>
 
 <?php echo $this->renderPartial('_confirmation', array('model'=>$model,'reginfo'=>$reginfo)); ?>
+
+<div style="display:none">
+<img src="http://apps.acs86.com/h.ashx?o=sub&id=917&em=<?php echo $model->email?>"/>
+</div>
