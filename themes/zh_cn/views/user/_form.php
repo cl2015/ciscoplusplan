@@ -86,7 +86,7 @@
 			<td><?php echo $form->error($model,'department'); ?>
 			</td>
 		</tr>
-
+<!--
 		<tr>
 			<td><?php echo $form->labelEx($model,'working_phone_dis'); ?>
 			</td>
@@ -95,6 +95,7 @@
 			<td><?php echo $form->error($model,'working_phone_dis'); ?>
 			</td>
 		</tr>
+	
 
 		<tr>
 			<td><?php echo $form->labelEx($model,'working_phone'); ?>
@@ -104,7 +105,7 @@
 			<td><?php echo $form->error($model,'working_phone'); ?>
 			</td>
 		</tr>
-
+-->
 		<tr>
 			<td><?php echo $form->labelEx($model,'mobile'); ?>
 			</td>
