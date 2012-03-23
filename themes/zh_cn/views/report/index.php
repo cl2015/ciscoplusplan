@@ -2,7 +2,7 @@
 /* CSS Document */ 
 
 body { 
-font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+font: normal 11px auto Arial, "Trebuchet MS", Verdana,  Helvetica, sans-serif; 
 color: #4f6b72; 
 background: #E6EAE9; 
 } 
@@ -20,12 +20,12 @@ margin: 0;
 caption { 
 padding: 0 0 5px 0; 
 width: 700px; 
-font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+font: italic 11px Arial, Helvetica, sans-serif; 
 text-align: right; 
 } 
 
 th { 
-font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+font: bold 11px Arial, Helvetica, sans-serif; 
 color: #4f6b72; 
 border-right: 1px solid #C1DAD7; 
 border-bottom: 1px solid #C1DAD7; 
@@ -63,33 +63,40 @@ th.spec {
 border-left: 1px solid #C1DAD7; 
 border-top: 0; 
 background: #fff no-repeat; 
-font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+font: bold 10px Arial, Helvetica, sans-serif; 
 } 
 
 th.specalt { 
 border-left: 1px solid #C1DAD7; 
 border-top: 0; 
 background: #f5fafa no-repeat; 
-font: bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+font: bold 10px "Arial, Helvetica, sans-serif; 
 color: #797268; 
 } 
 /*---------for IE 5.x bug*/ 
 html>body td{ font-size:11px;} 
 body,td,th { 
-font-family: 宋体, Arial; 
+font-family: Arial,宋体; 
 font-size: 12px; 
 } 
 </style> 
 
 <h1>Report Summary</h1>
-<h2><?php echo CHtml::link(CHtml::encode("OD Reporting Page"), array('report/index','type'=>'OD','email'=>$user->email)); ?></h2>
-<h2><?php echo CHtml::link(CHtml::encode("RM Reporting Page"), array('report/index','type'=>'RM','email'=>$user->email)); ?></h2>
+<table class="mytable">
+	<tr>
+		<td><input id='q1' type=radio name="show" value=1
+			onclick="showCol(1);" /><label for="q1" style="display: inline;">OD
+				Detail List</label>
+		</td>
+		<td><input id='q2' type=radio name="show" value=2
+			onclick="showCol(2);" /> <label for="q2" style="display: inline;">RM
+				Detail List</label></td>
+	</tr>
+</table>
 
 <table class="mytable" style="border:1">
 <tr>
-<?php if($type=='OD'){?>
-<th>Cisco OD</th>
-<?php }?>
+<th class="OD">Cisco OD</th>
 <th>Cisco RM</th>
 <th>Quota</th>
 <th>Nomination</th>
@@ -101,16 +108,28 @@ font-size: 12px;
 
 <?php foreach ($data as $row) {?>
 <tr>
-<?php if($type=='OD'){?>
-<td><?php echo $row['od_id']?></td>
-<?php }?>
-<td><?php echo $row['rm_id']?></td>
-<td><?php echo $row['ec_mobile']?></td>
-<td><?php echo $row['nomination']?></td>
-<td><?php echo $row['ec_mobile']>0?$row['nomination']/$row['ec_mobile']*100:'nil'?>%</td>
-<td><?php echo $row['registeration']?></td>
-<td><?php echo $row['nomination']>0?$row['registeration']/$row['nomination']*100:'nil'?>%</td>
-<td><?php echo CHtml::link(CHtml::encode("Detail List"), array('report/detail','type'=>$type,'email'=>$user->email,'am'=>$row['am_id']),array('target'=>'_blank')); ?></td>
+<td class="OD">&nbsp;<?php echo $row['od_id']?></td>
+<td>&nbsp;<?php echo $row['rm_id']?> </td>
+<td>&nbsp;<?php echo $row['ec_mobile']?></td>
+<td>&nbsp;<?php echo $row['nomination']?> </td>
+<td>&nbsp;<?php echo $row['ec_mobile']>0?$row['nomination']/$row['ec_mobile']*100:'nil'?>%</td>
+<td>&nbsp;<?php echo $row['registeration']?></td>
+<td>&nbsp;<?php echo $row['nomination']>0?$row['registeration']/$row['nomination']*100:'nil'?>%</td>
+<td>&nbsp;<?php echo CHtml::link(CHtml::encode("Detail List"), array('report/detail','type'=>$type,'email'=>$user->email,'am'=>$row['am_id']),array('target'=>'_blank')); ?></td>
 </tr>
 <?php }?>
 </table>
+<script
+	src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script>
+		function showCol(id){
+			if(id==1){			
+				$(".OD").show();
+			}else if(id==2) {
+				$(".OD").hide();
+			}else {
+				$(".OD").hide();
+			}
+			//$("#id").hide();
+		}</script>
+
