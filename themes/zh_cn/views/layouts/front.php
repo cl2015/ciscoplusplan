@@ -23,7 +23,7 @@
 <!-- PV监测代码 -->
 <script type="text/javascript">
 ACTracker = {
-mid: 221409
+mid: 221409,
 ers: [{ "type": "pageview" }],
 track: function (er) 
 {
