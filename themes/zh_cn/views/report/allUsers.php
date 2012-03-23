@@ -110,7 +110,7 @@ td {
 	</tr>
 </table>
 <div id="tableBox">
-	<table class="mytable" style="width:1500">
+	<table class="mytable" style="width:1500px">
 		<tr>
 			<th>状态</th>
 			<th>数据来源</th>

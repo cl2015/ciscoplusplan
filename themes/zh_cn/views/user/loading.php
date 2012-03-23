@@ -30,4 +30,8 @@
 	<?php $this->endWidget(); ?>
 </div>
 <!-- form -->
+<script type="text/javascript">
+ACTracker.track({ "type": "event","action": "loading"});
+</script>
+
 

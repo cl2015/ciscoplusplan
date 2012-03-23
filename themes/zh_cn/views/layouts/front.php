@@ -20,6 +20,24 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 
 </head>
+<!-- PV监测代码 -->
+<script type="text/javascript">
+ACTracker = {
+mid: 221409
+ers: [{ "type": "pageview" }],
+track: function (er) 
+{
+    this.ers.push(er);
+}};
+(function ()
+{
+    var js = document.createElement("script"), scri = document.getElementsByTagName("script")[0];
+    js.type = "text/javascript";
+    js.async = true;
+    scri.parentNode.insertBefore(js, scri);
+    js.src = location.protocol == "https:" ? "https://secure.acs86.com/act.js" : "http://static.acs86.com/act.js";
+})();
+</script>
 <body>
 <?php if(Yii::app()->language=='zh_cn') {?>
 
