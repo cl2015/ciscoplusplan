@@ -386,7 +386,7 @@ class User extends TrackStarActiveRecord {
 				reginfos c
 				on a.id = c.user_id
 
-				where  a.type_id = 10 and a.am_id = '$am'
+				where  a.type_id < 10 and a.am_id = '$am'
 				");
 
 		$data = $dbCommand->queryAll();
@@ -413,12 +413,16 @@ class User extends TrackStarActiveRecord {
 		if(!$this->email=='admin'){
 			return array();
 		}else{
-			return self::model()->findAll(
-					array(
-							'condition'=>'type_id<10',
-							'order'=>'t.created_at desc'
-					)
-			);
+			$dbCommand = Yii::app()->db->createCommand("
+				select a.*,c.has_paid from users a left join
+				reginfos c
+				on a.id = c.user_id
+
+				where  a.type_id < 10 
+				");
+
+			$data = $dbCommand->queryAll();
+			return $data;
 		}
 	}
 
