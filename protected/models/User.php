@@ -85,7 +85,7 @@ class User extends TrackStarActiveRecord {
 				array('email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile', 'length', 'max' => 256),
 				array('password2, password', 'safe'),
 
-				array('full_name,department,ec_name,mobile','required', 'on'=>'employeeUpdate'),
+				array('full_name,city,department,ec_name,mobile','required', 'on'=>'employeeUpdate'),
 				array('others','match','pattern'=>"/^[a-zA-Z0-9 ]+$/",'message'=>'English only','on'=>'employeeUpdate'),
 				array('others','safe','on'=>'employeeUpdate'),
 
@@ -377,9 +377,20 @@ class User extends TrackStarActiveRecord {
 	}
 
 	public function getReport($am){
-		$condition = 'am_id=:am and type_id<10';
-		$params = array(':am'=>$am);
-		return self::model()->findAll($condition,$params);
+		//safe check
+		$user = $this->findByAttributes(array('email'=>$am));
+		if($user===null)
+			return array();
+		$dbCommand = Yii::app()->db->createCommand("
+				select a.*,c.has_paid from users a left join
+				reginfos c
+				on a.id = c.user_id
+
+				where  a.type_id = 10 and a.am_id = '$am'
+				");
+
+		$data = $dbCommand->queryAll();
+		return $data;
 	}
 
 	public function getSummaryReport(){
@@ -388,8 +399,10 @@ class User extends TrackStarActiveRecord {
 				(
 				SELECT COUNT( * )  nomination, COUNT( has_reged ) registeration, rm_id, am_id, od_id
 				FROM users
-				GROUP BY rm_id) b 
-				on a.email = b.am_id where  a.type_id = 10 
+				GROUP BY rm_id) b
+				on a.email = b.am_id
+
+				where  a.type_id = 10
 				");
 
 		$data = $dbCommand->queryAll();

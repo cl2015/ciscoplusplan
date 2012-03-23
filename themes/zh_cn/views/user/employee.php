@@ -15,6 +15,7 @@
 		<?php echo Yii::t('default','label_required');?>
 	</p>
 	<?php echo $form->errorSummary($model); ?>
+	<h1>在您确认参加现场活动前需要得到您部门经理的批准。</h1>
 	<table>
 		<th></th>
 		<th></th>
@@ -26,6 +27,15 @@
 			<td><?php echo $form->textField($model,'full_name',array('size'=>24,'maxlength'=>256)); ?>
 			</td>
 			<td><?php echo $form->error($model,'full_name'); ?>
+			</td>
+		</tr>
+		
+		<tr>
+			<td width="100px"><?php echo $form->labelEx($model,Yii::t('city','city')); ?>
+			</td>
+			<td><?php echo $form->textField($model,'city',array('size'=>24,'maxlength'=>256)); ?>
+			</td>
+			<td><?php echo $form->error($model,'city'); ?>
 			</td>
 		</tr>
 

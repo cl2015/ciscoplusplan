@@ -113,6 +113,8 @@ td {
 	<table class="mytable">
 		<tr>
 			<th>状态</th>
+			<th>数据来源</th>
+			<th>付费状态</th>
 			<th>公司名称</th>
 			<th>与思科公司的关系</th>
 			<th>姓名</th>
@@ -146,6 +148,8 @@ td {
 		<?php foreach ($model as $row) {?>
 		<tr>
 			<td><?php echo $row['has_reged']=="1"?'已注册':'未注册'?>&nbsp;</td>
+			<td><?php if($row['type_id']=="1"){echo "提名";}else if($row['type_id']=="2"){echo "内部员工";}else if($row['type_id']=="4"){echo "付费用户";}else{echo "code";}?></td>
+			<td><?php echo $row['has_paid']==0?"未付费":"已付费";?>&nbsp;</td>
 			<td><?php echo $row['organisation'];?>&nbsp;</td>
 			<td><?php if(isset($relation[$row['relation_with_cisco']])){
 				echo $relation[$row['relation_with_cisco']];
