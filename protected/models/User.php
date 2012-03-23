@@ -383,7 +383,7 @@ class User extends TrackStarActiveRecord {
 		if($user===null)
 			return array();
 		$dbCommand = Yii::app()->db->createCommand("
-				select a.*,c.has_paid from users a left join
+				select a.*,c.has_paid,c.is_online from users a left join
 				reginfos c
 				on a.id = c.user_id
 
@@ -415,7 +415,7 @@ class User extends TrackStarActiveRecord {
 			return array();
 		}else{
 			$dbCommand = Yii::app()->db->createCommand("
-				select a.*,c.has_paid from users a left join
+				select a.*,c.has_paid,c.is_online from users a left join
 				reginfos c
 				on a.id = c.user_id
 
