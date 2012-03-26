@@ -120,8 +120,12 @@ td {
 			<th>姓名</th>
 			<th>职务级别</th>
 			<th>部门</th>
-			//<th>办公室电话（区号）</th>
-			//<th>办公室电话（号码）</th>
+			<?php /* ?>
+
+			<th>办公室电话（区号）</th>
+			<th>办公室电话（号码）</th>
+			<?php */?>
+
 			<th>手机号码</th>
 			<th>email</th>
 			<th>省份</th>
@@ -169,8 +173,12 @@ td {
 				echo $department[$row['department']];
 			}else{echo $row['department'];
 			}?>&nbsp;</td>
+			<?php /*?>
+
 			//<td><?php echo $row['working_phone_dis'];?>&nbsp;</td>
 			//<td><?php echo $row['working_phone'];?>&nbsp;</td>
+			<?php */?>
+
 			<td><?php echo $row['mobile'];?>&nbsp;</td>
 			<td><?php echo $row['email'];?>&nbsp;</td>
 			<td><?php if(isset($province[$row['province']])){
