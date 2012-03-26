@@ -398,7 +398,7 @@ class User extends TrackStarActiveRecord {
 		$dbCommand = Yii::app()->db->createCommand("
 				select a.id,a.email,a.ec_mobile,b.nomination,b.registeration,b.rm_id,b.am_id,b.od_id from users a left join
 				(
-				SELECT COUNT( * )  nomination, COUNT( has_reged ) registeration, rm_id, am_id, od_id
+				SELECT COUNT( * )  nomination, sum( has_reged ) registeration, rm_id, am_id, od_id
 				FROM users
 				GROUP BY rm_id) b
 				on a.email = b.am_id
