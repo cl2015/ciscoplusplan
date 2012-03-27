@@ -65,25 +65,29 @@ class ReportController extends Controller
 	public function actionDailyReport(){
 		$data = User::model()->getDailyReport();
 		$to = 'li.he@brightac.com.cn';
+		$cc = 'mike.xie@gpjevent.com';
 		$mailer = Yii::app()->mailer;
 		$mailer->Host = 'smtp.exmail.qq.com';
 		$mailer->setPathViews('application.views.user');
 		$mailer->IsSMTP();
-		//$mailer->IsSendmail();
+		$mailer->IsSendmail();
 		$mailer->SMTPAuth = true;
-		//$mailer->From = 'gc_cisco_plus@external.cisco.com';
+		$mailer->From = 'gc_cisco_plus@external.cisco.com';
 		$mailer->From = 'admin@brightac.com.cn';
 		//$mailer->AddReplyTo('gc_cisco_plus@external.cisco.com');
 		$mailer->AddAddress($to);
+		
+		$mailer->AddCC($cc);
 		//$mailer->FromName = 'Cisco Plus 2012会务组';
-		$mailer->Username = 'admin@brightac.com.cn';    //这里输入发件地址的用户名
-		$mailer->Password = 'admin1';    //这里输入发件地址的密码
+		//$mailer->Username = 'admin@brightac.com.cn';    //这里输入发件地址的用户名
+		//$mailer->Password = 'admin1';    //这里输入发件地址的密码
 		$mailer->SMTPDebug = false;   //设置SMTPDebug为true，就可以打开Debug功能，根据提示去修改配置
 		$mailer->CharSet = 'UTF-8';
 		$mailer->Subject = Yii::t('default', 'Daily Report');
 		$mailer->IsHTML(true);
 		$mailer->getView('dailyReport',array('model'=>$data));
 		$mailer->Send();
+		echo new CDbExpression('NOW()');
 		Yii::app()->end();
 	}
 

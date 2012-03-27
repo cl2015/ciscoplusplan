@@ -116,8 +116,6 @@ td {
 <th>email</th>
 <th>省份</th>
 <th>城市</th>
-<th>参会凭证注册ID号</th>
-<th>网站注册密码</th>
 <th class="RM">AM姓名</th>
 <th class="RM">AM ID</th>
 <th class="RM">AM部门</th>
@@ -126,6 +124,9 @@ td {
 <th class="OD">RM ID</th>
 <th>OD姓名</th>
 <th>OD ID</th>
+<th>分区</th>
+<th>参会凭证注册ID号</th>
+<th>网站注册密码</th>
 </tr>
 <?php $relation  = User::model()->getRelationOptions();
 $job_title = User::model()->getJobTitleOptions();
@@ -169,8 +170,7 @@ echo $department[$row['department']];
 echo $province[$row['province']];
 }?>&nbsp;</td>
 <td><?php echo $row['city'];?>&nbsp;</td>
-<td><?php echo $row['id'];?>&nbsp;</td>
-<td><?php echo $row['password'];?>&nbsp;</td>
+
 <td class="RM"><?php echo $row['am_name']?>&nbsp;</td>
 <td class="RM"><?php echo $row['am_id']?>&nbsp;</td>
 <td class="RM"><?php echo $row['am_department']?>&nbsp;</td>
@@ -181,6 +181,9 @@ echo $province[$row['province']];
 <td><?php echo $row['od_id']?>&nbsp;</td>
 </tr>
 <?php }?>
+<td><?php echo $row['diff'];?>&nbsp;</td>
+<td><?php echo $row['id'];?>&nbsp;</td>
+<td><?php echo $row['password'];?>&nbsp;</td>
 </table>
 </div>
 <script
