@@ -24,7 +24,7 @@ caption {
 	text-align: right;
 }
 
-#mytable th {
+th {
 	font: bold 11px Arial, Helvetica, sans-serif;
 	color: #4f6b72;
 	border-right: 1px solid #C1DAD7;
@@ -37,14 +37,14 @@ caption {
 	background: #CAE8EA no-repeat;
 }
 /*power by www.winshell.cn*/
-#mytable th.nobg {
+th.nobg {
 	border-top: 0;
 	border-left: 0;
 	border-right: 1px solid #C1DAD7;
 	background: none;
 }
 
-#mytable td {
+td {
 	border-right: 1px solid #C1DAD7;
 	border-bottom: 1px solid #C1DAD7;
 	background: #fff;
@@ -53,19 +53,19 @@ caption {
 	color: #4f6b72;
 }
 /*power by www.winshell.cn*/
-#mytable td.alt {
+td.alt {
 	background: #F5FAFA;
 	color: #797268;
 }
 
-#mytable th.spec {
+th.spec {
 	border-left: 1px solid #C1DAD7;
 	border-top: 0;
 	background: #fff no-repeat;
 	font: bold 10px Arial, Helvetica, sans-serif;
 }
 
-#mytable th.specalt {
+th.specalt {
 	border-left: 1px solid #C1DAD7;
 	border-top: 0;
 	background: #f5fafa no-repeat;
@@ -84,13 +84,13 @@ body,td,th {
 </style>
 
 <h1>Report Summary</h1>
-<table style="border:0;">
+<table style="border:0">
 	<tr>
-		<td><input id='q1' type=radio name="show" value=1
+		<td style="border:0"><input id='q1' type=radio name="show" value=1
 			onclick="showCol(1);" /><label for="q1" style="display: inline;">OD
 				Detail List</label>
 		</td>
-		<td><input id='q2' type=radio name="show" value=2 checked 
+		<td style="border:0"><input id='q2' type=radio name="show" value=2 checked 
 			onclick="showCol(2);" /> <label for="q2" style="display: inline;">RM
 				Detail List</label></td>
 	</tr>
