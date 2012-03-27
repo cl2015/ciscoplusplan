@@ -400,7 +400,7 @@ class User extends TrackStarActiveRecord {
 				(
 				SELECT COUNT( * )  nomination, sum( has_reged ) registeration, rm_id, am_id, od_id
 				FROM users
-				GROUP BY rm_id) b
+				GROUP BY am_id) b
 				on a.email = b.am_id
 
 				where  a.type_id = 10
@@ -414,17 +414,19 @@ class User extends TrackStarActiveRecord {
 		if(!$this->email=='admin'){
 			return array();
 		}else{
-			$dbCommand = Yii::app()->db->createCommand("
+			return $this->getDailyReport();
+		}
+	}
+	
+	public function getDailyReport(){
+		$dbCommand = Yii::app()->db->createCommand("
 				select a.*,c.has_paid,c.is_online from users a left join
 				reginfos c
 				on a.id = c.user_id
-
-				where  a.type_id < 10 
+				where  a.type_id < 10
 				");
-
-			$data = $dbCommand->queryAll();
-			return $data;
-		}
+		$data = $dbCommand->queryAll();
+		return $data;
 	}
 
 }
