@@ -98,16 +98,16 @@ td {
 <h1>Report Detail</h1>
 <table class="mytable">
 	<tr>
-		<td><input id='q1' type=radio name="show" value=1
+		<td style="border: 0"><input id='q1' type=radio name="show" value=1
 			onclick="showCol(1);" /><label for="q1" style="display: inline;">OD
 				Detail List</label>
 		</td>
-		<td><input id='q2' type=radio name="show" value=1
+		<td style="border: 0"><input id='q2' type=radio name="show" value=2
 			onclick="showCol(2);" /> <label for="q2" style="display: inline;">RM
 				Detail List</label></td>
-		<td><input id='q3' type=radio name="show" value=1
-			onclick="showCol(3);" /> <label for="q3" style="display: inline;">AM
-				Detail List</label></td>
+		<td style="border: 0"><input id='q3' type=radio name="show" value=3
+			checked onclick="showCol(3);" /> <label for="q3"
+			style="display: inline;">AM Detail List</label></td>
 	</tr>
 </table>
 <div id="tableBox">
@@ -123,8 +123,8 @@ td {
 			<th>部门</th>
 			<?php/*?>
 			//<th>办公室电话（区号）</th>
-			//<th>办公室电话（号码）</th>
-			<?php */?>
+//<th>办公室电话（号码）</th>
+<?php */?>
 			<th>手机号码</th>
 			<th>email</th>
 			<th>省份</th>
@@ -151,16 +151,17 @@ td {
 		<?php foreach ($model as $row) {?>
 		<tr>
 			<td><?php echo $row['has_reged']=="1"?'已注册':'未注册'?>&nbsp;</td>
-			<td><?php if($row['type_id']=="1"){echo "提名";}else if($row['type_id']=="2"){echo "内部员工";}else if($row['type_id']=="4"){echo "付费用户";}else{echo "code";}?></td>
-			<td>
-				<?php if($row['type_id']=='4'&&$row['is_online']=="1"){?>
-				<?php echo $row['has_paid']==0?"未付费":"已付费";?>
-				<?php }else{?>
-				免费（在线会议用户或提名用户）
-				<?php }?>
-				&nbsp;
-				
+			<td><?php if($row['type_id']=="1"){
+				echo "提名";
+			}else if($row['type_id']=="2"){
+				echo "内部员工";
+			}else if($row['type_id']=="4"){
+				echo "付费用户";
+			}else{echo "code";
+			}?>
 			</td>
+			<td><?php if($row['type_id']=='4'&&$row['is_online']=="1"){?> <?php echo $row['has_paid']==0?"未付费":"已付费";?>
+				<?php }else{?> 免费（在线会议用户或提名用户） <?php }?> &nbsp;</td>
 			<td><?php echo $row['organisation'];?>&nbsp;</td>
 			<td><?php if(isset($relation[$row['relation_with_cisco']])){
 				echo $relation[$row['relation_with_cisco']];
@@ -214,4 +215,8 @@ td {
 				$(".OD").hide();
 			}
 			//$("#id").hide();
-		}</script>
+		}
+
+		showCol(3);
+
+		</script>
