@@ -112,9 +112,9 @@ font-size: 12px;
 <td>&nbsp;<?php echo $row['rm_id']?> </td>
 <td>&nbsp;<?php echo $row['ec_mobile']?></td>
 <td>&nbsp;<?php echo $row['nomination']?> </td>
-<td>&nbsp;<?php echo $row['ec_mobile']>0?$row['nomination']/$row['ec_mobile']*100:'0'?>%</td>
+<td>&nbsp;<?php echo $row['ec_mobile']>0?$row['nomination']/round($row['ec_mobile']*100,2):'0'?>%</td>
 <td>&nbsp;<?php echo $row['registeration']?></td>
-<td>&nbsp;<?php echo $row['nomination']>0?$row['registeration']/$row['nomination']*100:'0'?>%</td>
+<td>&nbsp;<?php echo $row['nomination']>0?$row['registeration']/round($row['nomination']*100,2):'0'?>%</td>
 <td>&nbsp;<?php echo CHtml::link(CHtml::encode("Detail List"), array('report/detail','type'=>$type,'email'=>$user->email,'am'=>$row['am_id']),array('target'=>'_blank')); ?></td>
 </tr>
 <?php }?>
