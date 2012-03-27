@@ -87,7 +87,7 @@ class ReportController extends Controller
 		$mailer->IsHTML(true);
 		$mailer->getView('dailyReport',array('model'=>$data));
 		$mailer->Send();
-		echo getdate();
+		echo date('Y-m-d H:i:s');
 		Yii::app()->end();
 	}
 
