@@ -164,10 +164,12 @@ td {
 			<td><?php echo $row['organisation'];?>&nbsp;</td>
 			<td><?php if(isset($relation[$row['relation_with_cisco']])){
 				echo $relation[$row['relation_with_cisco']];
+			}else{echo $row['relation_with_cisco'];
 			}?>&nbsp;</td>
 			<td><?php echo $row['full_name'];?>&nbsp;</td>
 			<td><?php if(isset($job_title[$row['job_title']])){
 				echo $job_title[$row['job_title']];
+			}else{echo $row['job_title'];
 			}?>&nbsp;</td>
 			<td><?php if(isset($department[$row['department']])){
 				echo $department[$row['department']];
@@ -183,6 +185,7 @@ td {
 			<td><?php echo $row['email'];?>&nbsp;</td>
 			<td><?php if(isset($province[$row['province']])){
 				echo $province[$row['province']];
+			}else{echo $row['province'];
 			}?>&nbsp;</td>
 			<td><?php echo $row['city'];?>&nbsp;</td>
 			<td><?php echo $row['id'];?>&nbsp;</td>
