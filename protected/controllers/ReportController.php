@@ -87,7 +87,7 @@ class ReportController extends Controller
 		$mailer->IsHTML(true);
 		$mailer->getView('dailyReport',array('model'=>$data));
 		$mailer->Send();
-		echo new CDbExpression('NOW()');
+		echo getdate();
 		Yii::app()->end();
 	}
 
