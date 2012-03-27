@@ -24,7 +24,7 @@ caption {
 	text-align: right;
 }
 
-th {
+#mytable th {
 	font: bold 11px Arial, Helvetica, sans-serif;
 	color: #4f6b72;
 	border-right: 1px solid #C1DAD7;
@@ -37,14 +37,14 @@ th {
 	background: #CAE8EA no-repeat;
 }
 /*power by www.winshell.cn*/
-th.nobg {
+#mytable th.nobg {
 	border-top: 0;
 	border-left: 0;
 	border-right: 1px solid #C1DAD7;
 	background: none;
 }
 
-td {
+#mytable td {
 	border-right: 1px solid #C1DAD7;
 	border-bottom: 1px solid #C1DAD7;
 	background: #fff;
@@ -53,19 +53,19 @@ td {
 	color: #4f6b72;
 }
 /*power by www.winshell.cn*/
-td.alt {
+#mytable td.alt {
 	background: #F5FAFA;
 	color: #797268;
 }
 
-th.spec {
+#mytable th.spec {
 	border-left: 1px solid #C1DAD7;
 	border-top: 0;
 	background: #fff no-repeat;
 	font: bold 10px Arial, Helvetica, sans-serif;
 }
 
-th.specalt {
+#mytable th.specalt {
 	border-left: 1px solid #C1DAD7;
 	border-top: 0;
 	background: #f5fafa no-repeat;
