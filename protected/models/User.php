@@ -386,7 +386,6 @@ class User extends TrackStarActiveRecord {
 				select a.*,c.has_paid,c.is_online from users a left join
 				reginfos c
 				on a.id = c.user_id
-
 				where  a.type_id < 10 and a.am_id = '$am'
 				");
 
