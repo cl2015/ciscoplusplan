@@ -179,26 +179,10 @@ echo $province[$row['province']];
 <td class="OD"><?php echo $row['rm_id']?>&nbsp;</td>
 <td><?php echo $row['od_name']?>&nbsp;</td>
 <td><?php echo $row['od_id']?>&nbsp;</td>
-</tr>
-<?php }?>
 <td><?php echo $row['diff'];?>&nbsp;</td>
 <td><?php echo $row['id'];?>&nbsp;</td>
 <td><?php echo $row['password'];?>&nbsp;</td>
+</tr>
+<?php }?>
 </table>
 </div>
-<script
-src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
-<script>
-function showCol(id){
-if(id==1){
-$(".RM").show();
-$(".OD").show();
-}else if(id==2) {
-$(".RM").show();
-$(".OD").hide();
-}else {
-$(".RM").hide();
-$(".OD").hide();
-}
-//$("#id").hide();
-}</script>
