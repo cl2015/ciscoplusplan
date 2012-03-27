@@ -90,7 +90,7 @@ body,td,th {
 			onclick="showCol(1);" /><label for="q1" style="display: inline;">OD
 				Detail List</label>
 		</td>
-		<td><input id='q2' type=radio name="show" value=2
+		<td><input id='q2' type=radio name="show" value=2 checked 
 			onclick="showCol(2);" /> <label for="q2" style="display: inline;">RM
 				Detail List</label></td>
 	</tr>
