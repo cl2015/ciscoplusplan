@@ -398,7 +398,7 @@ class User extends TrackStarActiveRecord {
 				select a.id,a.email,a.ec_mobile,b.nomination,b.registeration,b.rm_id,b.am_id,b.od_id from users a left join
 				(
 				SELECT COUNT( * )  nomination, sum( has_reged ) registeration, rm_id, am_id, od_id
-				FROM users where type_id>=10
+				FROM users where type_id<10
 				GROUP BY am_id) b
 				on a.email = b.am_id
 
