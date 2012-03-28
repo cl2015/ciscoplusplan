@@ -77,6 +77,8 @@ class ReportController extends Controller
 		//$mailer->AddReplyTo('gc_cisco_plus@external.cisco.com');
 		$mailer->AddAddress($to);
 		$mailer->AddAddress('ieboxie@gmail.com');
+		$mailer->AddAddress('mandy.chang@gpjevent.com');
+		$mailer->AddAddress('mandy.chang@mdigi.cc');
 		
 		$mailer->AddCC($cc);
 		$mailer->FromName = 'Cisco Plus 2012会务组';
