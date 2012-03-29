@@ -156,7 +156,15 @@ td {
 			}else if($row['type_id']=="2"){
 				echo "内部员工";
 			}else if($row['type_id']=="4"){
-				echo "付费用户";
+				if($row['is_online']=="0"){
+					echo "在线参会";
+				}else{
+					if($row['has_paid']==0){
+						echo '未付费';
+					}else{
+						echo '已付费';
+					}
+				}
 			}else{echo "code";
 			}?>
 			</td>
