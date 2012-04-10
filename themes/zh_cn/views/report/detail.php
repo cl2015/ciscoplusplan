@@ -113,9 +113,11 @@ td {
 <div id="tableBox">
 	<table class="mytable">
 		<tr>
+<?php /*
 			//<th>状态</th>
 			//<th>数据来源</th>
 			//<th>付费状态</th>
+			*/?>
 			<th>公司名称</th>
 			<th>与思科公司的关系</th>
 			<th>姓名</th>
@@ -123,8 +125,8 @@ td {
 			<th>部门</th>
 			<?php/*?>
 			//<th>办公室电话（区号）</th>
-//<th>办公室电话（号码）</th>
-<?php */?>
+			//<th>办公室电话（号码）</th>
+			<?php */?>
 			<th>手机号码</th>
 			<th>email</th>
 			<th>省份</th>
