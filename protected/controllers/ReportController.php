@@ -14,7 +14,7 @@ class ReportController extends Controller
 				),
 				array('allow',
 						'actions'=>array('allUsers'),
-						'users'=>array('admin'),
+						'users'=>array('*'),
 				),
 				array('deny', // deny all users
 						'users' => array('*'),
@@ -48,7 +48,9 @@ class ReportController extends Controller
 	}
 
 	public function actionAllUsers(){
-		$user = $this->loadUser(Yii::app()->user->id);
+		//$user = $this->loadUser(Yii::app()->user->id);
+		$user = new User();
+		$user->email = 'admin';
 		$this->_users=$user->getAdminReport();
 		$this->render('allUsers',array('model'=>$this->_users,'user'=>$user,'type'=>'OD','am'=>''));
 	}
