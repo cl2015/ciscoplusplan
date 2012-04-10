@@ -172,7 +172,7 @@ td {
 			}else{echo "code";
 			}?>
 			</td>
-			?*/>
+			*/?>
 			<td><?php echo $row['organisation'];?>&nbsp;</td>
 			<td><?php if(isset($relation[$row['relation_with_cisco']])){
 				echo $relation[$row['relation_with_cisco']];
