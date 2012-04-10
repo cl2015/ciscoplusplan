@@ -129,18 +129,19 @@ td {
 			<th>手机号码</th>
 			<th>email</th>
 			<th>省份</th>
-			<th>城市</th>
-			<th>参会凭证注册ID号</th>
-			<th>网站注册密码</th>
+			<th>城市</th>			
 			<th class="RM">AM姓名</th>
 			<th class="RM">AM ID</th>
 			<th class="RM">AM部门</th>
 			<th class="RM">AM手机</th>
 			<th class="OD">RM姓名</th>
 			<th class="OD">RM ID</th>
-			<?php if($user->type_id>12){?>
 			<th>OD姓名</th>
 			<th>OD ID</th>
+			<th>Diff</th>
+			<th>参会凭证注册ID号</th>
+			<th>网站注册密码</th>
+			<?php if($user->type_id>12){?>
 			<?php }?>
 		</tr>
 		<?php $relation  = User::model()->getRelationOptions();
@@ -198,18 +199,19 @@ td {
 			}else{echo $row['province'];
 			}?>&nbsp;</td>
 			<td><?php echo $row['city'];?>&nbsp;</td>
-			<td><?php echo $row['id'];?>&nbsp;</td>
-			<td><?php echo $row['password'];?>&nbsp;</td>
 			<td class="RM"><?php echo $row['am_name']?>&nbsp;</td>
 			<td class="RM"><?php echo $row['am_id']?>&nbsp;</td>
 			<td class="RM"><?php echo $row['am_department']?>&nbsp;</td>
 			<td class="RM"><?php echo $row['am_mobile']?>&nbsp;</td>
 			<td class="OD"><?php echo $row['rm_name']?>&nbsp;</td>
 			<td class="OD"><?php echo $row['rm_id']?>&nbsp;</td>
-			<?php if($user->type_id>12){?>
 			<td><?php echo $row['od_name']?>&nbsp;</td>
 			<td><?php echo $row['od_id']?>&nbsp;</td>
+			<td><?php echo $row['diff']?>&nbsp;</td>
+			<?php if($user->type_id>12){?>
 			<?php }?>
+			<td><?php echo $row['id'];?>&nbsp;</td>
+			<td><?php echo $row['password'];?>&nbsp;</td>
 		</tr>
 		<?php }?>
 	</table>
