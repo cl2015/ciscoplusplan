@@ -96,6 +96,7 @@ td {
 </style>
 
 <h1>Report Detail</h1>
+<?php echo CHtml::link(CHtml::encode("Return To Report Summary"), array('report/index','email'=>$user->email)); ?><br/>
 <table class="mytable">
 	<tr>
 		<td style="border: 0"><input id='q1' type=radio name="show" value=1

@@ -88,11 +88,11 @@ body,td,th {
 	<tr>
 		<td style="border:0"><input id='q1' type=radio name="show" value=1
 			onclick="showCol(1);" /><label for="q1" style="display: inline;">OD
-				Detail List</label>
+				Summary List</label>
 		</td>
 		<td style="border:0"><input id='q2' type=radio name="show" value=2 checked 
 			onclick="showCol(2);" /> <label for="q2" style="display: inline;">RM
-				Detail List</label></td>
+				Summary List</label></td>
 	</tr>
 </table>
 
