@@ -100,9 +100,9 @@ body,td,th {
 	<tr>
 		<th class="OD">Cisco OD</th>
 		<th>Cisco RM</th>
-		<th>Quota</th>
+		<?php/*<th>Quota</th>*/?>
 		<th>Nomination</th>
-		<th>Nomination %</th>
+		<?php/*<th>Nomination %</th>*/?>
 		<th>Registeration</th>
 		<th>Registeration %</th>
 		<th>Detail List</th>
@@ -114,12 +114,16 @@ body,td,th {
 		</td>
 		<td>&nbsp;<?php echo $row['rm_id']?>
 		</td>
+		<?php/*
 		<td>&nbsp;<?php echo $row['ec_mobile']?>
 		</td>
+		*/?>
 		<td>&nbsp;<?php echo $row['nomination']?>
 		</td>
+		<?php/*
 		<td>&nbsp;<?php echo $row['ec_mobile']>0?round($row['nomination']/$row['ec_mobile']*100,2):'0'?>%
 		</td>
+		*/?>
 		<td>&nbsp;<?php echo $row['registeration']?>
 		</td>
 		<td>&nbsp;<?php echo $row['nomination']>0?round($row['registeration']/$row['nomination']*100,2):'0'?>%
