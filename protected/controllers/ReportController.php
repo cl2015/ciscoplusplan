@@ -65,7 +65,7 @@ class ReportController extends Controller
 	public function actionDailyReport(){
 		$data = User::model()->getDailyReport();
 		$to = 'li.he@brightac.com.cn';
-		$cc = 'mike.xie@gpjevent.com';
+		$cc = 'ieboxie@gmail.com';
 		$mailer = Yii::app()->mailer;
 		$mailer->Host = 'smtp.exmail.qq.com';
 		$mailer->setPathViews('application.views.user');
@@ -76,7 +76,6 @@ class ReportController extends Controller
 		//$mailer->From = 'admin@brightac.com.cn';
 		//$mailer->AddReplyTo('gc_cisco_plus@external.cisco.com');
 		$mailer->AddAddress($to);
-		$mailer->AddAddress('ieboxie@gmail.com');
 		$mailer->AddAddress('cxx1108@gmail.com');
 		
 		$mailer->AddCC($cc);
