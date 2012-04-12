@@ -472,7 +472,7 @@ class User extends TrackStarActiveRecord {
 				SELECT email, SUM( ec_mobile ) ec_mobile, SUM( nomination ) nomination, SUM( registeration ) registeration, rm_id, od_id
 				FROM (
 
-				SELECT a.id, a.email, a.ec_mobile, b.nomination, b.registeration, b.rm_id, b.am_id, b.od_id
+				SELECT a.id, a.email, a.ec_mobile, COALESCE(b.nomination,0) nomination, COALESCE(b.registeration,0) registeration, b.rm_id, b.am_id, b.od_id
 				FROM users a
 				LEFT JOIN (
 
@@ -492,14 +492,14 @@ class User extends TrackStarActiveRecord {
 		$dbCommand = Yii::app()->db->createCommand("
 				SELECT email, SUM( ec_mobile ) ec_mobile, SUM( nomination ) nomination, SUM( registeration ) registeration, rm_id, od_id
 				FROM (
-				SELECT a.id, a.email, a.ec_mobile, b.nomination, b.registeration, b.rm_id, b.am_id, b.od_id
+				SELECT a.id, a.email, a.ec_mobile, COALESCE(b.nomination,0) nomination, COALESCE(b.registeration,0) registeration, b.rm_id, b.am_id, b.od_id
 				FROM users a
 				LEFT JOIN (
 				SELECT COUNT( * ) nomination, SUM( has_reged ) registeration, rm_id, am_id, od_id
 				FROM users
 				WHERE type_id <10 and od_id = '$email'
 				GROUP BY am_id
-		)b ON a.email = b.am_id
+		) b ON a.email = b.am_id
 				WHERE a.type_id =10
 		)aaa
 				GROUP BY rm_id
