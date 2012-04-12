@@ -473,16 +473,16 @@ class User extends TrackStarActiveRecord {
 				FROM (
 
 				SELECT a.id, a.email, a.ec_mobile, COALESCE(b.nomination,0) nomination, COALESCE(b.registeration,0) registeration, b.rm_id, b.am_id, b.od_id
-				FROM users a
-				LEFT JOIN (
+				FROM  (
 
 				SELECT COUNT( * ) nomination, SUM( has_reged ) registeration, rm_id, am_id, od_id
 				FROM users
 				WHERE type_id <10 and rm_id = '$email'
-				GROUP BY am_id
-		)b ON a.email = b.am_id
-				WHERE a.type_id =10
-		)aaa
+				GROUP BY am_id ) b
+
+				LEFT JOIN users a
+				ON a.email = b.am_id
+				WHERE a.type_id =10 ) aaa
 				GROUP BY rm_id
 				");
 		$data = $dbCommand->queryAll();
@@ -493,15 +493,13 @@ class User extends TrackStarActiveRecord {
 				SELECT email, SUM( ec_mobile ) ec_mobile, SUM( nomination ) nomination, SUM( registeration ) registeration, rm_id, od_id
 				FROM (
 				SELECT a.id, a.email, a.ec_mobile, COALESCE(b.nomination,0) nomination, COALESCE(b.registeration,0) registeration, b.rm_id, b.am_id, b.od_id
-				FROM users a
-				LEFT JOIN (
-				SELECT COUNT( * ) nomination, SUM( has_reged ) registeration, rm_id, am_id, od_id
+				FROM SELECT COUNT( * ) nomination, SUM( has_reged ) registeration, rm_id, am_id, od_id
 				FROM users
 				WHERE type_id <10 and od_id = '$email'
-				GROUP BY am_id
-		) b ON a.email = b.am_id
-				WHERE a.type_id =10
-		)aaa
+				GROUP BY am_id ) b left join users a
+
+				ON a.email = b.am_id
+				WHERE a.type_id =10 ) aaa
 				GROUP BY rm_id
 				");
 
