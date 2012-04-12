@@ -393,6 +393,52 @@ class User extends TrackStarActiveRecord {
 		return $data;
 	}
 
+	public function getDetailByUser($email,$type_id){
+		if($type_id == '10'){
+			return $this->getAmDetailByUser($email);
+		}elseif($type_id == '11'){
+			return $this->getRmDetailByUser($email);
+		}elseif($type_id == '12' || $type_id >12){
+			return $this->getOdDetailByUser($email);
+		}else{
+			return array();
+		}
+	}
+
+	public function getAmDetailByUser($email){
+		$dbCommand = Yii::app()->db->createCommand("
+				select a.*,c.has_paid,c.is_online from users a left join
+				reginfos c
+				on a.id = c.user_id
+				where  a.type_id < 10 and a.am_id = '$email'
+				");
+
+		$data = $dbCommand->queryAll();
+		return $data;
+	}
+	public function getRmDetailByUser($email){
+		$dbCommand = Yii::app()->db->createCommand("
+				select a.*,c.has_paid,c.is_online from users a left join
+				reginfos c
+				on a.id = c.user_id
+				where  a.type_id < 10 and a.rm_id = '$email'
+				");
+
+		$data = $dbCommand->queryAll();
+		return $data;
+	}
+	public function getOdDetailByUser($email){
+		$dbCommand = Yii::app()->db->createCommand("
+				select a.*,c.has_paid,c.is_online from users a left join
+				reginfos c
+				on a.id = c.user_id
+				where  a.type_id < 10 and a.od_id = '$email'
+				");
+
+		$data = $dbCommand->queryAll();
+		return $data;
+	}
+
 	public function getSummaryReport(){
 		$dbCommand = Yii::app()->db->createCommand("
 				select a.id,a.email,a.ec_mobile,b.nomination,b.registeration,b.rm_id,b.am_id,b.od_id from users a left join
@@ -409,6 +455,60 @@ class User extends TrackStarActiveRecord {
 		return $data;
 	}
 
+	public function getSummaryByUser($email,$type_id){
+		if($type_id == '10'){
+			return array();
+		}elseif($type_id == '11'){
+			return $this->getRmSummaryByUser($email);
+		}elseif($type_id == '12' || $type_id >12){
+			return $this->getOdSummaryByUser($email);
+		}else{
+			return array();
+		}
+	}
+
+	public function getRmSummaryByUser($email){
+		$dbCommand = Yii::app()->db->createCommand("
+				SELECT email, SUM( ec_mobile ) ec_mobile, SUM( nomination ) nomination, SUM( registeration ) registeration, rm_id, od_id
+				FROM (
+
+				SELECT a.id, a.email, a.ec_mobile, b.nomination, b.registeration, b.rm_id, b.am_id, b.od_id
+				FROM users a
+				LEFT JOIN (
+
+				SELECT COUNT( * ) nomination, SUM( has_reged ) registeration, rm_id, am_id, od_id
+				FROM users
+				WHERE type_id <10 and rm_id = '$email'
+				GROUP BY am_id
+		)b ON a.email = b.am_id
+				WHERE a.type_id =10
+		)aaa
+				GROUP BY am_id
+				");
+		$data = $dbCommand->queryAll();
+		return $data;
+	}
+	public function getOdSummaryByUser($email){
+		$dbCommand = Yii::app()->db->createCommand("
+				SELECT email, SUM( ec_mobile ) ec_mobile, SUM( nomination ) nomination, SUM( registeration ) registeration, rm_id, od_id
+				FROM (
+				SELECT a.id, a.email, a.ec_mobile, b.nomination, b.registeration, b.rm_id, b.am_id, b.od_id
+				FROM users a
+				LEFT JOIN (
+				SELECT COUNT( * ) nomination, SUM( has_reged ) registeration, rm_id, am_id, od_id
+				FROM users
+				WHERE type_id <10 and od_id = '$email'
+				GROUP BY am_id
+		)b ON a.email = b.am_id
+				WHERE a.type_id =10
+		)aaa
+				GROUP BY am_id
+				");
+
+		$data = $dbCommand->queryAll();
+		return $data;
+	}
+
 	public function getAdminReport(){
 		if(!$this->email=='admin'){
 			return array();
@@ -416,7 +516,7 @@ class User extends TrackStarActiveRecord {
 			return $this->getDailyReport();
 		}
 	}
-	
+
 	public function getDailyReport(){
 		$dbCommand = Yii::app()->db->createCommand("
 				select a.*,c.has_paid,c.is_online from users a left join

@@ -31,7 +31,6 @@ th {
 	border-bottom: 1px solid #C1DAD7;
 	border-top: 1px solid #C1DAD7;
 	letter-spacing: 2px;
-	text-transform: uppercase;
 	text-align: left;
 	padding: 6px 6px 6px 12px;
 	background: #CAE8EA no-repeat;
@@ -86,11 +85,11 @@ body,td,th {
 <h1>Report Summary</h1>
 <table style="border:0">
 	<tr>
-		<td style="border:0"><input id='q1' type=radio name="show" value=1
+		<td style="border:0"><input id='q1' type=radio name="show" value=1 checked 
 			onclick="showCol(1);" /><label for="q1" style="display: inline;">OD
 				Summary List</label>
 		</td>
-		<td style="border:0"><input id='q2' type=radio name="show" value=2 checked 
+		<td style="border:0"><input id='q2' type=radio name="show" value=2  
 			onclick="showCol(2);" /> <label for="q2" style="display: inline;">RM
 				Summary List</label></td>
 	</tr>
@@ -100,35 +99,25 @@ body,td,th {
 	<tr>
 		<th class="OD">Cisco OD</th>
 		<th>Cisco RM</th>
-		<?php/*<th>Quota</th>*/?>
 		<th>Nomination</th>
-		<?php/*<th>Nomination %</th>*/?>
 		<th>Registeration</th>
 		<th>Registeration %</th>
 		<th>Detail List</th>
 	</tr>
 
-	<?php foreach ($data as $row) {?>
+	<?php foreach ($model as $row) {?>
 	<tr>
 		<td class="OD">&nbsp;<?php echo $row['od_id']?>
 		</td>
 		<td>&nbsp;<?php echo $row['rm_id']?>
 		</td>
-		<?php/*
-		<td>&nbsp;<?php echo $row['ec_mobile']?>
-		</td>
-		*/?>
 		<td>&nbsp;<?php echo $row['nomination']?>
 		</td>
-		<?php/*
-		<td>&nbsp;<?php echo $row['ec_mobile']>0?round($row['nomination']/$row['ec_mobile']*100,2):'0'?>%
-		</td>
-		*/?>
 		<td>&nbsp;<?php echo $row['registeration']?>
 		</td>
 		<td>&nbsp;<?php echo $row['nomination']>0?round($row['registeration']/$row['nomination']*100,2):'0'?>%
 		</td>
-		<td>&nbsp;<?php echo CHtml::link(CHtml::encode("Detail List"), array('report/detail','type'=>$type,'email'=>$user->email,'am'=>$row['am_id']),array('target'=>'_blank')); ?>
+		<td>&nbsp;<?php echo CHtml::link(CHtml::encode("Detail List"), array('report/detail'),array('target'=>'_blank')); ?>
 		</td>
 	</tr>
 	<?php }?>
@@ -142,7 +131,7 @@ body,td,th {
 		}else if(id==2) {
 			$(".OD").hide();
 		}else {
-			$(".OD").hide();
+			$(".OD").show();
 		}
 		//$("#id").hide();
 	}

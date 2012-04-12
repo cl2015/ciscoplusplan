@@ -21,12 +21,14 @@ class UserIdentity extends CUserIdentity
 			if ($user->type_id<7) {
 				$this->_id = $user->id;
 				$this->errorCode = self::ERROR_NONE;
-			}elseif ($user->password !== $user->encrypt($this->password)) {
-				$this->errorCode = self::ERROR_PASSWORD_INVALID;
+			//}elseif ($user->password !== $user->encrypt($this->password)) {
+			//	$this->errorCode = self::ERROR_PASSWORD_INVALID;
 			} else {
 				$this->_id = $user->id;
 				$this->errorCode = self::ERROR_NONE;
 			}
+			$this->setState('type_id',$user->type_id);
+			$this->setState('email',$user->email);
 		}
 		return!$this->errorCode;
 	}

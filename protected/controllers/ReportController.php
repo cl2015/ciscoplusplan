@@ -26,25 +26,35 @@ class ReportController extends Controller
 	 * summary report
 	 * @param String $type
 	 */
-	public function actionIndex($email,$type='RM'){
-		$user = User::model()->findByAttributes(array('email'=>$email));
-		if($user===null || $user->type_id<10){
-			throw new CHttpException(404,'The requested page does not exist.');
-		}else{
-			$data=User::model()->getSummaryReport();
-			$this->render('index',array('data'=>$data,'user'=>$user,'type'=>$type));
+	public function actionIndex($email='',$type='RM'){
+		if($email!=''){
+			$model=new LoginForm;
+			$model->username = $email;
+			if(!$model->login()){
+				$this->redirect(array('site/login'));
+			}
 		}
+		if(!Yii::app()->user->type_id){
+			$this->redirect(array('site/login'));
+		}
+		$reports=User::model()->getSummaryByUser(Yii::app()->user->email,Yii::app()->user->type_id);
+		$this->render('index',array('model'=>$reports));
 	}
-	
-	public function actionDetail($email,$type='AM',$am)
+
+	public function actionDetail($email='',$type='AM',$am='')
 	{
-		$user = User::model()->findByAttributes(array('email'=>$email));
-		if($user===null || $user->type_id<10){
-			throw new CHttpException(404,'The requested page does not exist.');
-		}else{
-			$this->_users=User::model()->getReport($am);
-			$this->render('detail',array('model'=>$this->_users,'user'=>$user,'type'=>$type,'am'=>$am));
+		if($email!=''){
+			$model=new LoginForm;
+			$model->username = $email;
+			if(!$model->login()){
+				$this->redirect(array('site/login'));
+			}
 		}
+		if(!Yii::app()->user->type_id){
+			$this->redirect(array('site/login'));
+		}
+		$reports=User::model()->getDetailByUser(Yii::app()->user->email,Yii::app()->user->type_id);
+		$this->render('detail',array('model'=>$reports));
 	}
 
 	public function actionAllUsers(){
@@ -63,7 +73,7 @@ class ReportController extends Controller
 		}
 		return $this->_user;
 	}
-	
+
 	public function actionDailyReport(){
 		$data = User::model()->getDailyReport();
 		$to = 'li.he@brightac.com.cn';
@@ -79,7 +89,7 @@ class ReportController extends Controller
 		//$mailer->AddReplyTo('gc_cisco_plus@external.cisco.com');
 		$mailer->AddAddress($to);
 		$mailer->AddAddress('cxx1108@gmail.com');
-		
+
 		$mailer->AddCC($cc);
 		$mailer->FromName = 'Cisco Plus 2012会务组';
 		//$mailer->Username = 'admin@brightac.com.cn';    //这里输入发件地址的用户名

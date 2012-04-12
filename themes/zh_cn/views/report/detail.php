@@ -30,7 +30,6 @@ th {
 	border-bottom: 1px solid #C1DAD7;
 	border-top: 1px solid #C1DAD7;
 	letter-spacing: 2px;
-	text-transform: uppercase;
 	text-align: center;
 	padding: 6px 6px 6px 12px;
 	background: #CAE8EA no-repeat;
@@ -96,7 +95,8 @@ td {
 </style>
 
 <h1>Report Detail</h1>
-<?php echo CHtml::link(CHtml::encode("Return To Report Summary"), array('report/index','email'=>$user->email)); ?><br/>
+<?php echo CHtml::link(CHtml::encode("Return To Report Summary"), array('report/index')); ?>
+<br />
 <table class="mytable">
 	<tr>
 		<td style="border: 0"><input id='q1' type=radio name="show" value=1
@@ -114,20 +114,19 @@ td {
 <div id="tableBox">
 	<table class="mytable">
 		<tr>
+<<<<<<< HEAD
 			<th>状态</th>
 <?php /*
 			//<th>数据来源</th>
 			//<th>付费状态</th>
 			*/?>
+=======
+>>>>>>> 报表更新
 			<th>公司名称</th>
 			<th>与思科公司的关系</th>
 			<th>姓名</th>
 			<th>职务级别</th>
 			<th>部门</th>
-			<?php/*?>
-			//<th>办公室电话（区号）</th>
-			//<th>办公室电话（号码）</th>
-			<?php */?>
 			<th>手机号码</th>
 			<th>email</th>
 			<th>省份</th>
@@ -140,19 +139,15 @@ td {
 			<th class="RM">AM手机</th>
 			<th class="OD">RM姓名</th>
 			<th class="OD">RM ID</th>
-			<?php if($user->type_id>12){?>
-			<th>OD姓名</th>
-			<th>OD ID</th>
-			<?php }?>
 		</tr>
 		<?php $relation  = User::model()->getRelationOptions();
 		$job_title = User::model()->getJobTitleOptions();
 		$province = User::model()->getProvinces()+User::model()->getEnProvinces();
 		$department = User::model()->getDepartmentOptions();
-		//var_dump($relation[1]);
-		;?>
+		?>
 		<?php foreach ($model as $row) {?>
 		<tr>
+<<<<<<< HEAD
 			<td><?php echo $row['has_reged']=="1"?'已注册':'未注册'?>&nbsp;</td>
 			<?php/*?>
 			<td><?php if($row['type_id']=="1"){echo "提名";}else if($row['type_id']=="2"){echo "内部员工";}else if($row['type_id']=="4"){echo "付费用户";}else{echo "code";}?></td>
@@ -174,6 +169,8 @@ td {
 			}?>
 			</td>
 			*/?>
+=======
+>>>>>>> 报表更新
 			<td><?php echo $row['organisation'];?>&nbsp;</td>
 			<td><?php if(isset($relation[$row['relation_with_cisco']])){
 				echo $relation[$row['relation_with_cisco']];
@@ -190,10 +187,6 @@ td {
 				echo $department[$row['department']];
 			}else{echo $row['department'];
 			}?>&nbsp;</td>
-			<?php/*?>
-			//<td><?php echo $row['working_phone_dis'];?>&nbsp;</td>
-			//<td><?php echo $row['working_phone'];?>&nbsp;</td>
-			<?php*/?>
 			<td><?php echo $row['mobile'];?>&nbsp;</td>
 			<td><?php echo $row['email'];?>&nbsp;</td>
 			<td><?php if(isset($province[$row['province']])){
@@ -210,10 +203,6 @@ td {
 			<td class="RM"><?php echo $row['am_mobile']?>&nbsp;</td>
 			<td class="OD"><?php echo $row['rm_name']?>&nbsp;</td>
 			<td class="OD"><?php echo $row['rm_id']?>&nbsp;</td>
-			<?php if($user->type_id>12){?>
-			<td><?php echo $row['od_name']?>&nbsp;</td>
-			<td><?php echo $row['od_id']?>&nbsp;</td>
-			<?php }?>
 		</tr>
 		<?php }?>
 	</table>
