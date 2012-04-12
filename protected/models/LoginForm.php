@@ -48,7 +48,7 @@ class LoginForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
-		$this->username = str_replace("@cisco.com","",$this->username);
+		$this->username = str_replace("@cisco.com",'',$this->username);
 		if(!$this->hasErrors())
 		{
 			$this->_identity=new UserIdentity($this->username,$this->password);
@@ -63,7 +63,7 @@ class LoginForm extends CFormModel
 	 */
 	public function login()
 	{
-		$this->username = str_replace("@cisco.com","",$this->username);
+		$this->username = str_replace("@cisco.com",'',$this->username);
 		if($this->_identity===null)
 		{
 			$this->_identity=new UserIdentity($this->username,$this->password);
