@@ -483,7 +483,7 @@ class User extends TrackStarActiveRecord {
 		)b ON a.email = b.am_id
 				WHERE a.type_id =10
 		)aaa
-				GROUP BY am_id
+				GROUP BY rm_id
 				");
 		$data = $dbCommand->queryAll();
 		return $data;
@@ -502,7 +502,7 @@ class User extends TrackStarActiveRecord {
 		)b ON a.email = b.am_id
 				WHERE a.type_id =10
 		)aaa
-				GROUP BY am_id
+				GROUP BY rm_id
 				");
 
 		$data = $dbCommand->queryAll();
