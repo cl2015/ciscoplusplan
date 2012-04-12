@@ -141,26 +141,6 @@ td {
 		<?php foreach ($model as $row) {?>
 		<tr>
 			<td><?php echo $row['has_reged']=="1"?'已注册':'未注册'?>&nbsp;</td>
-			<?php/*?>
-			<td><?php if($row['type_id']=="1"){echo "提名";}else if($row['type_id']=="2"){echo "内部员工";}else if($row['type_id']=="4"){echo "付费用户";}else{echo "code";}?></td>
-			<td><?php if($row['type_id']=="1"){
-				echo "提名";
-			}else if($row['type_id']=="2"){
-				echo "内部员工";
-			}else if($row['type_id']=="4"){
-				if($row['is_online']=="0"){
-					echo "在线参会";
-				}else{
-					if($row['has_paid']==0){
-						echo '未付费';
-					}else{
-						echo '已付费';
-					}
-				}
-			}else{echo "code";
-			}?>
-			</td>
-			*/?>
 			<td><?php echo $row['organisation'];?>&nbsp;</td>
 			<td><?php if(isset($relation[$row['relation_with_cisco']])){
 				echo $relation[$row['relation_with_cisco']];
