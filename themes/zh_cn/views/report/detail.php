@@ -112,23 +112,23 @@ td {
 	</tr>
 </table>
 <div id="tableBox">
-	<table class="mytable"  style="width: 1200px;">
+	<table class="mytable"  style="width: 986px; margin-left: -39px;">
 		<tr>
-			<th style="width: 40px;">状态</th>
+			<th style="width: 30px;">状态</th>
 			<th style="width: 100px;">公司名称</th>
-			<th style="width: 120px;">与思科公司的关系</th>
+			<th style="width: 100px;">与思科公司的关系</th>
 			<th style="width: 40px;">姓名</th>
 			<th style="width: 100px;">职务级别</th>
-			<th style="width: 100px;">部门</th>
+			<th style="width: 20px;">部门</th>
 			<th style="width: 70px;">手机号码</th>
-			<th style="width: 100px;">email</th>
+			<th style="width: 20px;">email</th>
 			<th style="width: 20px;">省份</th>
 			<th style="width: 20px;">城市</th>
 			<th style="width: 35px;">参会凭证注册ID号</th>
 			<th style="width: 35px;">网站注册密码</th>
-			<th class="RM">AM姓名</th>
-			<th class="RM">AM部门</th>
-			<th class="OD">RM姓名</th>
+			<th style="widht: 35px;" class="RM">AM姓名</th>
+			<th style="widht: 35px;" class="RM">AM部门</th>
+			<th style="widht: 35px;" class="OD">RM姓名</th>
 		</tr>
 		<?php $relation  = User::model()->getRelationOptions();
 		$job_title = User::model()->getJobTitleOptions();
