@@ -1,7 +1,7 @@
 <style type="text/css">
 /* CSS Document */
 body {
-	font: normal 11px auto Arial, Helvetica, sans-serif;
+	font: normal 11px auto , Arial, Helvetica, sans-serif;
 	color: #4f6b72;
 	background: #E6EAE9;
 }
@@ -19,12 +19,12 @@ a {
 caption {
 	padding: 0 0 5px 0;
 	width: 700px;
-	font: italic 11px Arial, Helvetica, sans-serif;
+	font: italic 11px auto , Arial, Helvetica, sans-serif;
 	text-align: right;
 }
 
 th {
-	font: bold 11px Arial, Helvetica, sans-serif;
+	font: bold 11px auto ,Arial, Helvetica, sans-serif;
 	color: #4f6b72;
 	border-right: 1px solid #C1DAD7;
 	border-bottom: 1px solid #C1DAD7;
@@ -112,26 +112,23 @@ td {
 	</tr>
 </table>
 <div id="tableBox">
-	<table class="mytable">
+	<table class="mytable"  style="width: 1200px;">
 		<tr>
-			<th>状态</th>
-			<th>公司名称</th>
-			<th>与思科公司的关系</th>
-			<th>姓名</th>
-			<th>职务级别</th>
-			<th>部门</th>
-			<th>手机号码</th>
-			<th>email</th>
-			<th>省份</th>
-			<th>城市</th>
-			<th>参会凭证注册ID号</th>
-			<th>网站注册密码</th>
+			<th style="width: 40px;">状态</th>
+			<th style="width: 100px;">公司名称</th>
+			<th style="width: 120px;">与思科公司的关系</th>
+			<th style="width: 40px;">姓名</th>
+			<th style="width: 100px;">职务级别</th>
+			<th style="width: 100px;">部门</th>
+			<th style="width: 70px;">手机号码</th>
+			<th style="width: 100px;">email</th>
+			<th style="width: 20px;">省份</th>
+			<th style="width: 20px;">城市</th>
+			<th style="width: 35px;">参会凭证注册ID号</th>
+			<th style="width: 35px;">网站注册密码</th>
 			<th class="RM">AM姓名</th>
-			<th class="RM">AM ID</th>
 			<th class="RM">AM部门</th>
-			<th class="RM">AM手机</th>
 			<th class="OD">RM姓名</th>
-			<th class="OD">RM ID</th>
 		</tr>
 		<?php $relation  = User::model()->getRelationOptions();
 		$job_title = User::model()->getJobTitleOptions();
@@ -168,11 +165,8 @@ td {
 			<td><?php echo $row['id'];?>&nbsp;</td>
 			<td><?php echo $row['password'];?>&nbsp;</td>
 			<td class="RM"><?php echo $row['am_name']?>&nbsp;</td>
-			<td class="RM"><?php echo $row['am_id']?>&nbsp;</td>
 			<td class="RM"><?php echo $row['am_department']?>&nbsp;</td>
-			<td class="RM"><?php echo $row['am_mobile']?>&nbsp;</td>
 			<td class="OD"><?php echo $row['rm_name']?>&nbsp;</td>
-			<td class="OD"><?php echo $row['rm_id']?>&nbsp;</td>
 		</tr>
 		<?php }?>
 	</table>

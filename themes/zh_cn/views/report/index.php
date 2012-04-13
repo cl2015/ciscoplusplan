@@ -25,13 +25,13 @@ caption {
 }
 
 th {
-	font: bold 11px Arial, Helvetica, sans-serif;
+	font: bold 11px auto ,Arial, Helvetica, sans-serif;
 	color: #4f6b72;
 	border-right: 1px solid #C1DAD7;
 	border-bottom: 1px solid #C1DAD7;
 	border-top: 1px solid #C1DAD7;
 	letter-spacing: 2px;
-	text-align: left;
+	text-align: center;
 	padding: 6px 6px 6px 12px;
 	background: #CAE8EA no-repeat;
 }
@@ -41,6 +41,7 @@ th.nobg {
 	border-left: 0;
 	border-right: 1px solid #C1DAD7;
 	background: none;
+	text-align: center;
 }
 
 td {
@@ -50,6 +51,7 @@ td {
 	font-size: 11px;
 	padding: 6px 6px 6px 12px;
 	color: #4f6b72;
+	text-align: center;
 }
 /*power by www.winshell.cn*/
 td.alt {
@@ -77,7 +79,7 @@ html>body td {
 }
 
 body,td,th {
-	font-family: Arial, 宋体;
+	font-family: auto ,Arial, 宋体;
 	font-size: 12px;
 }
 </style>
