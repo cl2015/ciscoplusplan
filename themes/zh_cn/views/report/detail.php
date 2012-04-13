@@ -31,7 +31,7 @@ th {
 	border-top: 1px solid #C1DAD7;
 	letter-spacing: 2px;
 	text-align: center;
-	padding: 6px 6px 6px 12px;
+	padding: 6px 6px 6px 6px;
 	background: #CAE8EA no-repeat;
 }
 /*power by www.winshell.cn*/
@@ -48,7 +48,7 @@ td {
 	text-align: center;
 	background: #fff;
 	font-size: 11px;
-	padding: 6px 6px 6px 12px;
+	padding: 6px 6px 6px 6px;
 	color: #4f6b72;
 }
 /*power by www.winshell.cn*/
@@ -116,11 +116,11 @@ td {
 		<tr>
 			<th style="width: 30px;">状态</th>
 			<th style="width: 100px;">公司名称</th>
-			<th style="width: 100px;">与思科公司的关系</th>
+			<th style="width: 80px;">与思科公司的关系</th>
 			<th style="width: 40px;">姓名</th>
 			<th style="width: 100px;">职务级别</th>
 			<th style="width: 20px;">部门</th>
-			<th style="width: 70px;">手机号码</th>
+			<th style="width: 60px;">手机号码</th>
 			<th style="width: 20px;">email</th>
 			<th style="width: 20px;">省份</th>
 			<th style="width: 20px;">城市</th>
@@ -128,7 +128,7 @@ td {
 			<th style="width: 35px;">网站注册密码</th>
 			<th style="widht: 35px;" class="RM">AM姓名</th>
 			<th style="widht: 35px;" class="RM">AM部门</th>
-			<th style="widht: 35px;" class="OD">RM姓名</th>
+			<th style="widht: 45px;" class="OD">RM姓名</th>
 		</tr>
 		<?php $relation  = User::model()->getRelationOptions();
 		$job_title = User::model()->getJobTitleOptions();
