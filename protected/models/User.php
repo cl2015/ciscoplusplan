@@ -206,7 +206,7 @@ class User extends TrackStarActiveRecord {
 				6 => Yii::t('default','Management Without Staff'),
 				7 => Yii::t('default','Employee'),
 				8 => Yii::t('default','Office Administration'),
-				9 => Yii::t('default','Other'),
+				//9 => Yii::t('default','Other'),
 		);
 	}
 
@@ -234,27 +234,53 @@ class User extends TrackStarActiveRecord {
 
 	public function getDepartmentOptions() {
 		return array(
-				1 => Yii::t('default','Business Development'),
-				2 => Yii::t('default','Consultant/Contractor'),
-				3 => Yii::t('default','Customer Service'),
-				4 => Yii::t('default','E-Commerce'),
-				5 => Yii::t('default','Engineering'),
-				6 => Yii::t('default','Executive Management'),
-				7 => Yii::t('default','Finance/Accounting/Legal'),
-				8 => Yii::t('default','HR/Recruitment'),
-				9 => Yii::t('default','Logistics'),
-				10 => Yii::t('default','MIS/IT'),
-				11 => Yii::t('default','Manufacturing'),
-				12 => Yii::t('default','Marketing/PR/Advertising'),
-				13 => Yii::t('default','Network Management'),
-				14 => Yii::t('default','Operations/Administration'),
-				15 => Yii::t('default','Purchasing/Procurement'),
-				16 => Yii::t('default','Research/Development'),
-				17 => Yii::t('default','Sales'),
-				18 => Yii::t('default','Technical Support'),
-				19 => Yii::t('default','Training/Education'),
-				20 => Yii::t('default','Other'),
-
+		// 				1 => Yii::t('default','Business Development'),
+		// 				2 => Yii::t('default','Consultant/Contractor'),
+		// 				3 => Yii::t('default','Customer Service'),
+		// 				4 => Yii::t('default','E-Commerce'),
+		// 				5 => Yii::t('default','Engineering'),
+		// 				6 => Yii::t('default','Executive Management'),
+		// 				7 => Yii::t('default','Finance/Accounting/Legal'),
+		// 				8 => Yii::t('default','HR/Recruitment'),
+		// 				9 => Yii::t('default','Logistics'),
+		// 				10 => Yii::t('default','MIS/IT'),
+		// 				11 => Yii::t('default','Manufacturing'),
+		// 				12 => Yii::t('default','Marketing/PR/Advertising'),
+		// 				13 => Yii::t('default','Network Management'),
+		// 				14 => Yii::t('default','Operations/Administration'),
+		// 				15 => Yii::t('default','Purchasing/Procurement'),
+		// 				16 => Yii::t('default','Research/Development'),
+		// 				17 => Yii::t('default','Sales'),
+		// 				18 => Yii::t('default','Technical Support'),
+		// 				19 => Yii::t('default','Training/Education'),
+		// 				20 => Yii::t('default','Other'),
+				'商业/市场开发'=>'商业/市场开发',
+				'顾问咨询'=>'顾问咨询',
+				'客户服务'=>'客户服务',
+				'电子商业'=>'电子商业',
+				'工程'=>'工程',
+				'行政管理'=>'行政管理',
+				'财务 / 会计'=>'财务 / 会计',
+				'人事'=>'人事',
+				'法律'=>'法律',
+				'物流'=>'物流',
+				'制造'=>'制造',
+				'市场行銷'=>'市场行銷',
+				'IT'=>'IT',
+				'IT – 应用开发'=>'IT – 应用开发',
+				'IT – 数据中心'=>'IT – 数据中心',
+				'IT – 存储'=>'IT – 存储',
+				'IT – 服务器'=>'IT – 服务器',
+				'IT – 安全'=>'IT – 安全',
+				'IT – 电信'=>'IT – 电信',
+				'IT – 运营'=>'IT – 运营',
+				'网络管理'=>'网络管理',
+				'操作 / 行政'=>'操作 / 行政',
+				'采购'=>'采购',
+				'研究 / 开发'=>'研究 / 开发',
+				'销售'=>'销售',
+				'技术支援'=>'技术支援',
+				'培训 / 教育'=>'培训 / 教育',
 		);
 	}
 
@@ -493,10 +519,10 @@ class User extends TrackStarActiveRecord {
 				SELECT email, SUM( ec_mobile ) ec_mobile, SUM( nomination ) nomination, SUM( registeration ) registeration, rm_id, od_id
 				FROM (
 				SELECT a.id, a.email, a.ec_mobile, COALESCE(b.nomination,0) nomination, COALESCE(b.registeration,0) registeration, b.rm_id, b.am_id, b.od_id
-				FROM ( 
+				FROM (
 				SELECT COUNT( * ) nomination, SUM( has_reged ) registeration, rm_id, am_id, od_id
 				FROM users
-				WHERE type_id <10 and od_id = '$email' 
+				WHERE type_id <10 and od_id = '$email'
 				GROUP BY am_id ) b left join users a
 
 				ON a.email = b.am_id

@@ -77,7 +77,16 @@
 			<td><?php echo $form->error($model,'job_title'); ?>
 			</td>
 		</tr>
-
+		<?php if(Yii::app()->language=='zh_cn'){?>
+		<tr>
+			<td><?php echo $form->labelEx($model,'department'); ?>
+			
+			<td><?php echo $form->dropDownList($model,'department',$model->getDepartmentOptions()); ?>
+			</td>
+			<td><?php echo $form->error($model,'department'); ?>
+			</td>
+		</tr>
+		<?php }else { ?>
 		<tr>
 			<td><?php echo $form->labelEx($model,'department'); ?>
 			
@@ -86,6 +95,7 @@
 			<td><?php echo $form->error($model,'department'); ?>
 			</td>
 		</tr>
+		<?php }?>
 <!--
 		<tr>
 			<td><?php echo $form->labelEx($model,'working_phone_dis'); ?>
