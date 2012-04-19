@@ -160,13 +160,13 @@ class User extends TrackStarActiveRecord {
 
 		$criteria = new CDbCriteria;
 
-		$criteria->compare('id', $this->id, true);
-		$criteria->compare('has_code', $this->has_code);
-		$criteria->compare('code', $this->code, true);
+		//$criteria->compare('id', $this->id, true);
+		//$criteria->compare('has_code', $this->has_code);
+		//$criteria->compare('code', $this->code, true);
 		$criteria->compare('email', $this->email, true);
-		$criteria->compare('password', $this->password, true);
-		$criteria->compare('organisation', $this->organisation, true);
-		$criteria->compare('relation_with_cisco', $this->relation_with_cisco, true);
+		//$criteria->compare('password', $this->password, true);
+		//$criteria->compare('organisation', $this->organisation, true);
+		//$criteria->compare('relation_with_cisco', $this->relation_with_cisco, true);
 		$criteria->compare('full_name', $this->full_name, true);
 		$criteria->compare('job_title', $this->job_title, true);
 		$criteria->compare('department', $this->department, true);

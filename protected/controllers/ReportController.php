@@ -9,7 +9,7 @@ class ReportController extends Controller
 	public function accessRules() {
 		return array(
 				array('allow', // allow all users to perform 'index' and 'view' actions
-						'actions' => array('index','detail'),
+						'actions' => array('index','detail','ccAllInfo'),
 						'users' => array('*'),
 				),
 				array('allow',
@@ -103,5 +103,17 @@ class ReportController extends Controller
 		echo date('Y-m-d H:i:s');
 		Yii::app()->end();
 	}
+	//call center使用查看所有用户的信息
+	public function actionCcAllInfo(){
+		$model=new User('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['User']))
+			$model->attributes=$_GET['User'];
+
+		$this->render('ccAllInfo',array(
+				'model'=>$model,
+		));
+	}
+	
 
 }

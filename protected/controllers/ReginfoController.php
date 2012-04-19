@@ -8,7 +8,7 @@ class ReginfoController extends Controller
 	 */
 	public $layout='//layouts/front';
 	public $_user = null;
-	
+
 	/**
 	 * @return array action filters
 	 */
@@ -28,7 +28,7 @@ class ReginfoController extends Controller
 	{
 		return array(
 				array('allow',
-						'actions'=>array('test'),
+						'actions'=>array('test','earlyConfirmation'),
 						'users'=>array('*'),
 				),
 				array('allow',  // allow all users to perform 'index' and 'view' actions
@@ -213,26 +213,35 @@ class ReginfoController extends Controller
 	{
 		$user = $this->loadUser(Yii::app()->user->id);
 		$model = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		$payment = Payment::model()->findbyAttributes(array('user_id'=>$user->id));
 		if($model === null){
 			$model = new Reginfo;
 			$model->user_id = $user->id;
 		}
+		if($payment === null){
+			$payment = new Payment;
+			$payment->user_id = $user->id;
+		}
 		$model->setScenario('payment');
-		if(isset($_POST['Reginfo']))
+		if(isset($_POST['Reginfo'])&&isset($_POST['Payment']))
 		{
 			$model->attributes=$_POST['Reginfo'];
-			if($model->save())
-			{
-				if ($model->payment_type == 0)
-				{
-					$this->redirect(array('reginfo/pay'));
-				}else{
+			$payment->attributes=$_POST['Payment'];
+			$model->user_id=$user->id;
+			$payment->user_id=$user->id;
+			if($model->validate()&&$payment->validate()){
+				if($model->save()&&$payment->save()){
+// 					if ($model->payment_type == 0)
+// 					{
+// 						$this->redirect(array('reginfo/pay'));
+// 					}else{
 					$this->redirect(array('reginfo/ordinaryConfirmation'));
+					//}
 				}
 			}
 		}
 
-		$this->render('payment',array('model'=>$model));
+		$this->render('payment',array('model'=>$model,'payment'=>$payment));
 	}
 	public function actionConfirmation()
 	{
@@ -285,7 +294,7 @@ class ReginfoController extends Controller
 		$this->sendSms($user,$reginfo);
 		$this->render('employeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
-	
+
 	public function actionOrdinaryConfirmation()
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
@@ -299,7 +308,7 @@ class ReginfoController extends Controller
 		$this->sendSms($user,$reginfo);
 		$this->render('ordinaryConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
-	
+
 	public function actionAttendeeConfirmation()
 	{
 		$user=$this->loadUser(Yii::app()->user->id);
@@ -312,6 +321,17 @@ class ReginfoController extends Controller
 		$this->sendMail($user->email,$user->cc,$user,$reginfo);
 		$this->sendSms($user,$reginfo);
 		$this->render('attendeeConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
+	}
+	
+	public function actionEarlyConfirmation(){
+		$user=$this->loadUser(Yii::app()->user->id);
+		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>$user->id));
+		if($reginfo === null){
+			$reginfo = new Reginfo();
+			$reginfo->user_id = $user->id;
+			$reginfo->save();
+		}
+		$this->render('earlyConfirmation',array('model'=>$user,'reginfo'=>$reginfo));
 	}
 
 
