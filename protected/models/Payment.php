@@ -136,7 +136,7 @@ class Payment extends TrackStarActiveRecord
 
 	public function needMail($attribute,$params){
 		if ($this->need_mail==1){
-			if($params=='' || $params == null){
+			if($this->$attribute=='' || $this->$attribute == null){
 				$labels = $this->attributeLabels();
 				$this->addError($attribute,$labels[$attribute].'不可为空白');
 			}
