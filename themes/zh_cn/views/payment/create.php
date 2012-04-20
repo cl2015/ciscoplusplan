@@ -51,10 +51,7 @@ if($model->created_at<'2012-04-24 00:00:00'){
 
 			</tr>
 			<tr>
-				<td colspan="2" style="line-height: 35px;" scope="col"><input
-					id="Reginfo_payment_type_0" type="radio"
-					name="Reginfo[payment_type]" value="1" <?php if($model->payment_type = 0){ echo 'checked';}?>> 现场付款
-					<br /> <?php echo $form->error($model,'payment_type'); ?>
+				<td colspan="2" style="line-height: 35px;" scope="col">
 					您需要支付的票价为：<?php echo $price;?>元人民币（<?php echo $paydate;?>）<br /> <span class="required">*</span>
 					是否需要开具发票？ <?php echo $form->radioButtonList($payment, 'is_invoice', array(1=>'是',0=>'否'), array('separator' => '&nbsp;', 'template' => '{input} {label}'));?>
 					<br /> <?php echo $form->error($payment,'is_invoice'); ?> <span
