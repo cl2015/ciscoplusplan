@@ -47,6 +47,19 @@ Yii::app()->clientScript->registerScript('search', "
 				//'password',
 				'has_reged',
 				'updated_at',
+				'reginfo'=>array(
+						'name'=>'reginfo.信息',
+						'type'=>'raw',
+						'value'=>function($data)
+						{
+							$reginfoIds = array();
+							foreach($data->reginfo as $reginfo){
+								$reginfoIds[]=$reginfo->id;
+							}
+							return implode(',', $reginfoIds);
+				
+						},
+						),
 				/*
 				 'relation_with_cisco',
 'full_name',
@@ -66,4 +79,5 @@ Yii::app()->clientScript->registerScript('search', "
 'updated_by',
 */
 		),
-)); ?>
+)
+); ?>

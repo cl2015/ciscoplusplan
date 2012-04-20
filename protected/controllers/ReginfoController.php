@@ -225,6 +225,7 @@ class ReginfoController extends Controller
 		$model->setScenario('payment');
 		if(isset($_POST['Reginfo'])&&isset($_POST['Payment']))
 		{
+			
 			$model->attributes=$_POST['Reginfo'];
 			$payment->attributes=$_POST['Payment'];
 			$model->user_id=$user->id;

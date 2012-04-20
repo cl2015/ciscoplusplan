@@ -112,6 +112,9 @@ class User extends TrackStarActiveRecord {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+				'reginfo' => array(self::HAS_MANY,'Reginfo','user_id'),
+				'payment' => array(self::HAS_MANY,'Payment','user_id'),
+				
 		);
 	}
 
@@ -183,6 +186,8 @@ class User extends TrackStarActiveRecord {
 		$criteria->compare('created_by', $this->created_by);
 		$criteria->compare('updated_at', $this->updated_at, true);
 		$criteria->compare('updated_by', $this->updated_by);
+		
+		$criteria->with=array('payment','reginfo');
 
 		return new CActiveDataProvider($this, array(
 				'criteria' => $criteria,

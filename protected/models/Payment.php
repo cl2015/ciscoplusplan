@@ -49,24 +49,19 @@ class Payment extends TrackStarActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		$rules =  array(
-			
-			array('is_invoice, invoice_content, need_mail, zip_code, created_by, updated_by', 'numerical', 'integerOnly'=>true),
-			array('user_id', 'length', 'max'=>10),
-			array('invoice_title', 'length', 'max'=>512),
-			array('recipient_name, phone, recipient_add, city, country', 'length', 'max'=>256),
-			array('created_at, updated_at', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, user_id, is_invoice, invoice_title, invoice_content, need_mail, recipient_name, phone, recipient_add, city, zip_code, country, created_at, created_by, updated_at, updated_by', 'safe', 'on'=>'search'),
-		
-				);
-		if($this->need_mail==1){
-			$rules[] = array('user_id,is_invoice,invoice_title,invoice_content, need_mail, recipient_name, phone, recipient_add, city, zip_code, country', 'required');
-		}else{
-			$rules[] = array('user_id,is_invoice,invoice_title,invoice_content, need_mail', 'required');
-		}
-		
-		
+				array('user_id,is_invoice,invoice_title,invoice_content, need_mail', 'required'),
+				array('recipient_name, phone, recipient_add, city, zip_code, country','needMail'),
+				array('is_invoice, invoice_content, need_mail, zip_code, created_by, updated_by', 'numerical', 'integerOnly'=>true),
+				array('user_id', 'length', 'max'=>10),
+				array('invoice_title', 'length', 'max'=>512),
+				array('recipient_name, phone, recipient_add, city, country', 'length', 'max'=>256),
+				array('created_at, updated_at', 'safe'),
+				// The following rule is used by search().
+				// Please remove those attributes that should not be searched.
+				array('id, user_id, is_invoice, invoice_title, invoice_content, need_mail, recipient_name, phone, recipient_add, city, zip_code, country, created_at, created_by, updated_at, updated_by', 'safe', 'on'=>'search'),
+
+		);
+
 		return $rules;
 	}
 
@@ -87,22 +82,22 @@ class Payment extends TrackStarActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'user_id' => 'User',
-			'is_invoice' => '是否需要开具发票',
-			'invoice_title' => '发票开具抬头',
-			'invoice_content' => '发票内容',
-			'need_mail' => '是否需要邮寄发票',
-			'recipient_name' => '收件人姓名',
-			'phone' => '联系电话',
-			'recipient_add' => '发票寄送地址',
-			'city' => '城市',
-			'zip_code' => '邮编',
-			'country' => '国家（地区）',
-			'created_at' => 'Created At',
-			'created_by' => 'Created By',
-			'updated_at' => 'Updated At',
-			'updated_by' => 'Updated By',
+				'id' => 'ID',
+				'user_id' => 'User',
+				'is_invoice' => '是否需要开具发票',
+				'invoice_title' => '发票开具抬头',
+				'invoice_content' => '发票内容',
+				'need_mail' => '是否需要邮寄发票',
+				'recipient_name' => '收件人姓名',
+				'phone' => '联系电话',
+				'recipient_add' => '发票寄送地址',
+				'city' => '城市',
+				'zip_code' => '邮编',
+				'country' => '国家（地区）',
+				'created_at' => 'Created At',
+				'created_by' => 'Created By',
+				'updated_at' => 'Updated At',
+				'updated_by' => 'Updated By',
 		);
 	}
 
@@ -135,7 +130,16 @@ class Payment extends TrackStarActiveRecord
 		$criteria->compare('updated_by',$this->updated_by);
 
 		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
+				'criteria'=>$criteria,
 		));
+	}
+
+	public function needMail($attribute,$params){
+		if ($this->need_mail==1){
+			if($params=='' || $params == null){
+				$labels = $this->attributeLabels();
+				$this->addError($attribute,$labels[$attribute].'不可为空白');
+			}
+		}
 	}
 }
