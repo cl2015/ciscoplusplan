@@ -49,8 +49,8 @@ class Payment extends TrackStarActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		$rules =  array(
-				array('user_id,is_invoice,invoice_title,invoice_content, need_mail', 'required'),
-				array('recipient_name, phone, recipient_add, city, zip_code, country','needMail'),
+				array('user_id,is_invoice, need_mail', 'required'),
+				array('invoice_title,recipient_name, phone, recipient_add, city, zip_code, country,invoice_content','needMail'),
 				array('is_invoice, invoice_content, need_mail, zip_code, created_by, updated_by', 'numerical', 'integerOnly'=>true),
 				array('user_id', 'length', 'max'=>10),
 				array('invoice_title', 'length', 'max'=>512),
@@ -135,9 +135,16 @@ class Payment extends TrackStarActiveRecord
 	}
 
 	public function needMail($attribute,$params){
-		if ($this->need_mail==1){
+		
+		$labels = $this->attributeLabels();
+		if ($attribute=='invoice_title') {
+			if($this->is_invoice==1 ){
+				if($this->$attribute==""|| $this->$attribute==null){
+					$this->addError($attribute,$labels[$attribute].'不可为空白');
+				}
+			}
+		}elseif ($this->need_mail==1 ){
 			if($this->$attribute=='' || $this->$attribute == null){
-				$labels = $this->attributeLabels();
 				$this->addError($attribute,$labels[$attribute].'不可为空白');
 			}
 		}
