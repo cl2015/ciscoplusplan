@@ -61,7 +61,7 @@ if($model->created_at<'2012-04-24 00:00:00'){
 					<?php echo $form->error($payment,'invoice_content'); ?></td>
 			</tr>
 			<tr>
-				<td width="125" height="37"><b><span class="required">* </span> </b>是否需要邮寄发票：</td>
+				<td width="135" height="37"><b><span class="required">* </span> </b>是否需要邮寄发票：</td>
 				<td width="503"><?php echo $form->radioButtonList($payment, 'need_mail', array(1=>'是',0=>'否'), array('separator' => '&nbsp;', 'template' => '{input} {label}'));?>
 					<?php echo $form->error($payment,'invoice_content'); ?></td>
 			</tr>
