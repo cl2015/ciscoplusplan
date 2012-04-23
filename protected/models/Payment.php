@@ -83,6 +83,8 @@ class Payment extends TrackStarActiveRecord
 	{
 		return array(
 				'id' => 'ID',
+				'has_paid' => '已经付款',
+				'has_sendinvoice' => '已开发票',
 				'user_id' => 'User',
 				'is_invoice' => '是否需要开具发票',
 				'invoice_title' => '发票开具抬头',

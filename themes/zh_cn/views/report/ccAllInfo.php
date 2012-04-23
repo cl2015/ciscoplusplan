@@ -45,39 +45,55 @@ Yii::app()->clientScript->registerScript('search', "
 				'mobile',
 				'full_name',
 				//'password',
-				'has_reged',
-				'updated_at',
-				'reginfo'=>array(
-						'name'=>'reginfo.信息',
-						'type'=>'raw',
+				'has_reged'=>array(
+						'name'=>'has_reged',
 						'value'=>function($data)
 						{
-							$reginfoIds = array();
-							foreach($data->reginfo as $reginfo){
-								$reginfoIds[]=$reginfo->id;
-							}
-							return implode(',', $reginfoIds);
-				
+							return $data->has_reged==1?'已注册':'未注册';
 						},
-						),
-				/*
-				 'relation_with_cisco',
-'full_name',
-'job_title',
-'department',
-'working_phone_dis',
-'working_phone',
-'mobile',
-'province',
-'city',
-'ec_name',
-'ec_relationship',
-'ec_mobile',
-'created_at',
-'created_by',
 
-'updated_by',
-*/
-		),
-)
-); ?>
+						),
+						//'updated_at',
+						'reginfo'=>array(
+								'name'=>'reginfo.has_paid',
+								'type'=>'raw',
+								'value'=>function($data)
+								{
+									$reginfoIds = array();
+									if(count($data->reginfo)>0){
+										return $data->reginfo[0]->has_paid==0?'未付款':'已付款';
+									}
+								},
+								),
+								'reginfo'=>array(
+										'name'=>'reginfo.has_paid',
+										'type'=>'raw',
+										'value'=>function($data)
+										{
+											$reginfoIds = array();
+											if(count($data->reginfo)>0){
+												return $data->reginfo[0]->has_paid==0?'未付款':'已付款';
+											}
+										},
+										),
+										/*
+										 'relation_with_cisco',
+										'full_name',
+										'job_title',
+										'department',
+										'working_phone_dis',
+										'working_phone',
+										'mobile',
+										'province',
+										'city',
+										'ec_name',
+										'ec_relationship',
+										'ec_mobile',
+										'created_at',
+										'created_by',
+
+										'updated_by',
+										*/
+										),
+										)
+										); ?>

@@ -1,6 +1,7 @@
 <?php
 return array(
 		'You enter the code has exceeded the upper limit.'=>'您输入的code已经超过使用上限。',
+		//User
 		"Full Name"=>"姓名",
 		"Has Code"=>"是否有邀请码",
 		"Code"=>"如果您之前收到了邀请码，请在右边输入，如果没有，直接点击继续，进入下一页面。",
@@ -16,6 +17,8 @@ return array(
 		"Mobile"=>"手机号码",
 		"Province"=>"所在的省份",
 		"City"=>"所在的城市",
+		"Has Reged"=>'是否注册',
+		
 		"Q1"=>"1.贵单位的网络建设的投资方向是?",
 		"Q2"=>"2.贵单位在什么时间范围内将有网络扩张、升级或安全等方面的网络项目？",
 		"Q3"=>"3.贵单位如果计划进行网络扩张、升级或安全等网络项目，预算大概在什么范围（RMB）：",
