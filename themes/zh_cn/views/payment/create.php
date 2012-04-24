@@ -96,13 +96,13 @@ if($model->created_at<'2012-04-24 00:00:00'){
 
 			</tr>
 			<tr>
-				<td height="37"><b><span class="required">*</span> </b>国家（地区）：</td>
+				<td height="37">国家（地区）：</td>
 				<td><?php echo $form->textField($payment,'country',array('size'=>60,'maxlength'=>256)); ?>
 		<?php echo $form->error($payment,'country'); ?></td>
 			</tr>
 			<tr>
 				<td height="60" colspan=2>
-		<?php echo CHtml::submitButton(Yii::t('default','continue'),array("class"=>"submitBg")); ?></td>
+		<?php echo CHtml::submitButton('确认提交',array("class"=>"submitBg")); ?></td>
 
 			</tr>
 			<tr>
