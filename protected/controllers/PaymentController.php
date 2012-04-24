@@ -72,7 +72,8 @@ class PaymentController extends Controller
 		$reginfo = Reginfo::model()->findbyAttributes(array('user_id'=>Yii::app()->user->id));
 		$model = $this->loadModelByUserId(Yii::app()->user->id);
 		if($model!=null){
-			throw new CHttpException(404,'您已经填写过信息。');
+			$this->redirect(array('view','id'=>$model->id));
+			//throw new CHttpException(404,'您已经填写过信息。');
 		}
 		$model=new Payment();
 		$model->user_id = Yii::app()->user->id;
