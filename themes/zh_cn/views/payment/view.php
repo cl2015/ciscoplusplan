@@ -1,8 +1,9 @@
-<h1>
-	查看信息
-</h1>
+<h3>
+	您已成功提交发票信息，会务组将在收到汇款后 3-5 个工作日内与您联系并寄出发票，请注意查收。
+</h3>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php 
+/*$this->widget('zii.widgets.CDetailView', array(
 		'data'=>$model,
 		'attributes'=>array(
 				'is_invoice'=>array(
@@ -25,4 +26,5 @@
 				'zip_code',
 				'country',
 	),
-)); ?>
+)); 
+*/?>

@@ -141,12 +141,12 @@ class Payment extends TrackStarActiveRecord
 		$labels = $this->attributeLabels();
 		if ($attribute=='invoice_title') {
 			if($this->is_invoice==1 ){
-				if($this->$attribute==""|| $this->$attribute==null){
+				if(trim($this->$attribute)==""|| $this->$attribute==null){
 					$this->addError($attribute,$labels[$attribute].'不可为空白');
 				}
 			}
 		}elseif ($this->need_mail==1 ){
-			if($this->$attribute=='' || $this->$attribute == null){
+			if(trim($this->$attribute)=='' || $this->$attribute == null){
 				$this->addError($attribute,$labels[$attribute].'不可为空白');
 			}
 		}
