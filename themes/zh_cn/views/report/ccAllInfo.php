@@ -41,7 +41,13 @@ Yii::app()->clientScript->registerScript('search', "
 				'email',
 				'mobile',
 				'full_name',
-
+				array(
+            'header' => '',
+            'type' => 'raw',
+            'value' => function($data) {
+                return 1;
+            }
+        )
 				),
 							)
 ); ?>
