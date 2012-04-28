@@ -47,7 +47,7 @@ Yii::app()->clientScript->registerScript('search', "
 				//'password',
 				//'updated_at',
 				array(
-						'header'=>'是否付款',
+						'header'=>'',
 						'type'=>'raw',
 						'value'=>function($data)
 						{
