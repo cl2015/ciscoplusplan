@@ -46,8 +46,8 @@ Yii::app()->clientScript->registerScript('search', "
 				'full_name',
 				//'password',
 				//'updated_at',
-				'reginfo'=>array(
-						'name'=>'reginfo.has_paid',
+				array(
+						'header'=>'是否付款',
 						'type'=>'raw',
 						'value'=>function($data)
 						{
