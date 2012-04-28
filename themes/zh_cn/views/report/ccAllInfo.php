@@ -38,44 +38,10 @@ Yii::app()->clientScript->registerScript('search', "
 		'dataProvider'=>$model->search(),
 		'filter'=>$model,
 		'columns'=>array(
-				//'id',
-				//'has_code',
-
 				'email',
 				'mobile',
 				'full_name',
-				//'password',
-				//'updated_at',
-				array(
-						'header'=>'',
-						'type'=>'raw',
-						'value'=>function($data)
-						{
-							$reginfoIds = array();
-							if(count($data->reginfo)>0){
-								return $data->reginfo[0]->has_paid==0?'未付款':'已付款';
-							}
-						},
-					),
 
-										/*
-										 'relation_with_cisco',
-										'full_name',
-										'job_title',
-										'department',
-										'working_phone_dis',
-										'working_phone',
-										'mobile',
-										'province',
-										'city',
-										'ec_name',
-										'ec_relationship',
-										'ec_mobile',
-										'created_at',
-										'created_by',
-
-										'updated_by',
-										*/
-										),
-										)
-										); ?>
+				),
+							)
+); ?>
