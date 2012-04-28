@@ -45,14 +45,6 @@ Yii::app()->clientScript->registerScript('search', "
 				'mobile',
 				'full_name',
 				//'password',
-				'has_reged'=>array(
-						'name'=>'has_reged',
-						'value'=>function($data)
-						{
-							return $data->has_reged==1?'已注册':'未注册';
-						},
-
-						),
 				//'updated_at',
 				'reginfo'=>array(
 						'name'=>'reginfo.has_paid',
