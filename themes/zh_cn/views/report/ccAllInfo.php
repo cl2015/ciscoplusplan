@@ -53,9 +53,8 @@ Yii::app()->clientScript->registerScript('search', "
 						},
 
 						),
-						//'updated_at',
 						'reginfo'=>array(
-								'name'=>'reginfo.has_paid',
+								'name'=>'reginfo.是否付款',
 								'type'=>'raw',
 								'value'=>function($data)
 								{
@@ -65,17 +64,6 @@ Yii::app()->clientScript->registerScript('search', "
 									}
 								},
 								),
-								'reginfo'=>array(
-										'name'=>'reginfo.has_paid',
-										'type'=>'raw',
-										'value'=>function($data)
-										{
-											$reginfoIds = array();
-											if(count($data->reginfo)>0){
-												return $data->reginfo[0]->has_paid==0?'未付款':'已付款';
-											}
-										},
-										),
 										/*
 										 'relation_with_cisco',
 										'full_name',
