@@ -38,23 +38,13 @@ Yii::app()->clientScript->registerScript('search', "
 		'dataProvider'=>$model->search(),
 		'filter'=>$model,
 		'columns'=>array(
+				//'id',
+				//'has_code',
+
 				'email',
 				'mobile',
 				'full_name',
-<<<<<<< HEAD
-				array(
-            'header' => '',
-            'type' => 'raw',
-            'value' => function($data) {
-                return 1;
-            }
-        )
-				),
-							)
-); ?>
-=======
 				//'password',
-
 				'has_reged'=>array(
 						'name'=>'has_reged',
 						'value'=>function($data)
@@ -107,4 +97,3 @@ Yii::app()->clientScript->registerScript('search', "
 										),
 										)
 										); ?>
->>>>>>> test
