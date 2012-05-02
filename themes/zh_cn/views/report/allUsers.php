@@ -141,6 +141,7 @@ td {
 			<th>Diff</th>
 			<th>参会凭证注册ID号</th>
 			<th>网站注册密码</th>
+			<th>Dinner</th>
 			<?php if($user->type_id>12){?>
 			<?php }?>
 		</tr>
@@ -212,6 +213,7 @@ td {
 			<?php }?>
 			<td><?php echo $row['id'];?>&nbsp;</td>
 			<td><?php echo $row['password'];?>&nbsp;</td>
+			<td><?php echo $row['dinner'];?>&nbsp;</td>
 		</tr>
 		<?php }?>
 	</table>
