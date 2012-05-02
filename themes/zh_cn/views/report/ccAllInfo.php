@@ -41,6 +41,7 @@ Yii::app()->clientScript->registerScript('search', "
 				'email',
 				'mobile',
 				'full_name',
+<<<<<<< HEAD
 				array(
             'header' => '',
             'type' => 'raw',
@@ -51,3 +52,59 @@ Yii::app()->clientScript->registerScript('search', "
 				),
 							)
 ); ?>
+=======
+				//'password',
+
+				'has_reged'=>array(
+						'name'=>'has_reged',
+						'value'=>function($data)
+						{
+							return $data->has_reged==1?'已注册':'未注册';
+						},
+
+						),
+						//'updated_at',
+						'reginfo'=>array(
+								'name'=>'reginfo.has_paid',
+								'type'=>'raw',
+								'value'=>function($data)
+								{
+									$reginfoIds = array();
+									if(count($data->reginfo)>0){
+										return $data->reginfo[0]->has_paid==0?'未付款':'已付款';
+									}
+								},
+								),
+								'reginfo'=>array(
+										'name'=>'reginfo.has_paid',
+										'type'=>'raw',
+										'value'=>function($data)
+										{
+											$reginfoIds = array();
+											if(count($data->reginfo)>0){
+												return $data->reginfo[0]->has_paid==0?'未付款':'已付款';
+											}
+										},
+										),
+										/*
+										 'relation_with_cisco',
+										'full_name',
+										'job_title',
+										'department',
+										'working_phone_dis',
+										'working_phone',
+										'mobile',
+										'province',
+										'city',
+										'ec_name',
+										'ec_relationship',
+										'ec_mobile',
+										'created_at',
+										'created_by',
+
+										'updated_by',
+										*/
+										),
+										)
+										); ?>
+>>>>>>> test
