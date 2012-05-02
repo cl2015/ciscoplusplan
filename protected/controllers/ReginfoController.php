@@ -219,7 +219,7 @@ class ReginfoController extends Controller
 			$model->user_id = $user->id;
 		}
 		if($payment === null){
-			$payment = new Payment;
+			$payment = new Payment('create');
 			$payment->user_id = $user->id;
 		}
 		$model->setScenario('payment');

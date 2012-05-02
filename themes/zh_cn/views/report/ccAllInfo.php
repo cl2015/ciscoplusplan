@@ -53,17 +53,26 @@ Yii::app()->clientScript->registerScript('search', "
 						},
 
 						),
-						'reginfo'=>array(
-								'name'=>'reginfo.是否付款',
+						'payment.has_paid'=>array(
+								'name'=>'payment.has_paid',
 								'type'=>'raw',
 								'value'=>function($data)
 								{
-									$reginfoIds = array();
-									if(count($data->reginfo)>0){
-										return $data->reginfo[0]->has_paid==0?'未付款':'已付款';
+									if(count($data->payment)>0){
+										return $data->payment->has_paid==0?'未收款':'已收款';
 									}
 								},
-								),
+						),
+						'payment.has_sendinvoice'=>array(
+								'name'=>'payment.has_sendinvoice',
+								'type'=>'raw',
+								'value'=>function($data)
+								{
+									if(count($data->payment)>0){
+										return $data->payment->has_sendinvoice==0?'未开发票':'已开发票';
+									}
+								},
+						),
 										/*
 										 'relation_with_cisco',
 										'full_name',

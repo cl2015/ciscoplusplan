@@ -92,6 +92,8 @@ class SiteController extends Controller
 					$this->redirect(array('report/index'));
 				}elseif(Yii::app()->user->type_id==12){
 					$this->redirect(array('report/index'));
+				}elseif(Yii::app()->user->type_id==13){
+					$this->redirect(array('report/financial'));
 				}else{
 					$this->redirect(Yii::app()->user->returnUrl);
 				}

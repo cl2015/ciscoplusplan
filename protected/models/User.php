@@ -112,8 +112,8 @@ class User extends TrackStarActiveRecord {
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-				'reginfo' => array(self::HAS_MANY,'Reginfo','user_id'),
-				'payment' => array(self::HAS_MANY,'Payment','user_id'),
+				'reginfo' => array(self::HAS_ONE,'Reginfo','user_id'),
+				'payment' => array(self::HAS_ONE,'Payment','user_id'),
 				
 		);
 	}
@@ -157,12 +157,11 @@ class User extends TrackStarActiveRecord {
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
-	public function search() {
+public function search() {
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
 		$criteria = new CDbCriteria;
-
 		//$criteria->compare('id', $this->id, true);
 		//$criteria->compare('has_code', $this->has_code);
 		//$criteria->compare('code', $this->code, true);
@@ -189,6 +188,45 @@ class User extends TrackStarActiveRecord {
 		
 		$criteria->with=array('payment','reginfo');
 
+		return new CActiveDataProvider($this, array(
+				'criteria' => $criteria,
+		));
+	}
+	
+	public function adminSearch() {
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+	
+		$criteria = new CDbCriteria;
+		if(Yii::app()->user->email!='admin@mdigi.cc'){
+			return array();
+		}
+		//$criteria->compare('id', $this->id, true);
+		//$criteria->compare('has_code', $this->has_code);
+		//$criteria->compare('code', $this->code, true);
+		$criteria->compare('email', $this->email, true);
+		//$criteria->compare('password', $this->password, true);
+		//$criteria->compare('organisation', $this->organisation, true);
+		//$criteria->compare('relation_with_cisco', $this->relation_with_cisco, true);
+		$criteria->compare('full_name', $this->full_name, true);
+		$criteria->compare('job_title', $this->job_title, true);
+		$criteria->compare('department', $this->department, true);
+		$criteria->compare('working_phone_dis', $this->working_phone_dis, true);
+		$criteria->compare('working_phone', $this->working_phone, true);
+		$criteria->compare('mobile', $this->mobile, true);
+		$criteria->compare('province', $this->province, true);
+		$criteria->compare('city', $this->city, true);
+		$criteria->compare('has_reged', $this->has_reged, true);
+		$criteria->compare('ec_name', $this->ec_name, true);
+		$criteria->compare('ec_relationship', $this->ec_relationship, true);
+		$criteria->compare('ec_mobile', $this->ec_mobile, true);
+		$criteria->compare('created_at', $this->created_at, true);
+		$criteria->compare('created_by', $this->created_by);
+		$criteria->compare('updated_at', $this->updated_at, true);
+		$criteria->compare('updated_by', $this->updated_by);
+	
+		$criteria->with=array('payment','reginfo');
+	
 		return new CActiveDataProvider($this, array(
 				'criteria' => $criteria,
 		));

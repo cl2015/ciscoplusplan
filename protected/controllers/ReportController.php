@@ -16,6 +16,10 @@ class ReportController extends Controller
 						'actions'=>array('allUsers'),
 						'users'=>array('*'),
 				),
+				array('allow',
+						'actions'=>array('financial'),
+						'users'=>array('@'),
+				),
 				array('deny', // deny all users
 						'users' => array('*'),
 				),
@@ -111,6 +115,17 @@ class ReportController extends Controller
 			$model->attributes=$_GET['User'];
 
 		$this->render('ccAllInfo',array(
+				'model'=>$model,
+		));
+	}
+	//财务查看用户的信息
+	public function actionFinancial(){
+		$model=new User('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['User']))
+			$model->attributes=$_GET['User'];
+		
+		$this->render('financial',array(
 				'model'=>$model,
 		));
 	}

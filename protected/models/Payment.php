@@ -49,8 +49,8 @@ class Payment extends TrackStarActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		$rules =  array(
-				array('user_id,is_invoice, need_mail', 'required'),
-				array('invoice_title,recipient_name, phone, recipient_add, city, zip_code,invoice_content','needMail'),
+				array('user_id,is_invoice, need_mail', 'required','on'=>'create'),
+				array('invoice_title,recipient_name, phone, recipient_add, city, zip_code,invoice_content','needMail','on'=>'create'),
 				array('is_invoice, invoice_content, need_mail, zip_code, created_by, updated_by', 'numerical', 'integerOnly'=>true),
 				array('user_id', 'length', 'max'=>10),
 				array('invoice_title', 'length', 'max'=>512),
@@ -83,8 +83,8 @@ class Payment extends TrackStarActiveRecord
 	{
 		return array(
 				'id' => 'ID',
-				'has_paid' => '已经付款',
-				'has_sendinvoice' => '已开发票',
+				'has_paid' => '已付款',
+				'has_sendinvoice' => '已邮寄发票',
 				'user_id' => 'User',
 				'is_invoice' => '是否需要开具发票',
 				'invoice_title' => '发票开具抬头',

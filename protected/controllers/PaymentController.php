@@ -26,11 +26,11 @@ class PaymentController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('create','view'),
+						'actions'=>array('create','view','viewInvoice'),
 						'users'=>array('*'),
 				),
 				array('allow', // allow authenticated user to perform 'create' and 'update' actions
-						'actions'=>array('view'),
+						'actions'=>array('view','paid','sent'),
 						'users'=>array('@'),
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -75,7 +75,7 @@ class PaymentController extends Controller
 			$this->redirect(array('view','id'=>$model->id));
 			//throw new CHttpException(404,'您已经填写过信息。');
 		}
-		$model=new Payment();
+		$model=new Payment('create');
 		$model->user_id = Yii::app()->user->id;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -175,7 +175,7 @@ class PaymentController extends Controller
 		$model=Payment::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
-		if(!$model->user_id==Yii::app()->user->id)
+		if(!$model->user_id==Yii::app()->user->id && Yii::app()->user->email!='admin@mdigi.cc')
 			throw new CHttpException(404,'您只能查看自己的信息。');
 		return $model;
 	}
@@ -196,6 +196,42 @@ class PaymentController extends Controller
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
+		}
+	}
+	
+	public function actionViewInvoice($id)
+	{
+		$model = $this->loadModel($id);
+		$this->render('viewInvoice',array(
+				'model'=>$model,
+		));
+	}
+	//已付款
+	public function actionPaid($id)
+	{
+		if(Yii::app()->user->type_id!=13)
+			throw new CHttpException(404,'您不是财务人员。');
+	
+		$model = $this->loadModel($id);
+		$model->has_paid = 1;
+		if($model->save()){
+			$this->redirect(array('report/financial'));
+		}else{
+			throw new CHttpException(404,'保存失败。');
+		}
+ 	}
+	//已邮寄发票
+	public function actionSent($id)
+	{
+		if(Yii::app()->user->type_id!=13)
+			throw new CHttpException(404,'您不是财务人员。');
+	
+		$model = $this->loadModel($id);
+		$model->has_sendinvoice = 1;
+		if($model->save()){
+			$this->redirect(array('report/financial'));
+		}else{
+			throw new CHttpException(404,'保存失败。');
 		}
 	}
 }
