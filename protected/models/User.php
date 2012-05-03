@@ -187,6 +187,8 @@ public function search() {
 		$criteria->compare('updated_by', $this->updated_by);
 		
 		$criteria->with=array('payment','reginfo');
+		
+		
 
 		return new CActiveDataProvider($this, array(
 				'criteria' => $criteria,
@@ -226,6 +228,7 @@ public function search() {
 		$criteria->compare('updated_by', $this->updated_by);
 	
 		$criteria->with=array('payment','reginfo');
+		$criteria->compare('reginfo.is_online',1);
 	
 		return new CActiveDataProvider($this, array(
 				'criteria' => $criteria,
