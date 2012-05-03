@@ -161,14 +161,14 @@ td {
 			}else if($row['type_id']=="2"){
 				echo "内部员工";
 			}else if($row['type_id']=="4"){
-				if($row['is_online']=="0"){
-					echo "在线参会";
-				}else{
-					if($row['has_paid']==0){
-						echo '未付费';
-					}else{
+				if($row['is_online']=="1"){
+					if($row['has_paid']==1){
 						echo '已付费';
+					}else{
+						echo '未付费';
 					}
+				}else{
+					echo "在线参会";
 				}
 			}else{echo "code";
 			}?>

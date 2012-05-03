@@ -623,9 +623,11 @@ public function search() {
 
 	public function getDailyReport(){
 		$dbCommand = Yii::app()->db->createCommand("
-				select a.*,c.has_paid,c.is_online from users a left join
+				select a.*,p.has_paid,c.is_online from users a left join
 				reginfos c
 				on a.id = c.user_id
+				left join payments p
+				on a.id = p.user_id 
 				where  a.type_id < 10
 				");
 		$data = $dbCommand->queryAll();
