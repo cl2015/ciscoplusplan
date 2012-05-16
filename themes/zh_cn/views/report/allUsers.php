@@ -212,7 +212,7 @@ td {
 			<td><?php echo $row['od_name']?>&nbsp;</td>
 			<td><?php echo $row['od_id']?>&nbsp;</td>
 			<td><?php echo $row['diff']?>&nbsp;</td>
-			<td><?php echo $row['Code']?>&nbsp;</td>
+			<td><?php echo $row['code']?>&nbsp;</td>
 			<?php if($user->type_id>12){?>
 			<?php }?>
 			<td><?php echo $row['id'];?>&nbsp;</td>
