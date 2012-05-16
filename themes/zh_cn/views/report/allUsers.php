@@ -139,6 +139,7 @@ td {
 			<th>OD姓名</th>
 			<th>OD ID</th>
 			<th>Diff</th>
+			<th>Code</th>
 			<th>参会凭证注册ID号</th>
 			<th>网站注册密码</th>
 			<th>has_reged</th>
@@ -211,6 +212,7 @@ td {
 			<td><?php echo $row['od_name']?>&nbsp;</td>
 			<td><?php echo $row['od_id']?>&nbsp;</td>
 			<td><?php echo $row['diff']?>&nbsp;</td>
+			<td><?php echo $row['Code']?>&nbsp;</td>
 			<?php if($user->type_id>12){?>
 			<?php }?>
 			<td><?php echo $row['id'];?>&nbsp;</td>
