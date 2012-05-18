@@ -571,6 +571,28 @@ public function search() {
 			return array();
 		}
 	}
+	
+	public function getAmSummaryByUser($email){
+		$dbCommand = Yii::app()->db->createCommand("
+				SELECT email, SUM( ec_mobile ) ec_mobile, SUM( nomination ) nomination, SUM( registeration ) registeration, rm_id, od_id
+				FROM (
+	
+				SELECT a.id, a.email, a.ec_mobile, COALESCE(b.nomination,0) nomination, COALESCE(b.registeration,0) registeration, b.rm_id, b.am_id, b.od_id
+				FROM  (
+	
+				SELECT COUNT( * ) nomination, SUM( has_reged ) registeration, rm_id, am_id, od_id
+				FROM users
+				WHERE type_id <10 and rm_id = '$email'
+				GROUP BY am_id ) b
+	
+				LEFT JOIN users a
+				ON a.email = b.am_id
+				WHERE a.type_id =11 ) aaa
+				GROUP BY am_id
+				");
+				$data = $dbCommand->queryAll();
+	return $data;
+	}
 
 	public function getRmSummaryByUser($email){
 		$dbCommand = Yii::app()->db->createCommand("

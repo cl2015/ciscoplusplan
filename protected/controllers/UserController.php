@@ -177,6 +177,10 @@ class UserController extends Controller
 	}
 	public function actionLoading($email='',$language="")
 	{
+		if(date('Y-m-d')>'2012-05-18'){
+			$this->redirect(array('site/index'));
+			Yii::app()->end();
+		}
 		$this->setLanguage($language);
 		$model=new User('loading');
 		$model->email = $email;
@@ -461,14 +465,14 @@ class UserController extends Controller
 		}
 		return true;
 	}
-	
+
 	/**
 	 * find password
 	 */
 	public function actionForgetPassword(){
 		$model=new User('forgetPassword');
 		$message = '';
-		
+
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
@@ -481,7 +485,7 @@ class UserController extends Controller
 					$this->sendPassword($user,$reginfo);
 					$message = 'Password has been sent to your mailbox.';
 				}
-				
+
 			}
 		}
 		$this->render('forgetPassword',array('model'=>$model,'message'=>$message));
