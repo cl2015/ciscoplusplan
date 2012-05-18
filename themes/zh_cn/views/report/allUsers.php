@@ -143,6 +143,8 @@ td {
 			<th>参会凭证注册ID号</th>
 			<th>网站注册密码</th>
 			<th>has_reged</th>
+			<th>MOB_PHONE</th>
+			
 			<th>Dinner</th>
 			<th>ITM</th>
 			<?php if($user->type_id>12){?>
