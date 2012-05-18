@@ -144,9 +144,15 @@ td {
 			<th>网站注册密码</th>
 			<th>has_reged</th>
 			<th>MOB_PHONE</th>
-			
-			<th>Dinner</th>
-			<th>ITM</th>
+			<th>AUDIENCE</th>
+			<th>STATUS</th>
+			<th>LOCATION_ID</th>
+			<th>Category</th>
+			<th>MAIL_CITY(付款状态)</th>
+			<th>MAIL_STATE(付款金额)</th>
+			<th>MAIL_ZIP（是否参加晚宴）</th>
+			<th>MAIL_COUNTRY（是否ITM）</th>
+			<th>COM_PHONE(小类型)</th>
 			<?php if($user->type_id>12){?>
 			<?php }?>
 		</tr>
@@ -222,6 +228,18 @@ td {
 			<td><?php echo $row['has_reged'];?>&nbsp;</td>
 			<td><?php echo $row['dinner'];?>&nbsp;</td>
 			<td><?php echo $row['ITM'];?>&nbsp;</td>
+			<th>MOB_PHONE</th>
+			<th>AUDIENCE</th>
+			<th>STATUS</th>
+			<th>LOCATION_ID</th>
+			<th>Category</th>
+			<th>MAIL_CITY(付款状态)</th>
+			<th>MAIL_STATE(付款金额)</th>
+			<th>MAIL_ZIP（是否参加晚宴）</th>
+			<th>MAIL_COUNTRY（是否ITM）</th>
+			<th>COM_PHONE(小类型)</th>			
+			
+			
 		</tr>
 		<?php }?>
 	</table>
