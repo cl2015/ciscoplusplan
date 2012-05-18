@@ -226,19 +226,16 @@ td {
 			<td><?php echo $row['id'];?>&nbsp;</td>
 			<td><?php echo $row['password'];?>&nbsp;</td>
 			<td><?php echo $row['has_reged'];?>&nbsp;</td>
-			<td><?php echo $row['dinner'];?>&nbsp;</td>
-			<td><?php echo $row['ITM'];?>&nbsp;</td>
-			<th>MOB_PHONE</th>
-			<th>AUDIENCE</th>
-			<th>STATUS</th>
-			<th>LOCATION_ID</th>
-			<th>Category</th>
-			<th>MAIL_CITY(付款状态)</th>
-			<th>MAIL_STATE(付款金额)</th>
-			<th>MAIL_ZIP（是否参加晚宴）</th>
-			<th>MAIL_COUNTRY（是否ITM）</th>
-			<th>COM_PHONE(小类型)</th>			
-			
+			<td><?php echo $row['MOB_PHONE'];?>&nbsp;</td>
+			<td><?php echo $row['AUDIENCE'];?>&nbsp;</td>
+			<td><?php echo $row['STATUS'];?>&nbsp;</td>
+			<td><?php echo $row['LOCATION_ID'];?>&nbsp;</td>
+			<td><?php echo $row['Category'];?>&nbsp;</td>
+			<td><?php echo $row['MAIL_CITY'];?>&nbsp;</td>
+			<td><?php echo $row['paid_amount'];?>&nbsp;</td>
+			<td><?php echo $row['MAIL_COUNTRY'];?>&nbsp;</td>
+			<td><?php echo $row['MAIL_COUNTRY'];?>&nbsp;</td>
+			<td><?php echo $row['COM_PHONE'];?>&nbsp;</td>			
 			
 		</tr>
 		<?php }?>
