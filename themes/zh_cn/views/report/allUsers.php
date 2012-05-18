@@ -226,7 +226,7 @@ td {
 			<td><?php echo $row['id'];?>&nbsp;</td>
 			<td><?php echo $row['password'];?>&nbsp;</td>
 			<td><?php echo $row['has_reged'];?>&nbsp;</td>
-			<td><?php echo $row['MOB_PHONE'];?>&nbsp;</td>
+			<td><?php echo $row['mobile'];?>&nbsp;</td>
 			<td><?php echo $row['AUDIENCE'];?>&nbsp;</td>
 			<td><?php echo $row['STATUS'];?>&nbsp;</td>
 			<td><?php echo $row['LOCATION_ID'];?>&nbsp;</td>
