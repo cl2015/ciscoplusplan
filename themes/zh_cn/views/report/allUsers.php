@@ -232,7 +232,7 @@ td {
 			<td><?php echo $row['LOCATION_ID'];?>&nbsp;</td>
 			<td><?php echo $row['Category'];?>&nbsp;</td>
 			<td><?php echo $row['MAIL_CITY'];?>&nbsp;</td>
-			<td><?php echo $row['paid_amount'];?>&nbsp;</td>
+			<td><?php echo $row['MAIL_STATE'];?>&nbsp;</td>
 			<td><?php echo $row['MAIL_ZIP'];?>&nbsp;</td>
 			<td><?php echo $row['MAIL_COUNTRY'];?>&nbsp;</td>
 			<td><?php echo $row['COM_PHONE'];?>&nbsp;</td>			
