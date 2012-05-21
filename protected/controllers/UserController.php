@@ -177,10 +177,10 @@ class UserController extends Controller
 	}
 	public function actionLoading($email='',$language="")
 	{
-		if(date('Y-m-d')>'2012-05-18'){
-			$this->redirect(array('site/index'));
-			Yii::app()->end();
-		}
+// 		if(date('Y-m-d')>'2012-05-18'){
+// 			$this->redirect(array('site/index'));
+// 			Yii::app()->end();
+// 		}
 		$this->setLanguage($language);
 		$model=new User('loading');
 		$model->email = $email;

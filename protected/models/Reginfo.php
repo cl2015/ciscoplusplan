@@ -128,7 +128,7 @@ class Reginfo extends TrackStarActiveRecord
 	{
 		return array(
 			0 => Yii::t('default','Online Event'),
-			1 => Yii::t('default','Onsite Event'),
+			//1 => Yii::t('default','Onsite Event'),
 		);
 	}
 	public function getPaymentOptions()
