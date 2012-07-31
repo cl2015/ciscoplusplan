@@ -9,7 +9,7 @@ class ReportController extends Controller
 	public function accessRules() {
 		return array(
 				array('allow', // allow all users to perform 'index' and 'view' actions
-						'actions' => array('index','detail','ccAllInfo'),
+						'actions' => array('index','detail','ccAllInfo','divi','locationNomination'),
 						'users' => array('*'),
 				),
 				array('allow',
@@ -128,6 +128,36 @@ class ReportController extends Controller
 		$this->render('financial',array(
 				'model'=>$model,
 		));
+	}
+	
+	//最新报表
+	public function actionDivi(){
+		$model = new Report;
+		$this->render('divi',array('result'=>$model->diffNomination(),));
+	}
+	public function actionLocationNomination(){
+		$model = new Report;
+		$this->render('locationNomination',array('result'=>$model->locationNomination(),));
+	}
+	public function actionLocationPublic(){
+		$model = new Report;
+		$this->render('locationPublic',array('result'=>$model->locationPublic(),));
+	}
+	public function actionJobtitleNomination(){
+		$model = new Report;
+		$this->render('jobtitleNomination',array('result'=>$model->jobtitleNomination(),));
+	}
+	public function actionJobtitlePublic(){
+		$model = new Report;
+		$this->render('jobtitlePublic',array('result'=>$model->jobtitlePublic(),));
+	}
+	public function actionDeptNomination(){
+		$model = new Report;
+		$this->render('deptNomination',array('result'=>$model->departmentNomination(),));
+	}
+	public function actionDeptPublic(){
+		$model = new Report;
+		$this->render('deptPublic',array('result'=>$model->departmentPublic(),));
 	}
 	
 

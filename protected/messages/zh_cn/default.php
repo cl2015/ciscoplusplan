@@ -57,6 +57,7 @@ return array(
 		'Office Administration' => '办公室行政',
 		'Other' => '其它',
 		'other' => '其它',
+		'Enginner' => '工程师',
 
 		'Business Development'=>  '商业/市场开发',
 		'Consultant/Contractor'=>   '顾问咨询',

@@ -252,6 +252,7 @@ public function search() {
 				6 => Yii::t('default','Management Without Staff'),
 				7 => Yii::t('default','Employee'),
 				8 => Yii::t('default','Office Administration'),
+				10 => Yii::t('default','Engineer'),
 				//9 => Yii::t('default','Other'),
 		);
 	}
