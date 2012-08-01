@@ -27,12 +27,10 @@ class AdminIdentity extends CUserIdentity {
             $this->_id = $admin->id;
             $isRoot = ($admin->authority == Admin::ADMIN_ROOT) ? $admin->authority : 0;
             $isEditor = ($admin->authority == Admin::ADMIN_EDITOR) ? 1:0;
-            $isDatabase = ($admin->authority == Admin::ADMIN_DATABASE)? 1 : 0;
-            Yii::trace('isXXX-' . $isRoot . '-' . $isEditor . '-' . $isDatabase);
+            Yii::trace('isXXX-' . $isRoot . '-' . $isEditor);
              $this->setState('username', $this->username);
             $this->setState('isRoot', $isRoot);
             $this->setState('isEditor', $isEditor);
-            $this->setState('isDatabase', $isDatabase);//
             $this->errorCode = self::ERROR_NONE;
         }
         return $this->errorCode == self::ERROR_NONE;
