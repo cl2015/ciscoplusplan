@@ -44,7 +44,7 @@ track: function (er)
 
 <div id="box">
   <div class="header" >
-    <ul style="width: 400px;">
+    <ul style="width: 450px;">
       <li><?php if(Yii::app()->user->isGuest){
           echo CHtml::link('登陆',array('/site/login'));
       }else{
