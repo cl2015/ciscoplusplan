@@ -8,19 +8,20 @@
 	<?php echo $form->errorSummary($model); ?>
 	<table width="628" cellspacing="0" cellpadding="0" border="0">
 		<tr>
-			<th width="266" height="45" valign="top" scope="col"><?php echo Yii::t('default','label_required')?>
+			<th width="276" height="45" valign="top" scope="col"><?php echo Yii::t('default','label_required')?>
 			</th>
 			<th width="362" scope="col">&nbsp;</th>
 			<th width="" scope="col">&nbsp;</th>
 		</tr>
 		<tr>
-		<td><?php echo $form->labelEx($model,'email'); ?></td>
-		<td><?php echo $form->textField($model,'email'); ?></td>
-		<td><?php echo $form->error($model,'email'); ?><?php echo $message["email"];?></td>
-		</tr>
 		<td><?php echo $form->labelEx($model,'code'); ?></td>
 		<td><?php echo $form->textField($model,'code'); ?></td>
 		<td><?php echo $form->error($model,'code'); ?><?php echo $message["code"];?></td>
+		</tr>
+                <tr>
+		<td><?php echo $form->labelEx($model,'email'); ?></td>
+		<td><?php echo $form->textField($model,'email'); ?></td>
+		<td><?php echo $form->error($model,'email'); ?><?php echo $message["email"];?></td>
 		</tr>
 
 	</table>

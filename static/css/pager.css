@@ -1,0 +1,36 @@
+ul.yiiPager {
+    border: 0 none;
+    display: inline;
+    font-size: 11px;
+    line-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+ul.yiiPager li {
+    display: inline;
+}
+ul.yiiPager a:link, ul.yiiPager a:visited {
+    border: 1px solid #D9D8D8;
+    color: #222222;
+    font-weight: bold;
+    padding: 5px 7px;
+    text-decoration: none;
+}
+ul.yiiPager .page a {
+    font-weight: normal;
+}
+ul.yiiPager a:hover {
+    border: 1px solid #222222;
+}
+ul.yiiPager .selected a {
+    background: none repeat scroll 0 0 #AD090C;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+ul.yiiPager .hidden a {
+    border: 1px solid #DEDEDE;
+    color: #888888;
+}
+ul.yiiPager .first, ul.yiiPager .last {
+    display: none;
+}

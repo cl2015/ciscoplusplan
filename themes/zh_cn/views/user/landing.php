@@ -10,6 +10,7 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+    <strong style=" font-size:16px;"></strong>
 		<?php echo $form->labelEx($model,'code'); ?>
 		<?php echo $form->textField($model,'code'); ?>
 		<?php echo $form->error($model,'code'); ?>

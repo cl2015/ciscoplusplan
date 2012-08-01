@@ -18,15 +18,19 @@
 <?php
 $paydate = '';
 if($model->created_at<'2012-04-24 00:00:00'){
+	$paid_amount = '948.00';
 	$price = '948.00';
 	$paydate = '03月16日-05月07日';
 }elseif($model->created_at<'2012-05-08 00:00:00'){
 	$price = '948.00';
+        $paid_amount= '948.00';
 	$paydate = '05月08日-05月20日';
 }elseif($model->created_at<'2012-05-21 00:00:00'){
 	$price = '1,264.00';
+        $paid_amount= '1264.00';
 }else{
 	$price = '1,580.00';
+        $paid_amount= '1580.00';
 }
 ?>
 
@@ -35,6 +39,7 @@ if($model->created_at<'2012-04-24 00:00:00'){
 			'id'=>'reginfo-payment-form1',
 			'enableAjaxValidation'=>false,
 	)); ?>
+<?php echo $form->hiddenField($model,'paid_amount',array('size'=>60,'maxlength'=>256,'value'=>$paid_amount)); ?>
 		<table width="628" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td height="30" colspan="2" valign="top" scope="col">您需要支付的票价为：<?php echo $price;?>元人民币（<?php echo $paydate;?>）<br /><span
@@ -51,9 +56,9 @@ if($model->created_at<'2012-04-24 00:00:00'){
 
 			</tr>
 			<tr>
-				<td colspan="2" style="line-height: 35px;" scope="col"><input
-					id="Reginfo_payment_type_0" type="radio"
-					name="Reginfo[payment_type]" value="1" <?php if($model->payment_type = 0){ echo 'checked';}?>> 现场付款
+				<td colspan="2" style="line-height: 35px;" scope="col">
+                                    <input id="Reginfo_payment_type_1" type="radio" name="Reginfo[payment_type]" value="1" <?php if($model->payment_type = 1){ echo 'checked';}?>> 现场付款 &nbsp; &nbsp; &nbsp;
+                                        <input id="Reginfo_payment_type_2" type="radio" name="Reginfo[payment_type]" value="2" <?php if($model->payment_type = 2){ echo 'checked';}?>> 在线付款
 					<br /> <?php echo $form->error($model,'payment_type'); ?>
 					 <span class="required">*</span>
 					是否需要开具发票？ <?php echo $form->radioButtonList($payment, 'is_invoice', array('1'=>'是','0'=>'否'), array('separator' => '&nbsp;', 'template' => '{input} {label}'));?>

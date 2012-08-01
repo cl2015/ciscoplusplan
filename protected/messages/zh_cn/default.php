@@ -4,8 +4,8 @@ return array(
 		//User
 		"Full Name"=>"姓名",
 		"Has Code"=>"是否有邀请码",
-		"Code"=>"如果您之前收到了邀请码，请在右边输入，如果没有，直接点击继续，进入下一页面。",
-		"Email"=>"邮箱",
+		"Code"=>"邀请码（仅限受邀嘉宾填写)。",
+		"Email"=>"邮箱（参会嘉宾提供邮箱信息即可完成注册）",
 		"Password"=>"密码(6位数字密码)",
 		"Password2"=>"重复密码",
 		"Organisation"=>"公司名称",
@@ -40,12 +40,14 @@ return array(
 		"error code" => '错误的邀请码',
 		"Is Online" =>'参会方式',
 		'Online Event' => '只参加在线活动(免费)</br>观看最新技术视频,下载最新白皮书,了解大会活动信息。',
-		'Onsite Event' => '参加现场活动（付费或联系您的思科客户经理）</br>可同时体验精彩在线活动和盛大活动现场。',
+		'Onsite Event' => '参加现场活动（也可以免费参加线上活动）',
 		'onsite payment'=>'现场付费',
 		'online payment'=>'在线付费',
+                'offline payment'=>'线下付费',
 		
 		'Payment Type'=>'支付方式',
 		
+		'Engineer' => '工程师',
 		'continue' =>'继续',
 		'CEO/Managing Director' => '总裁/总经理',
 		'CXO/Executive'=> 'CXO',
@@ -57,7 +59,6 @@ return array(
 		'Office Administration' => '办公室行政',
 		'Other' => '其它',
 		'other' => '其它',
-		'Enginner' => '工程师',
 
 		'Business Development'=>  '商业/市场开发',
 		'Consultant/Contractor'=>   '顾问咨询',

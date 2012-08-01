@@ -1,0 +1,198 @@
+body {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #404040;
+    font-family: "宋体",Verdana,Arial;
+    font-size: 12px;
+    line-height: 150%;
+    margin: 0;
+    padding: 0;
+}
+div {
+    margin: 0 auto;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, form, img, p {
+    border: medium none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a:link, a:visited {
+    color: #014DA3;
+    text-decoration: none;
+}
+a:hover {
+    color: #FF3300;
+    text-decoration: none;
+}
+.imageLogin {
+	background:url(../images/welcome.jpg) no-repeat;
+	margin:0px auto;
+	margin-left:33px;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.formlogin  {
+	width:72%;
+	height:370px;
+	padding-top:100px;
+}
+.formrow {
+	margin-left:300px;
+	width:55%;
+	height:50px;
+}
+.forminput {
+	float:left;
+	width:280px;
+	height:50px;
+	line-height:50px;
+}
+.formrows{
+	margin-left:340px;
+	width:24%;
+	height:50px;
+	line-height:50px;
+	margin-bottom:15px;
+}
+.formerror{
+	float:right;
+	width:200px;
+	height:50px;
+	line-height:45px;
+	color:red;
+}
+.formtext {
+	margin-left:250px;
+	width:340px;
+	height:70px;
+	font-size:12px;
+	margin-top:20px;
+	border:1px solid red;
+}
+#tijiao {
+margin-right:120px;
+border:1px solid black;
+}
+.row{
+	float:left;
+	width:380px;
+	height:27px;
+	margin-bottom:20px;
+	border:1px solid blue;
+}
+.validate{
+	float:right;
+	width:140px;
+	height:22px;
+	line-height:23px;
+	font-size:10px;
+	border:1px solid red;
+}
+.verrow{
+	float:right;
+	margin-top:3px;
+	margin-left:20px;
+}
+.ph {
+	margin-left:0px;
+	text-align:right;
+}
+.submit {
+	background: url("../images/hydl.gif") no-repeat scroll 0 0 transparent;
+	width:116px;
+	height:38px;
+	border:medium none;
+
+}
+.zh {
+    border: 1px solid #7597BA;
+    height: 20px;
+    padding-top: 3px;
+    width: 180px;
+}
+.required {
+}
+* + html .clearfix {
+    height: 1%;
+}
+.clear {
+    clear: both;
+    height: 0;
+    overflow: hidden;
+}
+.blank {
+    clear: both;
+    height: 8px;
+    line-height: 8px;
+    visibility: hidden;
+}
+.usBox {
+    padding: 40px 30px;
+    width: 830px;
+}
+.usBox_1 {
+    float: left;
+    height: 397px;
+    width: 400px;
+}
+.usBox_1 .logtitle {
+    background: url("../images/ur_bg.gif") no-repeat scroll 0 0 transparent;
+    height: 30px;
+}
+.usTxt {
+    float: right;
+    width: 400px;
+}
+.usTxt img {
+    margin-top: 15px;
+}
+.regtit {
+    background: url("../images/rg_top.gif") no-repeat scroll 0 0 transparent;
+    font-size: 14px;
+    font-weight: bold;
+    height: 34px;
+    line-height: 34px;
+    padding-left: 13px;
+}
+.regbor {
+	float:left;
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: -moz-use-text-color #B3CEF8 #B3CEF8;
+    border-right: 1px solid #B3CEF8;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    padding: 32px 15px 10px;
+}
+.regbor p {
+    padding-top: 3px;
+}
+.creg {
+    background: url("../images/reg_top.gif") no-repeat scroll center bottom transparent;
+    height: 81px;
+    position: relative;
+    width: 890px;
+}
+.logo3 {
+    left: 15px;
+    position: absolute;
+    top: 14px;
+}
+.footer2 {
+    margin-top: 12px;
+    padding: 16px 0 15px;
+    text-align: center;
+    width: 890px;
+}
+.footer2 p {
+    padding: 5px 0;
+}
