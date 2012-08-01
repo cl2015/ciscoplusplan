@@ -38,7 +38,7 @@ class Controller extends CController
 	/**
 	 * sendmail
 	 */
-	public function sendMail($to,$cc="cranelee@gmail.com",$user,$reginfo) {
+	public function sendMail($is_false='',$to,$cc="cranelee@gmail.com",$user,$reginfo) {
 		//$message = $content;
 		$mailer = Yii::app()->mailer;
 		$mailer->Host = 'smtp.exmail.qq.com';
@@ -59,7 +59,11 @@ class Controller extends CController
 		$mailer->CharSet = 'UTF-8';
 		$mailer->Subject = Yii::t('default', 'confirmation');
 		$mailer->IsHTML(true);
+                if($is_false=='email_false'){
+                    $mailer->getView('email_false',array('model'=>$user,'reginfo'=>$reginfo));
+                }else{
 		$mailer->getView('email',array('model'=>$user,'reginfo'=>$reginfo));
+                }
 		$mailer->Send();
 	}
 	
