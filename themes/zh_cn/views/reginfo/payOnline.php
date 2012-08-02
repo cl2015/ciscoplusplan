@@ -19,9 +19,9 @@
     <body onLoad="javascript:document.E_FORM.submit()">
         <?php
 //****************************************
-        $v_mid = '22366430';            // 商户号，这里为测试商户号1001，替换为自己的商户号(老版商户号为4位或5位,新版为8位)即可
+        $v_mid = '22498045';            // 商户号，这里为测试商户号1001，替换为自己的商户号(老版商户号为4位或5位,新版为8位)即可
         $v_url = 'http://www.brightac.com.cn/reginfo/receivegegpay'; // 请填写返回url,地址应为绝对路径,带有http协议
-        $key = 'makexiaoyi123456';           // 如果您还没有设置MD5密钥请登陆我们为您提供商户后台，地址：https://merchant3.chinabank.com.cn/											// 建议您设置一个16位以上的密钥或更高，密钥最多64位，但设置16位已经足够了
+        $key = '01085866769';           // 如果您还没有设置MD5密钥请登陆我们为您提供商户后台，地址：https://merchant3.chinabank.com.cn/											// 建议您设置一个16位以上的密钥或更高，密钥最多64位，但设置16位已经足够了
 //****************************************
         $v_oid = $model->id;
         $v_amount = $model->paid_amount;

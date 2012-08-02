@@ -24,16 +24,14 @@ class UserController extends Controller {
     public function accessRules() {
         return array(
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('index', 'view'),
-                'users' => array('*'),
+                'actions' => array('create', 'update', 'index', 'view', 'delete', 'phpexcels','sendEmail'),
+                'users' => array('@'),
+                'expression' => '$user->isRoot'
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
-                'actions' => array('create', 'update', 'sendEmail'),
+                'actions' => array('sendEmail', 'phpexcels', 'index'),
                 'users' => array('@'),
-            ),
-            array('allow', // allow admin user to perform 'admin' and 'delete' actions
-                'actions' => array('admin', 'delete', 'sendEmail'),
-                'users' => array('admin'),
+                'expression' => '$user->isEditor'
             ),
             array('deny', // deny all users
                 'users' => array('*'),
@@ -124,15 +122,15 @@ class UserController extends Controller {
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
         if ($survey === null) {
-            $survey=new Survey;
+            $survey = new Survey;
             $survey->user_id = $model->id;
         }
         if ($reginfo === null) {
-            $reginfo=new Reginfo;
+            $reginfo = new Reginfo;
             $reginfo->user_id = $model->id;
         }
         if ($payment === null) {
-            $payment=new Payment;
+            $payment = new Payment;
             $payment->user_id = $model->id;
         }
         if (isset($_POST['User'])) {
@@ -250,13 +248,124 @@ class UserController extends Controller {
         $pager->applyLimit($criteria);
         $pager->params = $pageUrl; //需要翻页时候带着的参数
         $users = User::model()->with(array('payment', 'reginfo', 'survey'))->findAll($criteria);
+        $pageUrl = Yii::app()->createUrl('/user/phpexcels', $pageUrl, "&");
         $data = array(
             'users' => $users,
             'pages' => $pager,
             'model' => $model,
             'payment_model' => $payment_model,
+            'log_url' => $pageUrl,
         );
         $this->render('index', $data);
+    }
+
+    public function actionPhpexcels() {
+        //分页方法
+        $criteria = new CDbCriteria();
+        $criteria->order = 't.updated_at desc';
+        $data_arr = User::model()->with(array('payment', 'reginfo', 'survey'))->findAll($criteria);
+        $array[0][] = "参会码";
+        $array[0][] = "注册状态";
+        $array[0][] = "参会类型";
+        $array[0][] = "邀请码";
+        $array[0][] = "付款状态";
+        $array[0][] = "公司名称";
+        $array[0][] = "与思科公司关系";
+        $array[0][] = "姓名";
+
+        $array[0][] = "职务级别";
+        $array[0][] = "部门";
+        $array[0][] = "区号";
+        $array[0][] = "电话";
+        $array[0][] = "手机号码";
+        $array[0][] = "Email";
+        $array[0][] = "省份";
+        $array[0][] = "城市";
+
+        $array[0][] = "公司地址";
+        $array[0][] = "AM姓名";
+        $array[0][] = "AM ID";
+        $array[0][] = "AM 手机";
+        $array[0][] = "RM 姓名";
+        $array[0][] = "RM ID";
+        $array[0][] = "OD 姓名";
+
+        $array[0][] = "分区";
+        $array[0][] = "是否参加Dinner";
+        $array[0][] = "是否参加ITM";
+        $array[0][] = "付款金额";
+        $array[0][] = "是否需要发票";
+        $array[0][] = "发票抬头";
+        $array[0][] = "发票内容";
+        $array[0][] = "发票邮寄地址";
+
+        $array[0][] = "发票邮寄邮编";
+        $array[0][] = "发票接收人姓名";
+        $array[0][] = "发票接收人电话";
+        $array[0][] = "是否已开具发票";
+        $i = 1;
+        foreach ($data_arr as $data) {
+            $array[$i][] = CHtml::encode($data->id);
+            if (empty($data->has_reged) || $data->has_reged == 0) {
+                $has_reged = "未注册";
+            } else {
+                $has_reged = '已注册';
+            }
+            $array[$i][] = $has_reged;
+            $array[$i][] = CHtml::encode(Reginfo::model()->getOnlineText($data->reginfo['is_online']));
+            $array[$i][] = CHtml::encode($data->code);
+            if ($data->payment['has_paid'] == 0 || empty($data->payment['has_paid'])) {
+                $has_paid = "未支付";
+            } else {
+                $has_paid = "已支付";
+            }
+            $array[$i][] = $has_paid;
+            $array[$i][] = CHtml::encode($data->organisation);
+            $array[$i][] = CHtml::encode(User::model()->getRelationOptionsText($data->relation_with_cisco));
+            $array[$i][] = CHtml::encode($data->full_name);
+
+            $array[$i][] = CHtml::encode(User::model()->getJobTitleText($data->job_title));
+            $array[$i][] = CHtml::encode($data->department);
+            $array[$i][] = CHtml::encode($data->working_phone_dis);
+            $array[$i][] = CHtml::encode($data->working_phone);
+            $array[$i][] = CHtml::encode($data->mobile);
+            $array[$i][] = CHtml::encode($data->email);
+            $array[$i][] = CHtml::encode($data->province);
+            $array[$i][] = CHtml::encode($data->city);
+
+            $array[$i][] = CHtml::encode($data->organisation);
+            $array[$i][] = CHtml::encode($data->am_name);
+            $array[$i][] = CHtml::encode($data->am_id);
+            $array[$i][] = CHtml::encode($data->am_mobile);
+            $array[$i][] = CHtml::encode($data->rm_name);
+            $array[$i][] = CHtml::encode($data->rm_id);
+            $array[$i][] = CHtml::encode($data->od_name);
+            $array[$i][] = CHtml::encode($data->diff);
+
+            $array[$i][] = CHtml::encode($data->MAIL_ZIP);
+            $array[$i][] = CHtml::encode($data->MAIL_COUNTRY);
+            $array[$i][] = CHtml::encode($data->reginfo['paid_amount']);
+            if ($data->payment['is_invoice'] == 0) {
+                $is_invoice= "不需要";
+            } else {
+                $is_invoice= "需要开具发票";
+            }
+            $array[$i][] = $is_invoice;
+            $array[$i][] = CHtml::encode($data->payment['invoice_title']);
+            $array[$i][] = CHtml::encode($data->payment['invoice_content']);
+            $array[$i][] = CHtml::encode($data->payment['recipient_add']);
+
+            $array[$i][] = CHtml::encode($data->payment['zip_code']);
+            $array[$i][] = CHtml::encode($data->payment['recipient_name']);
+            $array[$i][] = CHtml::encode($data->payment['phone']);
+            if($data->payment['has_sendinvoice']==0){$has_sendinvoice="未开具发票";}else{$has_sendinvoice= "已开具发票";}
+            $array[$i][] = $has_sendinvoice;
+            $i++;
+        }
+        Yii::import('application.extensions.phpexcel.JPhpExcel');
+        $xls = new JPhpExcel('UTF-8', false, 'cisco_reginfo');
+        $xls->addArray($array);
+        $xls->generateXML('cisco_reginfo');
     }
 
     /**
@@ -284,7 +393,11 @@ class UserController extends Controller {
             if ($user === null) {
                 $message = "不存在此用户";
             } else {
-                $this->sendMail('email', $user->email, $user->cc, $user);
+                $reginfo = Reginfo::model()->findByAttributes(array('user_id' => $model->id));
+                if($reginfo===null){
+                    $reginfo=new Reginfo;
+                }
+                $this->sendMail('email', $user->email, $user->cc, $user,$reginfo);
             }
         }
         $this->render('sendEmail', array(

@@ -140,15 +140,15 @@ class User extends CActiveRecord {
             'updated_at' => 'Updated At',
             'updated_by' => 'Updated By',
             'type_id' => '参会类型',
-            'has_reged' => 'Has Reged',
-            'has_sended' => 'Has Sended',
+            'has_reged' => '是否注册',
+            'has_sended' => '是否已邮寄发票',
             'cc' => 'Cc',
-            'am_name' => 'Am 姓名',
-            'am_id' => 'Am ID',
-            'am_mobile' => 'Am Mobile',
-            'rm_name' => 'Rm 姓名',
-            'rm_id' => 'Rm ID',
-            'od_name' => 'Od 姓名',
+            'am_name' => 'AM 姓名',
+            'am_id' => 'AM ID',
+            'am_mobile' => 'AM Mobile',
+            'rm_name' => 'RM 姓名',
+            'rm_id' => 'RM ID',
+            'od_name' => 'OM 姓名',
             'diff' => 'division',
             'map_dept' => 'Map Dept',
             'map_title' => 'Map Title',
@@ -178,7 +178,7 @@ class User extends CActiveRecord {
 
         $criteria = new CDbCriteria;
 
-        $criteria->compare('id', $this->id, true);
+        $criteria->compare('id', $this->id);
         $criteria->compare('has_code', $this->has_code);
         $criteria->compare('code', $this->code, true);
         $criteria->compare('email', $this->email, true);
@@ -276,12 +276,22 @@ class User extends CActiveRecord {
 
     public function getDiffOptions(){
         return array(
-            1=>'SP',
-            2=>'PS',
-            3=>'CL',
-            4=>'PL',
-            5=>'PBG',
-            6=>'CA',
+            'LENT'=>'LENT',
+            'FSI'=>'FSI',
+            'GD Commercial'=>'GD Commercial',
+            'PS'=>'PS',
+            'GX&HN'=>'GX&HN',
+            'FJ'=>'FJ',
+            'Transformation accounts'=>'Transformation accounts',
+            'Global Accounts'=>'Global Accounts',
+            'PBG'=>'PBG',
+            'SP'=>'SP',
+            'Service'=>'Service',
+            'SEs'=>'SEs',
+            'Sponsors'=>'Sponsors',
+            'Internal'=>'Internal',
+            'VIP'=>'VIP',
+            'Ground Total'=>'Ground Total',
         );
     }
     public function getlanguage() {
@@ -312,9 +322,9 @@ class User extends CActiveRecord {
             $getJobTitleOptions = $this->getJobTitleOptions();
             return isset($getJobTitleOptions[$id]) ?
                     $getJobTitleOptions[$id] :
-                    "unknown type ({$id})";
+                    "未知类型({$id})";
         } else {
-            return 'unknown';
+            return '不明';
         }
     }
 
@@ -322,6 +332,12 @@ class User extends CActiveRecord {
         return array(
             0 => 'yes',
             1 => 'no',
+        );
+    }
+    public function getHasSendOptions(){
+        return array(
+            0=>'否',
+            1=>'是',
         );
     }
 
@@ -406,4 +422,11 @@ class User extends CActiveRecord {
         );
     }
 
+    public function getCriteria(){
+        $criteria = new CDbCriteria();
+        if (!empty($this->id)){
+            $criteria->addCondition('id=:id');
+            $criteria->params[':id']=$this->id;
+        }
+    }
 }

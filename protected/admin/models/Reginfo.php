@@ -135,9 +135,9 @@ class Reginfo extends CActiveRecord {
             $OnlineOptions = $this->getOnlineOptions();
             return isset($OnlineOptions[$id]) ?
                     $OnlineOptions[$id] :
-                    "unknown type ({$id})";
+                    "未知类型({$id})";
         } else {
-            return 'unknown';
+            return '只参加在线活动';
         }
     }
 

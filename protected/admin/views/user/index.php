@@ -7,11 +7,6 @@ $this->breadcrumbs = array(
     .mainContent td{border: 1px solid #76C376;}
 </style>
 <h1>Users</h1>
-<h3>
-    <?php
-    echo CHtml::link("添加用户", array("user/create"));
-    ?>
-</h3>
 <div class="search-form" >
     <?php
     $this->renderPartial('_search', array(
@@ -20,6 +15,18 @@ $this->breadcrumbs = array(
     ));
     ?>
 </div>
+<h3 style="height:25px;">
+    <span style="float:right;">
+    <?php
+    echo CHtml::link("全部导出", array('user/phpexcels'));
+    ?>
+    </span>
+    <span style="float:left">
+    <?php
+    echo CHtml::link("添加用户", array("user/create"));
+    ?>
+    </span>
+</h3>
 <table>
     <tr>
         <th style="width:50px; background-color:#C5FBBD;">id</th>
@@ -65,8 +72,8 @@ $this->breadcrumbs = array(
         <td><?php echo CHtml::encode(User::model()->getRelationOptionsText($user->relation_with_cisco)); ?></td>
         <td>
 <?php echo CHtml::link('删除', "#", array("submit" => array("user/delete", 'id' => $user->id), 'confirm' => '确定要删除吗')); ?>
-    <?php echo CHtml::link('编辑', array("user/update/id/" . $user->id)); ?>
-<?php echo CHtml::link('查看', array('user/view/id/' . $user->id)); ?>
+    <?php echo CHtml::link('编辑', array("user/update",'id'=> $user->id)); ?>
+<?php echo CHtml::link('查看', array('user/view','id'=> $user->id)); ?>
                 </td>
             </tr>
             <?php endforeach; ?>

@@ -2,15 +2,8 @@
 <?php if(Yii::app()->language == 'zh_cn'){?>
 <img src="http://223.4.134.123/images/mainBg.jpg" />
 	<?php 
-		if($reginfo->created_at<'2012-04-24 00:00:00'){
-			$price = '948.00';
-		}elseif($reginfo->created_at<'2012-05-08 00:00:00'){
-			$price = '948.00';
-		}elseif($reginfo->created_at<'2012-05-21 00:00:00'){
-			$price = '1,264.00';
-		}else{
-			$price = '1,580.00';
-		}
+		$paydate = '8月15日-9月18日';
+		$price = '528.00';
 	?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> 
@@ -18,7 +11,7 @@
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
-	您的注册ID号是：<?php echo $model->id;?> 请保存好此信息，作为大会参会凭证。<br />
+	您的参会码是：<?php echo $model->id;?> 请保管好您的参会码，此码是您参会的唯一凭证。<br />
 	<?php }?>
 	
 	<?php if($model->type_id==2){?>

@@ -154,6 +154,21 @@
 		<td><?php echo $form->error($reginfo,'paid_amount'); ?> </td>
 	</tr>
         <tr>
+		<td><?php echo $form->labelEx($payment,'has_sendinvoice'); ?> </td>
+                <td><?php echo $form->dropDownList($payment, 'has_sendinvoice', Payment::model()->getisSendinvoice()); ?> </td>
+		<td><?php echo $form->error($payment,'has_sendinvoice'); ?> </td>
+	</tr>
+        <tr>
+		<td><?php echo $form->labelEx($model,'has_sended'); ?> </td>
+                <td><?php echo $form->dropDownList($model, 'has_sended', User::model()->getHasSendOptions()); ?> </td>
+		<td><?php echo $form->error($model,'has_sended'); ?> </td>
+	</tr>
+        <tr>
+		<td><?php echo $form->labelEx($reginfo,'payment_type'); ?> </td>
+                <td><?php echo $form->dropDownList($reginfo, 'payment_type', Reginfo::model()->getPaymentOptions()); ?> </td>
+		<td><?php echo $form->error($reginfo,'payment_type'); ?> </td>
+	</tr>
+        <tr>
 		<td><?php echo $form->labelEx($payment,'is_invoice'); ?> </td>
 		<td><?php echo $form->radioButtonList($payment, 'is_invoice', array('1'=>'是','0'=>'否'), array('separator' => '&nbsp;', 'template' => '{input} {label}'));?> </td>
 		<td><?php echo $form->error($payment,'is_invoice'); ?> </td>
@@ -165,7 +180,7 @@
 	</tr>
         <tr>
 		<td><?php echo $form->labelEx($payment,'invoice_content'); ?> </td>
-		<td><?php echo $form->textField($payment,'invoice_content',array('size'=>60,'maxlength'=>255)); ?> </td>
+		<td><?php echo $form->dropDownList($payment, 'invoice_content', Payment::model()->getContentOptions()); ?> </td>
 		<td><?php echo $form->error($payment,'invoice_content'); ?> </td>
 	</tr>
         <tr>

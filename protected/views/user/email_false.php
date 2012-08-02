@@ -2,15 +2,8 @@
 <?php if(Yii::app()->language == 'zh_cn'){?>
 <img src="http://223.4.134.123/images/mainBg.jpg" />
 	<?php
-		if($reginfo->created_at<'2012-04-24 00:00:00'){
-			$price = '948.00';
-		}elseif($reginfo->created_at<'2012-05-08 00:00:00'){
-			$price = '948.00';
-		}elseif($reginfo->created_at<'2012-05-21 00:00:00'){
-			$price = '1,264.00';
-		}else{
-			$price = '1,580.00';
-		}
+		 $paydate = '8月15日-9月18日';
+		$price = '528.00';
 	?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br />
@@ -39,11 +32,11 @@
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
 	<p>
 	为了方便您的参会，请了解付款信息如下：<br/>
-	<style color="red">（温馨提示：请务必填写参会码，以便我们进行款项核对，谢谢支持。）</style><br/>
+	<span style="color:red">（温馨提示：请务必填写参会码，以便我们进行款项核对，谢谢支持。）</span><br/>
 	银行汇款/银行转账<br/>
-	账户：1234567890<br/>
-	开户行：交通银行大望路支行<br/>
-	开户公司：北京马克笑逸科技发展有限公司<br/>
+	银行账号：01090  32070  012010  8152160<br/>
+	开户行：北京银行八里庄支行<br/>
+	开户公司：北京敦煌秀富咨询有限责任公司<br/>
 	</p>
 	<p>
 	会议日期：2012 年 5 月 22-23 日 <br />
@@ -55,7 +48,7 @@
 <p>
 	我们期待着您的参与！ <br/>
 	问题或建议,请发送电子邮件至:gc_cisco_plus@external.cisco.com<br/>
-	或致电: 400-156-3788
+	或致电: 400-890-9901
 <p>
 <p>
 	<b>Cisco Plus大中华区活动会务组</b>
@@ -94,9 +87,9 @@ This email address and password were used to login the active site of the Genera
 In order to facilitate your participation, please understand the payment information as follows:<br/>
 <style color="red">( reminder: Please fill in all code, so that we can make a payment check, thank you for your support. )</style><br/>
 Bank Remittances/ Bank Transfer<br/>
-Accounts: 1234567890<br/>
-Bank of Deposit: Bank of Communications Dawanglu Branch<br/>
-<!--Accounts Company: Beijing 马克笑逸 Technology Development Limited company --><br/>
+Accounts: 01090  32070  012010  8152160<br/>
+Bank of Deposit: Bank of Beijing Balizhuang Branch<br/>
+Accounts Company: Beijing Dunhuang Xiu Fu Consulting Limited liability company <br/>
 </p>
 <p>
 Event Date:           Mar 22-23, 2012<br />
@@ -107,7 +100,7 @@ We look forward to seeing you!
 </p>
 <?php }?>
 <p>
-If you have any questions concerning your registration, please mail to: gc_cisco_plus@external.cisco.com  or call: 400-156-3788<br />
+If you have any questions concerning your registration, please mail to: gc_cisco_plus@external.cisco.com  or call: 400-890-9901 <br />
 </p>
 <p>
 Cisco Plus 2012 Greater China Event Committee Team

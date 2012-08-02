@@ -35,7 +35,7 @@ if(Yii::app()->language == 'zh_cn'){?>
 <p>
 	我们期待着您的参与！ <br/>
 	问题或建议,请发送电子邮件至:<a href="mailto:gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com</a><br/>
-	或致电: 400-156-3788
+	或致电: 400-890-9901
 <p>
 <p>
 	<b>Cisco Plus大中华区活动会务组</b>

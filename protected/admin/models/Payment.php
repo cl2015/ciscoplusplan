@@ -93,8 +93,8 @@ class Payment extends CActiveRecord {
             'created_by' => 'Created By',
             'updated_at' => 'Updated At',
             'updated_by' => 'Updated By',
-            'has_paid' => 'Has Paid',
-            'has_sendinvoice' => 'Has Sendinvoice',
+            'has_paid' => '是否支付',
+            'has_sendinvoice' => '是否已开具发票',
         );
     }
 
@@ -140,5 +140,23 @@ class Payment extends CActiveRecord {
             1=>'已支付',
         );
     }
+    public function getisSendinvoice(){
+        return array(
+            0=>'否',
+            1=>'是',
+        );
+    }
+    public function getContentOptions(){
+        return array(
+            0=>'会议费',
+            1=>'会务费',
+        );
+    }
 
+    public function getContentText($id){
+        $getContentOptions = $this->getContentOptions();
+            return isset($getContentOptions[$id]) ?
+                    $getContentOptions[$id] :
+                    "unknown type ({$id})";
+    }
 }

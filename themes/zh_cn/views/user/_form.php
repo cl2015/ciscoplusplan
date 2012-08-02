@@ -119,9 +119,9 @@
 		<tr>
 			<td><?php echo $form->labelEx($model,'mobile'); ?>
 			</td>
-			<td><?php echo $form->textField($model,'mobile',array('size'=>60,'maxlength'=>256)); ?>
+			<td><?php echo $form->textField($model,'mobile',array('size'=>60,'maxlength'=>256,'onchange'=>'isok()')); ?>
 			</td>
-			<td><?php echo $form->error($model,'mobile'); ?>
+			<td id="mobile_error"><?php echo $form->error($model,'mobile'); ?>
 			</td>
 		</tr>
 
@@ -164,4 +164,13 @@
 
 </div>
 <!-- form -->
+<script>
+    function isok(){
+        if(!$("#User_mobile").val().match(/^1([3|4|5|8])\d{9}$/)){
+            $("#mobile_error").html("手机号码第一位只能为1，第二位不为0、1、2、6、7、9！");
+            $("#User_mobile").val("");
+        }
+    }
+</script>
+
 

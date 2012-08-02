@@ -12,7 +12,7 @@ $this->breadcrumbs = array(
 </h3>
 <h2>基本信息</h2>
 <b>参会码:</b>
-<?php echo CHtml::encode($model->code); ?>
+<?php echo CHtml::encode($model->id); ?>
     <br />
     <b>注册状态:</b>
 <?php
@@ -87,17 +87,14 @@ $this->breadcrumbs = array(
     <b>OD 姓名:</b>
 <?php echo CHtml::encode($model->od_name); ?>
     <br />
-    <b>division:</b>
+    <b>分区:</b>
 <?php echo CHtml::encode($model->diff); ?>
     <br />
-    <b>分区:</b>
-<?php //echo CHtml::encode($model->code); ?>
-    <br />
     <b>是否参加Dinner:</b>
-<?php //echo CHtml::encode($model->code); ?>
+<?php echo CHtml::encode($model->MAIL_ZIP); ?>
     <br />
     <b>是否参加ITM:</b>
-<?php //echo CHtml::encode($model->code); ?>
+<?php echo CHtml::encode($model->MAIL_COUNTRY); ?>
     <br />
 
     <h2>付款信息</h2>

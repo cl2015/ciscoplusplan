@@ -162,6 +162,22 @@ $this->breadcrumbs=array(
                 <?php echo $reginfo->paid_amount;?>
 		<?php echo $form->error($reginfo,'paid_amount'); ?>
 	</div>
+        
+        <div class="row">
+		<?php echo $form->labelEx($payment,'has_sendinvoice'); ?>
+                <?php echo $form->dropDownList($payment, 'has_sendinvoice', Payment::model()->getisSendinvoice()); ?>
+		<?php echo $form->error($payment,'has_sendinvoice'); ?>
+	</div>
+        <div class="row">
+		<?php echo $form->labelEx($model,'has_sended'); ?>
+                <?php echo $form->dropDownList($model, 'has_sended', User::model()->getHasSendOptions()); ?>
+		<?php echo $form->error($model,'has_sended'); ?>
+	</div>
+        <div class="row">
+		<?php echo $form->labelEx($reginfo,'payment_type'); ?>
+                <?php echo $form->dropDownList($reginfo, 'payment_type', Reginfo::model()->getPaymentOptions()); ?>
+		<?php echo $form->error($reginfo,'payment_type'); ?>
+	</div>
         <div class="row">
 		<?php echo $form->labelEx($payment,'is_invoice'); ?>
 		<?php echo $form->radioButtonList($payment, 'is_invoice', array('1'=>'是','0'=>'否'), array('separator' => '&nbsp;', 'template' => '{input} {label}'));?>
@@ -174,7 +190,7 @@ $this->breadcrumbs=array(
 	</div>
         <div class="row">
 		<?php echo $form->labelEx($payment,'invoice_content'); ?>
-		<?php echo $form->textField($payment,'invoice_content',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->dropDownList($payment, 'invoice_content', Payment::model()->getContentOptions()); ?>
 		<?php echo $form->error($payment,'invoice_content'); ?>
 	</div>
         <div class="row">
