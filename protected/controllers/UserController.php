@@ -186,84 +186,49 @@ class UserController extends Controller {
              * 5.有email有多个code
              * 6.无email有code,		Sponsor
              */
+        	
+        	/**
+        	 * 二期：都改成靠code分析，先导入code 和type_id
+        	 */
             $model->attributes = $_POST['User'];
             if ($model->validate()) {
                 if (isset($model->code) && $model->code != null && $model->code != '') {
-                    //type 5
-                    $user = User::model()->findByAttributes(array('email' => $model->email, 'code' => $model->code));
-                    if ($user === null) {
-                        //type6
-                        $user = User::model()->findByAttributes(array('code' => $model->code, 'has_reged' => 0, 'type_id' => 6, 'email' => ''));
-                        if ($user === null) {
-                            $message['code'] = Yii::t('default', 'You enter the code has exceeded the upper limit.');
-                        } else {
-                            $user->attributes = $_POST['User'];
-                            $user->setScenario('loading');
-                            $model = $user;
-                            if ($user->save()) {
-                                if ($user->login()) {
-                                    $this->redirect(array('nominationUpdate'));
-                                }
-                            } else {
-                                $message['email'] = "error";
-                            }
-                        }
-                    } elseif ($user->has_reged) {
-                        $message['email'] = Yii::t('default', 'This email has been reged.');
-                    } else {
-                        if ($user->login()) {
-                            if ($user->type_id == '1') {
-                                $this->redirect(array('nominationUpdate'));
-                            } else {
-                                $this->redirect(array('ordinaryUpdate'));
-                            }
-                        } else {
-                            $message['email'] = "error";
-                        }
-                    }
-                } else {
-                    $user = User::model()->findByAttributes(array('email' => $model->email));
-                    if ($user === null) {//attendee,web
-                        $model->type_id = 4;
+                    $user = User::model()->findByAttributes(array('code' => $model->code));
+                    if ($user->has_reged){
+                    	$message['email'] = Yii::t('default', 'This code has been reged.');
+                    }elseif ($user === null) {
+                    	//public
+                    	$model->type_id = 4;
                         if ($model->save()) {
                             if ($model->login()) {
                                 $this->redirect(array('attendeeUpdate'));
                             } else {
-                                $message['email'] = 'error';
+                                $messge['email'] = Yii::t('default', "error");
                             }
                         }
                         $message['email'] = Yii::t('default', 'reg error.');
-                    } elseif ($user->has_reged == '1') {//已注册
-                        $message['email'] = Yii::t('default', 'This email has been reged.');
-                    } elseif ($user->type_id == '3') {
-                        if ($model->code == null || $model->code == "") {
-                            $message["code"] = Yii::t("default", "please input your code");
-                        } elseif ($model->code != $user->code) {
-                            $message["code"] = Yii::t("default", "error code");
-                        } else {
-                            if ($user->login()) {
-                                $this->redirect(array('ordinaryUpdate'));
-                            } else {
-                                $message['email'] = "error";
-                            }
-                        }
-                    } elseif ($user->type_id == '2') {
-                        if ($user->login()) {
-                            $this->redirect(array('employeeUpdate'));
-                        }
-                    } elseif ($user->type_id == '1') {
-                        if ($user->login()) {
-                            $this->redirect(array('nominationUpdate'));
-                        }
-                    } elseif ($user->type_id == '4') {
-                        if ($user->login()) {
-                            $this->redirect(array('attendeeUpdate'));
-                        } else {
-                            $message['email'] = 'error';
-                        }
-                    } else {
-                        $messge['email'] = Yii::t('default', "error");
+                    }elseif( $user->email == '' || $model->email == $user->email){
+                    	$user->email = $model->email;
+                    	if($user->save()){
+                    		if ($user->login()) {
+                    			if($user->type_id == 1){
+                    				$this->redirect(array('nominationUpdate'));
+                    			}elseif($user->type_id == 2){
+                    				$this->redirect(array('employeeUpdate'));
+                    			}else{
+                    				$this->redirect(array('attendeeUpdate'));
+                    			}
+                    		} else {
+                    			$messge['email'] = Yii::t('default', "error");
+                    		}
+                    	}else{
+                    		$messge['email'] = Yii::t('default', "error");
+                    	}
+                    }else{
+                    	$messge['email'] = Yii::t('default', "error");
                     }
+                } else {
+                	$messge['email'] = Yii::t('default', "error");
                 }
             }
         }

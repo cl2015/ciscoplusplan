@@ -347,7 +347,7 @@ class User extends CActiveRecord {
             1 => 'nomination',
             2 => 'internal',
             4 => 'public',
-            6=>'Sponsor',
+            //6=>'Sponsor',
         );
     }
 
