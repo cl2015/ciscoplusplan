@@ -131,13 +131,13 @@ class Reginfo extends CActiveRecord {
     }
 
     public function getOnlineText($id) {
+        $OnlineOptions = $this->getOnlineOptions();
         if (!empty($id)) {
-            $OnlineOptions = $this->getOnlineOptions();
             return isset($OnlineOptions[$id]) ?
                     $OnlineOptions[$id] :
-                    "unknown type ({$id})";
+                    "未知类型({$id})";
         } else {
-            return 'unknown';
+            return $OnlineOptions[0];
         }
     }
 
