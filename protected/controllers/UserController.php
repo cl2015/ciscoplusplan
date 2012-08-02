@@ -194,6 +194,7 @@ class UserController extends Controller {
             if ($model->validate()) {
                 if (isset($model->code) && $model->code != null && $model->code != '') {
                     $user = User::model()->findByAttributes(array('code' => $model->code));
+                    
                     if ($user->has_reged){
                     	$message['email'] = Yii::t('default', 'This code has been reged.');
                     }elseif ($user === null) {
@@ -209,6 +210,8 @@ class UserController extends Controller {
                         $message['email'] = Yii::t('default', 'reg error.');
                     }elseif( $user->email == '' || $model->email == $user->email){
                     	$user->email = $model->email;
+                    	
+						$user->setScenario('loading');
                     	if($user->save()){
                     		if ($user->login()) {
                     			if($user->type_id == 1){
@@ -222,6 +225,7 @@ class UserController extends Controller {
                     			$messge['email'] = Yii::t('default', "error");
                     		}
                     	}else{
+                    		var_dump($user->errors);
                     		$messge['email'] = Yii::t('default', "error");
                     	}
                     }else{
