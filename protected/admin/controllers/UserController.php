@@ -260,6 +260,8 @@ class UserController extends Controller {
     }
 
     public function actionPhpexcels() {
+    	ini_set('memory_limit', '1280M');
+    	ini_set('memory_limit', '1280M');
         //分页方法
         $criteria = new CDbCriteria();
         $criteria->order = 't.updated_at desc';

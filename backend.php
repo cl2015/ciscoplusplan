@@ -11,7 +11,7 @@ define('BASE_PATH', dirname(__FILE__));
 define('DS', DIRECTORY_SEPARATOR);
 
 //change the following paths if necessary
-$yii=dirname(__FILE__).'/../../../yii/framework/yii.php';
+$yii=dirname(__FILE__).'/../yii/framework/yii.php';
 require_once($yii);
 require_once(BASE_PATH . '/protected/components/Globals.php');
 require_once(BASE_PATH . '/protected/config/constants.php');
