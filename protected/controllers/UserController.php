@@ -195,7 +195,6 @@ class UserController extends Controller {
                         //type6
                         $user = User::model()->findByAttributes(array('code' => $model->code, 'has_reged' => 0, 'type_id' => 6, 'email' => ''));
                         if ($user === null) {
-                            $message['email'] = Yii::t('default', 'You enter the code has exceeded the upper limit.');
                             $message['code'] = Yii::t('default', 'You enter the code has exceeded the upper limit.');
                         } else {
                             $user->attributes = $_POST['User'];

@@ -322,7 +322,7 @@ class User extends CActiveRecord {
             $getJobTitleOptions = $this->getJobTitleOptions();
             return isset($getJobTitleOptions[$id]) ?
                     $getJobTitleOptions[$id] :
-                    "未知类型({$id})";
+                    "{$id}";
         } else {
             return '不明';
         }
@@ -347,6 +347,7 @@ class User extends CActiveRecord {
             1 => 'nomination',
             2 => 'internal',
             4 => 'public',
+            6=>'Sponsor',
         );
     }
 
