@@ -222,17 +222,29 @@ class UserController extends Controller {
                     				$this->redirect(array('attendeeUpdate'));
                     			}
                     		} else {
-                    			$messge['email'] = Yii::t('default', "error");
+                    			$message['email'] = Yii::t('default', "error");
                     		}
                     	}else{
-                    		var_dump($user->errors);
-                    		$messge['email'] = Yii::t('default', "error");
+                    		$message['email'] = Yii::t('default', "error");
                     	}
                     }else{
-                    	$messge['email'] = Yii::t('default', "error");
+                    	$message['email'] = Yii::t('default', "error");
                     }
                 } else {
-                	$messge['email'] = Yii::t('default', "error");
+                	$user = User::model()->findByAttributes(array('email' => $model->email));
+                	if ($user === null) {//attendee,web
+                		$model->type_id = 4;
+                		if ($model->save()) {
+                			if ($model->login()) {
+                				$this->redirect(array('attendeeUpdate'));
+                			} else {
+                				$message['email'] = Yii::t('default', "error");
+                			}
+                		}
+                		$message['email'] = Yii::t('default', 'reg error.');
+                	}else{
+                		$message['email'] = Yii::t('default', "error");
+                	}
                 }
             }
         }
