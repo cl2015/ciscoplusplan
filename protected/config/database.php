@@ -11,8 +11,8 @@ $databaseConfig = array(
         'db'=>array(
             'connectionString' => 'mysql:host=localhost;dbname=cisco',
             'emulatePrepare' => true,
-            'username' => 'root',
-            'password' => 'dev',
+            'username' => 'brightac',
+            'password' => 'brightacdev',
             'charset' => 'utf8',
         ),
 //        'db'=>array(
