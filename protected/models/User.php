@@ -247,6 +247,7 @@ class User extends TrackStarActiveRecord {
             6 => Yii::t('default', 'Management Without Staff'),
             7 => Yii::t('default', 'Employee'),
             8 => Yii::t('default', 'Office Administration'),
+            9 => Yii::t('default', 'Engineer'),
         //9 => Yii::t('default','Other'),
         );
     }

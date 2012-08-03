@@ -7,7 +7,7 @@ if(Yii::app()->language == 'zh_cn'){?>
 </p>
 <p>
 	<?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
-		您已成功完成支付，您的参会码是：<?php echo $model->id;?> ，请保管好您的参会码，此码是您参会的唯一凭证。<br />
+		您的参会码是：<?php echo $model->id;?> ，请保管好您的参会码，此码是您参会的唯一凭证。<br />
 
 	<?php }?>
 

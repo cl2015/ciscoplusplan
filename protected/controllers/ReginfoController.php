@@ -30,7 +30,7 @@ class ReginfoController extends Controller {
                 'users' => array('*'),
             ),
             array('allow', // allow all users to perform 'index' and 'view' actions
-                'actions' => array('attending', 'receivegegpay', 'payment', 'nominationConfirmation', 'employeeConfirmation', 'ordinaryConfirmation', 'attendeeConfirmation', 'pay', 'payOnline'),
+                'actions' => array('attending', 'receivegegpay', 'payment', 'nominationConfirmation', 'employeeConfirmation', 'ordinaryConfirmation', 'attendeeConfirmation', 'pay', 'payOnline','unpayConfirmation'),
                 'users' => array('@'),
             ),
             array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -208,7 +208,6 @@ class ReginfoController extends Controller {
             $payment->user_id = $user->id;
         }
         $model->setScenario('payment');
-        $post=0;
         if (isset($_POST['Reginfo']) && isset($_POST['Payment'])) {
             $model->attributes = $_POST['Reginfo'];
             $paymenttype=$model->payment_type;
@@ -218,7 +217,7 @@ class ReginfoController extends Controller {
             if ($model->validate() && $payment->validate()) {
                 if ($model->save() && $payment->save()) {
                     if ($paymenttype != 2) {
-                        $this->redirect(array('reginfo/ordinaryConfirmation'));
+                        $this->redirect(array('reginfo/unpayConfirmation'));
                     } else {
                         $this->redirect(array('reginfo/payOnline'));
                     }
@@ -229,9 +228,21 @@ class ReginfoController extends Controller {
         $this->render('payment', array('model' => $model, 'payment' => $payment));
     }
 
+    public function actionUnpayConfirmation(){
+        $user = $this->loadUser(Yii::app()->user->id);
+        $reginfo = Reginfo::model()->findbyAttributes(array('user_id' => $user->id));
+        if ($reginfo === null) {
+            $reginfo = new Reginfo();
+            $reginfo->user_id = $user->id;
+            $reginfo->save();
+        }
+        $this->sendMail('email_false',$user->email, $user->cc, $user, $reginfo);
+        $this->sendSms($user, $reginfo);
+        $this->render('unpayConfirmation', array('model' => $user, 'reginfo' => $reginfo));
+    }
     public function actionConfirmation() {
         $user = $this->loadUser(Yii::app()->user->id);
-        $this->sendMail('email','li.he@brightac.com.cn', 'cranelee@gmail.com', $user);
+       // $this->sendMail('email','li.he@brightac.com.cn', 'cranelee@gmail.com', $user);
         $this->render('confirmation', array('user' => $user));
     }
 
@@ -302,8 +313,8 @@ class ReginfoController extends Controller {
             } else {
                 $model->is_online = 3; //在线支付失败
                 $model->save();
-               // $this->sendMail('email',$user->email, $user->cc, $user, $reginfo);
-              //  $this->sendSms($user, $reginfo);
+                $this->sendMail('email',$user->email, $user->cc, $user, $reginfo);
+                $this->sendSms($user, $reginfo);
                 $this->render('regpayfalse', array('model' => $user, 'reginfo' => $reginfo));
                 //echo "支付失败";
             }
@@ -322,8 +333,8 @@ class ReginfoController extends Controller {
             $reginfo->user_id = $user->id;
             $reginfo->save();
         }
-        // $this->sendMail('email',$user->email, $user->cc, $user, $reginfo);
-        // $this->sendSms($user, $reginfo);
+         $this->sendMail('email',$user->email, $user->cc, $user, $reginfo);
+         $this->sendSms($user, $reginfo);
         $this->render('nominationConfirmation', array('model' => $user, 'reginfo' => $reginfo));
     }
 
@@ -349,8 +360,8 @@ class ReginfoController extends Controller {
             $reginfo->user_id = $user->id;
             $reginfo->save();
         }
-        // $this->sendMail('email',$user->email, $user->cc, $user, $reginfo);
-        //$this->sendSms($user, $reginfo);
+        $this->sendMail('email',$user->email, $user->cc, $user, $reginfo);
+        $this->sendSms($user, $reginfo);
         $this->render('ordinaryConfirmation', array('model' => $user, 'reginfo' => $reginfo));
     }
 
