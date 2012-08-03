@@ -7,7 +7,7 @@
 	?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> 
-	感谢您注册Cisco Plus大中华区北京站活动！<br />
+	感谢您注册Cisco Plus大中华区广州站活动！<br />
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
@@ -40,7 +40,7 @@
 <p>
 	我们期待着您的参与！ <br/>
 	问题或建议,请发送电子邮件至:gc_cisco_plus@external.cisco.com<br/>
-	或致电: 400-156-3788
+	或致电: 400-890-9901
 <p>
 <p>
 	<b>Cisco Plus大中华区活动会务组</b>
@@ -52,7 +52,7 @@
 
 Dear <?php echo $model->full_name;?> ,
 <p>
-Thank you for registering for Cisco Plus 2012 Beijing.<br />
+Thank you for registering for Cisco Plus 2012 guagnzhou.<br />
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 <b>Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.</b><br />
 <?php }?>
@@ -84,7 +84,7 @@ We look forward to seeing you!
 </p>
 <?php }?>
 <p> 
-If you have any questions concerning your registration, please mail to: gc_cisco_plus@external.cisco.com  or call: 400-156-3788<br />
+If you have any questions concerning your registration, please mail to: gc_cisco_plus@external.cisco.com  or call: 400-890-9901<br />
 </p> 
 <p>  
 Cisco Plus 2012 Greater China Event Committee Team

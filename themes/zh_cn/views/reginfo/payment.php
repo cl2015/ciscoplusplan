@@ -15,6 +15,11 @@
 }
 -->
 </style>
+<?php if($post==1){
+    echo "<SCRIPT>
+window.open ('/index?r=reginfo/payOnline','newwindow','toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+</SCRIPT> ";
+}?>
 <?php
  $paydate = '8月15日-9月18日';
  $price = '528';

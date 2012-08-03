@@ -208,8 +208,8 @@ class ReginfoController extends Controller {
             $payment->user_id = $user->id;
         }
         $model->setScenario('payment');
+        $post=0;
         if (isset($_POST['Reginfo']) && isset($_POST['Payment'])) {
-
             $model->attributes = $_POST['Reginfo'];
             $paymenttype=$model->payment_type;
             $payment->attributes = $_POST['Payment'];

@@ -3,10 +3,10 @@
 	src="<?php echo Yii::app()->request->baseUrl; ?>/images/step3.png" />
 </br>
 <p>
-	尊敬的<?php echo $user->full_name;?>先生/女士:<br /> 感谢您注册北京 Cisco Plus 2012 <br />
+	尊敬的<?php echo $user->full_name;?>先生/女士:<br /> 感谢您注册广州 Cisco Plus 2012 <br />
 </p>
 <p>
-	您的注册ID号是：<?php echo $user->id;?> ，请保存好这个信息，以便日后使用。<br />
+	您的参会码是：<?php echo $user->id;?> ，请保管好您的参会码，此码是您参会的唯一凭证。<br />
 </p>
 
 <p>
@@ -14,12 +14,12 @@
 </p>
 <p>
 
-	会议日期：2012 年 5 月 22-23 日<br /> 会议地点：国家会议中心 <br />
+	会议日期：2012 年 9 月 20 日<br /> 会议地点：广州白云万达希尔顿酒店 <br />
 </p>
 <p>
 
 	仍存在疑问？请发送电子邮件至:<a href="gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com<br /> 或致电Cisco Plus:
-	4001563788<br />
+	 400-890-9901<br />
 <p>
 <p>
 	<b>Cisco Plus 2012注册团队</b>

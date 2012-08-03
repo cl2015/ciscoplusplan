@@ -22,13 +22,6 @@
 		<?php echo $form->error($model,'is_online'); ?>
 	</div>
 	<div style="clear:both;"></div>
-<?php if(Yii::app()->language=='en'){?>
-<img src=http://www.ciscopluschina.com/EN/images/agenda.gif align=center>
-
-<?php }else{?>
-<img src=http://www.ciscopluschina.com/images/agenda.gif align=center>
-<?php }?>
-
 
 	<div class="row buttons">
 		<?php echo CHtml::Button(Yii::t('default','back'),array('class'=>'submitBg',"onclick"=>"javascript:history.go(-1)")); ?>
