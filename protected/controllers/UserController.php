@@ -197,7 +197,9 @@ class UserController extends Controller {
             		$message['email'] = '邮箱已使用。';
             	} elseif (isset($model->code) && $model->code != null && $model->code != '') {
                     $user = User::model()->findByAttributes(array('code' => $model->code));
-                    if ($user->has_reged){
+                    if ($user === null) {
+                    	$message['code'] = Yii::t('default', 'error code');
+                    }elseif ($user->has_reged){
                     	$message['email'] = Yii::t('default', 'This code has been reged.');
                     }elseif ($user === null) {
                     	//public
@@ -229,7 +231,7 @@ class UserController extends Controller {
                     		$message['email'] = Yii::t('default', "error");
                     	}
                     }else{
-                    	$message['email'] = Yii::t('default', "error");
+                    	$message['email'] = Yii::t('default', "error email");
                     }
                 } else {
                 	$user = User::model()->findByAttributes(array('email' => $model->email));
