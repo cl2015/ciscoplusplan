@@ -24,14 +24,12 @@ if(Yii::app()->language == 'zh_cn'){?>
 		请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>，专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 </p>
-<?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
 <p>
-	会议日期：2012 年 5 月 22-23 日 <br />
+	会议日期：2012年9月20日 <br />
 	签到时间：早八点开始<br />
-	会议地点：国家会议中心<br />
+	会议地点：广州白云万达希尔顿酒店<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
 </p>
-<?php }?>
 <p>
 	我们期待着您的参与！ <br/>
 	问题或建议,请发送电子邮件至:<a href="mailto:gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com</a><br/>

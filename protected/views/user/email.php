@@ -31,9 +31,9 @@
 	
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 	<p>
-	会议日期：2012 年 5 月 22-23 日 <br />
+	会议日期：2012年9月20日 <br />
 	签到时间：早八点开始<br />
-	会议地点：国家会议中心<br />
+	会议地点：广州白云万达希尔顿酒店<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
 </p>
 <?php }?>
