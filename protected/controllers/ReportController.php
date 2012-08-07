@@ -62,6 +62,7 @@ class ReportController extends Controller
 	}
 
 	public function actionAllUsers(){
+		ini_set('memory_limit', '1280M');
 		//$user = $this->loadUser(Yii::app()->user->id);
 		$user = new User();
 		$user->email = 'admin';
