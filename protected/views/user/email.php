@@ -72,9 +72,9 @@ This email address and password were used to login the active site of the Genera
 <?php }?>
 </p>
 <p>
-Event Date:           Mar 22-23, 2012<br />
+Event Date:           2012.9.3<br />
 Sign in time:         Start from 8:00 AM<br />
-Venue:                China National Convention Center,Beijing, PRC<br />
+Venue:                Hilton Baiyun Hotel-Guangzhou<br />
 For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Cisco Plus Home Page</a>.<br />
 We look forward to seeing you!
 </p>

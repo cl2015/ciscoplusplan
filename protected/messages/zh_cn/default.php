@@ -9,7 +9,7 @@ return array(
 		//User
 		"Full Name"=>"姓名",
 		"Has Code"=>"是否有邀请码",
-		"Code"=>"邀请码（仅限受邀嘉宾填写)。",
+		"Code"=>"邀请码（仅限受邀嘉宾填写)",
 		"Email"=>"邮箱（参会嘉宾提供邮箱信息即可完成注册）",
 		"Password"=>"密码(6位数字密码)",
 		"Password2"=>"重复密码",
