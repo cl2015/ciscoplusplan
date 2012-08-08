@@ -1,7 +1,7 @@
 <?php
 return array(
 		"Full Name"=>"Full Name",
-		"Code"=>"If you have previously received an invitation code, please enter it below, if not, just click continue to enter the next page.",
+		"Code"=>"If you have previously received an invitation code, please enter it below, if not, just click continue to enter the next page",
 		"Password"=>"Password (6-digit password)",
 		"Password2"=>"Repeat Passwrod",
 		'Organisation'=>'Company',

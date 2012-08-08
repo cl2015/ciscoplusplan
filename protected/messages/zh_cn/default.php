@@ -1,5 +1,10 @@
 <?php
 return array(
+		'This code has been reged'=>'您输入的注册码已经被使用',
+		'This email has been reged'=>'邮箱已使用',
+		
+		
+		
 		'You enter the code has exceeded the upper limit.'=>'您输入的code已经超过使用上限。',
 		//User
 		"Full Name"=>"姓名",
@@ -18,7 +23,7 @@ return array(
 		"Province"=>"所在的省份",
 		"City"=>"所在的城市",
 		"Has Reged"=>'是否注册',
-		"error code"=>'错误的邀请码',
+		"error code"=>'已注册的邀请码',
 		"error email"=>'错误的邮箱',
 		
 		"Q1"=>"1.贵单位的网络建设的投资方向是?",

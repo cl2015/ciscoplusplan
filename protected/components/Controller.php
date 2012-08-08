@@ -135,9 +135,9 @@ class Controller extends CController
 		$message = '';
 		if(Yii::app()->language=='en'){
 			if(!($user->type_id== 4 && $reginfo->is_online==0)){
-				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Beijing. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Plus 2012 Event Committee Team] ';
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Guangzhou. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Plus 2012 Event Committee Team] ';
 			}else{
-				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Beijing. Please remember your email address ' .$user->email. ' and your password '. $user->password .' Log in www.ciscopluschina.com [Cisco Plus 2012 Event Committee Team]';
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Guangzhou. Please remember your email address ' .$user->email. ' and your password '. $user->password .' Log in www.ciscopluschina.com [Cisco Plus 2012 Event Committee Team]';
 
 			}
 		}else{

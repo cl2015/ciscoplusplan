@@ -113,11 +113,11 @@ div.form .password label {
 	</table>
 	<table width="100%">
 		<tr>
-			<td colspan=3><?php echo Yii::t('default','password info')?>
+			<td colspan=3><h3><strong><?php echo Yii::t('default','password info')?></strong></h3>
 			</td>
 		</tr>
 		<tr>
-			<td class="password" width="180px"><?php echo $form->labelEx($user, 'password'); ?>
+			<td class="password" width="180px"><h3><?php echo $form->labelEx($user, 'password'); ?></h3>
 			</td>
 			<td width='200px'><?php echo $form->passwordField($user, 'password'); ?>
 			</td>
@@ -125,7 +125,7 @@ div.form .password label {
 			</td>
 		</tr>
 		<tr>
-			<td class="password"><?php echo $form->labelEx($user, 'password2'); ?>
+			<td class="password"><h3><?php echo $form->labelEx($user, 'password2'); ?></h3>
 			</td>
 			<td><?php echo $form->passwordField($user, 'password2'); ?></td>
 			<td><?php echo $form->error($user, 'password'); ?>

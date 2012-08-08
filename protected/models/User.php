@@ -67,6 +67,8 @@ class User extends TrackStarActiveRecord {
         // will receive user inputs.
 
         $rules = array(
+        		
+        	array('mobile', 'unique','message' => '不能重复填写', 'on' => 'update'),
             array('password', 'compare', 'compareAttribute' => 'password2', 'on' => 'surveyUpdate'),
             array('password,password2', 'required', 'on' => 'surveyUpdate'),
             array('email', 'email', 'on' => 'loading'),
@@ -242,12 +244,12 @@ class User extends TrackStarActiveRecord {
             1 => Yii::t('default', 'CEO/Managing Director'),
             2 => Yii::t('default', 'CXO/Executive'),
             3 => Yii::t('default', 'CIO/IT Director'),
+        	10 => Yii::t('default', 'Engineer'),
             4 => Yii::t('default', 'Director/Senior Manager'),
             5 => Yii::t('default', 'Management With Staff'),
             6 => Yii::t('default', 'Management Without Staff'),
             7 => Yii::t('default', 'Employee'),
             8 => Yii::t('default', 'Office Administration'),
-            9 => Yii::t('default', 'Engineer'),
         //9 => Yii::t('default','Other'),
         );
     }

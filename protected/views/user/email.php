@@ -49,7 +49,7 @@
 
 Dear <?php echo $model->full_name;?> ,
 <p>
-Thank you for registering for Cisco Plus 2012 guagnzhou.<br />
+Thank you for registering for Cisco Plus 2012 Guangzhou.<br />
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 <b>Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.</b><br />
 <?php }?>

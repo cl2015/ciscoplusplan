@@ -194,13 +194,13 @@ class UserController extends Controller {
             if ($model->validate()) {
             	$users = User::model()->findAllByAttributes(array('email' =>$model->email));
             	if(count($users)>1){
-            		$message['email'] = '邮箱已使用。';
+            		$message['email'] = 'This email has been reged';
             	} elseif (isset($model->code) && $model->code != null && $model->code != '') {
                     $user = User::model()->findByAttributes(array('code' => $model->code));
                     if ($user === null) {
                     	$message['code'] = Yii::t('default', 'error code');
                     }elseif ($user->has_reged){
-                    	$message['email'] = Yii::t('default', 'This code has been reged.');
+                    	$message['email'] = Yii::t('default', 'This code has been reged');
                     }elseif ($user === null) {
                     	//public
                     	$model->type_id = 4;
@@ -246,7 +246,15 @@ class UserController extends Controller {
                 		}
                 		$message['email'] = Yii::t('default', 'reg error.');
                 	}else{
-                		$message['email'] = Yii::t('default', "error");
+                		if($user->type_id == 4 && $user->has_reged == 0){
+                			if ($model->login()) {
+                				$this->redirect(array('attendeeUpdate'));
+                			} else {
+                				$message['email'] = Yii::t('default', "error");
+                			}
+                		}else{
+                			$message['email'] = Yii::t('default', "error email");
+                		}
                 	}
                 }
             }else{
