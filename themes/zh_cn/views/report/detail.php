@@ -114,6 +114,7 @@ td {
 	<table class="mytable"  style="width: 986px; margin-left: -39px;">
 		<tr>
 			<th style="width: 30px;">状态</th>
+			<th style="width: 30px;">邀请码</th>
 			<th style="width: 100px;">公司名称</th>
 			<th style="width: 80px;">与思科公司的关系</th>
 			<th style="width: 40px;">姓名</th>
@@ -137,6 +138,7 @@ td {
 		<?php foreach ($model as $row) {?>
 		<tr>
 			<td><?php echo $row['has_reged']=="1"?'已注册':'未注册'?>&nbsp;</td>
+			<td><?php echo $row['code'];?>&nbsp;</td>
 			<td><?php echo $row['organisation'];?>&nbsp;</td>
 			<td><?php if(isset($relation[$row['relation_with_cisco']])){
 				echo $relation[$row['relation_with_cisco']];

@@ -320,21 +320,27 @@ class UserController extends Controller {
     }
 
     public function actionCheck($email, $password, $callback) {
-        $user = User::model()->findByAttributes(array('email' => $email));
+        $newUser = User::model()->checkUser($email, $password);
+        $oldUser = OldUser::model()->checkOldUser($email, $password);
         $retArr = array();
-        if ($user === null) {
-            $retArr['status'] = 'false';
-            $retArr['user'] = array();
-            $retArr['url'] = 'http://www.ciscopluschina.com';
-        } elseif ($user->password != $user->encrypt($password)) {
-            $retArr['status'] = 'false';
-            $retArr['user'] = array();
-            $retArr['url'] = 'http://www.ciscopluschina.com';
-        } else {
-            $retArr['status'] = 'true';
-            $retArr['user'] = array('id' => $user->id, 'email' => $user->email);
-            $retArr['url'] = '';
+        $user = null;
+        if($newUser === null){
+        	if($oldUser === null){
+        		$retArr['status'] = 'false';
+        		$retArr['user'] = array();
+        		$retArr['url'] = 'http://www.ciscopluschina.com';
+        	}else{
+        		$user = $oldUser;
+        	}
+        }else{
+        	$user = $newUser;
         }
+        if($user!=null){
+	        $retArr['status'] = 'true';
+	        $retArr['user'] = array('id' => $user->id, 'email' => $user->email);
+	        $retArr['url'] = '';
+        }
+        
         //echo $CJavaScript::jsonEncode(array($retArr));
         echo $callback . '(\'' . CJavaScript::jsonEncode(array($retArr)) . '\')';
         Yii::app()->end();

@@ -647,5 +647,18 @@ class User extends TrackStarActiveRecord {
         $data = $dbCommand->queryAll();
         return $data;
     }
+    
+    public function checkUser($email,$password){
+    	$user = User::model()->findByAttributes(array('email' => $email));
+    	if($user === null){
+    		return null;
+    	}else{
+    		if($user->password != $user->encrypt($password)) {
+    			return null;
+    		} else {
+    			return $user;
+    		}
+    	}
+    }
 
 }
