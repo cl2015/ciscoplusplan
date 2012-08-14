@@ -4,11 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
 <link rel="shortcut icon" href="http://www.cisco.com/favicon.ico">
-<?php if(Yii::app()->language=='zh_cn') {?>
 <title>Cisco Plus大中华区活动2012</title>
-<?php }else{?>
-<title>Cisco Plus Greater China 2012</title>
-<?php }?>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
 <!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
@@ -40,8 +36,6 @@ track: function (er)
 </script>
 </head>
 <body>
-<?php if(Yii::app()->language=='zh_cn') {?>
-
 <div id="box">
   <div class="header" >
     <ul style="width: 450px;">
@@ -63,24 +57,6 @@ track: function (er)
 	
   </div>
 </div>
-<?php }else{?>
-<div id="box">
-  <div class="header">
-    <ul>
-      <li style=" margin-right:25px;"><?php echo CHtml::link('中文',array('user/language','language'=>'zh_cn'));?> | <?php echo CHtml::link('En',array('user/language','language'=>'en'));?></li>
- 	  <li><a href="#" onClick="javascript:window.open('http://www.ciscopluschina.com/pop.html','','width=268,height=190,toolbar=no, status=no, menubar=no, resizable=no, scrollbars=no');return false;">Login</a>　|</li>
-      <li><?php echo CHtml::link('Register',array('user/loading'));?>　|</li>
-      <li><a href="http://www.ciscopluschina.com/contact.html">Contact Us</a>　|</li>
-      <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscopluschina.com/index.html">Homepage</a></li>
-    </ul>
-  </div>
-  <div class="mainBg"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/mainBg_en.jpg" /></div>
-  <div class="mainContent">
-    <?php echo $content; ?>
-	
-  </div>
-</div>
-<?php }?>
 
 </body>
 </html>

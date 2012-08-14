@@ -135,7 +135,7 @@ td {
 			<td><?php echo $total['total'];?></td>
 			<td> - </td>
 			<td><?php echo $total['registration'];?></td>
-			<td><?php echo sprintf("%01.2f",$total['registration']*100/$total['total']);?>%</td>
+			<td><?php echo $total['total']==0?'-':sprintf("%01.2f",$total['registration']*100/$total['total']);?>%</td>
 		</tr>
 	</table>
 </div>
