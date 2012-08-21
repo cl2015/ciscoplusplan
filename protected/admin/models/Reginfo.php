@@ -164,5 +164,23 @@ class Reginfo extends CActiveRecord {
                 $OnlineOptions[$id] :
                 "unknown type ({$id})";
     }
+    
+    public function getBackendOnlineText($id){
+    	$OnlineOptions = $this->getBackendOnlineOptions();
+    	if (!empty($id)) {
+    		return isset($OnlineOptions[$id]) ?
+    		$OnlineOptions[$id] :
+    		"未知类型({$id})";
+    	} else {
+    		return $OnlineOptions[0];
+    	}
+    }
+    
+    public function getBackendOnlineOptions(){
+    	return array(
+    			0 => '线上',
+    			1 => '现场',
+    	);
+    }
 
 }

@@ -61,7 +61,7 @@ $this->breadcrumbs = array(
             echo '已注册';
         }
        ?></td>
-        <td><?php echo CHtml::encode(Reginfo::model()->getOnlineText($user->reginfo['is_online'])); ?></td>
+        <td><?php echo CHtml::encode(Reginfo::model()->getBackendOnlineText($user->reginfo['is_online'])); ?></td>
         <td><?php echo $user->organisation; ?></td>
         <td><?php echo $user->full_name; ?></td>
         <td> <?php echo $user->email; ?></td>

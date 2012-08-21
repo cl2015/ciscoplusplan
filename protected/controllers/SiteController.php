@@ -102,5 +102,35 @@ class SiteController extends Controller {
     public function actionBegin() {
         $this->render('begin');
     }
+    
+    public function actionMakeUsers() {
+    	//echo floor(microtime()*1000);
+    	set_time_limit(0);
+    	ini_set('memory_limit','16M');
+    	$users = User::model()->findAll();
+    	$code = 1000;
+    	foreach($users as $user){
+    		//echo $user->id;
+    		for($i=0;$i<$user->ec_mobile+3;$i++){
+    			try{
+    				//echo $i;
+    				$copy = new User;
+    				$copy->am_id = trim($user->am_id);
+    				$copy->am_name = trim($user->am_name);
+    				$copy->rm_id = trim($user->rm_id);
+    				$copy->rm_name = trim($user->rm_name);
+    				$copy->od_id = trim($user->od_id);
+    				$copy->od_name = trim($user->od_name);
+    				$copy->diff = trim($user->diff);
+    				$copy->type_id = 1;
+    				$copy->cc = $copy->am_id;
+    				$copy->code = 'nom' . $code;
+    				$code++;
+    				//$copy->save();
+    			}catch (Exception $e){
+    			}
+    		}
+    	}
+    }
 
 }
