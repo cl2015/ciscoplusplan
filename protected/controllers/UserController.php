@@ -194,7 +194,7 @@ class UserController extends Controller {
             if ($model->validate()) {
             	$users = User::model()->findAllByAttributes(array('email' =>$model->email));
             	$reged_user = User::model()->findAllByAttributes(array('email'=>$model->email,'has_reged'=>1));
-            	if(count($users)>1 || !$reged_user===null){
+            	if(count($users)>1 || $reged_user!=null){//已经注册的email
             		$message['email'] = 'This email has been reged';
             	} elseif (isset($model->code) && $model->code != null && $model->code != '') {
             		//先检查是不是一对多code
