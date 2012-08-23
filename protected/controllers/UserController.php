@@ -193,46 +193,89 @@ class UserController extends Controller {
             $model->attributes = $_POST['User'];
             if ($model->validate()) {
             	$users = User::model()->findAllByAttributes(array('email' =>$model->email));
-            	if(count($users)>1){
+            	$reged_user = User::model()->findAllByAttributes(array('email'=>$model->email,'has_reged'=>1));
+            	if(count($users)>1 || !$reged_user===null){
             		$message['email'] = 'This email has been reged';
             	} elseif (isset($model->code) && $model->code != null && $model->code != '') {
-                    $user = User::model()->findByAttributes(array('code' => $model->code));
-                    if ($user === null) {
-                    	$message['code'] = Yii::t('default', 'error code');
-                    }elseif ($user->has_reged){
-                    	$message['email'] = Yii::t('default', 'This code has been reged');
-                    }elseif ($user === null) {
-                    	//public
-                    	$model->type_id = 4;
-                        if ($model->save()) {
-                            if ($model->login()) {
-                                $this->redirect(array('attendeeUpdate'));
-                            } else {
-                                $messge['email'] = Yii::t('default', "error");
-                            }
-                        }
-                        $message['email'] = Yii::t('default', 'reg error.');
-                    }elseif( $user->email == '' || $model->email == $user->email){
-                    	$user->email = $model->email;
-						$user->setScenario('loading');
-                    	if($user->save()){
-                    		if ($user->login()) {
-                    			if($user->type_id == 1){
-                    				$this->redirect(array('nominationUpdate'));
-                    			}elseif($user->type_id == 2){
-                    				$this->redirect(array('employeeUpdate'));
-                    			}else{
-                    				$this->redirect(array('attendeeUpdate'));
-                    			}
-                    		} else {
-                    			$message['email'] = Yii::t('default', "error");
-                    		}
-                    	}else{
-                    		$message['email'] = Yii::t('default', "error");
-                    	}
-                    }else{
-                    	$message['email'] = Yii::t('default', "error email");
-                    }
+            		//先检查是不是一对多code
+            		$users = User::model()->findAllByAttributes(array('code' => $model->code));
+            		if(count($users)>1){
+            			$user = User::model()->findByAttributes(array('code' =>$model->code,'has_reged'=>0,'email'=>$model->email));
+            			if($user === null){//未注册
+            				$user = User::model()->findByAttributes(array('code' =>$model->code,'has_reged'=>0,'email'=>''));
+            				if($user === null){
+            					$message['email'] = Yii::t('default', "error");
+            				}else{
+            					$user->email = $model->email;
+            					$user->setScenario('loading');
+            					if($user->save()){
+            						if ($user->login()) {
+            							if($user->type_id == 1){
+            								$this->redirect(array('nominationUpdate'));
+            							}elseif($user->type_id == 2){
+            								$this->redirect(array('employeeUpdate'));
+            							}else{
+            								$this->redirect(array('attendeeUpdate'));
+            							}
+            						} else {
+            							$message['email'] = Yii::t('default', "error");
+            						}
+            					} else {
+            						$message['email'] = Yii::t('default', "error");
+            					}
+            				}
+            			}else{//已注册一半
+            				if ($user->login()) {
+            					if($user->type_id == 1){
+            						$this->redirect(array('nominationUpdate'));
+            					}elseif($user->type_id == 2){
+            						$this->redirect(array('employeeUpdate'));
+            					}else{
+            						$this->redirect(array('attendeeUpdate'));
+            					}
+            				} else {
+            					$message['email'] = Yii::t('default', "error");
+            				}
+            			}
+            		}else{
+	                    $user = User::model()->findByAttributes(array('code' => $model->code));
+	                    if ($user === null) {
+	                    	$message['code'] = Yii::t('default', 'error code');
+	                    }elseif ($user->has_reged){
+	                    	$message['email'] = Yii::t('default', 'This code has been reged');
+	                    }elseif ($user === null) {
+	                    	//public
+	                    	$model->type_id = 4;
+	                        if ($model->save()) {
+	                            if ($model->login()) {
+	                                $this->redirect(array('attendeeUpdate'));
+	                            } else {
+	                                $messge['email'] = Yii::t('default', "error");
+	                            }
+	                        }
+	                        $message['email'] = Yii::t('default', 'reg error.');
+	                    }elseif( $user->email == '' || $model->email == $user->email){
+	                    	$user->email = $model->email;
+							$user->setScenario('loading');
+	                    	if($user->save()){
+	                    		if ($user->login()) {
+	                    			if($user->type_id == 1){
+	                    				$this->redirect(array('nominationUpdate'));
+	                    			}elseif($user->type_id == 2){
+	                    				$this->redirect(array('employeeUpdate'));
+	                    			}else{
+	                    				$this->redirect(array('attendeeUpdate'));
+	                    			}
+	                    		} else {
+	                    			$message['email'] = Yii::t('default', "error");
+	                    		}
+	                    	}else{
+	                    		$message['email'] = Yii::t('default', "error");
+	                    	}
+	                    }else{
+	                    	$message['email'] = Yii::t('default', "error email");
+	                    }
+            		}
                 } else {
                 	$user = User::model()->findByAttributes(array('email' => $model->email));
                 	if ($user === null) {//attendee,web

@@ -108,12 +108,12 @@ class SiteController extends Controller {
     	set_time_limit(0);
     	ini_set('memory_limit','16M');
     	$users = User::model()->findAll();
-    	$code = 1000;
+    	$code = 2400;
     	foreach($users as $user){
-    		//echo $user->id;
+    		echo 'user id is : ' . $user->id . ' </br>' ;
     		for($i=0;$i<$user->ec_mobile+3;$i++){
     			try{
-    				//echo $i;
+    				echo $i . ' </br>';
     				$copy = new User;
     				$copy->am_id = trim($user->am_id);
     				$copy->am_name = trim($user->am_name);
