@@ -103,6 +103,97 @@ class SiteController extends Controller {
         $this->render('begin');
     }
     
+    public function actionTest() {
+    	//Cisco Plus Sponsors CODE统计_0827_V2_for 李贺
+    	/**
+    	$sponsors = array(
+    			"Intel	0	2	intl",
+    			"DC	30	15	dcdc",
+    			"Citrix	30	15	ctrx",
+    			"APC	20	10	apcc",
+    			"ECCOM	5	10	ecco",
+    			"Ingram Micro	44	14	igmc",
+    			"Didata	15	10	dida",
+    			"Panduit	14	11	pand",
+    			"Macroview	15	15	macr",
+    			"Vega	20	11	vega");
+    	
+    	foreach($sponsors as $sponsor){
+    		$index = 1000;
+    		$sponsor_arr = explode("\t", $sponsor);
+    		for($i=0;$i<$sponsor_arr[1];$i++){
+    			//echo $sponsor ."\t" . $sponsor_arr[3].$index . "<br/>" ;
+    			$index++;
+    		}
+    	}
+    	foreach($sponsors as $sponsor){
+    		$index = "0000";
+    		$sponsor_arr = explode("\t", $sponsor);
+    		for($i=0;$i<$sponsor_arr[2];$i++){
+    			//echo $sponsor ."\t" . $sponsor_arr[3].$index . "<br/>" ;
+    		}
+    	}
+    	*/
+//     	//0829
+//     	$nom = array(
+//     			"LENT	Danny Zhao	186331	13903071617	jiazhao	wenyong	80524	William Ho	154478	10",
+//     	);
+//     	foreach($nom as $item){
+//     		$arr = explode("\t", $item);
+//     		for($i=0;$i<$arr[9];$i++){
+//     			echo $item . "</br>";
+//     		}
+//     	}
+    	//0829
+//     	$nom = array(
+//     				"James Yang	zhayang	18688922571	Service	Kenneth NG	Kenneng	Beth Xu	bxu	20",
+//     	);
+//     	foreach($nom as $item){
+//     		$arr = explode("\t", $item);
+//     		for($i=0;$i<$arr[8];$i++){
+//     			echo $item . "</br>";
+//     		}
+//     	}
+
+    	//(*)AM姓名	(*)AM ID	(*)AM 手机	(*)AM部门	(*)RM姓名	(*)RM ID	(*)OD姓名	(*)OD ID
+    	$nom = array(
+    			"Mandy Xiao	jiaxiao	18621363889	PBG	Arnold Sun 	arsun	Patrick Shao	pshao	19",
+"Angela Shen	rushen	18601362025	PBG	Arnold Sun 	arsun	Patrick Shao	pshao	58",
+"Anita	anishen	13926089966	PBG	tonyliu	tliu	William Ho	wiho	13",
+"Gary Xu	haixu	13822295102	SE	Ma du	duma	william Ho	wiho	8",
+"Robin Chen	lumichen	13925010260	SE	Aivy Tan	aivtan	William Ho	wiho	5",
+"Zhang Bin	binzhan	18666094872	SE	zheng jun	junzheng	Jerry Fan	jfan	19",
+"Vincent Chen	vincentc	13322800930	SE	Ma du	duma	william Ho	wiho	32",
+"Tony Hu	tonhu	13322800727	SE	Ma du	duma	William Ho	wiho	17",
+"Jia Peng	pejia	18602010345	SE	刘湘晖	tliu	何达	wiho 	8",
+"Mandy Huang	manhuang	18688862842	SE	Ervin Wen	wenyong	William Ho	wiho	10",
+"Liu Yun	yunliu2	18677184618	SE	tony  liu	tliu	William Ho 	wiho	7",
+    	);
+    $index = 2964;
+    	foreach($nom as $item){
+    		$arr = explode("\t", $item);
+    		for($i=0;$i<$arr[8];$i++){
+    			echo 
+    			$arr[0] . ";"//am name
+    			.$arr[1] . ";"//am id
+    			.$arr[2] . ";"//mobile
+    			.$arr[3] . ";"//am depart
+    			.$arr[4] . ";"//rm name
+    			.$arr[5] . ";"//rm id
+    			.$arr[6] . ";"//od name
+    			.$arr[7] . ";"//od id
+    			."nom$index" . ";"//code
+    			. "</br>";
+    			
+//     			echo "insert into users
+//     			(diff,cc,am_name,am_id,am_mobile,rm_name,rm_id,od_name,od_id,code,type_id) 
+//     			values('$arr[3]','$arr[1]@cisco.com','$arr[0]','$arr[1]','$arr[2]','$arr[4]','$arr[5]','$arr[6]','$arr[7]','nom$index',1);";
+    			$index++;
+    		}
+    	}
+		exit;
+    }
+    
     public function actionMakeUsers() {
     	//echo floor(microtime()*1000);
     	set_time_limit(0);
