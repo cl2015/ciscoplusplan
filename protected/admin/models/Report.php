@@ -186,7 +186,7 @@ class Report extends CFormModel {
 	}
 	
 	public function diffNomination(){
-		$dbCommand = Yii::app()->db->createCommand('select diff,count(1) as total,sum(has_reged) as registration  from users where type_id = 1 group by diff');
+		$dbCommand = Yii::app()->db->createCommand('select diff,count(1) as total,sum(has_reged) as registration  from users where type_id < 2 group by diff');
 		$result = $dbCommand->queryAll();
 		return $result;
 	}
