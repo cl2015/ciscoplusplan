@@ -156,42 +156,95 @@ class SiteController extends Controller {
 //     	}
 
     	//(*)AM姓名	(*)AM ID	(*)AM 手机	(*)AM部门	(*)RM姓名	(*)RM ID	(*)OD姓名	(*)OD ID
-    	$nom = array(
-    			"Mandy Xiao	jiaxiao	18621363889	PBG	Arnold Sun 	arsun	Patrick Shao	pshao	19",
-"Angela Shen	rushen	18601362025	PBG	Arnold Sun 	arsun	Patrick Shao	pshao	58",
-"Anita	anishen	13926089966	PBG	tonyliu	tliu	William Ho	wiho	13",
-"Gary Xu	haixu	13822295102	SE	Ma du	duma	william Ho	wiho	8",
-"Robin Chen	lumichen	13925010260	SE	Aivy Tan	aivtan	William Ho	wiho	5",
-"Zhang Bin	binzhan	18666094872	SE	zheng jun	junzheng	Jerry Fan	jfan	19",
-"Vincent Chen	vincentc	13322800930	SE	Ma du	duma	william Ho	wiho	32",
-"Tony Hu	tonhu	13322800727	SE	Ma du	duma	William Ho	wiho	17",
-"Jia Peng	pejia	18602010345	SE	刘湘晖	tliu	何达	wiho 	8",
-"Mandy Huang	manhuang	18688862842	SE	Ervin Wen	wenyong	William Ho	wiho	10",
-"Liu Yun	yunliu2	18677184618	SE	tony  liu	tliu	William Ho 	wiho	7",
-    	);
-    $index = 2964;
-    	foreach($nom as $item){
-    		$arr = explode("\t", $item);
-    		for($i=0;$i<$arr[8];$i++){
-    			echo 
-    			$arr[0] . ";"//am name
-    			.$arr[1] . ";"//am id
-    			.$arr[2] . ";"//mobile
-    			.$arr[3] . ";"//am depart
-    			.$arr[4] . ";"//rm name
-    			.$arr[5] . ";"//rm id
-    			.$arr[6] . ";"//od name
-    			.$arr[7] . ";"//od id
-    			."nom$index" . ";"//code
-    			. "</br>";
+//     	$nom = array(
+//     			"Mandy Xiao	jiaxiao	18621363889	PBG	Arnold Sun 	arsun	Patrick Shao	pshao	19",
+// "Angela Shen	rushen	18601362025	PBG	Arnold Sun 	arsun	Patrick Shao	pshao	58",
+// "Anita	anishen	13926089966	PBG	tonyliu	tliu	William Ho	wiho	13",
+// "Gary Xu	haixu	13822295102	SE	Ma du	duma	william Ho	wiho	8",
+// "Robin Chen	lumichen	13925010260	SE	Aivy Tan	aivtan	William Ho	wiho	5",
+// "Zhang Bin	binzhan	18666094872	SE	zheng jun	junzheng	Jerry Fan	jfan	19",
+// "Vincent Chen	vincentc	13322800930	SE	Ma du	duma	william Ho	wiho	32",
+// "Tony Hu	tonhu	13322800727	SE	Ma du	duma	William Ho	wiho	17",
+// "Jia Peng	pejia	18602010345	SE	刘湘晖	tliu	何达	wiho 	8",
+// "Mandy Huang	manhuang	18688862842	SE	Ervin Wen	wenyong	William Ho	wiho	10",
+// "Liu Yun	yunliu2	18677184618	SE	tony  liu	tliu	William Ho 	wiho	7",
+//     	);
+//     $index = 2964;
+//     	foreach($nom as $item){
+//     		$arr = explode("\t", $item);
+//     		for($i=0;$i<$arr[8];$i++){
+//     			echo 
+//     			$arr[0] . ";"//am name
+//     			.$arr[1] . ";"//am id
+//     			.$arr[2] . ";"//mobile
+//     			.$arr[3] . ";"//am depart
+//     			.$arr[4] . ";"//rm name
+//     			.$arr[5] . ";"//rm id
+//     			.$arr[6] . ";"//od name
+//     			.$arr[7] . ";"//od id
+//     			."nom$index" . ";"//code
+//     			. "</br>";
     			
-//     			echo "insert into users
-//     			(diff,cc,am_name,am_id,am_mobile,rm_name,rm_id,od_name,od_id,code,type_id) 
-//     			values('$arr[3]','$arr[1]@cisco.com','$arr[0]','$arr[1]','$arr[2]','$arr[4]','$arr[5]','$arr[6]','$arr[7]','nom$index',1);";
-    			$index++;
-    		}
-    	}
-		exit;
+// //     			echo "insert into users
+// //     			(diff,cc,am_name,am_id,am_mobile,rm_name,rm_id,od_name,od_id,code,type_id) 
+// //     			values('$arr[3]','$arr[1]@cisco.com','$arr[0]','$arr[1]','$arr[2]','$arr[4]','$arr[5]','$arr[6]','$arr[7]','nom$index',1);";
+//     			$index++;
+//     		}
+//     	}
+
+//     	$sponsors = array(
+//     			"Xiaotong	10	31	xiao",
+// "NetApp	0	25	neta",
+// "Vmware	0	25	vmwa"
+//     			);
+//     foreach($sponsors as $sponsor){
+//     	$index = 1000;
+//     	$sponsor_arr = explode("\t", $sponsor);
+//     	for($i=0;$i<$sponsor_arr[2];$i++){
+//     		echo $sponsor ."\t" . $sponsor_arr[3].$index . "<br/>" ;
+//     		//$index++;
+//     	}
+//     }
+//    	header("Content-type:application/vnd.ms-excel;charset=utf8"); //表示输出Excel文件
+//    	header("Content-Disposition:attachment; filename=导出.xls");//文件名
+//     	echo 'a'.chr(9).'b'.chr(9). iconv("utf8", "gb2312//IGNORE", '中文')  .chr(9).chr(13);
+//     	echo 'aaa'.chr(9).'bbb'.chr(9).'ccc'.chr(9).chr(13);
+// 		exit;
+//$this->layout = false;
+ //   	$this->render('test');
+    	header("Content-type:text/html;charset=utf8");
+//     header("Content-type:application/vnd.ms-excel;charset=utf8");
+//     header("Content-Disposition:attachment; filename=导出.xls");
+    	
+    	    	$nom = 
+    	    			"Du Hong	hodu	18676666061	GD Commercial	Ma du	duma	william Ho	wiho	45
+林翔	xianlin	18928800998	SP	Derek Tse	dtse	Ben wu	wub	25
+Yu Yiqiang	yiqyu	13302201278	GD COMM	MA DU	duma	William Ho	wiho	50";
+    	    	
+    	    	$delimiter = "\t";
+    $nom_arr = explode("\n",$nom);
+    	    $index = 3160;
+    	    	foreach($nom_arr as $item){
+    	    		$arr = explode("\t", $item);
+    	    		for($i=0;$i<$arr[8];$i++){
+    	    			//echo
+    	    			$arr[0] . $delimiter//am name
+    	    			.$arr[1] . $delimiter//am id
+    	    			.$arr[2] . $delimiter//mobile
+    	    			.$arr[3] . $delimiter//am depart
+    	    			.$arr[4] . $delimiter//rm name
+    	    			.$arr[5] . $delimiter//rm id
+    	    			.$arr[6] . $delimiter//od name
+    	    			.$arr[7] . $delimiter//od id
+    	    			."nom$index" . $delimiter//code
+    	    			. "\n";
+    	
+    	    			echo "insert into users
+    	    			(diff,cc,am_name,am_id,am_mobile,rm_name,rm_id,od_name,od_id,code,type_id)
+    	    			values('$arr[3]','$arr[1]@cisco.com','$arr[0]','$arr[1]','$arr[2]','$arr[4]','$arr[5]','$arr[6]','$arr[7]','nom$index',1);<br/>";
+    	    			$index++;
+    	    		}
+    	    	}
     }
     
     public function actionMakeUsers() {
