@@ -293,6 +293,7 @@ class User extends CActiveRecord {
             'VIP'=>'VIP',
             'Ground Total'=>'Ground Total',
         	'PSS'=>'PSS',
+        	'speaker'=>'speaker',
         );
     }
     public function getlanguage() {
