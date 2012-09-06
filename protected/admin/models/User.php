@@ -287,11 +287,12 @@ class User extends CActiveRecord {
             'PBG'=>'PBG',
             'SP'=>'SP',
             'Service'=>'Service',
-            'SEs'=>'SEs',
+            'SE'=>'SE',
             'Sponsors'=>'Sponsors',
             'Internal'=>'Internal',
             'VIP'=>'VIP',
             'Ground Total'=>'Ground Total',
+        	'PSS'=>'PSS',
         );
     }
     public function getlanguage() {
