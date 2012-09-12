@@ -135,7 +135,9 @@ class UserController extends Controller {
         }
         if (isset($_POST['User'])) {
             $model->attributes = $_POST['User'];
-            if ($model->save())
+            $payment->attributes = $_POST['Payment'];
+            $reginfo->attributes = $_POST['Reginfo'];
+            if ($model->save()&&$payment->save()&&$reginfo->save())
                 $this->redirect(array('view', 'id' => $model->id));
         }
 
