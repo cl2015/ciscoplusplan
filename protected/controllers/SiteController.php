@@ -217,17 +217,21 @@ class SiteController extends Controller {
 //     header("Content-Disposition:attachment; filename=导出.xls");
     	
     	    	$nom = 
-    	    			"Du Hong	hodu	18676666061	GD Commercial	Ma du	duma	william Ho	wiho	45
-林翔	xianlin	18928800998	SP	Derek Tse	dtse	Ben wu	wub	25
-Yu Yiqiang	yiqyu	13302201278	GD COMM	MA DU	duma	William Ho	wiho	50";
+    	    			"Iris FENG	fxiaoyun	13925121638	FSI	Hunter LIN	jinlin	William Ho	wiho	19
+Paul Pang	paupang	18688862984	FSI	Hunter LIN	jinlin	William Ho	wiho	13
+AndyCao 	xucao	13802945932	LENT	Ervin Wen	wenyong	william ho	wiho	10
+Stacey Geng	xigeng	13902257948	LENT	Ervin Wen	wenyong	william ho	wiho	20
+Jack He	kahe	13380071555	LENT	Ervin Wen	wenyong	william ho	wiho	25
+Zhao jiangtao	Jiazhao	13903071617	LENT	Wen yong	wenyong	william Ho	wiho	10
+huangjing 	kihuang	13902258841	LENT	Ervin wen	wenyong	william Ho	wiho	20";
     	    	
-    	    	$delimiter = "\t";
+    	    	$delimiter = ";";
     $nom_arr = explode("\n",$nom);
-    	    $index = 3160;
+    	    $index = 3370;
     	    	foreach($nom_arr as $item){
     	    		$arr = explode("\t", $item);
     	    		for($i=0;$i<$arr[8];$i++){
-    	    			//echo
+    	    		//	echo
     	    			$arr[0] . $delimiter//am name
     	    			.$arr[1] . $delimiter//am id
     	    			.$arr[2] . $delimiter//mobile
@@ -237,13 +241,17 @@ Yu Yiqiang	yiqyu	13302201278	GD COMM	MA DU	duma	William Ho	wiho	50";
     	    			.$arr[6] . $delimiter//od name
     	    			.$arr[7] . $delimiter//od id
     	    			."nom$index" . $delimiter//code
-    	    			. "\n";
+    	    			. "<br/>";
     	
-    	    			echo "insert into users
+    	    			echo 
+    	    			"insert into users
     	    			(diff,cc,am_name,am_id,am_mobile,rm_name,rm_id,od_name,od_id,code,type_id)
-    	    			values('$arr[3]','$arr[1]@cisco.com','$arr[0]','$arr[1]','$arr[2]','$arr[4]','$arr[5]','$arr[6]','$arr[7]','nom$index',1);<br/>";
+    	    			values('$arr[3]','$arr[1]@cisco.com','$arr[0]','$arr[1]','$arr[2]','$arr[4]','$arr[5]','$arr[6]','$arr[7]','nom$index',1);";
+    	    			echo "<br/>";
     	    			$index++;
     	    		}
+    	    		//echo "insert into users (type_id,email) values (10,'$arr[1]'),(11,'$arr[5]'),(12,'$arr[7]') ;";
+    	    		echo "<br/>";
     	    	}
     }
     
