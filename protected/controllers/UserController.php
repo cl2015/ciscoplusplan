@@ -197,6 +197,11 @@ class UserController extends Controller {
             	if(count($users)>1 || $reged_user!=null){//已经注册的email
             		$message['email'] = 'This email has been reged';
             	} elseif (isset($model->code) && $model->code != null && $model->code != '') {
+            		
+            		//已关闭
+            		$this->redirect(array('site/index'));
+            		Yii::app()->end();
+            		
             		//先检查是不是一对多code
             		$users = User::model()->findAllByAttributes(array('code' => $model->code));
             		if(count($users)>1){
