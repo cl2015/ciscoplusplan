@@ -120,7 +120,7 @@ td {
 			$total['total']+= $row['total'];
 			$total['payment']+= $row['payment'];
 			$total['paid']+= $row['paid'];
-			if($row['map_loca']=='Other cities'){
+			if($row['map_loca']=='Other'){
 				$other = $row;
 			}else{
 		?>
@@ -132,7 +132,7 @@ td {
 		</tr>
 		<?php }}?>
 		<tr>
-			<td>Other cities</td>
+			<td>Other</td>
 			<td><?php echo $other['total'] - $other['payment'];?></td>
 			<td><?php echo $other['payment'];?></td>
 			<td><?php echo $other['paid'];?></td>
