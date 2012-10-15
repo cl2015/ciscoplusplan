@@ -175,10 +175,10 @@ class ReginfoController extends Controller {
         if (isset($_POST['Reginfo'])) {
             $model->attributes = $_POST['Reginfo'];
             //close onsite login
-            if(!$model->is_online == 0){
-            	$this->redirect(array('site/index'));
-				Yii::app()->end();
-            }
+//             if(!$model->is_online == 0){
+//             	$this->redirect(array('site/index'));
+// 				Yii::app()->end();
+//             }
             
             if ($model->save()) {
                 if ($model->is_online == 0) {
