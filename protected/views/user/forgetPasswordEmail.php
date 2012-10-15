@@ -3,7 +3,7 @@
 <img src="http://223.4.134.123/images/mainBg.jpg" />
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> 
-	感谢您注册Cisco Plus大中华区广州站活动！<br />
+	感谢您注册Cisco Plus大中华区武汉站活动！<br />
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
@@ -24,9 +24,9 @@
 	
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 	<p>
-	会议日期：2012年9月20日 <br />
+	会议日期：2012年11月22日 <br />
 	签到时间：早八点开始<br />
-	会议地点：广州白云万达希尔顿酒店<br />
+	会议地点：武汉万达威斯汀酒店<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
 </p>
 <?php }?>

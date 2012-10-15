@@ -16,14 +16,15 @@
 -->
 </style>
 <?php
-if($model->created_at<'2012-04-24 00:00:00'){
-	$price = '948.00';
-}elseif($model->created_at<'2012-05-08 00:00:00'){
-	$price = '948.00';
-}elseif($model->created_at<'2012-05-21 00:00:00'){
-	$price = '1,264.00';
+$paydate = '';
+if($model->created_at<'2012-11-21 00:00:00'){
+	$price = '436.00';
+	$paydate = '10月15日-11月20日';
+	$discount = '6折';
 }else{
-	$price = '1,580.00';
+	$price = '728.00';
+	$paydate = '11月21日-11月22日';
+	$discount = '';
 }
 ?>
 
@@ -52,7 +53,7 @@ if($model->created_at<'2012-04-24 00:00:00'){
 					id="Reginfo_payment_type_0" type="radio"
 					name="Reginfo[payment_type]" value="1" <?php if($model->payment_type = 0){ echo 'checked';}?>> 现场付款
 					（如选择线下付款，请在5月18日以前完成付款）<br /> <?php echo $form->error($model,'payment_type'); ?>
-					您需要支付的票价为：<?php echo $price;?>元人民币（03月16日-05月07日）<br /> <span class="required">*</span>
+					您需要支付的票价为：<?php echo $price;?>元人民币 <?php echo $discount;?>（<?php echo $paydate;?>）<br /> <span class="required">*</span>
 					是否需要开具发票？ <?php echo $form->radioButtonList($payment, 'is_invoice', array(1=>'是',0=>'否'), array('separator' => '&nbsp;', 'template' => '{input} {label}'));?>
 					<br /> <?php echo $form->error($payment,'is_invoice'); ?> <span
 					class="required">*</span> 发票开具抬头： <?php echo $form->textField($payment,'invoice_title',array('size'=>60,'maxlength'=>512)); ?>

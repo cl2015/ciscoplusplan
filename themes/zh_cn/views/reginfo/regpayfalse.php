@@ -46,7 +46,7 @@
 <?php if(Yii::app()->language == 'zh_cn'){?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> <br />
-	感谢您注册Cisco Plus大中华区广州站现场活动。<br />
+	感谢您注册Cisco Plus大中华区武汉站现场活动。<br />
 </p>
 <p>
 	<?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
@@ -78,9 +78,9 @@
 </p>
 
 <p>
-	会议日期：2012年9月20日 <br />
+	会议日期：2012年11月22日 <br />
 	签到时间：早八点开始<br />
-	会议地点：广州白云万达希尔顿酒店<br />
+	会议地点：武汉万达威斯汀酒店<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
 </p>
 <?php }?>
@@ -98,7 +98,7 @@
 Dear <?php echo $model->full_name;?> ,<br /> <br />
 </p>
 <p>
-Thank you for registering for Cisco Plus 2012 Guangzhou.<br />
+Thank you for registering for Cisco Plus 2012 WuHan.<br />
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
@@ -133,9 +133,9 @@ Accounts Company: Beijing Dunhuang Xiu Fu Consulting Limited liability company <
 </p>
 
 <p>
-Event Date:           Mar 22-23, 2012<br />
+Event Date:           Nov 22, 2012<br />
 Sign in time:         Start from 8:00 AM<br />
-Venue:                China National Convention Center,Beijing, PRC<br />
+Venue:                The Westin Wuhan Wuchang, PRC<br />
 For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Cisco Plus Home Page</a>.<br />
 We look forward to seeing you!
 </p>

@@ -1,13 +1,19 @@
 <br />
 <?php if(Yii::app()->language == 'zh_cn'){?>
 <img src="http://223.4.134.123/images/mainBg.jpg" />
-	<?php 
-		$paydate = '8月15日-9月18日';
-		$price = '528.00';
+	<?php
+		$today = date("Y-m-d");
+		if($today<'2012-11-22'){
+			$paydate = '10月15日-11月20日';
+			$price = '436.00';
+		}else{
+			$paydate = '11月21日-11月22日';
+			$price = '728.00';
+		}
 	?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> 
-	感谢您注册Cisco Plus大中华区广州站活动！<br />
+	感谢您注册Cisco Plus大中华区武汉站活动！<br />
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
@@ -29,9 +35,9 @@
 	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 	<p>
-	会议日期：2012年9月20日 <br />
+	会议日期：2012年11月22日 <br />
 	签到时间：早八点开始<br />
-	会议地点：广州白云万达希尔顿酒店<br />
+	会议地点：武汉万达威斯汀酒店<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
 </p>
 <p>
@@ -49,7 +55,7 @@
 
 Dear <?php echo $model->full_name;?> ,
 <p>
-Thank you for registering for Cisco Plus 2012 Guangzhou.<br />
+Thank you for registering for Cisco Plus 2012 WuHan.<br />
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 <b>Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.</b><br />
 <?php }?>
@@ -72,9 +78,9 @@ This email address and password were used to login the active site of the Genera
 <?php }?>
 </p>
 <p>
-Event Date:           2012.9.3<br />
+Event Date:           2012.11.22<br />
 Sign in time:         Start from 8:00 AM<br />
-Venue:                Hilton Baiyun Hotel-Guangzhou<br />
+Venue:                The Westin Wuhan Wuchang<br />
 For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Cisco Plus Home Page</a>.<br />
 We look forward to seeing you!
 </p>

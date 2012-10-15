@@ -17,17 +17,14 @@
 </style>
 <?php
 $paydate = '';
-if($model->created_at<'2012-04-24 00:00:00'){
-	$price = '948.00';
-	$paydate = '03月16日-05月07日';
-}elseif($model->created_at<'2012-05-08 00:00:00'){
-	$price = '948.00';
-	$paydate = '05月08日-05月20日';
-}elseif($model->created_at<'2012-05-21 00:00:00'){
-	$price = '1,264.00';
+if($model->created_at<'2012-11-21 00:00:00'){
+	$price = '436.00';
+	$paydate = '10月15日-11月20日';
 }else{
-	$price = '1,580.00';
+	$price = '728.00';
+	$paydate = '11月21日-11月22日';
 }
+
 ?>
 
 

@@ -47,7 +47,7 @@
 if(Yii::app()->language == 'zh_cn'){?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> <br />
-	感谢您注册Cisco Plus大中华区广州站活动。<br />
+	感谢您注册Cisco Plus大中华区武汉站活动。<br />
 </p>
 <p>
         您的参会码是：<?php echo $model->id;?> ，请保管好您的参会码，此码是您参会的唯一凭证。<br />
@@ -64,9 +64,9 @@ if(Yii::app()->language == 'zh_cn'){?>
 	开户公司：北京敦煌秀富咨询有限责任公司<br/>
 </p>
 <p>
-	会议日期：2012年9月20日 <br />
+	会议日期：2012年11月22日 <br />
 	签到时间：早八点开始<br />
-	会议地点：广州白云万达希尔顿酒店<br />
+	会议地点：武汉万达威斯汀酒店<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
 </p>
 <p>
@@ -83,7 +83,7 @@ if(Yii::app()->language == 'zh_cn'){?>
 Dear <?php echo $model->full_name;?> ,<br /> <br />
 </p>
 <p>
-Thank you for registering for Cisco Plus 2012 Guangzhou.<br />
+Thank you for registering for Cisco Plus 2012 WuHan.<br />
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
@@ -109,9 +109,9 @@ This email address and password were used to login the active site of the Genera
 </p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
 <p>
-Event Date:           Mar 22-23, 2012<br />
+Event Date:           Nov 22, 2012<br />
 Sign in time:         Start from 8:00 AM<br />
-Venue:                China National Convention Center,Guangzhou, PRC<br />
+Venue:                The Westin Wuhan Wuchang, PRC<br />
 For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Cisco Plus Home Page</a>.<br />
 We look forward to seeing you!
 </p>

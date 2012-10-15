@@ -135,14 +135,14 @@ class Controller extends CController
 		$message = '';
 		if(Yii::app()->language=='en'){
 			if(!($user->type_id== 4 && $reginfo->is_online==0)){
-				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Guangzhou. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Plus 2012 Event Committee Team] ';
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 WuHan. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Plus 2012 Event Committee Team] ';
 			}else{
-				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 Guangzhou. Please remember your email address ' .$user->email. ' and your password '. $user->password .' Log in www.ciscopluschina.com [Cisco Plus 2012 Event Committee Team]';
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 WuHan. Please remember your email address ' .$user->email. ' and your password '. $user->password .' Log in www.ciscopluschina.com [Cisco Plus 2012 Event Committee Team]';
 
 			}
 		}else{
 			if(!($user->type_id== 4 && $reginfo->is_online==0)){
-				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Plus大中华区广州站活动！您的参会码是 ' .$user->id . '。【Cisco Plus大中华区活动会务组】';
+				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Plus大中华区武汉站活动！您的参会码是 ' .$user->id . '。【Cisco Plus大中华区活动会务组】';
 			}else{
 				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Plus大中华区活动！凭注册邮箱和密码登录了解最新信息视频。【Cisco Plus大中华区活动会务组】';
 			}
