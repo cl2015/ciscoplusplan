@@ -199,8 +199,8 @@ class UserController extends Controller {
             	} elseif (isset($model->code) && $model->code != null && $model->code != '') {
             		
             		//已关闭
-            		$this->redirect(array('site/index'));
-            		Yii::app()->end();
+//             		$this->redirect(array('site/index'));
+//             		Yii::app()->end();
             		
             		//先检查是不是一对多code
             		$users = User::model()->findAllByAttributes(array('code' => $model->code));
