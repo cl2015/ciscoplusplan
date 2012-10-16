@@ -21,10 +21,21 @@
 		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>256)); ?>
 	</div>
 
-        <div class="row">
+    <div class="row">
 		<?php echo $form->labelEx($model,'relation_with_cisco'); ?> 
 		<?php echo $form->dropDownList($model, 'relation_with_cisco', User::model()->getRelationOptions(),array('prompt'=>'请选择')); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->label($model,'weibo'); ?>
+		<?php echo $form->textField($model,'weibo',array('size'=>60,'maxlength'=>256)); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->label($model,'tencent'); ?>
+		<?php echo $form->textField($model,'tencent',array('size'=>60,'maxlength'=>256)); ?>
+	</div>
+	
 	<div class="row">
 		<?php echo $form->label($model,'organisation'); ?>
 		<?php echo $form->textField($model,'organisation',array('size'=>60,'maxlength'=>256)); ?>

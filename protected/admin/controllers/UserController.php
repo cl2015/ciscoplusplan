@@ -210,6 +210,14 @@ class UserController extends Controller {
             $criteria->condition .= " and   t.organisation=:organisation";
             $params[':organisation'] = $model->organisation;
         }
+        if (isset($model->weibo) && !empty($model->weibo)) {
+        	$criteria->condition .= " and  t.weibo=:weibo";
+        	$params[':weibo'] = $model->weibo;
+        }
+        if (isset($model->tencent) && !empty($model->tencent)) {
+        	$criteria->condition .= " and  t.tencent=:tencent";
+        	$params[':tencent'] = $model->tencent;
+        }
         if (isset($model->full_name) && !empty($model->full_name)) {
             $criteria->condition .= " and   t.full_name=:full_name";
             $params[':full_name'] = $model->full_name;
@@ -275,6 +283,8 @@ class UserController extends Controller {
         $array[0][] = "付款状态";
         $array[0][] = "公司名称";
         $array[0][] = "与思科公司关系";
+        $array[0][] = "新浪微博";
+        $array[0][] = "腾讯微博";
         $array[0][] = "姓名";
 
         $array[0][] = "职务级别";
@@ -326,6 +336,8 @@ class UserController extends Controller {
             $array[$i][] = $has_paid;
             $array[$i][] = CHtml::encode($data->organisation);
             $array[$i][] = CHtml::encode(User::model()->getRelationOptionsText($data->relation_with_cisco));
+            $array[$i][] = CHtml::encode($data->weibo);
+            $array[$i][] = CHtml::encode($data->tencent);
             $array[$i][] = CHtml::encode($data->full_name);
 
             $array[$i][] = CHtml::encode(User::model()->getJobTitleText($data->job_title));

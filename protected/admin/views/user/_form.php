@@ -69,6 +69,16 @@
 		<td><?php echo $form->dropDownList($model, 'relation_with_cisco', User::model()->getRelationOptions()); ?> </td>
 		<td><?php echo $form->error($model,'relation_with_cisco'); ?> </td>
 	</tr>
+	<tr>
+		<td><?php echo $form->labelEx($model,'weibo'); ?> </td>
+		<td><?php echo $form->textField($model,'weibo',array('size'=>60,'maxlength'=>255)); ?> </td>
+		<td><?php echo $form->error($model,'weibo'); ?> </td>
+	</tr>
+	<tr>
+		<td><?php echo $form->labelEx($model,'tencent'); ?> </td>
+		<td><?php echo $form->textField($model,'tencent',array('size'=>60,'maxlength'=>255)); ?> </td>
+		<td><?php echo $form->error($model,'tencent'); ?> </td>
+	</tr>
         <tr>
 		<td><?php echo $form->labelEx($model,'full_name'); ?> </td>
 		<td><?php echo $form->textField($model,'full_name',array('size'=>60,'maxlength'=>256)); ?> </td>

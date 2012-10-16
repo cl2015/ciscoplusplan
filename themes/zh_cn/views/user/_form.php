@@ -154,6 +154,16 @@
 		<td><?php echo $form->error($model,'ec_mobile'); ?></td>
 	</tr>
 -->
+		<tr>
+			<td><?php echo $form->labelEx($model,'weibo'); ?></td>
+			<td><?php echo $form->textField($model,'weibo',array('size'=>60,'maxlength'=>255)); ?></td>
+			<td><?php echo $form->error($model,'weibo'); ?></td>
+		</tr>
+		<tr>
+			<td><?php echo $form->labelEx($model,'tencent'); ?></td>
+			<td><?php echo $form->textField($model,'tencent',array('size'=>60,'maxlength'=>255)); ?></td>
+			<td><?php echo $form->error($model,'tencent'); ?></td>
+		</tr>
 	</table>
 	<div class="row buttons">
 		<?php //echo CHtml::Button('back',array("onclick"=>"javascript:history.go(-1)")); ?>

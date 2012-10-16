@@ -41,6 +41,8 @@ $this->breadcrumbs = array(
         <th style="width:100px; background-color:#C5FBBD;">RM姓名</th>
         <th style="width:100px; background-color:#C5FBBD;">OD姓名</th>
         <th style="width:100px; background-color:#C5FBBD;">与思科的关系</th>
+        <th style="width:100px; background-color:#C5FBBD;">新浪微博</th>
+        <th style="width:100px; background-color:#C5FBBD;">腾讯微博</th>
 
         <th style="width:120px; background-color:#C5FBBD;">操作</th>
     </tr>
@@ -70,6 +72,8 @@ $this->breadcrumbs = array(
         <td> <?php echo $user->rm_name; ?></td>
         <td> <?php echo $user->od_name; ?></td>
         <td><?php echo CHtml::encode(User::model()->getRelationOptionsText($user->relation_with_cisco)); ?></td>
+        <td> <?php echo $user->weibo; ?></td>
+        <td> <?php echo $user->tencent; ?></td>
         <td>
 <?php echo CHtml::link('删除', "#", array("submit" => array("user/delete", 'id' => $user->id), 'confirm' => '确定要删除吗')); ?>
     <?php echo CHtml::link('编辑', array("user/update",'id'=> $user->id)); ?>
@@ -78,7 +82,7 @@ $this->breadcrumbs = array(
             </tr>
             <?php endforeach; ?>
     <tr class="nobg">
-        <td colspan="13" style="height:30px;" class="tdpage">
+        <td colspan="15" style="height:30px;" class="tdpage">
             <?php
             $this->widget('CLinkPager', array(
                 'header' => '',

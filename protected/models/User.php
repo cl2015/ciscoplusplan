@@ -80,6 +80,7 @@ class User extends TrackStarActiveRecord {
             array('mobile', 'length', 'min' => 11,'on' => 'surveyUpdate,employeeUpdate'),
             //array('has_code, email,organisation, relation_with_cisco, job_title, department, working_phone_dis, working_phone, mobile, province, city', 'required','on' =>'update'),
             array('has_code, email,organisation, relation_with_cisco, job_title, department, mobile, province, city', 'required', 'on' => 'update'),
+        	array('weibo,tencent','safe'),
             array('has_code, created_by, mobile,updated_by,working_phone_dis', 'numerical', 'integerOnly' => true,'on' => 'surveyUpdate,employeeUpdate'),
             array('code', 'length', 'max' => 128),
             array('password', 'length', 'min' => 6, 'on' => 'surveyUpdate'),
@@ -147,6 +148,9 @@ class User extends TrackStarActiveRecord {
             'has_reged' => Yii::t('default', 'Has Reged'),
             'cc' => Yii::t('default', 'cc'),
             'others' => Yii::t('default', 'other'),
+        		
+        		'weibo' => Yii::t('default', 'weibo'),
+        		'tencent' => Yii::t('default', 'tencent'),
         );
     }
 

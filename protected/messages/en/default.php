@@ -30,4 +30,6 @@ return array(
 		
 		'confirmation' =>'Thanks For Joining Cisco Plus 2012',
 		
+		'weibo'=>'Your Sina Weibo Nickname',
+		'tencent'=>'Your QQ Weibo Nickname',
 		);

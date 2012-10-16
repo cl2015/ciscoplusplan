@@ -90,10 +90,10 @@ class User extends CActiveRecord {
             array('am_department, od_id, cc, am_name, am_id, am_mobile, rm_name, rm_id, od_name, map_dept, map_title, map_loca', 'length', 'max' => 255),
             array('diff, MAIL_ZIP, ImportDate, AUDIENCE, Category, COM_PHONE, STATUS, LAST_NAME, CONF_ID, LOCATION_ID, MAIL_STATE, MAIL_CITY', 'length', 'max' => 64),
             array('MAIL_COUNTRY', 'length', 'max' => 74),
-            array('created_at, updated_at', 'safe'),
+            array('weibo,tencent,created_at, updated_at', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('id, has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile, am_department, od_id, created_at, created_by, updated_at, updated_by, type_id, has_reged, has_sended, cc, am_name, am_id, am_mobile, rm_name, rm_id, od_name, diff, map_dept, map_title, map_loca, MAIL_ZIP, MAIL_COUNTRY, ImportDate, AUDIENCE, Category, COM_PHONE, STATUS, LAST_NAME, CONF_ID, LOCATION_ID, MAIL_STATE, MAIL_CITY', 'safe', 'on' => 'search'),
+            array('id, has_code, code, email, password, organisation, relation_with_cisco, full_name, job_title, department, working_phone_dis, working_phone, mobile, province, city, ec_name, ec_relationship, ec_mobile, am_department, od_id, created_at, created_by, updated_at, updated_by, type_id, has_reged, has_sended, cc, am_name, am_id, am_mobile, rm_name, rm_id, od_name, diff, map_dept, map_title, map_loca, MAIL_ZIP, MAIL_COUNTRY, ImportDate, AUDIENCE, Category, COM_PHONE, STATUS, LAST_NAME, CONF_ID, LOCATION_ID, MAIL_STATE, MAIL_CITY,weibo,tencent', 'safe', 'on' => 'search'),
         );
     }
 
@@ -165,6 +165,9 @@ class User extends CActiveRecord {
             'LOCATION_ID' => 'Location',
             'MAIL_STATE' => 'Mail State',
             'MAIL_CITY' => 'Mail City',
+        		
+        		'weibo' => Yii::t('default', 'weibo'),
+        		'tencent' => Yii::t('default', 'tencent'),
         );
     }
 
@@ -177,7 +180,6 @@ class User extends CActiveRecord {
         // should not be searched.
 
         $criteria = new CDbCriteria;
-
         $criteria->compare('id', $this->id);
         $criteria->compare('has_code', $this->has_code);
         $criteria->compare('code', $this->code, true);
@@ -185,6 +187,8 @@ class User extends CActiveRecord {
         $criteria->compare('password', $this->password, true);
         $criteria->compare('organisation', $this->organisation, true);
         $criteria->compare('relation_with_cisco', $this->relation_with_cisco, true);
+        $criteria->compare('weibo', $this->weibo, true);
+        $criteria->compare('tencent', $this->tencent, true);
         $criteria->compare('full_name', $this->full_name, true);
         $criteria->compare('job_title', $this->job_title, true);
         $criteria->compare('department', $this->department, true);

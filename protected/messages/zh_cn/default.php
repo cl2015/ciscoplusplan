@@ -50,7 +50,7 @@ return array(
 		'Onsite Event' => '参加现场活动（也可以免费参加线上活动）',
 		'onsite payment'=>'现场付费',
 		'online payment'=>'在线付费',
-                'offline payment'=>'线下付费',
+         'offline payment'=>'线下付费',
 		
 		'Payment Type'=>'支付方式',
 		
@@ -176,4 +176,7 @@ return array(
 		'other department,input here please'=>'如果是其他部门请在此输入：',
 		
 		'confirmation'=>'感谢您成功注册Cisco Plus大中华区武汉站活动',
+		
+		'weibo'=>'您的新浪微博昵称',
+		'tencent'=>'您的腾讯微博帐号',
 		);
