@@ -104,6 +104,28 @@ class SiteController extends Controller {
     }
     
     public function actionTest() {
+    	header("Content-type:text/html;charset=utf8");
+//     	header("Content-type:application/vnd.ms-excel;charset=utf8"); //表示输出Excel文件
+//     	header("Content-Disposition:attachment; filename=导出.xls");//文件名
+    	//2012-10-16 nom
+    	$nom = "Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	张惺	xingzha@cisco.com	50
+Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	戚宏飞	honqi@cisco.com	50
+Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	张涛	taozhang@cisco.com	50
+Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	王新	xinwang2@cisco.com	50
+Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	李刚	gali2@cisco.com	50
+Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	帅炜	wshuai@cisco.com	50
+Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	陈岭生	Ischen@cisco.com	50
+An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	安斐	feian@cisco.com	50
+An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	古效文	xiaogu@cisco.com	50
+An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	李松	songli@cisco.com	50
+An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	姚诚	chyao@cisco.com	50
+Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	赵树中	shuzhao@cisco.com	50
+Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	蒋国华	guohjian@cisco.com	50
+Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	孔燕	kongyan@cisco.com	50
+Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	汪笑夏	xiaoxwan@cisco.com	50
+Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	张凯	kaizh@cisco.com	50";
+    	$this->makeNom($nom, 1000);
+    	
     	//Cisco Plus Sponsors CODE统计_0827_V2_for 李贺
     	/**
     	$sponsors = array(
@@ -212,47 +234,127 @@ class SiteController extends Controller {
 // 		exit;
 //$this->layout = false;
  //   	$this->render('test');
-    	header("Content-type:text/html;charset=utf8");
+    	
 //     header("Content-type:application/vnd.ms-excel;charset=utf8");
 //     header("Content-Disposition:attachment; filename=导出.xls");
     	
-    	    	$nom = 
-    	    			"Iris FENG	fxiaoyun	13925121638	FSI	Hunter LIN	jinlin	William Ho	wiho	19
-Paul Pang	paupang	18688862984	FSI	Hunter LIN	jinlin	William Ho	wiho	13
-AndyCao 	xucao	13802945932	LENT	Ervin Wen	wenyong	william ho	wiho	10
-Stacey Geng	xigeng	13902257948	LENT	Ervin Wen	wenyong	william ho	wiho	20
-Jack He	kahe	13380071555	LENT	Ervin Wen	wenyong	william ho	wiho	25
-Zhao jiangtao	Jiazhao	13903071617	LENT	Wen yong	wenyong	william Ho	wiho	10
-huangjing 	kihuang	13902258841	LENT	Ervin wen	wenyong	william Ho	wiho	20";
+//     	    	$nom = 
+//     	    			"Iris FENG	fxiaoyun	13925121638	FSI	Hunter LIN	jinlin	William Ho	wiho	19
+// Paul Pang	paupang	18688862984	FSI	Hunter LIN	jinlin	William Ho	wiho	13
+// AndyCao 	xucao	13802945932	LENT	Ervin Wen	wenyong	william ho	wiho	10
+// Stacey Geng	xigeng	13902257948	LENT	Ervin Wen	wenyong	william ho	wiho	20
+// Jack He	kahe	13380071555	LENT	Ervin Wen	wenyong	william ho	wiho	25
+// Zhao jiangtao	Jiazhao	13903071617	LENT	Wen yong	wenyong	william Ho	wiho	10
+// huangjing 	kihuang	13902258841	LENT	Ervin wen	wenyong	william Ho	wiho	20";
     	    	
-    	    	$delimiter = ";";
-    $nom_arr = explode("\n",$nom);
-    	    $index = 3370;
-    	    	foreach($nom_arr as $item){
-    	    		$arr = explode("\t", $item);
-    	    		for($i=0;$i<$arr[8];$i++){
-    	    		//	echo
-    	    			$arr[0] . $delimiter//am name
-    	    			.$arr[1] . $delimiter//am id
-    	    			.$arr[2] . $delimiter//mobile
-    	    			.$arr[3] . $delimiter//am depart
-    	    			.$arr[4] . $delimiter//rm name
-    	    			.$arr[5] . $delimiter//rm id
-    	    			.$arr[6] . $delimiter//od name
-    	    			.$arr[7] . $delimiter//od id
-    	    			."nom$index" . $delimiter//code
-    	    			. "<br/>";
+//     	    	$delimiter = ";";
+//     $nom_arr = explode("\n",$nom);
+//     	    $index = 3370;
+//     	    	foreach($nom_arr as $item){
+//     	    		$arr = explode("\t", $item);
+//     	    		for($i=0;$i<$arr[8];$i++){
+//     	    		//	echo
+//     	    			$arr[0] . $delimiter//am name
+//     	    			.$arr[1] . $delimiter//am id
+//     	    			.$arr[2] . $delimiter//mobile
+//     	    			.$arr[3] . $delimiter//am depart
+//     	    			.$arr[4] . $delimiter//rm name
+//     	    			.$arr[5] . $delimiter//rm id
+//     	    			.$arr[6] . $delimiter//od name
+//     	    			.$arr[7] . $delimiter//od id
+//     	    			."nom$index" . $delimiter//code
+//     	    			. "<br/>";
     	
-    	    			echo 
-    	    			"insert into users
-    	    			(diff,cc,am_name,am_id,am_mobile,rm_name,rm_id,od_name,od_id,code,type_id)
-    	    			values('$arr[3]','$arr[1]@cisco.com','$arr[0]','$arr[1]','$arr[2]','$arr[4]','$arr[5]','$arr[6]','$arr[7]','nom$index',1);";
-    	    			echo "<br/>";
-    	    			$index++;
-    	    		}
-    	    		//echo "insert into users (type_id,email) values (10,'$arr[1]'),(11,'$arr[5]'),(12,'$arr[7]') ;";
-    	    		echo "<br/>";
-    	    	}
+//     	    			echo 
+//     	    			"insert into users
+//     	    			(diff,cc,am_name,am_id,am_mobile,rm_name,rm_id,od_name,od_id,code,type_id)
+//     	    			values('$arr[3]','$arr[1]@cisco.com','$arr[0]','$arr[1]','$arr[2]','$arr[4]','$arr[5]','$arr[6]','$arr[7]','nom$index',1);";
+//     	    			echo "<br/>";
+//     	    			$index++;
+//     	    		}
+//     	    		//echo "insert into users (type_id,email) values (10,'$arr[1]'),(11,'$arr[5]'),(12,'$arr[7]') ;";
+//     	    		echo "<br/>";
+//     	    	}
+    }
+    
+    public function makeNom($nom,$index){
+    	/**
+		 * 分区 	OD姓名 	OD Email 	RM姓名 	RM Email 	AM姓名 	AM Email 	邀请码数量 
+    	 */
+    	
+    	$delimiter = "</td><td>";
+    	$return = "</td></tr>";
+    	$nom_arr = explode("\n",$nom);
+    	
+    	$excel_arr = array();
+    	$rm_arr = array();
+    	$am_arr = array();
+    	$od_arr = array();
+    	foreach($nom_arr as $item){
+    		$arr = explode("\t", $item);
+    		$diff = addslashes($arr[0]);
+    		$od_name = $arr[1];
+    		$od_email = $arr[2];
+    		$od_id = str_replace('@cisco.com', '', $od_email);
+    		$rm_name = $arr[3];
+    		$rm_email = $arr[4];
+    		$rm_id = str_replace('@cisco.com', '', $rm_email);
+    		$am_name = $arr[5];
+    		$cc = $am_email = $arr[6];
+    		$am_id = str_replace('@cisco.com', '', $am_email);
+    		
+    		if(!in_array($am_id, $am_arr)){
+    			$am_arr[] = $am_id;
+    		}
+    		if(!in_array($rm_id, $rm_arr)){
+    			$rm_arr[] = $rm_id;
+    		}
+    		if(!in_array($od_id, $od_arr)){
+    			$od_arr[] = $od_id;
+    		}
+    		for($i=0;$i<$arr[7];$i++){
+    			$excel = 
+    			$arr[0] . $delimiter//diff
+    			.$arr[1] . $delimiter//od name
+    			.$arr[2] . $delimiter//od email
+    			.$arr[3] . $delimiter//rm name
+    			.$arr[4] . $delimiter//rm email
+    			.$arr[5] . $delimiter//am name
+    			.$arr[6] . $delimiter//am email
+    			."nom$index" . $delimiter ; //code
+    			
+    			$code = 'nom'.$index;
+    			
+    			
+    			$excel .= "insert into users (diff,cc,am_name,am_id,rm_name,rm_id,od_name,od_id,code,type_id) values ('$diff','$cc','$am_name','$am_id','$rm_name','$rm_id','$od_name','$od_id','$code',1);";
+    			
+    			$index++;
+    			$excel_arr[] = $excel;
+    		}
+    	}
+    	
+    	echo '<table>';
+    	foreach($am_arr as $am){
+    		echo '<tr><td>';
+    		echo "insert into users (type_id,email) values (10,'$am');";
+    		echo $return;
+    	}
+    	foreach($rm_arr as $rm){
+	    	echo '<tr><td>';
+    		echo "insert into users (type_id,email) values (11,'$rm');";
+	    	echo $return;
+    	}
+    	foreach($od_arr as $od){
+	    	echo '<tr><td>';
+    		echo "insert into users (type_id,email) values (12,'$od');";
+	    	echo $return;
+    	}
+    	
+    	foreach($excel_arr as $excel){
+	    	echo '<tr><td>';
+    		echo $excel;
+	    	echo $return;
+    	}
     }
     
     public function actionMakeUsers() {
