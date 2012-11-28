@@ -105,26 +105,111 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
-//     	header("Content-type:application/vnd.ms-excel;charset=utf8"); //表示输出Excel文件
-//     	header("Content-Disposition:attachment; filename=导出.xls");//文件名
-    	//2012-10-16 nom
-    	$nom = "Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	张惺	xingzha@cisco.com	50
-Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	戚宏飞	honqi@cisco.com	50
-Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	张涛	taozhang@cisco.com	50
-Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	王新	xinwang2@cisco.com	50
-Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	李刚	gali2@cisco.com	50
-Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	帅炜	wshuai@cisco.com	50
+//2012-11-15
+$nom="Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	李刚	gali2@cisco.com	80
+Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	戚宏飞	honqi@cisco.com	80
+TA	Jerry Fan	jfan@cisco.com	Peng Yuan	yuapeng@cisco.com	Zhang Yu	yuzhan3@cisco.com	20
+TA	Jerry Fan	jfan@cisco.com	Zhong Lizhan	lizzhong@cisco.com	Li Jingdong	jdli@cisco.com	20";
+$this->makeNom($nom, 2980);
+    	/**
+//2012-11-14
+$nom = "					Yurong Zhou	rozhou@cisco.com	100";
+$this->makeNom($nom,1200,'part');
+//2012.11.14
+    	echo 'insert into users (code,type_id,am_name,am) values ';
+    	for($i=0;$i<400;$i++){
+    		echo "('sino9999',2,'Sinobase','jane_yang'),";
+    	}
+//2012.11.12
+$nom  = "					Yurong Zhou	rozhou@cisco.com	150";
+$this->makeNom($nom, 1050,'part');  
+  		//2012-11-07
+		$nom = "SP	norman lam	norlam@cisco.com	刘水蓉	rongliu@cisco.com	马名裔	mingyma@cisco.com	50";
+		$this->makeNom($nom,2880);//next 2930
+    	
+    	echo 'insert into users (code,type_id,am_id,am_name) values ';
+    	$index = 9999;
+    	for($i=0;$i<300;$i++){
+    		echo "('nova$index',1,'novagin','novagin'),";
+    	}
+    	//2012-10-30
+		$nom = "Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	张涛	taozhang@cisco.com	100
 Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	陈岭生	Ischen@cisco.com	50
-An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	安斐	feian@cisco.com	50
-An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	古效文	xiaogu@cisco.com	50
-An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	李松	songli@cisco.com	50
-An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	姚诚	chyao@cisco.com	50
-Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	赵树中	shuzhao@cisco.com	50
-Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	蒋国华	guohjian@cisco.com	50
-Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	孔燕	kongyan@cisco.com	50
-Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	汪笑夏	xiaoxwan@cisco.com	50
-Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	张凯	kaizh@cisco.com	50";
-    	$this->makeNom($nom, 1000);
+					Service		50
+					Angela		20";
+		$this->makeNom($nom,2660);//next 2880
+    	
+    	//2012-10-25 nom
+    	$nom="SP	Norman Lan	norlam@cisco.com	Kathy Liu	rongliu@cisco.com	Eric Wang	erwang2@cisco.com	50
+SP	Charles Mah	chmah@cisco.com	Hua Lu	luhua@cisco.com	詹宁	nzhan@cisco.com	50
+SP	Min Wang	raymondw@cisco.com	Xurong Huang	xurhuang@cisco.com	Su Quandao	squandao@cisco.com	50
+SP	Ben Wu	wub@cisco.com	Vicky Chang	vichang@cisco.com	潘洪波	panpa@cisco.com	50";
+    	$this->makeNom($nom, 2460);//next 2660
+    	
+    	//2012-10-25 int
+    	echo 'insert into users (code,type_id,diff) values ';
+    	for($i=0;$i<200;$i++){
+    		echo "('inter9999',2,'inter'),";
+    	}
+    	//2012-10-24 nom
+    	echo 'insert into users (code,type_id) values ';
+    	$index = 1000;
+    	for($i=0;$i<30;$i++){
+    		echo "('tigg$index',1),";
+    		//,('vmwa$index',1),";
+    		//('tigg0000',1),";
+    		//echo "('dcdc$index',1),('ctrx$index',1),('xiao$index',1),";
+    		$index++ ;
+    	}
+		$nom = "					novagin	he.li@mdigi.cc	400";
+		$this->makeNom($nom, 1000,'nova');    	
+    	$nom = "					Yurong Zhou	rozhou@cisco.com	50";
+    	$this->makeNom($nom, 1000,'part');
+    	
+    	$nom = "					Lilian Lu	xiaojilu@cisco.com	50";
+    	$this->makeNom($nom, 1000,'ccie');
+//     	$nom = "Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	戚宏飞	honqi@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	陈岭生	Ischen@cisco.com	50";
+//     	$this->makeNom($nom, 2360);//next 2460
+    	//2012-10-19 nom
+//     	$nom = "Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	王新	xinwang2@cisco.com	200
+// Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	谭超	tchao@ciscosbsa.com	50
+// TA	Frank Liu	liufrank@cisco.com	zhong ru jun	rjzhong@cisco.com	Luohao	haoluo@cisco.com	50";
+//     	$this->makeNom($nom, 2060);//next 2360
+    	//2012-10-18 internal
+// 		$this->makeSameInternal(30, 1066);//next 1067
+// 		$this->makeInternal(66,1000);//next 1066
+// 		exit();    	
+    	
+		//2012-10-18 nom
+// 		$nom = "Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	张惺	xingzha@cisco.com	60
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	戚宏飞	honqi@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	张涛	taozhang@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	王新	xinwang2@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	李刚	gali2@cisco.com	50";
+// 		$this->makeNom($nom, 1800);//next 2060
+
+    	
+//     	header("Content-Disposition:attachment; filename=导出.xls");//文件名
+//     	header("Content-type:application/vnd.ms-excel;charset=utf8"); //表示输出Excel文件
+    	//2012-10-16 nom
+//     	$nom = "Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	张惺	xingzha@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	戚宏飞	honqi@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	张涛	taozhang@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	王新	xinwang2@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	李刚	gali2@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	帅炜	wshuai@cisco.com	50
+// Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	陈岭生	Ischen@cisco.com	50
+// An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	安斐	feian@cisco.com	50
+// An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	古效文	xiaogu@cisco.com	50
+// An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	李松	songli@cisco.com	50
+// An Hui\Jiang Xi	Johnny Chen	Johnnyzc@cisco.com	Wu Ke Ping	kepwu@cisco.com	姚诚	chyao@cisco.com	50
+// Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	赵树中	shuzhao@cisco.com	50
+// Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	蒋国华	guohjian@cisco.com	50
+// Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	孔燕	kongyan@cisco.com	50
+// Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	汪笑夏	xiaoxwan@cisco.com	50
+// Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	张凯	kaizh@cisco.com	50";
+//    	$this->makeNom($nom, 1000);
     	
     	//Cisco Plus Sponsors CODE统计_0827_V2_for 李贺
     	/**
@@ -277,7 +362,30 @@ Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	张凯
 //     	    	}
     }
     
-    public function makeNom($nom,$index){
+    public function makeInternal($number,$index){
+    	$sql = 'insert into users (code,type_id) values ';
+    	for($i=0;$i<$number;$i++){
+    		$code = 'inter'.$index;
+    		$sql .= "('$code',2),";
+    		echo $code;
+    		echo '<br/>';
+    		$index++;
+    	}
+    	echo $sql;
+    }
+    
+    public function makeSameInternal($number,$index){
+    	$sql = 'insert into users (code,type_id) values ';
+    	for($i=0;$i<$number;$i++){
+    		$code = 'inter'.$index;
+    		$sql .= "('$code',2),";
+    		echo $code;
+    		echo '<br/>';
+    	}
+    	echo $sql;
+    }
+    
+    public function makeNom($nom,$index,$prefix='nom'){
     	/**
 		 * 分区 	OD姓名 	OD Email 	RM姓名 	RM Email 	AM姓名 	AM Email 	邀请码数量 
     	 */
@@ -321,9 +429,9 @@ Shan Xi\He Nan	Johnny Chen	Johnnyzc@cisco.com	Huang Bin	binhuan@cisco.com	张凯
     			.$arr[4] . $delimiter//rm email
     			.$arr[5] . $delimiter//am name
     			.$arr[6] . $delimiter//am email
-    			."nom$index" . $delimiter ; //code
+    			.$prefix . $index  . $delimiter ; //code
     			
-    			$code = 'nom'.$index;
+    			$code = $prefix.$index;
     			
     			
     			$excel .= "insert into users (diff,cc,am_name,am_id,rm_name,rm_id,od_name,od_id,code,type_id) values ('$diff','$cc','$am_name','$am_id','$rm_name','$rm_id','$od_name','$od_id','$code',1);";

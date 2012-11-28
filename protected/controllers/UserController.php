@@ -180,7 +180,7 @@ class UserController extends Controller {
         if (isset($_POST['User'])) {
             /**
              * 1.有email不需要code		nomination
-             * 2.有email不需要code		employee
+             * 2.有email不需要code		employee/internal
              * 3.有email需要code			ordinary
              * 4.无email无code		attendee,web
              * 5.有email有多个code
@@ -199,9 +199,10 @@ class UserController extends Controller {
             	} elseif (isset($model->code) && $model->code != null && $model->code != '') {
             		
             		//已关闭
-//             		$this->redirect(array('site/index'));
-//             		Yii::app()->end();
-            		
+            		if($this->close){
+            			$this->redirect(array('site/index'));
+            			Yii::app()->end();
+            		}
             		//先检查是不是一对多code
             		$users = User::model()->findAllByAttributes(array('code' => $model->code));
             		if(count($users)>1){
