@@ -219,7 +219,7 @@ class nusoap_base {
      * @access	public
      */
     function nusoap_base() {
-        $this->debugLevel = $GLOBALS['_transient']['static']['nusoap_base']->globalDebugLevel;
+        $this->debugLevel = $GLOBALS['_transient']['static']['nusoap_base']['globalDebugLevel'];
     }
 
     /**
@@ -229,7 +229,7 @@ class nusoap_base {
      * @access	public
      */
     function getGlobalDebugLevel() {
-        return $GLOBALS['_transient']['static']['nusoap_base']->globalDebugLevel;
+        return $GLOBALS['_transient']['static']['nusoap_base']['globalDebugLevel'];
     }
 
     /**
@@ -239,7 +239,7 @@ class nusoap_base {
      * @access	public
      */
     function setGlobalDebugLevel($level) {
-        $GLOBALS['_transient']['static']['nusoap_base']->globalDebugLevel = $level;
+        $GLOBALS['_transient']['static']['nusoap_base']['globalDebugLevel'] = $level;
     }
 
     /**
