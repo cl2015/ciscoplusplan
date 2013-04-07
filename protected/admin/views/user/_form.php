@@ -120,11 +120,6 @@
 		<td><?php echo $form->error($model,'city'); ?> </td>
 	</tr>
         <tr>
-		<td><?php echo $form->labelEx($model,'od_id'); ?> </td>
-		<td><?php echo $form->textField($model,'od_id',array('size'=>60,'maxlength'=>255)); ?> </td>
-		<td><?php echo $form->error($model,'od_id'); ?> </td>
-	</tr>
-        <tr>
 		<td><?php echo $form->labelEx($model,'am_name'); ?> </td>
 		<td><?php echo $form->textField($model,'am_name',array('size'=>60,'maxlength'=>255)); ?> </td>
 		<td><?php echo $form->error($model,'am_name'); ?> </td>
@@ -153,6 +148,11 @@
 		<td><?php echo $form->labelEx($model,'od_name'); ?> </td>
 		<td><?php echo $form->textField($model,'od_name',array('size'=>60,'maxlength'=>255)); ?> </td>
 		<td><?php echo $form->error($model,'od_name'); ?> </td>
+	</tr>
+        <tr>
+		<td><?php echo $form->labelEx($model,'od_id'); ?> </td>
+		<td><?php echo $form->textField($model,'od_id',array('size'=>60,'maxlength'=>255)); ?> </td>
+		<td><?php echo $form->error($model,'od_id'); ?> </td>
 	</tr>
         <tr>
             <th colspan="3">付款信息</th>

@@ -377,7 +377,7 @@ class UserController extends Controller {
         	if($oldUser === null){
         		$retArr['status'] = 'false';
         		$retArr['user'] = array();
-        		$retArr['url'] = 'http://www.ciscopluschina.com';
+        		$retArr['url'] = 'http://www.ciscoconnect.com';
         	}else{
         		$user = $oldUser;
         	}

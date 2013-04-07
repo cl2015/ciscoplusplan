@@ -3,7 +3,7 @@
 if(Yii::app()->language == 'zh_cn'){?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> <br />
-	感谢您注册Cisco Plus大中华区武汉站活动。<br />
+	感谢您注册Cisco Connect大中华区上海站活动。<br />
 </p>
 <p>
 	<?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
@@ -14,37 +14,37 @@ if(Yii::app()->language == 'zh_cn'){?>
 	<?php if($model->type_id==2){?>
 		您的注册邮箱是：<?php echo $model->email;?>，
 		网站注册密码是：123456。
-		请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>，专享白皮书下载，视频观看等精彩互动活动。<br/>
+		请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscoconnect.com">Cisco Connect 主页</a>，专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 
 
 	<?php if($model->type_id!=2){?>
 		您的注册邮箱是：<?php echo $model->email;?>，
 		网站注册密码是：<?php echo $model->password;?>。
-		请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a>，专享白皮书下载，视频观看等精彩互动活动。<br/>
+		请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscoconnect.com">Cisco Connect 主页</a>，专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 </p>
 <p>
-	会议日期：2012年11月22日 <br />
-	签到时间：早八点开始<br />
-	会议地点：武汉万达威斯汀酒店<br />
-	如欲了解更多会议详情，请访问<a href="http://www.ciscopluschina.com">Cisco Plus 主页</a><br/>
+	会议日期：2015年5月28日 <br />
+	签到时间：8:00am - 9:00am<br />
+	会议地点：上海浦东嘉里大酒店<br />
+	如欲了解更多会议详情，请访问<a href="http://www.ciscoconnect.com">Cisco Connect 主页</a><br/>
 </p>
 <p>
 	我们期待着您的参与！ <br/>
-	问题或建议,请发送电子邮件至:<a href="mailto:gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com</a><br/>
+	问题或建议,请发送电子邮件至:<a href="mailto:gc_cisco_connect@external.cisco.com">gc_cisco_connect@external.cisco.com</a><br/>
 	或致电: 400-890-9901
 <p>
 <p>
-	<b>Cisco Plus大中华区活动会务组</b>
+	<b>Cisco Connect大中华区活动会务组</b>
 </p>
-<?php echo CHtml::link(CHtml::encode("返回首页"), 'http://www.ciscopluschina.com/index.html',array('target'=>'_blank')); ?>
+<?php echo CHtml::link(CHtml::encode("返回首页"), 'http://www.ciscoconnect.com/index.html',array('target'=>'_blank')); ?>
 <?php }else{?>
 <p>
 Dear <?php echo $model->full_name;?> ,<br /> <br />
 </p>
 <p>
-Thank you for registering for Cisco Plus 2012 WuHan.<br />
+Thank you for registering for Cisco Connect 2013 Shanghai.<br />
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
@@ -55,7 +55,7 @@ Thank you for registering for Cisco Plus 2012 WuHan.<br />
 <br />
 Your registration confirmation email is <?php echo $model->email;?>;<br />
 Your website login password is 123456.<br />
-This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
+This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscoconnect.com">Cisco Connect Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
 
@@ -64,27 +64,27 @@ This email address and password were used to login the active site of the Genera
 <br />
 Your registration confirmation email is <?php echo $model->email;?>;<br />
 Your website login password is <?php echo $model->password;?>.<br />
-This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscopluschina.com">Cisco Plus Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
+This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscoconnect.com">Cisco Connect Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
 </p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
 <p>
-Event Date:           Nov 22, 2012<br />
-Sign in time:         Start from 8:00 AM<br />
-Venue:                The Westin Wuhan Wuchang, PRC<br />
-For more conference details, please visit the <a href="http://www.ciscopluschina.com"> Cisco Plus Home Page</a>.<br />
+Event Date:           May 28, 2013<br />
+Sign in time:         8:00am—9:00am<br />
+Venue:                Pudong Kerry Hotel Shanghai, PRC<br />
+For more conference details, please visit the <a href="http://www.ciscoconnect.com"> Cisco Connect Home Page</a>.<br />
 We look forward to seeing you!
 </p>
 <?php }?>
 <p>
-If you have any questions concerning your registration, please mail to: <a href="mailto:gc_cisco_plus@external.cisco.com">gc_cisco_plus@external.cisco.com</a> , or call: 400-890-9901<br />
+If you have any questions concerning your registration, please mail to: <a href="mailto:gc_cisco_connect@external.cisco.com">gc_cisco_connect@external.cisco.com</a> , or call: 400-890-9901<br />
 </p>
 <p>
-Cisco Plus 2012 Greater China Event Committee Team
+Cisco Connect 2013 Greater China Event Committee Team
 </p>
 <p>
-<?php echo CHtml::link(CHtml::encode("Return to Cisco Plus 2012 Home page"), 'http://www.ciscopluschina.com/index.html',array('target'=>'_blank')); ?>
+<?php echo CHtml::link(CHtml::encode("Return to Cisco Connect 2013 Home page"), 'http://www.ciscoconnect.com',array('target'=>'_blank')); ?>
 </p>
 <?php }
  ?>

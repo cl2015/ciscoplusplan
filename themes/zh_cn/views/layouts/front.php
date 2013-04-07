@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7" />
 <link rel="shortcut icon" href="http://www.cisco.com/favicon.ico">
 <?php if(Yii::app()->language=='zh_cn') {?>
-<title>Cisco Plus大中华区活动2012</title>
+<title>Cisco Connect大中华区活动2013</title>
 <?php }else{?>
-<title>Cisco Plus Greater China 2012</title>
+<title>Cisco Connect Greater China 2013</title>
 <?php }?>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/style.css" />
 <!-- blueprint CSS framework -->
@@ -46,10 +46,10 @@ track: function (er)
   <div class="header">
     <ul>
       <li style=" margin-right:25px;"><?php echo CHtml::link('中文',array('user/language','language'=>'zh_cn'));?> | <?php echo CHtml::link('En',array('user/language','language'=>'en'));?></li>
- 	  <li><a href="#" onClick="javascript:window.open('http://www.ciscopluschina.com/CN/','','width=268,height=190,toolbar=no, status=no, menubar=no, resizable=no, scrollbars=no');return false;">登录</a>　|</li>
+ 	  <li><a href="#" onClick="javascript:window.open('http://www.ciscoconnect.com/CN/','','width=268,height=190,toolbar=no, status=no, menubar=no, resizable=no, scrollbars=no');return false;">登录</a>　|</li>
       <li><?php echo CHtml::link('注册',array('user/loading'));?>　|</li>
-      <li><a href="http://www.ciscopluschina.com/CN/contactUs.aspx">联系我们</a>　|</li>
-      <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscopluschina.com/CN/">返回主页</a></li>
+      <li><a href="http://www.ciscoconnect.com/CN/contactUs.aspx">联系我们</a>　|</li>
+      <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscoconnect.com/CN/">返回主页</a></li>
     </ul>
   </div>
   <div class="mainBg"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/mainBg.jpg" /></div>
@@ -63,10 +63,10 @@ track: function (er)
   <div class="header">
     <ul>
       <li style=" margin-right:25px;"><?php echo CHtml::link('中文',array('user/language','language'=>'zh_cn'));?> | <?php echo CHtml::link('En',array('user/language','language'=>'en'));?></li>
- 	  <li><a href="#" onClick="javascript:window.open('http://www.ciscopluschina.com/EN/','','width=268,height=190,toolbar=no, status=no, menubar=no, resizable=no, scrollbars=no');return false;">Login</a>　|</li>
+ 	  <li><a href="#" onClick="javascript:window.open('http://www.ciscoconnect.com/EN/','','width=268,height=190,toolbar=no, status=no, menubar=no, resizable=no, scrollbars=no');return false;">Login</a>　|</li>
       <li><?php echo CHtml::link('Register',array('user/loading'));?>　|</li>
-      <li><a href="http://www.ciscopluschina.com/EN/contactUs.aspx">Contact Us</a>　|</li>
-      <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscopluschina.com/EN/">Homepage</a></li>
+      <li><a href="http://www.ciscoconnect.com/EN/contactUs.aspx">Contact Us</a>　|</li>
+      <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscoconnect.com/EN/">Homepage</a></li>
     </ul>
   </div>
   <div class="mainBg"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/mainBg_en.jpg" /></div>

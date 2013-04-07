@@ -139,7 +139,7 @@ return array(
 		'label_required' =>'<em>标记<span class="required">*</span>的为必填项</em>',
 		'back' => '返回上页',
 		'finish' =>'完成',
-		'password info'=>'请设置用于登录大会活动网站<a href="http://www.ciscopluschina.com">www.ciscopluschina.com</a>的登录密码。注册完成后，即可在大会网站上使用注册邮箱和此密码登录，专享白皮书下载，视频观看等互动活动。',
+		'password info'=>'请设置用于登录大会活动网站<a href="http://www.ciscoconnect.com">www.ciscoconnect.com</a>的登录密码。注册完成后，即可在大会网站上使用注册邮箱和此密码登录，专享白皮书下载，视频观看等互动活动。',
 		'Select one'=>'请选择一个',
 		
 		

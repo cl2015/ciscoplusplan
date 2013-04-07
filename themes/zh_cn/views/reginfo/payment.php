@@ -16,9 +16,15 @@
 -->
 </style>
 <?php
- $paydate = '10月15日-11月20日';
+if(date('Y-m-d')<'2013-05-27'){
+ $paydate = '4月15日-5月26日';
  $price = '436';
  $paid_amount='436';
+}else{
+	$paydate = '5月27日-5月28日';
+	$price = '728';
+	$paid_amount='728';
+}
 ?>
 
 
@@ -34,19 +40,11 @@
 
 			</tr>
 			<tr>
-				<td height="45" colspan="2" valign="top" scope="col"
-					style="line-height: 35px;"><input id="Reginfo_payment_type_0"
-					type="radio" name="Reginfo[payment_type]" value="0" checked="<?php if($model->payment_type = 0){ echo 'checked';}?>"> 线下付款
-					（如选择线下付款，请在11月22日以前完成付款）<br /> <?php echo $form->error($model,'payment_type'); ?>
-					公司名称：北京敦煌秀富咨询有限责任公司 （大会指定票务代理） <br /> 开户银行：北京银行八里庄支行<br /> 银行账号：01090  32070  012010  8152160</td>
-
-			</tr>
-			<tr>
 				<td colspan="2" style="line-height: 35px;" scope="col">
-                                  <?php /*  
                                   <input id="Reginfo_payment_type_1" type="radio" name="Reginfo[payment_type]" value="1" <?php if($model->payment_type = 1){ echo 'checked';}?>> 现场付款 &nbsp; &nbsp; &nbsp;
-                                  */?>
+                                  <?php /*  
                                   <input id="Reginfo_payment_type_2" type="radio" name="Reginfo[payment_type]" value="2" <?php if($model->payment_type = 2){ echo 'checked';}?>> 在线付款
+                                  */?>
 					<br /> <?php echo $form->error($model,'payment_type'); ?>
 					 <span class="required">*</span>
 					是否需要开具发票？ <?php echo $form->radioButtonList($payment, 'is_invoice', array('1'=>'是','0'=>'否'), array('separator' => '&nbsp;', 'template' => '{input} {label}'));?>

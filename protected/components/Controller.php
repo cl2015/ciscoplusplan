@@ -6,7 +6,7 @@
 class Controller extends CController
 {
 	
-	public $close = true;
+	public $close = false;
 	/**
 	 * @var string the default layout for the controller view. Defaults to '//layouts/column1',
 	 * meaning using a single column layout. See 'protected/views/layouts/column1.php'.
@@ -40,7 +40,7 @@ class Controller extends CController
 	/**
 	 * sendmail
 	 */
-	public function sendMail($is_false='',$to,$cc="cranelee@gmail.com",$user,$reginfo) {
+	public function sendMail($is_false='',$to,$cc="",$user,$reginfo) {
 		//$message = $content;
 		$mailer = Yii::app()->mailer;
 		$mailer->Host = 'smtp.exmail.qq.com';
@@ -51,10 +51,10 @@ class Controller extends CController
 		if($cc!="" && $cc!=null){
 			$mailer->AddCC($cc);
 		}
-		$mailer->From = 'gc_cisco_plus@external.cisco.com';
-		$mailer->AddReplyTo('gc_cisco_plus@external.cisco.com');
+		$mailer->From = 'gc_cisco_connect@external.cisco.com';
+		$mailer->AddReplyTo('gc_cisco_connect@external.cisco.com');
 		$mailer->AddAddress($to);
-		$mailer->FromName = 'Cisco Plus 2012会务组';
+		$mailer->FromName = 'Cisco Connect 2013会务组';
 		//$mailer->Username = 'admin@brightac.com.cn';    //这里输入发件地址的用户名
 		//$mailer->Password = '';    //这里输入发件地址的密码
 		$mailer->SMTPDebug = false;   //设置SMTPDebug为true，就可以打开Debug功能，根据提示去修改配置
@@ -77,10 +77,10 @@ class Controller extends CController
 		$mailer->IsSMTP();
 		$mailer->IsSendmail();
 		$mailer->SMTPAuth = true;
-		$mailer->From = 'gc_cisco_plus@external.cisco.com';
-		$mailer->AddReplyTo('gc_cisco_plus@external.cisco.com');
+		$mailer->From = 'gc_cisco_connect@external.cisco.com';
+		$mailer->AddReplyTo('gc_cisco_connect@external.cisco.com');
 		$mailer->AddAddress($user->email);
-		$mailer->FromName = 'Cisco Plus 2012会务组';
+		$mailer->FromName = 'Cisco Connect 2013会务组';
 		$mailer->SMTPDebug = false;   //设置SMTPDebug为true，就可以打开Debug功能，根据提示去修改配置
 		$mailer->CharSet = 'UTF-8';
 		$mailer->Subject = Yii::t('default', 'Forget Password');
@@ -137,16 +137,16 @@ class Controller extends CController
 		$message = '';
 		if(Yii::app()->language=='en'){
 			if(!($user->type_id== 4 && $reginfo->is_online==0)){
-				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 WuHan. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Plus 2012 Event Committee Team] ';
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Connect 2013 Shanghai. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Connect 2013 Event Committee Team] ';
 			}else{
-				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Plus 2012 WuHan. Please remember your email address ' .$user->email. ' and your password '. $user->password .' Log in www.ciscopluschina.com [Cisco Plus 2012 Event Committee Team]';
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Connect 2013 Shanghai. Please remember your email address ' .$user->email. ' and your password '. $user->password .' Log in www.ciscoconnect.com [Cisco Connect 2013 Event Committee Team]';
 
 			}
 		}else{
 			if(!($user->type_id== 4 && $reginfo->is_online==0)){
-				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Plus大中华区武汉站活动！您的参会码是 ' .$user->id . '。【Cisco Plus大中华区活动会务组】';
+				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Connect大中华区上海站活动！您的参会码是 ' .$user->id . '。【Cisco Connect大中华区活动会务组】';
 			}else{
-				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Plus大中华区活动！凭注册邮箱和密码登录了解最新信息视频。【Cisco Plus大中华区活动会务组】';
+				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Connect大中华区活动！凭注册邮箱和密码登录了解最新信息视频。【Cisco Connect大中华区活动会务组】';
 			}
 		}
 		$statusCode = $client->sendSMS(array($user->mobile),$message);

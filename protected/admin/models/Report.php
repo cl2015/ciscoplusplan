@@ -6,14 +6,12 @@ class Report extends CFormModel {
 	public function updateLocation(){
 		$dbCommand = Yii::app()->db->createCommand();
 		
-		$result = $dbCommand->update('users', array('map_loca'=>'Hunan'),"province = '湖南'");
-		$result = $dbCommand->update('users', array('map_loca'=>'Hubei'),"province = '湖北'");
-		$result = $dbCommand->update('users', array('map_loca'=>'Anhui'),"province = '安徽'");
-		$result = $dbCommand->update('users', array('map_loca'=>'Shanxi'),"province = '山西'");
-		$result = $dbCommand->update('users', array('map_loca'=>'Jiangxi'),"province = '江西'");
-		$result = $dbCommand->update('users', array('map_loca'=>'Henan'),"province = '河南'");
+		$result = $dbCommand->update('users', array('map_loca'=>''));
+		$result = $dbCommand->update('users', array('map_loca'=>'上海'),"province = '上海'");
+		$result = $dbCommand->update('users', array('map_loca'=>'江苏'),"province = '江苏'");
+		$result = $dbCommand->update('users', array('map_loca'=>'浙江'),"province = '浙江'");
 		$result = $dbCommand->update('users', array('map_loca'=>'N/A'),"province is null or province = ''");
-		$result = $dbCommand->update('users', array('map_loca'=>'Other'),"map_loca is null or map_loca = ''");
+		$result = $dbCommand->update('users', array('map_loca'=>'其他'),"map_loca is null or map_loca = ''");
 		return true;
 	}
 
@@ -188,7 +186,7 @@ class Report extends CFormModel {
 	}
 	
 	public function diffNomination(){
-		$dbCommand = Yii::app()->db->createCommand('select diff,count(1) as total,sum(has_reged) as registration  from users where type_id <= 2 group by diff');
+		$dbCommand = Yii::app()->db->createCommand('select department as diff,count(1) as total,sum(has_reged) as registration  from users where type_id <= 2 group by department');
 		$result = $dbCommand->queryAll();
 		return $result;
 	}
