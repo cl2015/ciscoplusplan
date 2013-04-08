@@ -112,7 +112,7 @@ We look forward to seeing you!
 </p>
 <?php }?>
 <p>
-If you have any questions concerning your registration, please mail to: <a href="mailto:gc_cisco_connect@external.cisco.com">gc_cisco_connect@external.cisco.com</a> , or call: 400-890-9901<br />
+If you have any questions concerning your registration, please mail to: <a href="mailto:go_cisco_connect@external.cisco.com">go_cisco_connect@external.cisco.com</a> , or call: 400-890-9901<br />
 </p>
 <p>
 Cisco Connect 2013 Greater China Event Committee Team

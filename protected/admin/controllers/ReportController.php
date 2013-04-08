@@ -88,9 +88,9 @@ class ReportController extends Controller
 		$mailer->IsSMTP();
 		$mailer->IsSendmail();
 		$mailer->SMTPAuth = true;
-		$mailer->From = 'gc_cisco_plus@external.cisco.com';
+		$mailer->From = 'go_cisco_plus@external.cisco.com';
 		//$mailer->From = 'admin@brightac.com.cn';
-		//$mailer->AddReplyTo('gc_cisco_plus@external.cisco.com');
+		//$mailer->AddReplyTo('go_cisco_plus@external.cisco.com');
 		$mailer->AddAddress($to);
 		$mailer->AddAddress('cxx1108@gmail.com');
 

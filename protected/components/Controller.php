@@ -51,8 +51,8 @@ class Controller extends CController
 		if($cc!="" && $cc!=null){
 			$mailer->AddCC($cc);
 		}
-		$mailer->From = 'gc_cisco_connect@external.cisco.com';
-		$mailer->AddReplyTo('gc_cisco_connect@external.cisco.com');
+		$mailer->From = 'go_cisco_connect@external.cisco.com';
+		$mailer->AddReplyTo('go_cisco_connect@external.cisco.com');
 		$mailer->AddAddress($to);
 		$mailer->FromName = 'Cisco Connect 2013会务组';
 		//$mailer->Username = 'admin@brightac.com.cn';    //这里输入发件地址的用户名
@@ -77,8 +77,8 @@ class Controller extends CController
 		$mailer->IsSMTP();
 		$mailer->IsSendmail();
 		$mailer->SMTPAuth = true;
-		$mailer->From = 'gc_cisco_connect@external.cisco.com';
-		$mailer->AddReplyTo('gc_cisco_connect@external.cisco.com');
+		$mailer->From = 'go_cisco_connect@external.cisco.com';
+		$mailer->AddReplyTo('go_cisco_connect@external.cisco.com');
 		$mailer->AddAddress($user->email);
 		$mailer->FromName = 'Cisco Connect 2013会务组';
 		$mailer->SMTPDebug = false;   //设置SMTPDebug为true，就可以打开Debug功能，根据提示去修改配置
