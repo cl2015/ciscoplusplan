@@ -26,5 +26,5 @@
 <p>
 	<b>Cisco Connect 2013注册团队</b>
 </p>
-<?php echo CHtml::link(CHtml::encode("返回首页"), 'http://www.ciscoconnect.com/index.html',array('target'=>'_blank')); ?>
+<?php echo CHtml::link(CHtml::encode("返回首页"), 'http://www.ciscoconnect.com.cn/index.html',array('target'=>'_blank')); ?>
 </br>

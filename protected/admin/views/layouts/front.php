@@ -47,8 +47,8 @@ track: function (er)
       <li><?php echo CHtml::link('注册信息',array('user/index'));?>　|</li>
       <li><?php echo CHtml::link('日报',array('report/divi'));?>　|</li>
       <li><?php echo CHtml::link('补发邮件',array('user/sendEmail'));?>　|</li>
-      <li><a href="http://www.ciscoconnect.com/contact.html">联系我们</a>　|</li>
-      <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscoconnect.com/index.html">返回主页</a></li>
+      <li><a href="http://www.ciscoconnect.com.cn/contact.html">联系我们</a>　|</li>
+      <li style="padding-top:0px;*padding-top:2px;"><a href="http://www.ciscoconnect.com.cn/index.html">返回主页</a></li>
     </ul>
   </div>
   <div class="mainBg"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/mainBg.jpg" /></div>
