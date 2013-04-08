@@ -23,7 +23,7 @@
 	<?php if($model->type_id==2){?>
 	您的注册邮箱是：<?php echo $model->email;?>；
 	网站注册密码是：123456。
-	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscoConnectchina.com">Cisco Connect 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
+	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscoconnect.com.cn">Cisco Connect 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
 
 	<?php if($model->type_id!=2){?>
@@ -32,14 +32,16 @@
 	<?php if($model->type_id==4 && $reginfo->is_online==1){?>
 	您的报名时间为：<?php echo $reginfo->created_at?>, 票价为<?php echo $price?>元。
 	<?php }?>
-	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscoConnectchina.com">Cisco Connect 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
+	请您凭此邮箱和密码登录大会活动网站<a href="http://www.ciscoconnect.com.cn">Cisco Connect 主页</a>。专享白皮书下载，视频观看等精彩互动活动。<br/>
 	<?php }?>
-	<p>
-	会议日期：2015年5月28日 <br />
+<?php if($model->type_id!=4){?>
+<p>
+	会议日期：2013年5月28日 <br />
 	签到时间：8:00am - 9:00am<br />
 	会议地点：上海浦东嘉里大酒店<br />
-	如欲了解更多会议详情，请访问<a href="http://www.ciscoConnectchina.com">Cisco Connect 主页</a><br/>
+	如欲了解更多会议详情，请访问<a href="http://www.ciscoconnect.com.cn">Cisco Connect 主页</a><br/>
 </p>
+<?php }?>
 <p>
 	我们期待着您的参与！ <br/>
 	问题或建议,请发送电子邮件至:gc_cisco_connect@external.cisco.com<br/>
@@ -66,14 +68,14 @@ Your website login password is 123456.<br />
 <?php if($model->type_id==4 && $reginfo->is_online==1){?>
 Your registration time: <?php echo $reginfo->created_at?>, Ticket price is : RMB <?php echo $price?>
 <?php }?>
-This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscoConnectchina.com">Cisco Connect Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
+This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscoconnect.com.cn">Cisco Connect Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
 
 <?php if($model->type_id!=2){?>
 Your registration confirmation email is <?php echo $model->email;?>;
 Your website login password is <?php echo $model->password;?>.<br />
-This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscoConnectchina.com">Cisco Connect Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
+This email address and password were used to login the active site of the General Assembly <a href="http://www.ciscoconnect.com.cn">Cisco Connect Home Page</a>.Exclusive white papers, video viewing and other interactive activities.<br/>
 
 <?php }?>
 </p>
@@ -81,7 +83,7 @@ This email address and password were used to login the active site of the Genera
 Event Date:           May 28, 2013<br />
 Sign in time:         8:00am—9:00am<br />
 Venue:                Pudong Kerry Hotel Shanghai, PRC<br />
-For more conference details, please visit the <a href="http://www.ciscoConnectchina.com"> Cisco Connect Home Page</a>.<br />
+For more conference details, please visit the <a href="http://www.ciscoconnect.com.cn"> Cisco Connect Home Page</a>.<br />
 We look forward to seeing you!
 </p>
 <p> 

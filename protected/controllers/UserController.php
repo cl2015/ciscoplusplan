@@ -476,10 +476,10 @@ class UserController extends Controller {
 
     public function actionLanguage($language) {
         $this->setLanguage($language);
-        if (CHttpRequest::getUrlReferrer() == null || CHttpRequest::getUrlReferrer() == 'http://223.4.134.123/index.php?r=user/loading&language=zh_cn') {
+        if (Yii::app()->request->getUrlReferrer() == null || Yii::app()->request->getUrlReferrer() == 'http://223.4.134.123/index.php?r=user/loading&language=zh_cn') {
             $this->redirect(array('user/loading'));
         } else {
-            $this->redirect(CHttpRequest::getUrlReferrer());
+            $this->redirect(Yii::app()->request->getUrlReferrer());
         }
     }
 

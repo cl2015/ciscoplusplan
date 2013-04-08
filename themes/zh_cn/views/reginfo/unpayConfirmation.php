@@ -59,14 +59,14 @@ if(Yii::app()->language == 'zh_cn'){?>
 	<span style="color:red;">（温馨提示：您未完成支付，为了方便您的参会，请提前到会议签到收费处完成付费。）</span><br/>
 </p>
 <p>
-	会议日期：2015年5月28日 <br />
+	会议日期：2013年5月28日 <br />
 	签到时间：8:00am - 9:00am<br />
 	会议地点：上海浦东嘉里大酒店<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscoconnect.com">Cisco Connect 主页</a><br/>
 </p>
 <p>
 	我们期待着您的参与！ <br/>
-	问题或建议,请发送电子邮件至:<a href="mailto:gc_cisco_connect@external.cisco.com">gc_cisco_connect@external.cisco.com</a><br/>
+	问题或建议,请发送电子邮件至:<a href="mailto:go_cisco_connect@external.cisco.com">go_cisco_connect@external.cisco.com</a><br/>
 	或致电: 400-890-9901
 <p>
 <p>

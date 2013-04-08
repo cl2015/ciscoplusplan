@@ -14,13 +14,13 @@
 </p>
 <p>
 
-	会议日期：2015年5月28日 <br />
+	会议日期：2013年5月28日 <br />
 	签到时间：8:00am - 9:00am<br />
 	会议地点：上海浦东嘉里大酒店<br />
 </p>
 <p>
 
-	仍存在疑问？请发送电子邮件至:<a href="mailto:gc_cisco_connect@external.cisco.com">gc_cisco_connect@external.cisco.com</a><br/> 或致电Cisco Connect:
+	仍存在疑问？请发送电子邮件至:<a href="mailto:go_cisco_connect@external.cisco.com">go_cisco_connect@external.cisco.com</a><br/> 或致电Cisco Connect:
 	 400-890-9901<br />
 <p>
 <p>
