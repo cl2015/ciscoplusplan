@@ -105,13 +105,43 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
+//2013-04-13
+    	$this->makeInternal(200,1000);//next 1200
+    	/**
+$nom = "East-Others	Hai Guangyue	guahai	Xiao Jihan	Johnsxia	Chen Ying	yingche2	10
+East-FSI	kathy chen	kathyche	Stanley yuan	styuan	陈晓	robertcx	10
+East-FSI	Kathy Chen	kathyche	Stanley Yuan	styuan	张勇进	yongjzha	10
+East-FSI	kathy chen	kathyche	stanley yuan	styuan	Heidi Huang	haihhuan	10
+East-Others	Chen kui	kathyche	Wang jianquan	wangje	朱卫东	weidzhu	10
+East-Others	Chen kui	kathyche	Wang jianquan	wangje	袁奇	jeyuen	60
+East-Others	Chen kui	kathyche	Wang jianquan	wangje	陈念	niachen	50
+East-Others	Chen kui	kathyche	Wang jianquan	wangje	姜业普	yejiang	60
+East-Others	Chen kui	kathyche	Wang jianquan	wangje	徐舒	shux	10
+East-Others	Chen kui	kathyche	Wang jianquan	wangje	严宇杰	yuyan	50
+Partners					Luo Yihua	huayluo	20
+Partners					富月	yufu	20
+Partners					王晓娜	xiaonwan	20
+Partners					Mei Hengbin	hemei	40
+Partners					Guan Di	diguan	10
+SP	Ben Wu	wub	Michael Mi	qimi	Jingjia Liu	jingjliu	10
+Partners					李新田	xintili	30
+Partners					Xiang Jian	jixiang	60
+East-Others	kathy chen	kathyche 	Kevin wang	wangzx	刘攀	panliu	30
+East-FSI	chen Kui Kathy	kathyche	Stanley Yuan	styuan	徐毅平	xuyiping	50
+TA			Jingdong Li	jdli@cisco.com	biljiang	biljiang	10
+TA			XIAOYU LIU	xiaoyliu	Tracy Feng	trfeng	30
+TA			Jingdong Li	jdli@cisco.com	Chloe Kang	wenkang	30
+TA			Rujun Zhong	rjzhong	Lu Ping	pinglu	30
+TA			Rujun Zhong	rjzhong	陆燕	yalu	10
+TA			Rujun Zhong	rjzhong	王峰	fengwan2	20
+TA			Rujun Zhong	rjzhong	Charles Jun Qian	juqian	10";
+$this->makeNom($nom, 1000);   //next 1710 	
 //2012-11-15
 $nom="Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	李刚	gali2@cisco.com	80
 Hu Bei\Hu Nan	Johnny Chen	Johnnyzc@cisco.com	Michael Sun	yosun@cisco.com	戚宏飞	honqi@cisco.com	80
 TA	Jerry Fan	jfan@cisco.com	Peng Yuan	yuapeng@cisco.com	Zhang Yu	yuzhan3@cisco.com	20
 TA	Jerry Fan	jfan@cisco.com	Zhong Lizhan	lizzhong@cisco.com	Li Jingdong	jdli@cisco.com	20";
 $this->makeNom($nom, 2980);
-    	/**
 //2012-11-14
 $nom = "					Yurong Zhou	rozhou@cisco.com	100";
 $this->makeNom($nom,1200,'part');
