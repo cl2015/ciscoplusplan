@@ -16,15 +16,20 @@
 -->
 </style>
 <?php
-if(date('Y-m-d')<'2013-05-27'){
- $paydate = '4月15日-5月26日';
- $price = '436';
- $paid_amount='436';
-}else{
-	$paydate = '5月27日-5月28日';
-	$price = '728';
-	$paid_amount='728';
-}
+	$today = date("Y-m-d");
+	if($today<'2013-05-20'){
+		$paydate = '4月15日-5月19日';
+		$price = '948.00';
+		$paid_amount= 948;
+	}elseif($today<'2013-05-27'){
+		$paydate = '5月20日-5月26日';
+		$price = '1264.00';
+		$paid_amount= 1264;
+	}else{
+		$paydate = '5月27日-5月28日';
+		$price = '1580.00';
+		$paid_amount= 1580;
+	}
 ?>
 
 

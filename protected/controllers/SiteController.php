@@ -105,9 +105,92 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
+    	
+    	//2013-4-19
+    	/**
+    	$nom = "East-LENT	Kathy Chen	kathyche	Robert Jin	rjin	Michael Xu	mzhxu	50
+East-LENT	Kathy Chen	kathyche	Robert Jin	rjin	Arthur Wang	arwang2@cisco.com	40
+East-LENT	Karthy Chen	kathyche	Robert Jin	rjin	Tang Xiaoxing	statang@cisco.com	50
+East-LENT	Karthy Chen	kathyche	Robert Jin	rjin	ANSON TANG	anstang	40
+East-COMM A	Kathy Chen	kathyche	Richard Yen	ricyen	Ben Chen	jiach@cisco.com	50
+East-COMM A	Kathy Chen	kathyche	Richard Yen	ricyen	Tian Bo	botian@cisco.com	160
+East-COMM A	Kathy Chen	kathyche 	Richard Yen	ricyen	Xu Hao	haxu2@cisco.com	90
+East-COMM A	Kathy Chen	kathyche	Richard Yen	ricyen	Yang Lei	leiya2@cisco.com	60
+East-COMM A	Kathy Chen	kathyche	Richard yen	ricyen	Ying Tang	yingtang@cisco.com	130
+East-COMM A	Kathy chen	kathyche	Richard yen	ricyen	仇星	qxing@cisco.com	50
+East-COMM A	Kathy Kui Chen	kathyche	Richard Yen	ricyen	吕萍	pilu	60
+East-COMM A	Kathy Chen	kathyche	Richard yen	ricyen	Alec Wei	alewei@cisco.com	90";
+    	$this->makeNom($nom, 3570);//next 4440
+    	//2013-04-18
+    	$nom = "					weibo		10";
+    	$this->makeNom($nom, 1000,'weibo');
+    	$nom = "SP	Charles Mah	chmah	Chen Bin	binche	邱硕	qiushuo	20
+SP	Charles Mah	chmah	Chen Bin	binche	张晓和	alvinzh	10
+SP	Charles Mah	chmah	Chen Bin	binche	陈磊	lechen2	10
+SP	Charles Mah	chmah	Chen Bin	binche	杨静	jingya	60
+SP					刘史铭	shimliu	30
+SP					王林	wanglin	30
+SP					程展	zhacheng	10
+SP					钟佩琦	pezhong	10
+SP	王敏	raymondw	Xurong Huang	xurhuang	Su Quandao	squandao	30
+SP	王敏	raymondw	raymond wang	raymondw	Zhuping Wang	zhupwang	10
+SP					李杰	lijie	20
+SP	王敏	raymondw	Yuanyu Bai	yuabai	彭杰中	jiezpeng	10
+SP	林小平	norlam	刘水蓉	rongliu	马名裔	mingyma	20
+SP					黄晔	yehuang	20
+SP	Ben Wu	wub	Vicky Chang	vichang	Claire Zhao	zhmei	10
+SP	ben wu	wub	Derek Tse	dtse	赵明亮	zhaom	10
+SP	Polly Wang	powang	Vicky Chang	vichang	shendong	shendong	30
+Partners					杨惠莉	huilyang	70
+ Inside Sales	Hai Guangyue	guahai	Xiao Jihan	Johnsxia	Chen Ying	yingche2	10
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	朱卫东	weidzhu	10
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	袁奇	jeyuen	60
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	陈念	niachen	40
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	姜业普	yejiang	60
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	徐舒	shux	20
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	严宇杰	yuyan	30
+ZJ Team	kathy chen	kathyche 	Kevin wang	wangzx	刘攀	panliu	30";
+    	$this->makeNom($nom, 1770);//next 2440
+    	//2013-04-17
+    	$nom = "TA	袁惠良	huilyuan	茹伟杰	wru	段义军	yiduan	10
+TA	袁惠良	huilyuan	茹伟杰	wru	陶如刚	rutao	10
+Partners					Nancy Liu	yunli	20
+SP	Ben Wu	wub	Vicky Chang	vichang	Lydia Gong	lydgong	20";
+    	$this->makeNom($nom, 1710);//next 1770
+    	//2013-04-16
+		$nom =     "East-PS	Kathy Chen	kathyche	John Xu	junhxu	Fei Wang	feiwang2	50
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	Sichen Fan	sicfan	40
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	Ray Zhang	rayzhan	60
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	王宏志	jameswan	90
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	Yongchi Liu	yongcliu	80
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	Wang Chuanjiang	chuawang	90
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	xiao hui wei	xiaohwei	140
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	鞠炜	weju	30
+East-FSI	Kathy Chen	kathyche	Stanley Yuan	styuan	俞昊	hyu2	20
+Partners					YU LU	luy2	40
+Partners					G-sight		20
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Brenda Chen	brechen	70
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Elle Qian	xiaqian	70
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Zhou Hao Dong	haodzhou	140
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Ivy Chen	shutoche	60
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Eileen Xu	lingxu	40
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Sarah Yang	Saryang	90
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Larry Lu	lelu	50
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Grace Zhang	qiazhan2	50
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Norway Chen	cguowei	90
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Eva Xue	huaxue	90
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Tom Xiong	guxiong	60
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Catherine Mu	limu	50
+East-COMM B	Kathy Chen	kathyche	Stone Chen	stonchen	Sandy Shao	sashao	70
+East-COMM B	Kathy Chen	kathyche	Stone Chen	stonchen	Zhang Jing	jzhang4	60
+East-COMM B	Kathy Chen	kathyche	Stone Chen	stonchen	Yao chenyi	cheyao	80
+East-COMM B	Kathy Chen	kathyche	Stone Chen	stonchen	LiangYuDong	yudliang	130"	;
+		
+		$this->makeNom($nom, 1710);   //next 1710
+    	
+    	$this->makeSameInternal(200,1200);//next 1201
 //2013-04-13
     	$this->makeInternal(200,1000);//next 1200
-    	/**
 $nom = "East-Others	Hai Guangyue	guahai	Xiao Jihan	Johnsxia	Chen Ying	yingche2	10
 East-FSI	kathy chen	kathyche	Stanley yuan	styuan	陈晓	robertcx	10
 East-FSI	Kathy Chen	kathyche	Stanley Yuan	styuan	张勇进	yongjzha	10

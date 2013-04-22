@@ -16,15 +16,14 @@
 -->
 </style>
 <?php
-$paydate = '';
-if($model->created_at<'2012-11-21 00:00:00'){
-	$price = '436.00';
-	$paydate = '10月15日-11月20日';
-	$discount = '6折';
+if(date('Y-m-d')<'2013-05-27'){
+ $paydate = '4月15日-5月26日';
+ $price = '436';
+ $paid_amount='436';
 }else{
-	$price = '728.00';
-	$paydate = '11月21日-11月22日';
-	$discount = '';
+	$paydate = '5月27日-5月28日';
+	$price = '728';
+	$paid_amount='728';
 }
 ?>
 

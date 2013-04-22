@@ -3,13 +3,17 @@
 <img src="http://223.4.134.123/images/mainBg.jpg" />
 	<?php
 		$today = date("Y-m-d");
-		if($today<'2013-05-27'){
-			$paydate = '4月15日-5月26日';
-			$price = '436.00';
+		if($today<'2013-05-20'){
+			$paydate = '4月15日-5月19日';
+			$price = '948.00';
+		}elseif($today<'2013-05-27'){
+			$paydate = '5月20日-5月26日';
+			$price = '1264';
 		}else{
 			$paydate = '5月27日-5月28日';
-			$price = '728.00';
+			$price = '1580.00';
 		}
+			
 	?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br />
