@@ -41,3 +41,13 @@
 	<b>Cisco Plus大中华区活动会务组</b>
 </p>
 <?php echo CHtml::link(CHtml::encode("返回首页"), 'http://www.ciscoconnect.com.cn/index.html',array('target'=>'_blank')); ?>
+<!-- PV Tracking Tags --><script type="text/javascript">
+  MltTracker = { mid: 250023, ers: [{ "type": "pageview" }], track: function (er) {this.ers.push(er);} };
+   (function (){
+      var js = document.createElement("script"), scri = document.getElementsByTagName("script")[0];
+      js.type = "text/javascript";
+      js.async = true;
+      scri.parentNode.insertBefore(js, scri);
+      js.src = location.protocol == "https:" ? "https://secure.mlt01.com/nt.js" : "http://static.mlt01.com/nt.js";
+   })();
+</script>

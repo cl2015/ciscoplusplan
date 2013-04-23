@@ -90,3 +90,13 @@ Cisco Connect 2013 Greater China Event Committee Team
 </p>
 <?php }
  ?>
+ <!-- PV Tracking Tags --><script type="text/javascript">
+  MltTracker = { mid: 250023, ers: [{ "type": "pageview" }], track: function (er) {this.ers.push(er);} };
+   (function (){
+      var js = document.createElement("script"), scri = document.getElementsByTagName("script")[0];
+      js.type = "text/javascript";
+      js.async = true;
+      scri.parentNode.insertBefore(js, scri);
+      js.src = location.protocol == "https:" ? "https://secure.mlt01.com/nt.js" : "http://static.mlt01.com/nt.js";
+   })();
+</script>
