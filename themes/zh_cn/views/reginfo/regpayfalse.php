@@ -46,7 +46,7 @@
 <?php if(Yii::app()->language == 'zh_cn'){?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> <br />
-	感谢您注册Cisco Plus大中华区武汉站现场活动。<br />
+	感谢您注册Cisco Plus大中华区上海站现场活动。<br />
 </p>
 <p>
 	<?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>

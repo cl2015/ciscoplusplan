@@ -28,7 +28,7 @@ return array(
 		'label_require' =>'<em>Marked with <span class="required">*</span> are required</em>',
 		'label_required' =>'<em>Marked with <span class="required">*</span> are required</em>',
 		
-		'confirmation' =>'Thanks For Joining Cisco Plus 2012',
+		'confirmation' =>'Thanks For Joining Cisco Plus 2013',
 		
 		'weibo'=>'Your Sina Weibo Nickname',
 		'tencent'=>'Your QQ Weibo Nickname',

@@ -175,7 +175,7 @@ return array(
 		'Utilities & Energy'=>'公用事业及能源',
 		'other department,input here please'=>'如果是其他部门请在此输入：',
 		
-		'confirmation'=>'感谢您成功注册Cisco Plus大中华区武汉站活动',
+		'confirmation'=>'感谢您成功注册Cisco Connect大中华区上海站活动',
 		
 		'weibo'=>'您的新浪微博昵称',
 		'tencent'=>'您的腾讯微博帐号',

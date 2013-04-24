@@ -105,9 +105,25 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
-    	
-    	//2013-4-19
+		//2013-4-22
+		$nom = "SP	Charles Mah	chmah	Chen Bin	binche	张晓和	alvinzh	10
+SP	Charles Mah	chmah	Chen Bin	binche	杨静	jingya	40
+SP	Ben Wu	wub	Vicky Chang	vichang	Claire Zhao	zhmei	20
+SP	Ben Wu	wub	Vicky Chang	vichang	Chengguo Shan	chenggs	50
+SP	Ben Wu	wub	Vicky Chang	vichang	Xi Chen	xic2	10
+SP	Ben Wu	wub	Vicky Chang	vichang	Pan Hongbo	panpa	20
+SP	Norman Lam	norlam	叶勇	yongye	张伟	wzhang3	10
+SP	Norman Lam	norlam	叶勇	yongye	李娜	lindali	10
+SP	Norman Lam	norlam	叶勇	yongye	葛全睿	garge	10
+SP	Norman Lam	norlam	叶勇	yongye	张明义	mingyi	10
+East-LENT	Karthy Chen	kathyche	Robert Jin	rjin	Frank Yang	frayang	40
+East-COMM A	Kathy chen	kathyche	Richard Yen	ricyen	xuqin	xuqin	110
+East-COMM A	Kathy Chen	kathyche	Richard yen	ricyen	zhu jinsong	jingszhu	50
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	陈念	niachen	30
+East-FSI	kathy chen	kathyche	stanley	styuan	maggie	maxie	30";
+		$this->makeNom($nom, 4440);//next 4890    	
     	/**
+    	//2013-4-19
     	$nom = "East-LENT	Kathy Chen	kathyche	Robert Jin	rjin	Michael Xu	mzhxu	50
 East-LENT	Kathy Chen	kathyche	Robert Jin	rjin	Arthur Wang	arwang2@cisco.com	40
 East-LENT	Karthy Chen	kathyche	Robert Jin	rjin	Tang Xiaoxing	statang@cisco.com	50
