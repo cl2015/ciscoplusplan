@@ -105,8 +105,8 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
-    	/**
     	//2013-04-24
+    	/**
     	$nom = "";
     	$this->makeNom($nom, 1000,'weibo');
     	$nom = "Partners					Luo Yihua	huayluo	90
