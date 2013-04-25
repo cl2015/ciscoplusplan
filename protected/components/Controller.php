@@ -49,7 +49,7 @@ class Controller extends CController
 		$mailer->IsSendmail();
 		$mailer->SMTPAuth = true;
 		if($cc!="" && $cc!=null){
-			$mailer->AddCC($cc);
+			//$mailer->AddCC($cc);
 		}
 		$mailer->From = 'go_cisco_connect@external.cisco.com';
 		$mailer->AddReplyTo('go_cisco_connect@external.cisco.com');
