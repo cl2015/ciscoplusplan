@@ -299,14 +299,25 @@ class User extends CActiveRecord {
 //             'Ground Total'=>'Ground Total',
 //         	'PSS'=>'PSS',
 //         	'speaker'=>'speaker',
-        		'Hu Bei\Hu Nan'=>'Hu Bei\Hu Nan',
-        		'An Hui\Jiang Xi'=>'An Hui\Jiang Xi', 
-        		'Shan Xi\He Nan'=>'Shan Xi\He Nan',
-        		'TA'=>'TA',
+//         		'Hu Bei\Hu Nan'=>'Hu Bei\Hu Nan',
+//         		'An Hui\Jiang Xi'=>'An Hui\Jiang Xi', 
+//         		'Shan Xi\He Nan'=>'Shan Xi\He Nan',
+//         		'TA'=>'TA',
+//         		'SP'=>'SP',
+//         		'Sponsor'=>'Sponsor',
+//         		'Internal'=>'Internal',
+//         		'VIP'=>'VIP',
+        
         		'SP'=>'SP',
-        		'Sponsor'=>'Sponsor',
-        		'Internal'=>'Internal',
-        		'VIP'=>'VIP',
+        		'TA'=>'TA',
+        		'Partners'=>'Partners',
+        		'East-FSI'=>'East-FSI',
+        		'East-LENT'=>'East-LENT',
+        		'East-COMM A'=>'East-COMM A',
+        		'East-COMM B'=>'East-COMM B',
+        		'East-PS'=>'East-PS',
+        		'East-Others'=>'East-Others',
+        		
         );
     }
     public function getlanguage() {
