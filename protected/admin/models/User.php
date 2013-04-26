@@ -317,6 +317,9 @@ class User extends CActiveRecord {
         		'East-COMM B'=>'East-COMM B',
         		'East-PS'=>'East-PS',
         		'East-Others'=>'East-Others',
+        		'Inside Sales'=>'Inside Sales',
+        		'JS Team'=>'JS Team',
+        		'ZJ Team'=>'ZJ Team',
         		
         );
     }
