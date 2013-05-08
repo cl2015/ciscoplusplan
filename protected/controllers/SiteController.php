@@ -105,8 +105,117 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
-    	//2013-04-24
+    	$index = 5880;
+    	$nom="East-PS	Kathy Chen	kathyche	John Xu	junhxu	Fei Wang	feiwang2	50
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	Sichen Fan	sicfan	40
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	Ray Zhang	rayzhan	60
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	王宏志	jameswan	90
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	Yongchi Liu	yongcliu	80
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	Wang Chuanjiang	chuawang	90
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	xiao hui wei	xiaohwei	140
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	鞠炜	weju	30
+East-FSI	Kathy Chen	kathyche	Stanley Yuan	styuan	俞昊	hyu2	20
+Partners					YU LU	luy2	40
+Partners					G-sight		20
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Brenda Chen	brechen	70
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Elle Qian	xiaqian	70
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Zhou Hao Dong	haodzhou	140
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Ivy Chen	shutoche	60
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Eileen Xu	lingxu	40
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Sarah Yang	Saryang	90
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Larry Lu	lelu	50
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Grace Zhang	qiazhan2	50
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Norway Chen	cguowei	90
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Eva Xue	huaxue	90
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Tom Xiong	guxiong	60
+East-COMM B	kathy Chen	kathyche	Stone Chen	stonchen	Catherine Mu	limu	50
+East-COMM B	Kathy Chen	kathyche	Stone Chen	stonchen	Sandy Shao	sashao	70
+East-COMM B	Kathy Chen	kathyche	Stone Chen	stonchen	Zhang Jing	jzhang4	60
+East-COMM B	Kathy Chen	kathyche	Stone Chen	stonchen	Yao chenyi	cheyao	80
+East-COMM B	Kathy Chen	kathyche	Stone Chen	stonchen	LiangYuDong	yudliang	130
+TA	袁惠良	huilyuan	茹伟杰	wru	段义军	yiduan	10
+TA	袁惠良	huilyuan	茹伟杰	wru	陶如刚	rutao	10
+Partners					Nancy Liu	yunli	20
+SP	Ben Wu	wub	Vicky Chang	vichang	Lydia Gong	lydgong	20
+SP	Charles Mah	chmah	Chen Bin	binche	邱硕	qiushuo	20
+SP	Charles Mah	chmah	Chen Bin	binche	张晓和	alvinzh	10
+SP	Charles Mah	chmah	Chen Bin	binche	陈磊	lechen2	10
+SP	Charles Mah	chmah	Chen Bin	binche	杨静	jingya	60
+SP					刘史铭	shimliu	30
+SP					王林	wanglin	30
+SP					程展	zhacheng	10
+SP					钟佩琦	pezhong	10
+SP	王敏	raymondw	Xurong Huang	xurhuang	Su Quandao	squandao	30
+SP	王敏	raymondw	raymond wang	raymondw	Zhuping Wang	zhupwang	10
+SP					李杰	lijie	20
+SP	王敏	raymondw	Yuanyu Bai	yuabai	彭杰中	jiezpeng	10
+SP	林小平	norlam	刘水蓉	rongliu	马名裔	mingyma	20
+SP					黄晔	yehuang	20
+SP	Ben Wu	wub	Vicky Chang	vichang	Claire Zhao	zhmei	10
+SP	ben wu	wub	Derek Tse	dtse	赵明亮	zhaom	10
+SP	Polly Wang	powang	Vicky Chang	vichang	shendong	shendong	30
+Partners					杨惠莉	huilyang	70
+ Inside Sales	Hai Guangyue	guahai	Xiao Jihan	Johnsxia	Chen Ying	yingche2	10
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	朱卫东	weidzhu	10
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	袁奇	jeyuen	60
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	陈念	niachen	40
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	姜业普	yejiang	60
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	徐舒	shux	20
+JS Team	Kathy Chen	kathyche	Wang jianquan	wangje	严宇杰	yuyan	30
+ZJ Team	kathy chen	kathyche 	Kevin wang	wangzx	刘攀	panliu	30";
+    	$this->makeNom($nom, $index);
     	/**
+    	$index = 5760;
+    	$nom="ZJ Team	Kathy Chen	Kathyche	Kavin Wang	wangzx	胡文钦	hwenqin@cisco.com	50
+ZJ Team	Kathy Chen	kathyche			彭芬	fepeng@cisco.com	70";
+    	$this->makeNom($nom, $index);
+    	//2013-05-07
+    	$nom ="East-PS	Kathy Chen	kathyche	John Xu	junhxu	Sichen Fan	sicfan@cisco.com	30
+East-COMM B	Kathy Chen	kathyche	Stone Chen	stonchen	Yao chenyi	cheyao@cisco.com	60
+Website					Biankai	kbian@cisco.com	20";
+    	$this->makeNom($nom, 5650);//next 5760
+    	
+    	$sponsor_str = "英特尔Intel	10	5	Inte
+神州数码Digital China	40	40	dcdc
+思杰Citrix	40	40	citr
+晓通网络XiaoTong	30	30	xiao
+施耐德APC	20	20	apcc
+华讯ECCOM	20	20	ecco
+英迈Ingram Micro	20	20	ingr
+Vmware	20	20	wmwa
+NetApp	20	20	neta
+联强国际synnex	20	20	synn
+达科Didata	20	20	dida
+泰科电子TE	20	20	tete
+泛达Panduit	20	20	pand
+尚阳Systec	20	20	syst
+软盛Runsn	20	20	runs
+紫越科技	20	20	ziyu
+Active Power	20	20	acti
+IXIA	20	20	ixia";
+    	$sponsors = explode("\n",$sponsor_str);
+    	
+    	foreach($sponsors as $sponsor){
+    		$index = 1000;
+    		$sponsor_arr = explode("\t", $sponsor);
+    		for($i=0;$i<$sponsor_arr[1];$i++){
+    			echo $sponsor ."\t" . $sponsor_arr[3].$index . "<br/>" ;
+    			$index++;
+    		}
+    		$same_index = "0000";
+    		$sponsor_arr = explode("\t", $sponsor);
+    		for($i=0;$i<$sponsor_arr[2];$i++){
+    			echo $sponsor ."\t" . $sponsor_arr[3].$same_index . "<br/>" ;
+    		}
+    	}
+    	exit;
+    	
+    	//2013-04-26
+    	$nom="SP	Ben Wu	wub	Derek Tse	dtse	Stacey	xigeng@cisco.com	10
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	Sichen Fan	sicfan@cisco.com	60";
+    	$this->makeNom($nom, 5580);//next 5650
+    	
+    	//2013-04-24
     	$nom = "";
     	$this->makeNom($nom, 1000,'weibo');
     	$nom = "Partners					Luo Yihua	huayluo	90

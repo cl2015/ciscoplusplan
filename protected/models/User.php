@@ -475,6 +475,19 @@ class User extends TrackStarActiveRecord {
     }
 
     public function getAmDetailByUser($email) {
+    	// 上海站 1770 - 3569
+    	$missData = array();
+    	$dbCommand = Yii::app()->db->createCommand("select max(code) as max,min(code) as min from users  where am_id = '$email' and code between 'nom1710' and 'nom3569' ");
+        $checkData = $dbCommand->queryAll();
+    	if(!empty($checkData[0]['min'])){
+    		$missDbCommand = Yii::app()->db->createCommand("
+    			select a.*,c.has_paid,c.is_online from users a left join
+				reginfos c
+				on a.id = c.user_id
+				where  a.type_id < 10 and a.am_id  <> '$email' and code between '" . $checkData[0]["min"] . "' and '" .$checkData[0]["max"] ."' order by id
+    			");
+    		$missData = $missDbCommand->queryAll();
+    	}
         $dbCommand = Yii::app()->db->createCommand("
 				select a.*,c.has_paid,c.is_online from users a left join
 				reginfos c
@@ -483,10 +496,23 @@ class User extends TrackStarActiveRecord {
 				");
 
         $data = $dbCommand->queryAll();
-        return $data;
+        return array_merge($missData,$data);
     }
 
     public function getRmDetailByUser($email) {
+    	// 上海站 1770 - 3569
+    	$missData = array();
+    	$dbCommand = Yii::app()->db->createCommand("select max(code) as max,min(code) as min from users  where rm_id = '$email' and code between 'nom1710' and 'nom3569' ");
+    	$checkData = $dbCommand->queryAll();
+    	if(!empty($checkData[0]['min'])){
+    		$dbCommand = Yii::app()->db->createCommand("
+    			select a.*,c.has_paid,c.is_online from users a left join
+				reginfos c
+				on a.id = c.user_id
+				where  a.type_id < 10 and a.rm_id  <> '$email' and code between '" . $checkData[0]["min"] . "' and '" .$checkData[0]["max"] ."' order by id
+    			");
+    		$missData = $dbCommand->queryAll();
+    	}
         $dbCommand = Yii::app()->db->createCommand("
 				select a.*,c.has_paid,c.is_online from users a left join
 				reginfos c
@@ -495,10 +521,24 @@ class User extends TrackStarActiveRecord {
 				");
 
         $data = $dbCommand->queryAll();
-        return $data;
+        return $data + $missData;
     }
 
     public function getOdDetailByUser($email) {
+    	// 上海站 1770 - 3569
+    	$missData = array();
+    	$dbCommand = Yii::app()->db->createCommand("select max(code) as max,min(code) as min from users  where od_id = '$email' and code between 'nom1710' and 'nom3569' ");
+    	$checkData = $dbCommand->queryAll();
+    	if(!empty($checkData[0]['min'])){
+    		$dbCommand = Yii::app()->db->createCommand("
+    			select a.*,c.has_paid,c.is_online from users a left join
+				reginfos c
+				on a.id = c.user_id
+				where  a.type_id < 10 and a.od_id  <> '$email' and code between '" . $checkData[0]["min"] . "' and '" .$checkData[0]["max"] ."' order by id
+    			");
+    		$missData = $dbCommand->queryAll();
+    	}
+    	
         $dbCommand = Yii::app()->db->createCommand("
 				select a.*,c.has_paid,c.is_online from users a left join
 				reginfos c
@@ -507,7 +547,7 @@ class User extends TrackStarActiveRecord {
 				");
 
         $data = $dbCommand->queryAll();
-        return $data;
+        return $data + $missData;
     }
 
     public function getSummaryReport() {
