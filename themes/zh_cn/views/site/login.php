@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>登录</h1>
+<h1>登录功能已经关闭</h1>
 
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -16,15 +16,15 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
+	<!-- p class="note">Fields with <span class="required">*</span> are required.</p>
+ -->
 	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
+		<?php //echo $form->labelEx($model,'username'); ?>
+		<?php //echo $form->textField($model,'username'); ?>
+		<?php //echo $form->error($model,'username'); ?>
 	</div>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
+		<?php //echo CHtml::submitButton('Login'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

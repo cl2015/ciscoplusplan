@@ -70,23 +70,23 @@ class SiteController extends Controller {
         }
 
         // collect user input data
-        if (isset($_POST['LoginForm'])) {
-            $model->attributes = $_POST['LoginForm'];
-            // validate user input and redirect to the previous page if valid
-            if ($model->validate() && $model->login()) {
-                if (Yii::app()->user->type_id == 10) {
-                    $this->redirect(array('report/detail'));
-                } elseif (Yii::app()->user->type_id == 11) {
-                    $this->redirect(array('report/index'));
-                } elseif (Yii::app()->user->type_id == 12) {
-                    $this->redirect(array('report/index'));
-                } elseif (Yii::app()->user->type_id == 13) {
-                    $this->redirect(array('report/financial'));
-                } else {
-                    $this->redirect(Yii::app()->user->returnUrl);
-                }
-            }
-        }
+//         if (isset($_POST['LoginForm'])) {
+//             $model->attributes = $_POST['LoginForm'];
+//             // validate user input and redirect to the previous page if valid
+//             if ($model->validate() && $model->login()) {
+//                 if (Yii::app()->user->type_id == 10) {
+//                     $this->redirect(array('report/detail'));
+//                 } elseif (Yii::app()->user->type_id == 11) {
+//                     $this->redirect(array('report/index'));
+//                 } elseif (Yii::app()->user->type_id == 12) {
+//                     $this->redirect(array('report/index'));
+//                 } elseif (Yii::app()->user->type_id == 13) {
+//                     $this->redirect(array('report/financial'));
+//                 } else {
+//                     $this->redirect(Yii::app()->user->returnUrl);
+//                 }
+//             }
+//         }
         // display the login form
         $this->render('login', array('model' => $model));
     }
@@ -105,6 +105,24 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
+    	$this->makeSameInternal(200,1200);
+    	/**
+    	$index = 8560;
+    	$nom="East-COMM A	Kathy Chen	kathyche	Richard yen	ricyen	zhu jinsong	jingszhu@cisco.com	40
+East-COMM A	Kathy Chen	kathyche	Richard yen	ricyen	Ying Tang	yingtang@cisco.com	30
+Partners					Guan Di	diguan@cisco.com	20
+East-COMM A	Kathy chen	kathyche	Richard yen	ricyen	Frank Qiu	qxing@cisco.com	50
+Partners	William Wu	xwu			wendylin	wendylin@cisco.com	20";
+    	$this->makeNom($nom, $index);
+    	/**
+    	//0507
+    	$index = 8470;
+    	$nom = " Inside Sales					网站		20
+East-PS	Kathy Chen	kathyche	John Xu	junhxu	chen yaowei	yaowechen@cisco.com	40
+					weibo		10
+Partners					Guan Di	diguan@cisco.com	20";
+    	$this->makeNom($nom, $index);
+    	/**
     	$index = 5880;
     	$nom="East-PS	Kathy Chen	kathyche	John Xu	junhxu	Fei Wang	feiwang2	50
 East-PS	Kathy Chen	kathyche	John Xu	junhxu	Sichen Fan	sicfan	40
