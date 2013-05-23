@@ -103,10 +103,57 @@ class SiteController extends Controller {
         $this->render('begin');
     }
     
+    public function sponCode($sponsor,$index=1000,$prefix=""){
+    	$sql = "insert into users (type_id,code) values ";
+    	$sponsors = explode("\n",$sponsor);
+   		foreach($sponsors as $sponsor){
+    		$sponsor_arr = explode("\t", $sponsor);
+    		for($i=0;$i<$sponsor_arr[1];$i++){
+    			echo $sponsor_arr[0] ."\t" . $sponsor_arr[3].$index . "<br/>" ;
+    			$sql .= "(1,'$sponsor_arr[3]$index'),";
+    			$index++;
+    		}
+    		
+    	}
+    	echo $sql;
+    	
+    }
+    
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
-    	$this->makeSameInternal(200,1200);
+    	$nom="East-PS	Kathy Chen	kathyche	John Xu	junhxu	Sichen Fan	sicfan@cisco.com	60";
+    	$this->makeNom($nom, 9280);
     	/**
+    	//0514
+    	$nom="Partners					Luo Yihua	huayluo@cisco.com	30
+Partners					王晓娜	xiaonwan@cisco.com	30";
+    	$this->makeNom($nom, 8720);
+    	
+    	
+    	//0513
+    	$sponsor_str = "learning	30		lear";
+    	$this->sponCode($sponsor_str,1000);
+    	exit;
+    	$sponsors = explode("\n",$sponsor_str);
+    	
+    	foreach($sponsors as $sponsor){
+    		$index = 1000;
+    		$sponsor_arr = explode("\t", $sponsor);
+    		for($i=0;$i<$sponsor_arr[1];$i++){
+    			echo $sponsor_arr[0] ."\t" . $sponsor_arr[3].$index . "<br/>" ;
+    			$index++;
+    		}
+    		$same_index = "0000";
+    		$sponsor_arr = explode("\t", $sponsor);
+    		for($i=0;$i<$sponsor_arr[2];$i++){
+    			echo $sponsor_arr[0] ."\t" . $sponsor_arr[3].$same_index . "<br/>" ;
+    		}
+    	}
+    	exit;
+    	/**
+    	$nom="					Collabration		200";
+    	$this->makeNom($nom, 1001,'col');
+    	$this->makeSameInternal(200,1200);
     	$index = 8560;
     	$nom="East-COMM A	Kathy Chen	kathyche	Richard yen	ricyen	zhu jinsong	jingszhu@cisco.com	40
 East-COMM A	Kathy Chen	kathyche	Richard yen	ricyen	Ying Tang	yingtang@cisco.com	30
