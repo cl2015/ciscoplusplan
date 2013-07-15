@@ -35,7 +35,7 @@ class Controller extends CController
 		}else{
 			Yii::app()->language = $language;
 		}
-		if(date('Y-m-d') > '2013-05-26'){
+		if(date('Y-m-d') > '2013-10-26'){
 			$this->close = true;
 		}
 	}
@@ -140,14 +140,14 @@ class Controller extends CController
 		$message = '';
 		if(Yii::app()->language=='en'){
 			if(!($user->type_id== 4 && $reginfo->is_online==0)){
-				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Connect 2013 Shanghai. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Connect 2013 Event Committee Team] ';
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Connect 2013 ChengDu. Please attend our meeting on time with your confirmation ID ' .$user->id. '  [Cisco Connect 2013 Event Committee Team] ';
 			}else{
-				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Connect 2013 Shanghai. Please remember your email address ' .$user->email. ' and your password '. $user->password .' Log in www.ciscoconnect.com [Cisco Connect 2013 Event Committee Team]';
+				$message = 'Dear ' .$user->full_name . ', thanks for registering Cisco Connect 2013 ChengDu. Please remember your email address ' .$user->email. ' and your password '. $user->password .' Log in www.ciscoconnect.com [Cisco Connect 2013 Event Committee Team]';
 
 			}
 		}else{
 			if(!($user->type_id== 4 && $reginfo->is_online==0)){
-				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Connect大中华区上海站活动！您的参会码是 ' .$user->id . '。【Cisco Connect大中华区活动会务组】';
+				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Connect大中华区成都站活动！您的参会码是 ' .$user->id . '。【Cisco Connect大中华区活动会务组】';
 			}else{
 				$message = '尊敬的' . $user->full_name . '感谢您注册Cisco Connect大中华区活动！凭注册邮箱和密码登录了解最新信息视频。【Cisco Connect大中华区活动会务组】';
 			}

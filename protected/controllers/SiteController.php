@@ -121,9 +121,16 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
+    	
+    	
+    	$test = array('id'=>1);
+    	$r = new JsonData();
+    	$r->result[] = array('id'=>9527,'category_id'=>1,'title'=>"I'm the title1.",'description'=>'desc1');
+    	$r->result[] = array('id'=>9528,'category_id'=>1,'title'=>"I'm the title2.",'description'=>'desc2');
+    	echo CJSON::encode($r);
+    	/**
     	$nom="East-PS	Kathy Chen	kathyche	John Xu	junhxu	Sichen Fan	sicfan@cisco.com	60";
     	$this->makeNom($nom, 9280);
-    	/**
     	//0514
     	$nom="Partners					Luo Yihua	huayluo@cisco.com	30
 Partners					王晓娜	xiaonwan@cisco.com	30";
@@ -813,5 +820,22 @@ SP	Ben Wu	wub@cisco.com	Vicky Chang	vichang@cisco.com	潘洪波	panpa@cisco.com	
     		}
     	}
     }
+
+}
+class NullObject
+{
+
+}
+class JsonData
+{
+	public $status=1;//0:失败；1:成功。
+	public $message='success';//返回的提示信息。
+	public $result=array();//返回的数据信息。
+
+	public function autoFalse($message=null){
+		$this->status = 0;
+		$this->message =$message==null?'false':$message;
+		$this->result =new NullObject;
+	}
 
 }

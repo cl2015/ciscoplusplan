@@ -17,18 +17,22 @@
 </style>
 <?php
 	$today = date("Y-m-d");
-	if($today<'2013-05-20'){
-		$paydate = '4月15日-5月19日';
-		$price = '948.00';
-		$paid_amount= 948;
-	}elseif($today<'2013-05-27'){
-		$paydate = '5月20日-5月26日';
-		$price = '1264.00';
-		$paid_amount= 1264;
+	if($today<='2013-08-20'){
+		$paydate = '7月15日-8月20日';
+		$price = '436.00';
+		$dis = '6折';
+		$desc = '特惠购票';
+		$paid_amount= 436;
+// 	}elseif($today<'2013-05-27'){
+// 		$paydate = '5月20日-5月26日';
+// 		$price = '1264.00';
+// 		$paid_amount= 1264;
 	}else{
-		$paydate = '5月27日-5月28日';
-		$price = '1580.00';
-		$paid_amount= 1580;
+		$paydate = '8月21日-8月22日';
+		$price = '726.00';
+		$paid_amount= 726;
+		$dis = '全价';
+		$desc = '全价购票';
 	}
 ?>
 
@@ -40,7 +44,7 @@
 <?php echo $form->hiddenField($model,'paid_amount',array('size'=>60,'maxlength'=>256,'value'=>$paid_amount)); ?>
 		<table width="628" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="30" colspan="2" valign="top" scope="col">您需要支付的票价为：<?php echo $price;?>元人民币（<?php echo $paydate;?>）<br /><span
+				<td height="30" colspan="2" valign="top" scope="col">您需要支付的票价为：<?php echo $desc . ' ' . $price;?>元人民币 <?php echo $dis;?>（<?php echo $paydate;?>）<br /><span
 					class="required"> *</span> 请选择付款方式：</td>
 
 			</tr>

@@ -262,14 +262,10 @@ class User extends TrackStarActiveRecord {
         return array(
         	'SP'=>'SP',
         	'TA'=>'TA',
-			'PBG'=>'PBG',
-			'East-FSI'=>'East-FSI',
-			'East-LENT'=>'East-LENT',
-			'East-COMM A'=>'East-COMM A',
-			'East-COMM B'=>'East-COMM B',
-			'East-PS'=>'East-PS',
+			's+cc'=>'s+cc',
+			'Commercial'=>'Commercial',
+			'Partner'=>'Partner',
 			'Service'=>'Service',
-			'Virtual Sales'=>'Virtual Sales',
 			'Mkt'=>'Mkt',
             'Others' => 'Others',
         );

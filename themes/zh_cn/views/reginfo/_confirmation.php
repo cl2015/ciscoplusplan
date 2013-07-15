@@ -3,7 +3,7 @@
 if(Yii::app()->language == 'zh_cn'){?>
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> <br />
-	感谢您注册Cisco Connect大中华区上海站活动。<br />
+	感谢您注册Cisco Connect大中华区成都站活动。<br />
 </p>
 <p>
 	<?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
@@ -26,9 +26,9 @@ if(Yii::app()->language == 'zh_cn'){?>
 </p>
 <?php if($model->type_id!=4){?>
 <p>
-	会议日期：2013年5月28日 <br />
+	会议日期：2013年8月23日 <br />
 	签到时间：8:00am - 9:00am<br />
-	会议地点：上海浦东嘉里大酒店<br />
+	会议地点：成都世纪城天堂洲际大饭店<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscoconnect.com.cn">Cisco Connect 主页</a><br/>
 </p>
 <?php }?>
@@ -46,7 +46,7 @@ if(Yii::app()->language == 'zh_cn'){?>
 Dear <?php echo $model->full_name;?> ,<br /> <br />
 </p>
 <p>
-Thank you for registering for Cisco Connect 2013 Shanghai.<br />
+Thank you for registering for Cisco Connect 2013 ChengDu.<br />
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
@@ -72,9 +72,9 @@ This email address and password were used to login the active site of the Genera
 </p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>
 <p>
-Event Date:           May 28, 2013<br />
+Event Date:           2013.8.23<br />
 Sign in time:         8:00am—9:00am<br />
-Venue:                Pudong Kerry Hotel Shanghai, PRC<br />
+Venue:                InterContinental Century City Chengdu<br />
 For more conference details, please visit the <a href="http://www.ciscoconnect.com.cn"> Cisco Connect Home Page</a>.<br />
 We look forward to seeing you!
 </p>

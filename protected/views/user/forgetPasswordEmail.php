@@ -3,7 +3,7 @@
 <img src="http://223.4.134.123/images/mainBg.jpg" />
 <p>
 	尊敬的<?php echo $model->full_name;?><br /> 
-	感谢您注册Cisco Connect大中华区上海站活动！<br />
+	感谢您注册Cisco Connect大中华区成都站活动！<br />
 </p>
 <p>
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
@@ -24,9 +24,9 @@
 	
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 	<p>
-	会议日期：2015年5月28日 <br />
+	会议日期：2013年8月23日 <br />
 	签到时间：8:00am - 9:00am<br />
-	会议地点：上海浦东嘉里大酒店<br />
+	会议地点：成都世纪城天堂洲际大饭店<br />
 	如欲了解更多会议详情，请访问<a href="http://www.ciscoconnect.com">Cisco Connect 主页</a><br/>
 </p>
 <?php }?>
@@ -45,7 +45,7 @@
 
 Dear <?php echo $model->full_name;?> ,
 <p>
-Thank you for registering for Cisco Connect 2013 ShangHai.<br />
+Thank you for registering for Cisco Connect 2013 ChengDu.<br />
 <?php if(!($model->type_id== 4 && $reginfo->is_online==0)){?>	
 <b>Your registration confirmation ID is <?php echo $model->id;?>.Please save this information for the conference attending.</b><br />
 <?php }?>
