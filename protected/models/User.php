@@ -262,7 +262,7 @@ class User extends TrackStarActiveRecord {
         return array(
         	'SP'=>'SP',
         	'TA'=>'TA',
-			's+cc'=>'s+cc',
+			'S+CC'=>'S+CC',
 			'Commercial'=>'Commercial',
 			'Partner'=>'Partner',
 			'Service'=>'Service',

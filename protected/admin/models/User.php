@@ -309,19 +309,27 @@ class User extends CActiveRecord {
 //         		'VIP'=>'VIP',
         
         		'SP'=>'SP',
-        		'TA'=>'TA',
-        		'Partners'=>'Partners',
-        		'East-FSI'=>'East-FSI',
-        		'East-LENT'=>'East-LENT',
-        		'East-COMM A'=>'East-COMM A',
-        		'East-COMM B'=>'East-COMM B',
-        		'East-PS'=>'East-PS',
-        		'East-Others'=>'East-Others',
-        		'Inside Sales'=>'Inside Sales',
-        		'JS Team'=>'JS Team',
-        		'ZJ Team'=>'ZJ Team',
+    			'TA'=>'TA',
+    			'S+CC'=>'S+CC',
+    			'Commercial'=>'Commercial',
+    			'Partner'=>'Partner',
+    			'Service'=>'Service',
+    			'Mkt'=>'Mkt',
+    			'Others' => 'Others',
         		
         );
+    }
+    public function getEmployeeDepartmentOptions() {
+    	return array(
+    			'SP'=>'SP',
+    			'TA'=>'TA',
+    			'S+CC'=>'S+CC',
+    			'Commercial'=>'Commercial',
+    			'Partner'=>'Partner',
+    			'Service'=>'Service',
+    			'Mkt'=>'Mkt',
+    			'Others' => 'Others',
+    	);
     }
     public function getlanguage() {
         return array(
