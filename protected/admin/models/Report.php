@@ -7,9 +7,14 @@ class Report extends CFormModel {
 		$dbCommand = Yii::app()->db->createCommand();
 		
 		$result = $dbCommand->update('users', array('map_loca'=>''));
-		$result = $dbCommand->update('users', array('map_loca'=>'上海'),"province = '上海'");
-		$result = $dbCommand->update('users', array('map_loca'=>'江苏'),"province = '江苏'");
-		$result = $dbCommand->update('users', array('map_loca'=>'浙江'),"province = '浙江'");
+		$result = $dbCommand->update('users', array('map_loca'=>'四川'),"province = '四川'");
+		$result = $dbCommand->update('users', array('map_loca'=>'重庆'),"province = '重庆'");
+		$result = $dbCommand->update('users', array('map_loca'=>'贵州'),"province = '贵州'");
+		$result = $dbCommand->update('users', array('map_loca'=>'云南'),"province = '云南'");
+		$result = $dbCommand->update('users', array('map_loca'=>'海南'),"province = '海南'");
+		$result = $dbCommand->update('users', array('map_loca'=>'广西'),"province = '广西'");
+		$result = $dbCommand->update('users', array('map_loca'=>'福建'),"province = '福建'");
+		$result = $dbCommand->update('users', array('map_loca'=>'西藏'),"province = '西藏'");
 		$result = $dbCommand->update('users', array('map_loca'=>'N/A'),"province is null or province = ''");
 		$result = $dbCommand->update('users', array('map_loca'=>'其他'),"map_loca is null or map_loca = ''");
 		return true;

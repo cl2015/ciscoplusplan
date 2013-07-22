@@ -32,4 +32,13 @@ return array(
 		
 		'weibo'=>'Your Sina Weibo Nickname',
 		'tencent'=>'Your QQ Weibo Nickname',
+		'采购'=>'Purchase',
+		'决策管理'=>'Decision management',
+		'客户服务'=>'Customer service',
+		'业务部门'=>'Business department',
+		'网络管理'=>'Network management',
+		'信息化管理'=>'Information management',
+		'研究/开发'=>'Research / development',
+		'其他'=>'Others',
+		
 		);
