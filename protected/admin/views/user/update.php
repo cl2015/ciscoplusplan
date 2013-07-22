@@ -128,6 +128,12 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'cc'); ?>
+		<?php echo $form->textField($model,'cc',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'cc'); ?>
+	</div>
+	
+	<div class="row">
 		<?php echo $form->labelEx($model,'am_id'); ?>
 		<?php echo $form->textField($model,'am_id',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'am_id'); ?>

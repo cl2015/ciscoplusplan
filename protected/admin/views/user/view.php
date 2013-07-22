@@ -72,6 +72,9 @@ $this->breadcrumbs = array(
     <b>AM姓名:</b>
 <?php echo CHtml::encode($model->am_name); ?>
     <br />
+    <b>Cc:</b>
+<?php echo CHtml::encode($model->cc); ?>
+    <br />
     <b>AM ID:</b>
 <?php echo CHtml::encode($model->am_id); ?>
     <br />
