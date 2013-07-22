@@ -119,12 +119,23 @@
 		<td><?php echo $form->textField($model,'city',array('size'=>60,'maxlength'=>256)); ?> </td>
 		<td><?php echo $form->error($model,'city'); ?> </td>
 	</tr>
-        <tr>
-		<td><?php echo $form->labelEx($model,'am_name'); ?> </td>
-		<td><?php echo $form->textField($model,'am_name',array('size'=>60,'maxlength'=>255)); ?> </td>
-		<td><?php echo $form->error($model,'am_name'); ?> </td>
+	<tr>
+		<td><?php echo $form->labelEx($model,'cc'); ?>
+		</td>
+		<td><?php echo $form->textField($model,'cc',array('size'=>60,'maxlength'=>255)); ?>
+		</td>
+		<td><?php echo $form->error($model,'cc'); ?>
+		</td>
 	</tr>
-        <tr>
+	<tr>
+		<td><?php echo $form->labelEx($model,'am_name'); ?>
+		</td>
+		<td><?php echo $form->textField($model,'am_name',array('size'=>60,'maxlength'=>255)); ?>
+		</td>
+		<td><?php echo $form->error($model,'am_name'); ?>
+		</td>
+	</tr>
+	<tr>
 		<td><?php echo $form->labelEx($model,'am_id'); ?> </td>
 		<td><?php echo $form->textField($model,'am_id',array('size'=>60,'maxlength'=>255)); ?> </td>
 		<td><?php echo $form->error($model,'am_id'); ?> </td>
