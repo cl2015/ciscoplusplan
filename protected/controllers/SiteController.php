@@ -121,14 +121,75 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
+    	$this->makeNom($nom, 12540);
+    	/**
+    	$nom = "Commercial_广西	Johnny Chen 	johnnyzc 	李兆琦	zhaoqili	覃莹莹	yinqin@cisco.com	50
+TA					占梦来	mzhan@cisco.com	50";
+    	$this->makeNom($nom, 12440);
+    	$this->makeSameInternal(200,9999);//next 1201
+    	$nom="SP  	王敏	raymondw			张绍宁	shaonzha@cisco.com	50
+SP  	Ben wu	wub			Andy zhao	zhaom@cisco.com	50
+SP  	Ben wu	wub			CHENG YONG	chengyon@cisco.com	50
+Commercial_福建	陈烁砾	johnnyzc 			WangQin		50
+Commercial_福建	陈烁砾	johnnyzc 			Zhang Jie		50
+Commercial_福建	陈烁砾	johnnyzc 			WangWeiJun		50
+Commercial_四川	陈烁砾	johnnyzc 			童晟	tsheng@cisco.com	100";
+    	$this->makeNom($nom, 12040);
+    	$nom="Commercial_广西	陈烁砾	johnnyzc 			Jin Hu Liu	jinhliu@cisco.com	100
+Commercial_四川	陈烁砾	johnnyzc 	Wu Wei	vivwu	汤凌	lintang@cisco.com	200
+Commercial_四川	陈烁砾	johnnyzc 			童晟	tsheng@cisco.com	200
+Commercial_四川	陈烁砾	johnnyzc 			王宇新	yuxinwan@cisco.com	100
+Partner	陈灼砾	johnnyzc 			袁怡	yiyua@cisco.com	50
+Partner	陈烁砾	johnnyzc 			Jessie  Qi	juqi@cisco.com	400
+S+CC	陈烁砾	johnnyzc 			蔡明远	mingycai@cisco.com	50
+S+CC	陈烁砾	johnnyzc 			高迪 	digao@cisco.com	50
+S+CC	陈烁砾	johnnyzc 			李春平	skyli@cisco.com	50
+ＴＡ	陈烁砾	johnnyzc 			武鸣	xiaomiwu@cisco.com	50
+ＴＡ	陈烁砾	johnnyzc 			姚峰	fenyao@cisco.com	50
+Others	Dan Wiggins	dawiggin	Gerald Wong	wongg 	Roger Zhou	zhiczhou@cisco.com	50
+Commercial_广西	陈烁砾	johnnyzc 			SUNJISONG	JISSUN@CISCO.COM	50
+Commercial_云南	陈烁砾	johnnyzc 	lizhaoqi	lizhaoqi	wangxing	xingwa2@cisco.com	50
+Commercial_云南	陈烁砾	johnnyzc 	lizhaoqi		ruanxuesong	xuruan@cisco.com	50
+Commercial_云南	陈烁砾	johnnyzc 	lizhaoqi		qihua	huqi@cisco.com	50
+Commercial_重庆	陈烁砾	johnnyzc 	wuwei	vivwu	ningwei	weining@cisco.com	100
+Commercial_贵州	陈烁砾	johnnyzc 			凌爱梨	ailling@cisco.com	50";
+    	$this->makeNom($nom, 12040);
     	
+    	//2013-07-28
+    	$nom="Commercial_福建	陈烁砾	johnnyzc 			Joyce Tian	hongtian@cisco.com	50
+TA	Williamyuan	Williamyuan	jordan liu	jordan liu	wangyuwei	uwang@cisco.com	90
+SP	王敏	raymondw			paul liu	paliu2@cisco.com	50
+SP	Qiaogang		Feng Zhengyu		pengpai	papeng@cisco.com	50
+SP	Charlesrs		xie fei	fexie	金新航	xijin@cisco.com	50
+SP					梁峰波	fenglian@cisco.com	50";
+    	$this->makeNom($nom, 11700);
+    	//2013-07-25
+    	$nom="Commercial_广西	陈烁砾	johnnyzc 			Jin Hu Liu	jinhliu@cisco.com	100
+Commercial_四川	陈烁砾	johnnyzc 	Wu Wei	vivwu	汤凌	lintang@cisco.com	200
+Commercial_四川	陈烁砾	johnnyzc 			童晟	tsheng@cisco.com	200
+Commercial_四川	陈烁砾	johnnyzc 			王宇新	yuxinwan@cisco.com	100
+Partner	陈灼砾	johnnyzc 			袁怡	yiyua@cisco.com	50
+Partner	陈烁砾	johnnyzc 			Jessie  Qi	juqi@cisco.com	400
+S+CC	陈烁砾	johnnyzc 			蔡明远	mingycai@cisco.com	50
+S+CC	陈烁砾	johnnyzc 			高迪 	digao@cisco.com	50
+S+CC	陈烁砾	johnnyzc 			李春平	skyli@cisco.com	50
+TA	陈烁砾	johnnyzc 			武鸣	xiaomiwu@cisco.com	50
+TA	陈烁砾	johnnyzc 			姚峰	fenyao@cisco.com	50
+Others	Dan Wiggins	dawiggin	Gerald Wong	wongg 	Roger Zhou	zhiczhou@cisco.com	50
+Commercial_广西	陈烁砾	johnnyzc 			SUNJISONG	JISSUN@cisco.com	50
+Commercial_云南	陈烁砾	johnnyzc 	lizhaoqi	lizhaoqi	wangxing	xingwa2@cisco.com	50
+Commercial_云南	陈烁砾	johnnyzc 	lizhaoqi		ruanxuesong	xuruan@cisco.com	50
+Commercial_云南	陈烁砾	johnnyzc 	lizhaoqi		qihua	huqi@cisco.com	50
+Commercial_重庆	陈烁砾	johnnyzc 	wuwei	vivwu	ningwei	weining@cisco.com	100
+Commercial_贵州	陈烁砾	johnnyzc 			凌爱梨	ailling@cisco.com	50";
+    	$this->makeNom($nom, 10000);
+    	$this->makeSameInternal(200,9999);//next 1201
     	
     	$test = array('id'=>1);
     	$r = new JsonData();
     	$r->result[] = array('id'=>9527,'category_id'=>1,'title'=>"I'm the title1.",'description'=>'desc1');
     	$r->result[] = array('id'=>9528,'category_id'=>1,'title'=>"I'm the title2.",'description'=>'desc2');
     	echo CJSON::encode($r);
-    	/**
     	$nom="East-PS	Kathy Chen	kathyche	John Xu	junhxu	Sichen Fan	sicfan@cisco.com	60";
     	$this->makeNom($nom, 9280);
     	//0514
@@ -726,15 +787,15 @@ SP	Ben Wu	wub@cisco.com	Vicky Chang	vichang@cisco.com	潘洪波	panpa@cisco.com	
     	$od_arr = array();
     	foreach($nom_arr as $item){
     		$arr = explode("\t", $item);
-    		$diff = addslashes($arr[0]);
-    		$od_name = $arr[1];
-    		$od_email = $arr[2];
+    		$diff = addslashes(trim($arr[0]));
+    		$od_name = trim($arr[1]);
+    		$od_email = trim($arr[2]);
     		$od_id = str_replace('@cisco.com', '', $od_email);
-    		$rm_name = $arr[3];
-    		$rm_email = $arr[4];
+    		$rm_name = trim($arr[3]);
+    		$rm_email = trim($arr[4]);
     		$rm_id = str_replace('@cisco.com', '', $rm_email);
-    		$am_name = $arr[5];
-    		$cc = $am_email = $arr[6];
+    		$am_name = trim($arr[5]);
+    		$cc = $am_email = trim($arr[6]);
     		$am_id = str_replace('@cisco.com', '', $am_email);
     		
     		if(!in_array($am_id, $am_arr)){
@@ -748,13 +809,13 @@ SP	Ben Wu	wub@cisco.com	Vicky Chang	vichang@cisco.com	潘洪波	panpa@cisco.com	
     		}
     		for($i=0;$i<$arr[7];$i++){
     			$excel = 
-    			$arr[0] . $delimiter//diff
-    			.$arr[1] . $delimiter//od name
-    			.$arr[2] . $delimiter//od email
-    			.$arr[3] . $delimiter//rm name
-    			.$arr[4] . $delimiter//rm email
-    			.$arr[5] . $delimiter//am name
-    			.$arr[6] . $delimiter//am email
+    			trim($arr[0]) . $delimiter//diff
+    			.trim($arr[1]) . $delimiter//od name
+    			.trim($arr[2]) . $delimiter//od email
+    			.trim($arr[3]) . $delimiter//rm name
+    			.trim($arr[4]) . $delimiter//rm email
+    			.trim($arr[5]) . $delimiter//am name
+    			.trim($arr[6]) . $delimiter//am email
     			.$prefix . $index  . $delimiter ; //code
     			
     			$code = $prefix.$index;
