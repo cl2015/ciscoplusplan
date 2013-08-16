@@ -121,8 +121,34 @@ class SiteController extends Controller {
     
     public function actionTest() {
     	header("Content-type:text/html;charset=utf8");
-    	$this->makeNom($nom, 12540);
+    	$this->makeNom($nom, 14040);
     	/**
+    	$nom="SP  	wang min	raymandw	Feng Zhengyu	zhfeng	李杰	lijie@cisco.com	50
+SP  	qiaogang	qiaogang	zhang mingyi	mingyi	张向东	xiangdzh@cisco.com	50
+SP  	乔岗	qiaogang	Zhang Mingyi	mingyi	葛全睿	garge@cisco.com	50
+SP  	乔岗	qiaogang	Zhang Mingyi	mingyi	wang shizhong	wshizhon@cisco.com	50";
+		$nom="Commercial_四川	陈烁砾	johnnyzc 	Wu Wei	vivwu	汤凌	lintang@cisco.com	100
+S+CC	陈烁砾	johnnyzc 			蔡明远	mingycai@cisco.com	100";    	
+    	$this->makeNom($nom, 13840);
+    	$this->makeInternal(50,1000,'wise');//next 1201
+    	$nom="Commercial_四川	陈烁砾	johnnyzc 			王宇新	yuxinwan@cisco.com	200
+Commercial_四川	Johnny Chen	johnnyzc 			童晟	tsheng@cisco.com	100
+Partner	陈灼砾	johnnyzc 			Xin Xian	xxian@cisco.com	150
+Transformation Team	Alex Zhou	azhou			Liu jing jia	jingjliu@cisco.com	50
+Transformation Team	Ben wu	wub			Stacey Geng	xigeng@cisco.com	50
+Transformation Team	Alex Zhou	azhou			wangxiangdong	xdwang@cisco.com	50";
+    	$this->makeNom($nom, 13040);
+    	$nom="Partner	Johnny Chen	johnnyzc 			刘纯	cliu3@cisco.com	50
+Commercial_福建	Johnny Chen	johnnyzc 			yudtang	yudtang@cisco.com	50
+Commercial_福建	Johnny Chen	johnnyzc 			Carol wang	carowang@cisco.com	50";
+    	
+    	$nom = "Commercial_四川	Johnny Chen	johnnyzc 			Da Qiang Li 	idp@cisco.com	50";
+    	$this->makeNom($nom, 12840);
+    	$nom = 'Commercial_四川	Johnny Chen	johnnyzc 			童晟	tsheng@cisco.com	100
+Commercial_广西	Johnny Chen	johnnyzc 			董智勇	bidong@cisco.com	50
+Commercial_云南	Johnny Chen	johnnyzc 			Wangxiaoxia	xiaoxwan@cisco.com	50
+Commercial_四川	Johnny Chen	johnnyzc 			Zhu Ling	linzhu2@cisco.com	100';
+    	$this->makeNom($nom, 12540);
     	$nom = "Commercial_广西	Johnny Chen 	johnnyzc 	李兆琦	zhaoqili	覃莹莹	yinqin@cisco.com	50
 TA					占梦来	mzhan@cisco.com	50";
     	$this->makeNom($nom, 12440);
@@ -749,10 +775,10 @@ SP	Ben Wu	wub@cisco.com	Vicky Chang	vichang@cisco.com	潘洪波	panpa@cisco.com	
 //     	    	}
     }
     
-    public function makeInternal($number,$index){
+    public function makeInternal($number,$index,$prefix = 'inter'){
     	$sql = 'insert into users (code,type_id) values ';
     	for($i=0;$i<$number;$i++){
-    		$code = 'inter'.$index;
+    		$code = $prefix.$index;
     		$sql .= "('$code',2),";
     		echo $code;
     		echo '<br/>';
