@@ -35,7 +35,7 @@ class Controller extends CController
 		}else{
 			Yii::app()->language = $language;
 		}
-		if(date('Y-m-d') > '2013-10-26'){
+		if(date('Y-m-d H:i:s') > '2013-08-22 12:00:00'){
 			$this->close = true;
 		}
 	}
